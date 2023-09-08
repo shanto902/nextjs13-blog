@@ -6,6 +6,9 @@ export interface SiteConfig {
         twitter:string;
         github:string;
         facebook:string;
+        instagram:string;
+        youtube:string;
+        linkedin:string;
     }
 }
 
@@ -14,9 +17,12 @@ const siteConfig : SiteConfig = {
     description : "A travel blog to learn next js 13 with typescript",
     currentlyAt: "Bangladesh",
     socialLinks: {
-        twitter:"https://www.twitter.com/shanto902" ,
-        github :"https://github.com/shanto902/",
-        facebook: "https://www.facebook.com/shanto902"
+        twitter:"https://www.twitter.com/" ,
+        github :"https://github.com/",
+        facebook: "https://www.facebook.com/",
+        instagram: "https://www.instagram.com/",
+        youtube: "https://www.youtube.com/",
+        linkedin: "https://www.linkedin.com/"
     }
 
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import PaddingContainer from "../layout/PaddingContainer";
 import siteConfig from "@/config/site";
+import SocialLink from "../elements/SocialLink";
 
 const Footer = () => {
   return (
@@ -18,8 +19,14 @@ const Footer = () => {
         {/* Social and Currently At Section  */}
         <div className=" mt-6 flex flex-wrap justify-between gap-4">
           <div>
-            <div className=" font-bold font-lg">#exploretheworld</div>
-            <div>Social Links</div>
+            <div className=" font-bold font-lg">#exploretheworld
+            </div>
+            <div className=" flex gap-3 items-center text-neutral-600 mt-2">
+            <SocialLink platform="twitter" link={siteConfig.socialLinks.twitter}/>
+            <SocialLink platform="youtube" link={siteConfig.socialLinks.youtube}/>
+            <SocialLink platform="facebook" link={siteConfig.socialLinks.facebook}/>
+            <SocialLink platform="linkedin" link={siteConfig.socialLinks.linkedin}/>
+            </div>
           </div>
           <div className=" flex flex-col items-end">
             <div className=" text-sm text-neutral-400 px-1">Currently At</div>
