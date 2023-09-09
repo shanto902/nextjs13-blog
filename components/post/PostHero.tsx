@@ -1,0 +1,20 @@
+import { Post } from "@/types/collection"
+import PostContent from "./PostContent"
+import Image from "next/image"
+
+interface PostHeroProps {
+    post : Post
+}
+
+const PostHero = ({post}: PostHeroProps) => {
+  return (
+    <div>
+        <PostContent isPagePost post={post}/>
+    <Image className="h-[300px] md:h-[500px] rounded-md object-cover object-center mt-6" width={1280} height={500} alt={post.title} src={post.image} />
+
+    </div>
+
+  )
+}
+
+export default PostHero
