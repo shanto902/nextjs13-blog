@@ -10,7 +10,7 @@ const PostHero = ({post}: PostHeroProps) => {
   return (
     <div>
         <PostContent isPagePost post={post}/>
-    <Image className="h-[300px] md:h-[500px] rounded-md object-cover object-center mt-6" width={1280} height={500} alt={post.title} src={post.image} />
+    <Image className="h-[300px] md:h-[500px] rounded-md object-cover object-center mt-6" width={1280} height={500} alt={post.title} src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`} />
 
     </div>
 

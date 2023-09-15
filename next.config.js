@@ -5,6 +5,9 @@ const nextConfig = {
             {
                 hostname: "images.unsplash.com",
                 protocol: "https"
+            },{
+                hostname: "directus-production-616f.up.railway.app",
+                protocol: "https"
             }
         ]
     }

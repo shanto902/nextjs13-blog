@@ -9,6 +9,15 @@ const config: Config = {
   theme: { },
   plugins: [ 
     require('@tailwindcss/container-queries'),
+    require("daisyui"),
   ],
+  daisyui: {
+    styled: true,
+    themes: ["light"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false
+  }
 }
 export default config

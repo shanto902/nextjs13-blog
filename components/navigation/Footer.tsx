@@ -2,25 +2,32 @@ import React from "react";
 import PaddingContainer from "../layout/PaddingContainer";
 import siteConfig from "@/config/site";
 import SocialLink from "../elements/SocialLink";
+import logo from '@/assets/logo-nav.png'
+import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className=" py-8 mt-10 border-t">
+    <div className=" py-8 mt-10 border-t bg-[#FCFCFC]">
       <PaddingContainer>
 
         {/* Title Description */}
-        <div>
-          <h2 className=" text-3xl font-bold">{siteConfig.siteName}</h2>
-          <p className=" max-w-md mt-2 text-neutral-600 text-lg">
-            {" "}
-            {siteConfig.description}
-          </p>
+       <div className=" grid grid-cols-3 ">
+       <div>
+          <Image src={logo} alt="Logo" width={135} height={160} />
+       
+       <p className=" mt-4 grid grid-cols-5 w-fit space-y-2  text-sm">
+        <span className=" font-bold mt-2">Editor</span> <span className=" text-center"> : </span>  <span className=" col-span-3 text-left">Kazi Anisuddin Iqbal</span> 
+        <span className=" font-bold">Email</span> <span className=" text-center">  : </span>  <span className=" col-span-3 text-left">sthapattyanonirman</span> 
+        <span className=" font-bold">Phone</span> <span className=" text-center">  : </span>  <span className=" col-span-3 text-left">+880-1679-090901</span> 
+        <span className=" font-bold">Address</span> <span className=" text-center">  : </span>  <span className=" col-span-3 text-left">Gagan Shirish </span> 
+        <span className=" col-span-5">76 & 76/1, Panthapath (3rd Floor), Dhaka-1215</span>
+       </p>
         </div>
-        {/* Social and Currently At Section  */}
+        <div>
+
+        </div>
         <div className=" mt-6 flex flex-wrap justify-between gap-4">
           <div>
-            <div className=" font-bold font-lg">#exploretheworld
-            </div>
             <div className=" flex gap-3 items-center text-neutral-600 mt-2">
             <SocialLink platform="twitter" link={siteConfig.socialLinks.twitter}/>
             <SocialLink platform="youtube" link={siteConfig.socialLinks.youtube}/>
@@ -28,14 +35,9 @@ const Footer = () => {
             <SocialLink platform="linkedin" link={siteConfig.socialLinks.linkedin}/>
             </div>
           </div>
-          <div className=" flex flex-col items-end">
-            <div className=" text-sm text-neutral-400 px-1">Currently At</div>
-            <div className=" bg-white shadow-md rounded-md py-2 px-3 flex items-center gap-2 ">
-                <div className=" bg-emerald-600 w-2 h-2 rounded-full"></div>
-                {siteConfig.currentlyAt}
-            </div>
-          </div>
         </div>
+        {/* Social and Currently At Section  */}
+       </div>
         {/* Bottom Section */}
         <div className=" border-t py-3 flex flex-warp gap-4 items-center justify-between mt-16 flex-warp">
           <div className=" text-sm text-neutral-400">

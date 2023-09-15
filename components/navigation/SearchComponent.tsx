@@ -1,0 +1,58 @@
+'use client'
+import { Lightbulb, MoonIcon, SearchIcon, X } from 'lucide-react'
+import { useState } from 'react'; // Import useState hook
+
+const SearchComponent = () => {
+  const [isInputFocused, setInputFocused] = useState(false); // Initialize state to track input focus
+
+  const handleInputFocus = () => {
+    setInputFocused(true);
+  };
+
+  const handleInputBlur = () => {
+    setInputFocused(false);
+  };
+
+  return (
+    <div className='flex flex-nowrap gap-2 items-center '>
+      <form className='border-2 rounded-full relative hover:text-red-600 '> 
+        <input
+          type="text"
+          name="search"
+          placeholder="Search"
+          className={`bg-transparent px-5 py-3 text-gray-800 w-10 h-10  border-0 rounded-full focus:outline-0 focus:w-full focus:pl-10 transition-all duration-300 ${
+            isInputFocused ? 'w-full' : ''
+          }`}  // Toggle w-full class based on input focus
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+        />
+        <SearchIcon className=' absolute z-[-10] top-2 left-2'/>
+      </form>
+      <div className={`flex gap-2 h-full ${
+          isInputFocused ? 'opacity-0 hidden' : 'opacity-100'
+        } transition-opacity duration-300`}> {/* Toggle opacity class based on input focus */}
+        <div className='bg-[#F6EDE7] w-20 h-10 rounded-3xl flex items-center justify-around'>
+        <div className=' w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center '>
+        EN
+      </div>
+      <div className=' w-[1px] bg-black h-6'></div>
+      <div className=' w-7 h-7 rounded-full drop-shadow-lg bg-white text-sm font-bold flex justify-center items-center text-[#E67E7E]'>
+        BN
+      </div>
+        </div>
+
+        <div className='bg-[#F6E7E7] w-20 h-10 rounded-3xl flex items-center justify-around'>
+        <div className=' w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center '>
+        <Lightbulb/>
+      </div>
+      <div className=' w-[1px] bg-black h-6'></div>
+      <div className=' w-7 h-7 rounded-full drop-shadow-lg bg-white text-sm font-bold flex justify-center items-center '>
+        <MoonIcon/>
+      </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SearchComponent;

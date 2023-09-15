@@ -17,7 +17,7 @@ const SocialLink = ({ platform, link, isShareURL }: { platform: string; link: st
         return <Instagram />;
     }
   };
-  return <Link href={link}><div className={`${isShareURL ? "px-3 py-2 bg-neutral-200 rounded-md text-neutral-700 hover:bg-neutral-800 hover:text-neutral-100 duration-100 ease-in-out transition-colors ": ""}`}>
+  return <Link href={link}><div className={`${isShareURL ? "px-3 py-2 bg-neutral-200 rounded-md text-neutral-700 hover:bg-neutral-800 hover:text-neutral-100 duration-100 ease-in-out transition-colors ": " bg-black rounded-full text-white p-2"}`}>
     {getIcon(platform)}</div></Link>;
 };
 
