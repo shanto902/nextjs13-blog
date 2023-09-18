@@ -24,3 +24,10 @@ export interface Author {
     first_name:string;
     last_name:string;
 }
+
+export interface Banner {
+    id: string;
+    title:string;
+    description:string;
+    image:string;
+}

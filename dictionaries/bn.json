@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "links": {
+      "news": "সাম্প্রতিক",
+      "concepts": "তত্ত্ব",
+      "arts": "শিল্পকলা",
+      "heritage": "ঐতিহ্য",
+      "personality": "ব্যক্তিত্ব",
+      "dialogue": "সংলাপ",
+      "projects": "প্রকল্প",
+      "studentProjects": "শিক্ষার্থীদের প্রকল্প",
+      "technology": "প্রযুক্তি",
+      "archive": "আর্কাইভ",
+      "environmentPlaning": "পরিবেশ ও পরিকল্পন"
+    }
+    
+  },
+  "mainBody": {
+    "moreCollection": "আরও সংগ্রহ",
+    "studentProjects": "ছাত্র প্রকল্প",
+    "seeMore": "আরও দেখুন"
+  },
+  "footer": {
+    "editor": "সম্পাদক",
+    "editorName": "স্থপতি কাজী আনিস উদ্দিন ইকবাল",
+    "email": "ইমেইল",
+    "phone": "ফোন",
+    "phoneNo": " + ৮৮০ - ১৬৭৯ - ০৯০৯০১",
+    "address": "ঠিকানা",
+    "addressValue": "গগন শিরিষ",
+    "addressValue2":"৭৮ ও ৭৬/১, পান্থপথ (৩য় তলা), ঢাকা - ১২১৫",
+    "editorialBoard": "সম্পাদনা বোর্ড"
+  }
+}

@@ -2,6 +2,7 @@ export interface SiteConfig {
     siteName: string;
     description: string;
     currentlyAt: string;
+    siteURL:string;
     socialLinks: {
         twitter:string;
         github:string;
@@ -14,6 +15,7 @@ export interface SiteConfig {
 
 const siteConfig : SiteConfig = {
     siteName: "Explorer",
+    siteURL:"http://localhost:3000/",
     description : "A travel blog to learn next js 13 with typescript",
     currentlyAt: "Bangladesh",
     socialLinks: {

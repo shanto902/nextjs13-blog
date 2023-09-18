@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "links": {
+      "news": "News",
+      "concepts": "Concepts",
+      "arts": "Arts",
+      "heritage": "Heritage",
+      "personality": "Personality",
+      "dialogue": "Dialogue",
+      "projects": "Projects",
+      "studentProjects":  "Student Projects",
+      "technology": "Technology",
+      "archive": "Archive",
+      "environmentPlaning": "Environment & Planing"
+    }
+  },
+    "mainBody":{
+        "moreCollection": "More Collection",
+        "studentProjects":  "Student Projects",
+        "seeMore": "See More"
+
+    },
+    "footer":{
+        "editor": "Editor",
+        "editorName": "Kazi Anisuddin Iqbal",
+        "email" : "Email",
+        "phone" : "Phone",
+        "phoneNo": "+880-1679-090901",
+        "address":"Address:",
+        "addressValue":"Gagan Shirish",
+        "addressValue2": "76 & 76/1, Panthapath (3rd Floor), Dhaka-1215",
+        "editorialBoard":"Editorial Board"
+    }
+}

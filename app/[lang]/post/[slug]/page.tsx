@@ -1,4 +1,4 @@
-import { DUMMY_POSTS } from "@/DUMMY_DATA";
+
 import React from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
@@ -21,9 +21,18 @@ export const generateStaticParams = async () => {
     const params = posts.data?.map((post) => {
       return {
         slug: post.slug as string,
+        lang: "en"
       };
     });
-    return params || [];
+    const localizedParams = posts.data?.map((post) => {
+      return {
+        slug: post.slug as string,
+        lang: "bn",
+      };
+    });
+
+    const allParams = params?.concat(localizedParams ?? [])
+    return allParams || [];
   } catch (error) {
     console.log(error);
     throw new Error("Error fetching posts");
@@ -35,9 +44,12 @@ const PostPage = async ({
 }: {
   params: {
     slug: string;
+    lang:string;
   };
 }) => {
   // const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
+
+  const locale = params.lang;
 
   const getPostData = async () => {
    try {
@@ -54,11 +66,40 @@ const PostPage = async ({
         "author.id",
         "author.first_name",
         "author.last_name",
+        "translations.*",
+        "category.translations.*",
+        "author.translations.*"
       ],
 
     });
 
-    return post?.data?.[0];
+    const postData = post?.data?.[0];
+
+    if(locale === "en"){
+      return postData;
+
+    }else {
+      const localizedPostData = {
+        ...postData,
+        title: postData?.translations?.[0]?.title,
+        description: postData?.translations?.[0]?.description,
+        body: postData?.translations?.[0]?.body,
+        category : {
+          ...postData?.category,
+          title: postData?.category?.translations?.[0]?.title, 
+          description: postData?.category?.translations?.[0]?.description,  
+        },
+        author : {
+          ...postData?.author,
+          first_name: postData?.author?.translations?.[0]?.first_name, 
+          last_name: postData?.author?.translations?.[0]?.last_name, 
+        }
+
+      }
+      return localizedPostData;
+    }
+
+   
     
    } catch (error) {
     console.log(error);
@@ -76,36 +117,12 @@ const PostPage = async ({
   return (
     <PaddingContainer>
       <div className=" space-y-10">
-        <PostHero post={post} />
+        <PostHero locale={locale} post={post} />
         <div className=" flex gap-10 flex-col md:flex-row">
-          <div className=" relative">
-            <div className=" sticky top-20 flex items-center it md:flex-col gap-5">
-              <div className="font-medium md:hidden">Share this content</div>
-              <SocialLink
-                isShareURL
-                platform="facebook"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="twitter"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="instagram"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="linkedin"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/post/${post.slug}`}`}
-              />
-            </div>
-          </div>
-          <PostBody body={post.body} />
+      
+          <PostBody locale={locale} body={post.body} />
         </div>
-        <CTACard />
+n
       </div>
     </PaddingContainer>
   );
