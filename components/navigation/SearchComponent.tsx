@@ -1,9 +1,15 @@
 "use client";
-import { Lightbulb, LightbulbIcon, MoonIcon, SearchIcon, X } from "lucide-react";
+import {
+  Lightbulb,
+  LightbulbIcon,
+  MoonIcon,
+  SearchIcon,
+  X,
+} from "lucide-react";
 import { useState } from "react"; // Import useState hook
 import LangSwitcher from "../elements/LangSwitcher";
 
-const SearchComponent = ({locale}:{locale:string}) => {
+const SearchComponent = ({ locale }: { locale: string }) => {
   const [isInputFocused, setInputFocused] = useState(false); // Initialize state to track input focus
 
   const handleInputFocus = () => {
@@ -36,18 +42,16 @@ const SearchComponent = ({locale}:{locale:string}) => {
       >
         {" "}
         {/* Toggle opacity class based on input focus */}
-      
-    <LangSwitcher locale={locale} />
-
-    <div className="bg-[#F6E7E7] w-20 h-10 rounded-3xl flex items-center justify-around">
-    <div  className=" w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center disabled ">
-      <LightbulbIcon />
-    </div>
-    <div className=" w-[1px] bg-black h-6"></div>
-    <div  className=" w-7 h-7 rounded-full drop-shadow-lg bg-white text-sm font-bold flex justify-center items-center ">
-      <MoonIcon />
-    </div>
-  </div>
+        <LangSwitcher locale={locale} />
+        <div className="bg-[#F6E7E7] w-20 h-10 rounded-3xl flex items-center justify-around">
+          <div className=" w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center disabled ">
+            <LightbulbIcon />
+          </div>
+          <div className=" w-[1px] bg-black h-6"></div>
+          <div className=" w-7 h-7 rounded-full drop-shadow-lg bg-white text-sm font-bold flex justify-center items-center ">
+            <MoonIcon />
+          </div>
+        </div>
       </div>
     </div>
   );

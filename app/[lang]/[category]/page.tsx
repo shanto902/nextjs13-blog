@@ -46,7 +46,6 @@ const CategoryPage = async ({
     lang: string;
   };
 }) => {
-
   const locale = params.lang;
   const getCategoryData = async () => {
     try {
@@ -79,7 +78,7 @@ const CategoryPage = async ({
           ...fetchedCategory,
           title: fetchedCategory.translations[0].title,
           description: fetchedCategory.translations[0].description,
-          posts: fetchedCategory.posts.map((post : any) => {
+          posts: fetchedCategory.posts.map((post: any) => {
             return {
               ...post,
               title: post.translations[0].title,

@@ -110,7 +110,6 @@ const PostPage = async ({
         <div className=" flex gap-10 flex-col md:flex-row">
           <PostBody locale={locale} body={post.body} />
         </div>
-        n
       </div>
     </PaddingContainer>
   );
