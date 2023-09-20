@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "format":"prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\""
   },
   "dependencies": {
     "@directus/sdk": "^10.3.3",
@@ -25,6 +27,7 @@
     "negotiator": "^0.6.3",
     "next": "13.4.19",
     "postcss": "8.4.29",
+    "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reading-time": "^1.5.0",
@@ -34,6 +37,7 @@
   },
   "devDependencies": {
     "@types/luxon": "^3.3.2",
-    "daisyui": "^3.7.4"
+    "daisyui": "^3.7.4",
+    "husky": "^8.0.0"
   }
 }
