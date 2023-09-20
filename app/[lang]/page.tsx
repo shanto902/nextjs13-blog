@@ -15,7 +15,6 @@ export default async function Home({
 }) {
   const locale = params.lang;
 
-
   const getAllPosts = async () => {
     try {
       const posts = await directus.items("post").readByQuery({
@@ -30,40 +29,36 @@ export default async function Home({
           "category.title",
           "category.translations.*",
           "translations.*",
-
         ],
       });
       if (locale === "en") {
         return posts.data;
-
-      }else {
-        const localizedPost = posts.data?.map((post)=> {
+      } else {
+        const localizedPost = posts.data?.map((post) => {
           return {
             ...post,
             title: post.translations[0].title,
             description: post.translations[0].description,
             body: post.translations[0].body,
-            author : {
+            author: {
               first_name: post.author.translations[0].first_name,
               last_name: post.author.translations[0].last_name,
             },
-            category : {
+            category: {
               ...post.category,
-              title:post.category.translations[0].title,
-              description:post.category.translations[0].description
-            }
-          }
+              title: post.category.translations[0].title,
+              description: post.category.translations[0].description,
+            },
+          };
         });
 
         return localizedPost;
       }
-
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching posts");
     }
   };
-
 
   const posts = await getAllPosts();
 
@@ -73,41 +68,35 @@ export default async function Home({
 
   const getAllBanners = async () => {
     try {
-    const banners = await directus.items("banner").readByQuery({
-      filter: {
-        status: {
-          _eq: "published",
+      const banners = await directus.items("banner").readByQuery({
+        filter: {
+          status: {
+            _eq: "published",
+          },
         },
-      },
-        fields: [
-          "*",
-          "translations.*",
-        ],
+        fields: ["*", "translations.*"],
       });
 
-      
       if (locale === "en") {
         return banners?.data || [];
-      }else {
-        const localizedBanner = banners.data?.map((banner)=> {
+      } else {
+        const localizedBanner = banners.data?.map((banner) => {
           return {
             ...banner,
             title: banner.translations[0].title,
             description: banner.translations[0].description,
-          }
+          };
         });
 
         return localizedBanner || [];
       }
     } catch (error) {
-       console.log(error);
+      console.log(error);
       throw new Error("Error fetching Banners");
     }
-  }
+  };
 
   const banners = await getAllBanners();
-  
-
 
   return (
     <PaddingContainer>

@@ -1,11 +1,8 @@
-
 import React from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostHero from "@/components/post/PostHero";
-import SocialLink from "@/components/elements/SocialLink";
 import PostBody from "@/components/post/PostBody";
-import CTACard from "@/components/elements/CTACard";
 import directus from "@/lib/directus";
 
 export const generateStaticParams = async () => {
@@ -18,20 +15,20 @@ export const generateStaticParams = async () => {
       },
       fields: ["slug"],
     });
-    const params = posts.data?.map((post) => {
+    const params = posts?.data?.map((post) => {
       return {
         slug: post.slug as string,
-        lang: "en"
+        lang: "en",
       };
     });
-    const localizedParams = posts.data?.map((post) => {
+    const localizedParams = posts?.data?.map((post) => {
       return {
         slug: post.slug as string,
         lang: "bn",
       };
     });
 
-    const allParams = params?.concat(localizedParams ?? [])
+    const allParams = params?.concat(localizedParams ?? []);
     return allParams || [];
   } catch (error) {
     console.log(error);
@@ -44,7 +41,7 @@ const PostPage = async ({
 }: {
   params: {
     slug: string;
-    lang:string;
+    lang: string;
   };
 }) => {
   // const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
@@ -52,61 +49,53 @@ const PostPage = async ({
   const locale = params.lang;
 
   const getPostData = async () => {
-   try {
-    const post = await directus.items("post").readByQuery({
-      filter: {
-        slug: {
-          _eq: params.slug,
+    try {
+      const post = await directus.items("post").readByQuery({
+        filter: {
+          slug: {
+            _eq: params.slug,
+          },
         },
-      },
-      fields: [
-        "*",
-        "category.id",
-        "category.title",
-        "author.id",
-        "author.first_name",
-        "author.last_name",
-        "translations.*",
-        "category.translations.*",
-        "author.translations.*"
-      ],
+        fields: [
+          "*",
+          "category.id",
+          "category.title",
+          "author.id",
+          "author.first_name",
+          "author.last_name",
+          "translations.*",
+          "category.translations.*",
+          "author.translations.*",
+        ],
+      });
 
-    });
+      const postData = post?.data?.[0];
 
-    const postData = post?.data?.[0];
-
-    if(locale === "en"){
-      return postData;
-
-    }else {
-      const localizedPostData = {
-        ...postData,
-        title: postData?.translations?.[0]?.title,
-        description: postData?.translations?.[0]?.description,
-        body: postData?.translations?.[0]?.body,
-        category : {
-          ...postData?.category,
-          title: postData?.category?.translations?.[0]?.title, 
-          description: postData?.category?.translations?.[0]?.description,  
-        },
-        author : {
-          ...postData?.author,
-          first_name: postData?.author?.translations?.[0]?.first_name, 
-          last_name: postData?.author?.translations?.[0]?.last_name, 
-        }
-
+      if (locale === "en") {
+        return postData;
+      } else {
+        const localizedPostData = {
+          ...postData,
+          title: postData?.translations?.[0]?.title,
+          description: postData?.translations?.[0]?.description,
+          body: postData?.translations?.[0]?.body,
+          category: {
+            ...postData?.category,
+            title: postData?.category?.translations?.[0]?.title,
+            description: postData?.category?.translations?.[0]?.description,
+          },
+          author: {
+            ...postData?.author,
+            first_name: postData?.author?.translations?.[0]?.first_name,
+            last_name: postData?.author?.translations?.[0]?.last_name,
+          },
+        };
+        return localizedPostData;
       }
-      return localizedPostData;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching post");
     }
-
-   
-    
-   } catch (error) {
-    console.log(error);
-    throw new Error("Error fetching post");
-    
-    
-   }
   };
 
   const post = await getPostData();
@@ -119,10 +108,9 @@ const PostPage = async ({
       <div className=" space-y-10">
         <PostHero locale={locale} post={post} />
         <div className=" flex gap-10 flex-col md:flex-row">
-      
           <PostBody locale={locale} body={post.body} />
         </div>
-n
+        n
       </div>
     </PaddingContainer>
   );

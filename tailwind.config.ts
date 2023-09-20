@@ -1,23 +1,20 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: { },
-  plugins: [ 
-    require('@tailwindcss/container-queries'),
-    require("daisyui"),
-  ],
+  theme: {},
+  plugins: [require("@tailwindcss/container-queries"), require("daisyui")],
   daisyui: {
     styled: true,
     themes: ["light"],
     base: true,
     utils: true,
     logs: true,
-    rtl: false
-  }
-}
-export default config
+    rtl: false,
+  },
+};
+export default config;

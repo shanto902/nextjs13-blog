@@ -16,13 +16,22 @@ export const generateStaticParams = async () => {
       fields: ["slug"],
     });
 
-    const params = categories.data?.map((category) => {
+    const params = categories?.data?.map((category) => {
       return {
         category: category.slug as string,
+        lang: "en",
       };
     });
 
-    return params || [];
+    const localizedParams = categories?.data?.map((category) => {
+      return {
+        category: category.slug as string,
+        lang: "bn",
+      };
+    });
+
+    const allParams = params?.concat(localizedParams ?? []);
+    return allParams || [];
   } catch (error) {
     console.log(error);
     throw new Error("Error fetching categories");
@@ -37,8 +46,6 @@ const CategoryPage = async ({
     lang: string;
   };
 }) => {
-  // const category = DUMMY_CATEGORIES.find((category) => category.slug === params.category)
-  // const posts = DUMMY_POSTS.filter((post) => post.category.title.toLocaleLowerCase() === params.category);
 
   const locale = params.lang;
   const getCategoryData = async () => {
@@ -81,12 +88,12 @@ const CategoryPage = async ({
               category: {
                 ...post.category,
                 title: fetchedCategory.translations[0].title,
-                description:fetchedCategory.translations[0].description,
+                description: fetchedCategory.translations[0].description,
               },
-              author:{
+              author: {
                 first_name: post.author.translations[0].first_name,
                 last_name: post.author.translations[0].last_name,
-              }
+              },
             };
           }),
         };

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const FooterCategory = () => {
-  return (
-    <div>FooterCategory</div>
-  )
-}
+  return <div>FooterCategory</div>;
+};
 
-export default FooterCategory
+export default FooterCategory;
