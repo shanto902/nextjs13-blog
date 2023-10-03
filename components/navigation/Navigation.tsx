@@ -4,29 +4,27 @@ import PaddingContainer from "../layout/PaddingContainer";
 import SearchComponent from "./SearchComponent";
 import MobileDrawer from "./MobileDrawer";
 import { getDictionary } from "@/lib/getDictionary";
-import Image from "next/image";
-import logo from "@/assets/logo.svg";
+import HeaderLogo from "./HeaderLogo";
+import SideLogo from "./SideLogo";
+
+
 const Navigation = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
 
+  
   const liStyle = "hover:text-red-800 flex-shrink-0";
 
   return (
     <>
-      <Link href={`/${locale}/`}>
-        {" "}
-        <Image
-          className="mx-auto pt-8 hidden xl:block"
-          src={logo}
-          alt="logo"
-          width={80}
-          height={80}
-        />
-      </Link>
+    <HeaderLogo locale={locale} />
+
+  
       <div className=" sticky z-40 top-0 left-0 right-0 bg-white">
         <PaddingContainer>
+        <div className="mr-10">
+        <SideLogo dictionary={dictionary} />
+      </div>
           <div className=" xl:block hidden">
-            <hr className=" border-neutral-400 mt-4" />
             <div className=" flex items-center justify-between py-5">
               {/* Category Links */}
               <nav>

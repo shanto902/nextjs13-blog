@@ -14,6 +14,7 @@ export const generateStaticParams = async () => {
         },
       },
       fields: ["slug"],
+
     });
 
     const params = categories?.data?.map((category) => {
@@ -47,14 +48,18 @@ const CategoryPage = async ({
   };
 }) => {
   const locale = params.lang;
+  
   const getCategoryData = async () => {
     try {
       const category = await directus.items("category").readByQuery({
+    
         filter: {
           slug: {
             _eq: params.category,
           },
+          
         },
+      
         fields: [
           "*",
           "translations.*",

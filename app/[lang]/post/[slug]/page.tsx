@@ -67,6 +67,7 @@ const PostPage = async ({
           "category.translations.*",
           "author.translations.*",
         ],
+     
       });
 
       const postData = post?.data?.[0];
