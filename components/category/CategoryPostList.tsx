@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const CategoryPostList = () => {
-  return (
-    <div>CategoryPostList</div>
-  )
-}
+  return <div>CategoryPostList</div>;
+};
 
-export default CategoryPostList
+export default CategoryPostList;
