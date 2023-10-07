@@ -14,7 +14,6 @@ export const generateStaticParams = async () => {
         },
       },
       fields: ["slug"],
-
     });
 
     const params = categories?.data?.map((category) => {
@@ -48,18 +47,16 @@ const CategoryPage = async ({
   };
 }) => {
   const locale = params.lang;
-  
+
   const getCategoryData = async () => {
     try {
       const category = await directus.items("category").readByQuery({
-    
         filter: {
           slug: {
             _eq: params.category,
           },
-          
         },
-      
+
         fields: [
           "*",
           "translations.*",
@@ -124,15 +121,11 @@ const CategoryPage = async ({
   };
 
   return (
-    <PaddingContainer>
-      <div className=" mb-10">
-        <h1 className=" text-4xl font-semibold">{typeCorrectedData?.title}</h1>
-        <p className=" text-lg text-neutral-600">
-          {typeCorrectedData?.description}
-        </p>
-      </div>
+   <div className=" min-h-[50vh]">
+     <PaddingContainer>
       <PostList locale={locale} posts={typeCorrectedData.posts} />
     </PaddingContainer>
+   </div>
   );
 };
 
