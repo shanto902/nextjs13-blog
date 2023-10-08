@@ -1,3 +1,4 @@
+import CategoryPostList from "@/components/category/CategoryPostList";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostList from "@/components/post/PostList";
 import directus from "@/lib/directus";
@@ -121,11 +122,12 @@ const CategoryPage = async ({
   };
 
   return (
-    <div className=" min-h-[50vh]">
-      <PaddingContainer>
-        <PostList locale={locale} posts={typeCorrectedData.posts} />
-      </PaddingContainer>
-    </div>
+   <div className=" min-h-[50vh]">
+     <PaddingContainer>
+      {/* <PostList locale={locale} posts={typeCorrectedData.posts} /> */}
+      <CategoryPostList locale={locale} posts={typeCorrectedData.posts} />
+    </PaddingContainer>
+   </div>
   );
 };
 
