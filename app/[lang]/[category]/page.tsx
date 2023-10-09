@@ -122,12 +122,12 @@ const CategoryPage = async ({
   };
 
   return (
-   <div className=" min-h-[50vh]">
-     <PaddingContainer>
-      {/* <PostList locale={locale} posts={typeCorrectedData.posts} /> */}
-      <CategoryPostList locale={locale} posts={typeCorrectedData.posts} />
-    </PaddingContainer>
-   </div>
+    <div className=" min-h-[50vh]">
+      <PaddingContainer>
+        {/* <PostList locale={locale} posts={typeCorrectedData.posts} /> */}
+        <CategoryPostList locale={locale} posts={typeCorrectedData.posts} />
+      </PaddingContainer>
+    </div>
   );
 };
 

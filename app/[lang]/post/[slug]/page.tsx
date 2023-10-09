@@ -44,6 +44,8 @@ const PostPage = async ({
     lang: string;
   };
 }) => {
+  // const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
+
   const locale = params.lang;
 
   const getPostData = async () => {
@@ -53,8 +55,8 @@ const PostPage = async ({
           slug: {
             _eq: params.slug,
           },
+          
         },
-        limit: 3,
         fields: [
           "*",
           "category.id",

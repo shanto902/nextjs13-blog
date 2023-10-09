@@ -24,7 +24,7 @@ const SideLogo = ({
         <div className=" max-w-7xl relative">
           <div className=" absolute left-[-170px] top-16">
             {" "}
-            <Link href={"/"}>
+            <Link href={`/${locale}`}>
               <Image
                 className=" pt-8 hidden xl:block"
                 src={logo}

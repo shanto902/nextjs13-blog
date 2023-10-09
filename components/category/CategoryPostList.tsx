@@ -12,122 +12,66 @@ interface CategoryPostListProps {
 
 const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 7;
+  const postsPerPage = 8;
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
 
   const currentPosts = posts.slice(startIndex, endIndex);
 
-
-
-  const LayoutComponent2 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 2
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-
-  const LayoutComponent3 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 3
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-  const LayoutComponent4 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 4
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-  const LayoutComponent5 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 5
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-  const LayoutComponent6 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 6
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-
-  const LayoutComponent7 = ({ post }: { post: Post }) => {
-    return (
-      <div>
-        Layout Component 7
-        <div key={post.title}>
-          Post Title: {post.title}
-          <Link href={`http://localhost:3000/post/${post.slug}`}>Visit</Link>
-        </div>
-      </div>
-    );
-  };
-
   const renderPostLayout = (post: Post, index: number) => {
-    switch (index % 7) {
+    switch (index % 8) {
       case 0:
-        return <LayoutComponent post={post} locale={locale} customLayout = {0}  />;
+        return <LayoutComponent post={post} locale={locale} customLayout={0} />;
       case 1:
-        return <LayoutComponent post={post} locale={locale} customLayout = {1}   />;
+        return <LayoutComponent post={post} locale={locale} customLayout={1} />;
       case 2:
-        return<LayoutComponent post={post} locale={locale} customLayout = {2}   />;
+        return <LayoutComponent post={post} locale={locale} customLayout={2} />;
       case 3:
-        return <LayoutComponent4 post={post} />;
+        return <LayoutComponent post={post} locale={locale} customLayout={3} />;
       case 4:
-        return <LayoutComponent5 post={post} />;
+        return <LayoutComponent post={post} locale={locale} customLayout={4} />;
       case 5:
-        return <LayoutComponent6 post={post} />;
+        return <LayoutComponent post={post} locale={locale} customLayout={5} />;
       case 6:
-        return <LayoutComponent7 post={post} />;
+        return <LayoutComponent post={post} locale={locale} customLayout={6}/>;
+        case 7:
+            return <LayoutComponent post={post} locale={locale} customLayout={7} />;
       // Add cases for other layout components
       default:
         return (
-          <div key={post.title}>Default Layout: Post ID: {post.title}</div>
+          <div key={post.title}>Something went wrong</div>
         );
+    }
+  };
+
+  const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
+    const numbersInEnglish = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const numbersInBengali = ['১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  
+    if (locale === 'en') {
+      return numbersInEnglish[pageNumber - 1] || pageNumber.toString();
+    } else if (locale === 'bn') {
+      return numbersInBengali[pageNumber - 1] || pageNumber.toString();
+    } else {
+      return pageNumber.toString();
     }
   };
 
   const renderPagination = () => {
     const pageNumbers = Array.from(Array(totalPages).keys()).map(
-      (page) => page + 1
+      (page) => page + 1,
     );
 
     return (
-      <div className="pagination">
+      <div className=" w-full flex gap-5 justify-center items-center mt-20">
         {pageNumbers.map((page) => (
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className={currentPage === page ? "active" : ""}
+            className={`${currentPage === page ? " bg-red-600 rounded-full text-white  " : ""} font-bold w-8 h-8`}
           >
-            {page}
+             {getLocalizedPageNumber(page, locale)}
           </button>
         ))}
       </div>
@@ -138,7 +82,9 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     <div>
       <div className=" grid grid-cols-2 gap-16">
         {currentPosts.map((post, index) => (
-          <div className={`${index === 0 ? "col-span-2": ""} `} key={index}>{renderPostLayout(post, index)}</div>
+          <div className={`${index === 0 ? "col-span-2" : index === 5 ? "col-span-2" : ""} `} key={index}>
+            {renderPostLayout(post, index)}
+          </div>
         ))}
       </div>
 
