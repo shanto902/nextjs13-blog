@@ -14,10 +14,10 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
     return segments.join("/");
   };
   return (
-    <div className="bg-[#F6EDE7] w-20 h-10 rounded-3xl flex items-center justify-around">
+    <div className="bg-primary border-neutral border-2 w-20 h-10 rounded-3xl flex items-center justify-around">
       <button
         className={` w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center ${
-          locale === "en" ? "bg-white text-[#E67E7E] drop-shadow-lg  " : " "
+          locale === "en" ? "border-2 border-neutral p-2  text-red-500" : " "
         }`}
       >
         <Link
@@ -29,10 +29,10 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
           EN
         </Link>
       </button>
-      <div className=" w-[1px] bg-black h-6"></div>
-      <div
+      <div className=" w-[1px] bg-neutral h-7"></div>
+      <button
         className={` w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center ${
-          locale === "bn" ? "bg-white text-[#E67E7E] drop-shadow-lg  " : " "
+          locale === "bn" ? " border-2 border-neutral p-2 text-red-500  " : " "
         }`}
       >
         <Link
@@ -43,7 +43,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
           {" "}
           BN
         </Link>
-      </div>
+      </button>
     </div>
   );
 };

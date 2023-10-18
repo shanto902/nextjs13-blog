@@ -30,7 +30,7 @@ export default function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
+    const locale = "bn";
 
     return NextResponse.redirect(
       new URL(`/${locale}/${pathname}`, request.url),

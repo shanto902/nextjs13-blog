@@ -12,11 +12,11 @@ const Footer = async ({ locale }: { locale: string }) => {
     "pt-2 font-bold border-t-4 uppercase hover:text-red-800  hover:border-red-800";
   const dictionary = await getDictionary(locale);
   return (
-    <div className=" py-8 mt-10 border-t bg-[#FCFCFC]">
+    <div className=" py-8 mt-10 border-t bg-primary">
       <PaddingContainer>
         {/* Title Description */}
-        <div className=" grid grid-cols-3 ">
-          <div className=" col-span-1">
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-5 ">
+          <div className=" col-span-1 ">
             <Image src={logo} alt="Logo" width={135} height={160} />
 
             <p className=" mt-4 grid grid-cols-5  w-fit space-y-2  text-sm">
@@ -46,12 +46,12 @@ const Footer = async ({ locale }: { locale: string }) => {
                 {dictionary.footer.addressValue2}
               </span>
             </p>
-            <button className=" btn bg-black text-white mt-4 hover:text-black">
+            <button className=" btn bg-black dark:bg-white text-white dark:text-black mt-4 hover:text-black dark:hover:text-white">
               Editorial Board
             </button>
           </div>
 
-          <ul className="col-span-2 grid grid-cols-2 gap-x-8">
+          <ul className="col-span-2 grid lg:grid-cols-2 grid-cols-1 gap-x-8">
             <Link className={liStyle} href={`/${locale}/news`}>
               <li>{dictionary.navigation.links.news}</li>
             </Link>
@@ -97,7 +97,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               <li>{dictionary.navigation.links.environmentPlaning}</li>
             </Link>
             <div>
-              <div className=" flex gap-3 items-center text-neutral-600 mt-2">
+              <div className=" flex gap-3 items-center mt-2">
                 <SocialLink
                   platform="twitter"
                   link={siteConfig.socialLinks.twitter}

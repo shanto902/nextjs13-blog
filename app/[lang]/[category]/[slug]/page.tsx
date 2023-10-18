@@ -13,16 +13,18 @@ export const generateStaticParams = async () => {
           _eq: "published",
         },
       },
-      fields: ["slug"],
+      fields: ["slug", "category.slug"],
     });
     const params = posts?.data?.map((post) => {
       return {
+        category: post.category.slug as string,
         slug: post.slug as string,
         lang: "en",
       };
     });
     const localizedParams = posts?.data?.map((post) => {
       return {
+        category: post.category.slug as string,
         slug: post.slug as string,
         lang: "bn",
       };
@@ -55,7 +57,6 @@ const PostPage = async ({
           slug: {
             _eq: params.slug,
           },
-          
         },
         fields: [
           "*",

@@ -8,9 +8,24 @@ interface PostListProps {
 }
 
 const PostList = ({ posts, layout = "vertical", locale }: PostListProps) => {
+  const groupedPosts: { [categorySlug: string]: Post[] } = {};
+  posts.forEach((post) => {
+    const categorySlug = post.category?.slug || 'uncategorized';
+
+    if (!groupedPosts[categorySlug]) {
+      groupedPosts[categorySlug] = [];
+    }
+    groupedPosts[categorySlug].push(post);
+  });
+
+  // Get the last post from each category
+  const lastPostsPerCategory = Object.values(groupedPosts).map(
+    (categoryPosts) => categoryPosts[categoryPosts.length - 1]
+  );
+
   return (
     <div className="  grid grid-cols-1 md:grid-cols-2 gap-10">
-      {posts.map((post) => (
+      {lastPostsPerCategory.map((post) => (
         <PostCard locale={locale} layout={layout} key={post.id} post={post} />
       ))}
     </div>

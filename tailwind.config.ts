@@ -1,20 +1,36 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ['class', '[data-mode="dark"]'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+
   plugins: [require("@tailwindcss/container-queries"), require("daisyui")],
   daisyui: {
     styled: true,
-    themes: ["light"],
-    base: true,
-    utils: true,
-    logs: true,
-    rtl: false,
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+          "primary": "white",
+          "neutral": "black",
+          
+        },
+        dark: {
+          ...require("daisyui/src/theming/themes")["[data-theme=black]"],
+          "primary": "black",
+          "neutral": "white",
+        },
+      },
+    ],
+    darkTheme: "dark",
   },
+
+  
+  
 };
+
 export default config;

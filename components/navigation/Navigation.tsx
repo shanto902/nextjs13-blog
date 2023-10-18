@@ -16,7 +16,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
     <>
       <HeaderLogo locale={locale} />
 
-      <div className=" sticky z-40 top-0 left-0 right-0 bg-white">
+      <div className=" sticky z-40 top-0 left-0 right-0 bg-primary">
         <PaddingContainer>
           <div className="mr-10">
             <SideLogo locale={locale} dictionary={dictionary} />
@@ -26,7 +26,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               {/* Category Links */}
               <nav>
                 <ul
-                  className={`flex items-center  text-black flex-nowrap whitespace-nowrap uppercase  overflow-hidden w-auto mr-2 ${
+                  className={`flex items-center flex-nowrap whitespace-nowrap uppercase  overflow-hidden w-auto mr-2 ${
                     locale === "en"
                       ? " text-[13px] gap-2 font-bold "
                       : " text-[20px] gap-4 font-semibold"
@@ -93,7 +93,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               {/* Search  */}
               <SearchComponent locale={locale} />
             </div>
-            <hr className=" border-2 border-black" />
+            <hr className=" border-2 " />
           </div>
         </PaddingContainer>
 

@@ -17,6 +17,12 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
 
+  const handlePaginationButtonClick = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+  };
+
+
   const currentPosts = posts.slice(startIndex, endIndex);
 
   const renderPostLayout = (post: Post, index: number) => {
@@ -34,24 +40,22 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
       case 5:
         return <LayoutComponent post={post} locale={locale} customLayout={5} />;
       case 6:
-        return <LayoutComponent post={post} locale={locale} customLayout={6}/>;
-        case 7:
-            return <LayoutComponent post={post} locale={locale} customLayout={7} />;
+        return <LayoutComponent post={post} locale={locale} customLayout={6} />;
+      case 7:
+        return <LayoutComponent post={post} locale={locale} customLayout={7} />;
       // Add cases for other layout components
       default:
-        return (
-          <div key={post.title}>Something went wrong</div>
-        );
+        return <div key={post.title}>Something went wrong</div>;
     }
   };
 
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
-    const numbersInEnglish = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    const numbersInBengali = ['১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-  
-    if (locale === 'en') {
+    const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+    if (locale === "en") {
       return numbersInEnglish[pageNumber - 1] || pageNumber.toString();
-    } else if (locale === 'bn') {
+    } else if (locale === "bn") {
       return numbersInBengali[pageNumber - 1] || pageNumber.toString();
     } else {
       return pageNumber.toString();
@@ -68,10 +72,14 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
         {pageNumbers.map((page) => (
           <button
             key={page}
-            onClick={() => setCurrentPage(page)}
-            className={`${currentPage === page ? " bg-red-600 rounded-full text-white  " : ""} font-bold w-8 h-8`}
+            onClick={() => handlePaginationButtonClick(page)}
+            className={`${
+              currentPage === page
+                ? " bg-red-600 rounded-full text-white  "
+                : ""
+            } font-bold w-8 h-8`}
           >
-             {getLocalizedPageNumber(page, locale)}
+            {getLocalizedPageNumber(page, locale)}
           </button>
         ))}
       </div>
@@ -80,9 +88,14 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
 
   return (
     <div>
-      <div className=" grid grid-cols-2 gap-16">
+      <div className=" grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5">
         {currentPosts.map((post, index) => (
-          <div className={`${index === 0 ? "col-span-2" : index === 5 ? "col-span-2" : ""} `} key={index}>
+          <div
+            className={`${
+              index === 0 ? "md:col-span-2" : index === 5 ? "md:col-span-2" : ""
+            } `}
+            key={index}
+          >
             {renderPostLayout(post, index)}
           </div>
         ))}

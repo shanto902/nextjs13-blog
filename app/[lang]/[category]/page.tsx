@@ -67,6 +67,7 @@ const CategoryPage = async ({
           "posts.author.last_name",
           "posts.category.id",
           "posts.category.title",
+          "posts.category.slug",
           "posts.translations.*",
           "posts.author.translations.first_name",
           "posts.author.translations.last_name",

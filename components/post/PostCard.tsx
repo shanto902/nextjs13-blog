@@ -23,7 +23,7 @@ const PostCard = async ({
           ? "grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
           : "space-y-2"
       } `}
-      href={`http://localhost:3000/${locale}/post/${post.slug}`}
+      href={`http://localhost:3000/${locale}/${post.category.slug}/${post.slug}`}
     >
       {/* Post Image */}
       <div>
@@ -36,7 +36,7 @@ const PostCard = async ({
           width={580}
           height={340}
         />
-        <div className={`py-2 uppercase text-neutral-500`}>
+        <div className={`py-2 uppercase`}>
           {" "}
           {post.category.title}
         </div>

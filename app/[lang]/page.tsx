@@ -25,6 +25,7 @@ export default async function Home({
           "author.last_name",
           "author.translations.first_name",
           "author.translations.last_name",
+          "category.slug",
           "category.id",
           "category.title",
           "category.translations.*",
