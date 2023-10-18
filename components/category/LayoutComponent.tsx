@@ -17,7 +17,8 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
   };
 
   return (
-    <Link  href={`http://localhost:3000/${locale}/${post.category.slug}/${post.slug}`}
+    <Link
+      href={`http://localhost:3000/${locale}/${post.category.slug}/${post.slug}`}
       key={post.id}
       className={`@container flex space-y-2 ${
         customLayout === 0
@@ -102,29 +103,28 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           <div>{formattedDate(post.date_created)}</div>
         </div>
       </div>
-    
-        <Image
-          className={`${
-            customLayout === 0
-              ? " max-h-[540px] max-w-[850px]"
-              : customLayout === 1
-              ? "  max-h-[400px] max-w-[620px]"
-              : customLayout === 2
-              ? "max-h-[280px] max-w-[450px]"
-              : customLayout === 3
-              ? "max-h-[300px] max-w-[450px]"
-              : customLayout === 4
-              ? "max-h-[390px] max-w-[600px]"
-              : customLayout === 5
-              ? "max-h-[380px] max-w-[580px] "
-              : ""
-          }  w-full object-cover object-center h-full`}
-          width={1000}
-          height={1000}
-          alt={post.title}
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-        ></Image>
-    
+
+      <Image
+        className={`${
+          customLayout === 0
+            ? " max-h-[540px] max-w-[850px]"
+            : customLayout === 1
+            ? "  max-h-[400px] max-w-[620px]"
+            : customLayout === 2
+            ? "max-h-[280px] max-w-[450px]"
+            : customLayout === 3
+            ? "max-h-[300px] max-w-[450px]"
+            : customLayout === 4
+            ? "max-h-[390px] max-w-[600px]"
+            : customLayout === 5
+            ? "max-h-[380px] max-w-[580px] "
+            : ""
+        }  w-full object-cover object-center h-full`}
+        width={1000}
+        height={1000}
+        alt={post.title}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+      ></Image>
     </Link>
   );
 };

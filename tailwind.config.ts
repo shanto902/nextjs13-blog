@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ['class', '[data-mode="dark"]'],
+  darkMode: ["class", '[data-mode="dark"]'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,22 +15,18 @@ const config: Config = {
       {
         light: {
           ...require("daisyui/src/theming/themes")["[data-theme=light]"],
-          "primary": "white",
-          "neutral": "black",
-          
+          primary: "white",
+          neutral: "black",
         },
         dark: {
           ...require("daisyui/src/theming/themes")["[data-theme=black]"],
-          "primary": "black",
-          "neutral": "white",
+          primary: "black",
+          neutral: "white",
         },
       },
     ],
     darkTheme: "dark",
   },
-
-  
-  
 };
 
 export default config;

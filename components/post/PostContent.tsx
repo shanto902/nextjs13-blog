@@ -18,7 +18,7 @@ const PostContent = ({
     <div>
       {/* Tags */}
       <div className=" space-y-2">
-          {/* Title  */}
+        {/* Title  */}
         <h2
           className={`${
             isPagePost
@@ -28,7 +28,11 @@ const PostContent = ({
         >
           {post.title}
         </h2>
-        <div className={`${isPagePost ? "justify-center": ""} gap-2 text-xs @md:text-sm flex flex-wrap items-center  pb-5`}>
+        <div
+          className={`${
+            isPagePost ? "justify-center" : ""
+          } gap-2 text-xs @md:text-sm flex flex-wrap items-center  pb-5`}
+        >
           <User className="w-4 h-4" />
           <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
           <AppWindow className="w-4 h-4" />
@@ -43,25 +47,26 @@ const PostContent = ({
           </div>
         </div>
 
-       <div className=" flex flex-col md:flex-row gap-3 md:items-center">
-       {isPagePost && <Image
-          className={`flex-1 w-full object-cover object-center h-full max-h-[340px]
+        <div className=" flex flex-col md:flex-row gap-3 md:items-center">
+          {isPagePost && (
+            <Image
+              className={`flex-1 w-full object-cover object-center h-full max-h-[340px]
           }`}
-          alt={post.title}
-          src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-          width={580}
-          height={340}
-        />}
-        {/* Description  */}
-        <p
-          className={`@lg:text-lg text-base leading-snug flex-1 ${
-            isPagePost ? "" : "line-clamp-3"
-          }`}
-        >
-          {post.description}
-        </p>
-       </div>
-    
+              alt={post.title}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+              width={580}
+              height={340}
+            />
+          )}
+          {/* Description  */}
+          <p
+            className={`@lg:text-lg text-base leading-snug flex-1 ${
+              isPagePost ? "" : "line-clamp-3"
+            }`}
+          >
+            {post.description}
+          </p>
+        </div>
       </div>
     </div>
   );

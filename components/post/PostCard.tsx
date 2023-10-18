@@ -36,10 +36,7 @@ const PostCard = async ({
           width={580}
           height={340}
         />
-        <div className={`py-2 uppercase`}>
-          {" "}
-          {post.category.title}
-        </div>
+        <div className={`py-2 uppercase`}> {post.category.title}</div>
       </div>
       {/* Post Content */}
       <PostContent locale={locale} post={post} />

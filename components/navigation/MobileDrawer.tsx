@@ -11,7 +11,9 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
   const liStyle = "";
   return (
     <div className=" xl:hidden flex justify-center items-center  bg-primary py-2 w-full relative h-20">
-      <Link href={`/${locale}/`}><Image src={logo} alt="logo" width={60} height={60} /></Link>
+      <Link href={`/${locale}/`}>
+        <Image src={logo} alt="logo" width={60} height={60} />
+      </Link>
       <div className="absolute top-4 right-5">
         <div className="drawer drawer-end w-full ">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />

@@ -10,7 +10,7 @@ interface PostListProps {
 const PostList = ({ posts, layout = "vertical", locale }: PostListProps) => {
   const groupedPosts: { [categorySlug: string]: Post[] } = {};
   posts.forEach((post) => {
-    const categorySlug = post.category?.slug || 'uncategorized';
+    const categorySlug = post.category?.slug || "uncategorized";
 
     if (!groupedPosts[categorySlug]) {
       groupedPosts[categorySlug] = [];
@@ -20,7 +20,7 @@ const PostList = ({ posts, layout = "vertical", locale }: PostListProps) => {
 
   // Get the last post from each category
   const lastPostsPerCategory = Object.values(groupedPosts).map(
-    (categoryPosts) => categoryPosts[categoryPosts.length - 1]
+    (categoryPosts) => categoryPosts[categoryPosts.length - 1],
   );
 
   return (

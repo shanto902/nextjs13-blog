@@ -44,7 +44,7 @@ const SearchComponent = ({ locale }: { locale: string }) => {
         {" "}
         {/* Toggle opacity class based on input focus */}
         <LangSwitcher locale={locale} />
-       <ThemeSwitcher />
+        <ThemeSwitcher />
       </div>
     </div>
   );
