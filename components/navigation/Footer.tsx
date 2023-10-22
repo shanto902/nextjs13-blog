@@ -12,10 +12,10 @@ const Footer = async ({ locale }: { locale: string }) => {
     "pt-2 font-bold border-t-4 uppercase hover:text-red-800  hover:border-red-800";
   const dictionary = await getDictionary(locale);
   return (
-    <div className=" py-8 mt-10 border-t bg-primary">
+    <div className=" pt-8 mt-10 border-t bg-base-100 relative">
       <PaddingContainer>
         {/* Title Description */}
-        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-5 ">
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-5  py-3">
           <div className=" col-span-1 ">
             <Image src={logo} alt="Logo" width={135} height={160} />
 
@@ -46,7 +46,7 @@ const Footer = async ({ locale }: { locale: string }) => {
                 {dictionary.footer.addressValue2}
               </span>
             </p>
-            <button className=" btn bg-black dark:bg-white text-white dark:text-black mt-4 hover:text-black dark:hover:text-white">
+            <button className=" btn text-secondary hover:text-accent bg-accent mt-4 ">
               Editorial Board
             </button>
           </div>
@@ -81,13 +81,10 @@ const Footer = async ({ locale }: { locale: string }) => {
               {" "}
               <li>{dictionary.navigation.links.studentProjects}</li>
             </Link>
-            <Link className={liStyle} href={`/${locale}/technology`}>
+
+            <Link className={liStyle} href={`/${locale}/archived`}>
               {" "}
-              <li>{dictionary.navigation.links.technology}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/archive`}>
-              {" "}
-              <li>{dictionary.navigation.links.archive}</li>
+              <li>{dictionary.navigation.links.archived}</li>
             </Link>
             <Link
               className={liStyle}
@@ -122,11 +119,11 @@ const Footer = async ({ locale }: { locale: string }) => {
         </div>
 
         {/* Bottom Section */}
-        <div className=" border-t py-3 flex flex-warp gap-4 items-center justify-between mt-16 flex-warp">
+        <div className=" border-t py-2 text-center">
           <div className=" text-sm text-neutral-400">
-            All rights reserved | © Copyright {new Date().getFullYear()}
+          ©  {new Date().getFullYear()} Copyrights by Sthapattya o Nirman. All Rights Reserved. Developed by DeshiInc.
+      
           </div>
-          <div className=" text-sm">Made with love by Ashik Ali Shanto</div>
         </div>
       </PaddingContainer>
     </div>

@@ -4,13 +4,15 @@ import logo from "@/assets/logo.svg";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
+import LangSwitcher from "../elements/LangSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const MobileDrawer = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
 
   const liStyle = "";
   return (
-    <div className=" xl:hidden flex justify-center items-center  bg-primary py-2 w-full relative h-20">
+    <div className=" xl:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
       <Link href={`/${locale}/`}>
         <Image src={logo} alt="logo" width={60} height={60} />
       </Link>
@@ -38,7 +40,8 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 height={60}
               />
               {/* Sidebar content here */}
-              <li className={liStyle}>
+           <ul className=" mt-10 text-xl gap-2">
+           <li className={liStyle}>
                 <Link href={`/${locale}/news`}>
                   {dictionary.navigation.links.news}
                 </Link>
@@ -79,13 +82,8 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 </Link>
               </li>
               <li className={liStyle}>
-                <Link href={`/${locale}/technology`}>
-                  {dictionary.navigation.links.technology}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/archive`}>
-                  {dictionary.navigation.links.archive}
+                <Link href={`/${locale}/archived`}>
+                  {dictionary.navigation.links.archived}
                 </Link>
               </li>
               <li className={liStyle}>
@@ -93,7 +91,13 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                   {dictionary.navigation.links.environmentPlaning}
                 </Link>
               </li>
-            </div>
+           </ul>
+            
+              <div className=" flex flex-row justify-center gap-5 mt-5">
+              <LangSwitcher locale={locale}/>
+              <ThemeSwitcher />
+            </div></div>
+            
           </div>
         </div>
       </div>

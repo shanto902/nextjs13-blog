@@ -16,7 +16,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
     <>
       <HeaderLogo locale={locale} />
 
-      <div className=" sticky z-40 top-0 left-0 right-0 bg-primary">
+      <div className=" sticky z-40 top-0 left-0 right-0 bg-base-100">
         <PaddingContainer>
           <div className="mr-10">
             <SideLogo locale={locale} dictionary={dictionary} />
@@ -73,13 +73,8 @@ const Navigation = async ({ locale }: { locale: string }) => {
                     </Link>
                   </li>
                   <li className={liStyle}>
-                    <Link href={`/${locale}/technology`}>
-                      {dictionary.navigation.links.technology}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/archive`}>
-                      {dictionary.navigation.links.archive}
+                    <Link href={`/${locale}/archived`}>
+                      {dictionary.navigation.links.archived}
                     </Link>
                   </li>
                   <li className={liStyle}>

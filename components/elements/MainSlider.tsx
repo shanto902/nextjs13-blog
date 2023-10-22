@@ -7,7 +7,7 @@ import "./styles.css";
 import Image from "next/image";
 import { Banner } from "@/types/collection";
 
-interface MainSliderProps {
+type MainSliderProps = {
   banners: Banner[];
 }
 

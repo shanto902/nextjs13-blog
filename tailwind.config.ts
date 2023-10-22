@@ -14,14 +14,14 @@ const config: Config = {
     themes: [
       {
         light: {
-          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
-          primary: "white",
-          neutral: "black",
-        },
+          ...require("daisyui/src/theming/themes")["[data-theme=corporate]"],
+          accent: "black",
+          secondary: "white" 
+         },
         dark: {
-          ...require("daisyui/src/theming/themes")["[data-theme=black]"],
-          primary: "black",
-          neutral: "white",
+          ...require("daisyui/src/theming/themes")["[data-theme=business]"],
+          accent: "white",
+          secondary: "black"    
         },
       },
     ],

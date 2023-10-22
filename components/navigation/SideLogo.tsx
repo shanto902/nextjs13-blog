@@ -22,18 +22,18 @@ const SideLogo = ({
         <div></div>
       ) : (
         <div className=" max-w-7xl relative">
-          <div className=" absolute left-[-170px] top-16">
+          <div className=" absolute left-[-130px] top-16">
             {" "}
             <Link href={`/${locale}`}>
               <Image
                 className=" pt-8 hidden xl:block"
                 src={logo}
                 alt="logo"
-                width={150}
-                height={190}
+                width={120}
+                height={150}
               />
             </Link>
-            <h2 className="text-right text-3xl font-semibold right-2 pt-4 absolute ">
+            <h2 className="text-right text-2xl font-semibold right-2 pt-2 absolute ">
               {(params.category === "heritage" &&
                 dictionary.navigation.links.heritage) ||
                 (params.category === "arts" &&
@@ -48,14 +48,14 @@ const SideLogo = ({
                   dictionary.navigation.links.dialogue) ||
                 (params.category === "projects" &&
                   dictionary.navigation.links.projects) ||
-                (params.category === "student-projects" &&
+                (pathname.match(/^\/(bn|en)\/student-projects$/) &&
                   dictionary.navigation.links.studentProjects) ||
                 (params.category === "technology" &&
                   dictionary.navigation.links.technology) ||
                 (params.category === "environment-and-planning" &&
                   dictionary.navigation.links.environmentPlaning) ||
-                (params.category === "archive" &&
-                  dictionary.navigation.links.archive)}
+                (pathname.match(/^\/(bn|en)\/archived$/) &&
+                  dictionary.navigation.links.archived)}
             </h2>
           </div>
         </div>

@@ -30,3 +30,17 @@ export interface Banner {
   description: string;
   image: string;
 }
+
+export interface StudentPost {
+  id: string;
+  title: string;
+  description: string;
+  university: string;
+  author: Author;
+  slug: string;
+  image: string;
+  body: string;
+  date_created: string;
+  date_updated: string;
+}
+
