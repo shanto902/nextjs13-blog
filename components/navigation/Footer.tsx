@@ -121,8 +121,8 @@ const Footer = async ({ locale }: { locale: string }) => {
         {/* Bottom Section */}
         <div className=" border-t py-2 text-center">
           <div className=" text-sm text-neutral-400">
-          ©  {new Date().getFullYear()} Copyrights by Sthapattya o Nirman. All Rights Reserved. Developed by DeshiInc.
-      
+            © {new Date().getFullYear()} Copyrights by Sthapattya o Nirman. All
+            Rights Reserved. Developed by DeshiInc.
           </div>
         </div>
       </PaddingContainer>

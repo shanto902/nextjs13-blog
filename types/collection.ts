@@ -43,4 +43,3 @@ export interface StudentPost {
   date_created: string;
   date_updated: string;
 }
-

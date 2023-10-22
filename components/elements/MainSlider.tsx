@@ -9,7 +9,7 @@ import { Banner } from "@/types/collection";
 
 type MainSliderProps = {
   banners: Banner[];
-}
+};
 
 const MainSlider = ({ banners }: MainSliderProps) => {
   return (

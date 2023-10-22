@@ -5,7 +5,7 @@ import coverPhoto from "@/assets/cover-photo.png";
 import MainSlider from "@/components/elements/MainSlider";
 import directus from "@/lib/directus";
 import { notFound } from "next/navigation";
-import magazineImage from "@/assets/magpic.png"
+import magazineImage from "@/assets/magpic.png";
 import { getDictionary } from "@/lib/getDictionary";
 
 export default async function Home({
@@ -153,22 +153,21 @@ export default async function Home({
       />
       <MainSlider banners={banners} />
       <main className=" h-auto space-y-10 mt-10">
-        
         <PostList locale={locale} posts={posts} studentPosts={studentPosts} />
         <div className=" flex flex-col md:flex-row gap-10">
-        <div className=" flex-1 relative">
-        <Image  src={magazineImage} alt={"Magazine Picture"}/>
-        <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
-      <h2 className="text-xl">
-        {dictionary.magazineHome.title}
-      </h2>
-      <button className=" btn btn-outline w-fit">{dictionary.magazineHome.published}</button>
-      <button className=" btn btn-outline w-fit">{dictionary.magazineHome.website}</button>
-        </div>
-        </div>
-        <div className=" flex-1">
- 
-        </div>
+          <div className=" flex-1 relative">
+            <Image src={magazineImage} alt={"Magazine Picture"} />
+            <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
+              <h2 className="text-xl">{dictionary.magazineHome.title}</h2>
+              <button className=" btn btn-outline w-fit">
+                {dictionary.magazineHome.published}
+              </button>
+              <button className=" btn btn-outline w-fit">
+                {dictionary.magazineHome.website}
+              </button>
+            </div>
+          </div>
+          <div className=" flex-1"></div>
         </div>
       </main>
     </PaddingContainer>

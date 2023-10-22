@@ -40,64 +40,64 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 height={60}
               />
               {/* Sidebar content here */}
-           <ul className=" mt-10 text-xl gap-2">
-           <li className={liStyle}>
-                <Link href={`/${locale}/news`}>
-                  {dictionary.navigation.links.news}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/concept`}>
-                  {dictionary.navigation.links.concepts}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/arts`}>
-                  {dictionary.navigation.links.arts}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/heritage`}>
-                  {dictionary.navigation.links.heritage}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/personality`}>
-                  {dictionary.navigation.links.personality}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/dialogue`}>
-                  {dictionary.navigation.links.dialogue}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/projects`}>
-                  {dictionary.navigation.links.projects}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/student-projects`}>
-                  {dictionary.navigation.links.studentProjects}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/archived`}>
-                  {dictionary.navigation.links.archived}
-                </Link>
-              </li>
-              <li className={liStyle}>
-                <Link href={`/${locale}/environment-and-planning`}>
-                  {dictionary.navigation.links.environmentPlaning}
-                </Link>
-              </li>
-           </ul>
-            
+              <ul className=" mt-10 text-xl gap-2">
+                <li className={liStyle}>
+                  <Link href={`/${locale}/news`}>
+                    {dictionary.navigation.links.news}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/concept`}>
+                    {dictionary.navigation.links.concepts}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/arts`}>
+                    {dictionary.navigation.links.arts}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/heritage`}>
+                    {dictionary.navigation.links.heritage}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/personality`}>
+                    {dictionary.navigation.links.personality}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/dialogue`}>
+                    {dictionary.navigation.links.dialogue}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/projects`}>
+                    {dictionary.navigation.links.projects}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/student-projects`}>
+                    {dictionary.navigation.links.studentProjects}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/archived`}>
+                    {dictionary.navigation.links.archived}
+                  </Link>
+                </li>
+                <li className={liStyle}>
+                  <Link href={`/${locale}/environment-and-planning`}>
+                    {dictionary.navigation.links.environmentPlaning}
+                  </Link>
+                </li>
+              </ul>
+
               <div className=" flex flex-row justify-center gap-5 mt-5">
-              <LangSwitcher locale={locale}/>
-              <ThemeSwitcher />
-            </div></div>
-            
+                <LangSwitcher locale={locale} />
+                <ThemeSwitcher />
+              </div>
+            </div>
           </div>
         </div>
       </div>

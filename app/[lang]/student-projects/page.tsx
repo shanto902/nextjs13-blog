@@ -3,15 +3,15 @@ import { getDictionary } from "@/lib/getDictionary";
 import React from "react";
 
 const page = async ({
-    params,
-  }: {
-    params: {
-      lang: string;
-    };
-  }) => {
-    const locale = params.lang;
+  params,
+}: {
+  params: {
+    lang: string;
+  };
+}) => {
+  const locale = params.lang;
 
-    const dictionary = await getDictionary(locale);
+  const dictionary = await getDictionary(locale);
   return (
     <div>
       <PaddingContainer>
@@ -20,7 +20,7 @@ const page = async ({
             {dictionary.studentProjects.topDesc}
             <br />
             <br />
-           {dictionary.studentProjects.botDesc}
+            {dictionary.studentProjects.botDesc}
           </p>
         </div>{" "}
       </PaddingContainer>
