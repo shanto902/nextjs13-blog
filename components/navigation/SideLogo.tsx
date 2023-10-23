@@ -56,8 +56,8 @@ const SideLogo = ({
                   dictionary.navigation.links.environmentPlaning) ||
                 (pathname.match(/^\/(bn|en)\/archived$/) &&
                   dictionary.navigation.links.archived) ||
-                  (pathname.match(/^\/(bn|en)\/published-magazine$/) &&
-                  dictionary.navigation.links.publishedMagazine) } 
+                (pathname.match(/^\/(bn|en)\/published-magazine$/) &&
+                  dictionary.navigation.links.publishedMagazine)}
             </h2>
           </div>
         </div>

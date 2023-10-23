@@ -155,16 +155,26 @@ export default async function Home({
       />
       <MainSlider banners={banners} />
       <main className=" h-auto space-y-10 mt-10">
-        <PostList locale={locale} posts={posts} studentPosts={studentPosts || []} />
+        <PostList
+          locale={locale}
+          posts={posts}
+          studentPosts={studentPosts || []}
+        />
         <div className=" flex flex-col md:flex-row gap-10">
           <div className=" flex-1 relative">
             <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
               <h2 className="text-xl">{dictionary.magazineHome.title}</h2>
-              <Link href={`/${locale}/published-magazine`} className=" btn btn-outline w-fit">
+              <Link
+                href={`/${locale}/published-magazine`}
+                className=" btn btn-outline w-fit"
+              >
                 {dictionary.magazineHome.published}
-              </Link >
-              <Link href={`/${locale}/archived`} className=" btn btn-outline w-fit">
+              </Link>
+              <Link
+                href={`/${locale}/archived`}
+                className=" btn btn-outline w-fit"
+              >
                 {dictionary.magazineHome.website}
               </Link>
             </div>
