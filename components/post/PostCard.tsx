@@ -23,7 +23,7 @@ const PostCard = async ({
           ? "grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
           : "space-y-2"
       } `}
-      href={`${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/${post.category.slug}/${post.slug}`}
+      href={`/${locale}/${post.category.slug}/${post.slug}`}
     >
       {/* Post Image */}
       <div>
