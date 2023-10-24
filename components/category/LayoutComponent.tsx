@@ -18,7 +18,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
 
   return (
     <Link
-      href={`${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/${post.category.slug}/${post.slug}`}
+      href={`/${locale}/${post.category.slug}/${post.slug}`}
       key={post.id}
       className={`@container flex space-y-2 ${
         customLayout === 0
