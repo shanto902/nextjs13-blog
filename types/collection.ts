@@ -9,6 +9,8 @@ export interface Post {
   body: string;
   date_created: string;
   date_updated: string;
+  left_add? : string;
+  bottom_add? : string;
 }
 
 export interface Category {

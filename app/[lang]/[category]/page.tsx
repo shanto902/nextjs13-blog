@@ -17,22 +17,25 @@ export const generateStaticParams = async () => {
       fields: ["slug"],
     });
 
-    const filteredCategories = categories?.data?.filter((category) => category.slug !== "student-projects")
+    const filteredCategories = categories?.data?.filter(
+      (category) => category.slug !== "student-projects",
+    );
 
-
-    const params = filteredCategories?.map((category: { slug: string; }) => {
+    const params = filteredCategories?.map((category: { slug: string }) => {
       return {
         category: category.slug as string,
         lang: "en",
       };
     });
 
-    const localizedParams = filteredCategories?.map((category: { slug: string; }) => {
-      return {
-        category: category.slug as string,
-        lang: "bn",
-      };
-    });
+    const localizedParams = filteredCategories?.map(
+      (category: { slug: string }) => {
+        return {
+          category: category.slug as string,
+          lang: "bn",
+        };
+      },
+    );
 
     const allParams = params?.concat(localizedParams ?? []);
     return allParams || [];
