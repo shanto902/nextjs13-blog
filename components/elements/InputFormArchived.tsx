@@ -1,10 +1,26 @@
-import React from 'react'
+import React from "react";
 
-const InputFormArchived = ({name , email} :{ name:string , email:string }) => {
+const InputFormArchived = ({
+  name,
+  email,
+}: {
+  name: string;
+  email: string;
+}) => {
   return (
-    <div className=' flex flex-col gap-4'><input type="text" placeholder={name} className="input input-bordered w-full max-w-xs" />
-    <input type="text" placeholder={email} className="input input-bordered w-full max-w-xs" /></div>
-  )
-}
+    <div className=" flex flex-col gap-4">
+      <input
+        type="text"
+        placeholder={name}
+        className="input input-bordered w-full max-w-xs"
+      />
+      <input
+        type="text"
+        placeholder={email}
+        className="input input-bordered w-full max-w-xs"
+      />
+    </div>
+  );
+};
 
-export default InputFormArchived
+export default InputFormArchived;

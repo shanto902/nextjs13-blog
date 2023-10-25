@@ -26,20 +26,26 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
 
   const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
 
-// Shuffle the array using the Fisher-Yates algorithm
-function shuffleArray(array : Number[]) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  // Shuffle the array using the Fisher-Yates algorithm
+  function shuffleArray(array: Number[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
-}
-shuffleArray(possibleLayouts);
+  shuffleArray(possibleLayouts);
 
-const renderPostLayout = (post: Post, index: number) => {
-  const randomLayout = possibleLayouts[index % possibleLayouts.length];
- console.log(randomLayout)
-  return <LayoutComponent post={post} locale={locale} customLayout={randomLayout} />;
-};
+  const renderPostLayout = (post: Post, index: number) => {
+    const randomLayout = possibleLayouts[index % possibleLayouts.length];
+    console.log(randomLayout);
+    return (
+      <LayoutComponent
+        post={post}
+        locale={locale}
+        customLayout={randomLayout}
+      />
+    );
+  };
 
   // const renderPostLayout = (post: Post, index: number) => {
   //   switch (index % 8) {

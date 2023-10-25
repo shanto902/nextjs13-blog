@@ -11,8 +11,6 @@ interface LayoutProps {
 }
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
-
-
   return (
     <Link
       href={`/${locale}/${post.category.slug}/${post.slug}`}
@@ -97,11 +95,14 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           <AppWindow className="w-4 h-4" />
           <div>{`${post.category.title}`}</div>
           <AppWindow className="w-4 h-4" />
-          <div>   {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}</div>
+          <div>
+            {" "}
+            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </div>
         </div>
       </div>
 

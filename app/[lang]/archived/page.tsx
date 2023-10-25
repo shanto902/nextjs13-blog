@@ -11,7 +11,6 @@ const page = async ({
     lang: string;
   };
 }) => {
-  
   const locale = params.lang;
 
   const getArchivedPost = async () => {
@@ -71,16 +70,15 @@ const page = async ({
     notFound();
   }
 
-  console.log(archivedPosts)
+  console.log(archivedPosts);
 
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
         <div className=" grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center">
-        { 
-        archivedPosts.map((post) => <ArchiveCard key={post.id} post={post} locale={locale} />)
-        }
-        
+          {archivedPosts.map((post) => (
+            <ArchiveCard key={post.id} post={post} locale={locale} />
+          ))}
         </div>
       </PaddingContainer>
     </div>
