@@ -24,29 +24,46 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
 
   const currentPosts = posts.slice(startIndex, endIndex);
 
-  const renderPostLayout = (post: Post, index: number) => {
-    switch (index % 8) {
-      case 0:
-        return <LayoutComponent post={post} locale={locale} customLayout={0} />;
-      case 1:
-        return <LayoutComponent post={post} locale={locale} customLayout={1} />;
-      case 2:
-        return <LayoutComponent post={post} locale={locale} customLayout={2} />;
-      case 3:
-        return <LayoutComponent post={post} locale={locale} customLayout={3} />;
-      case 4:
-        return <LayoutComponent post={post} locale={locale} customLayout={4} />;
-      case 5:
-        return <LayoutComponent post={post} locale={locale} customLayout={5} />;
-      case 6:
-        return <LayoutComponent post={post} locale={locale} customLayout={6} />;
-      case 7:
-        return <LayoutComponent post={post} locale={locale} customLayout={7} />;
-      // Add cases for other layout components
-      default:
-        return <div key={post.title}>Something went wrong</div>;
-    }
-  };
+  const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
+
+// Shuffle the array using the Fisher-Yates algorithm
+function shuffleArray(array : Number[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+shuffleArray(possibleLayouts);
+
+const renderPostLayout = (post: Post, index: number) => {
+  const randomLayout = possibleLayouts[index % possibleLayouts.length];
+ console.log(randomLayout)
+  return <LayoutComponent post={post} locale={locale} customLayout={randomLayout} />;
+};
+
+  // const renderPostLayout = (post: Post, index: number) => {
+  //   switch (index % 8) {
+  //     case 0:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={0} />;
+  //     case 1:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={1} />;
+  //     case 2:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={2} />;
+  //     case 3:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={3} />;
+  //     case 4:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={4} />;
+  //     case 5:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={5} />;
+  //     case 6:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={6} />;
+  //     case 7:
+  //       return <LayoutComponent post={post} locale={locale} customLayout={7} />;
+  //     // Add cases for other layout components
+  //     default:
+  //       return <div key={post.title}>Something went wrong</div>;
+  //   }
+  // };
 
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];

@@ -26,11 +26,11 @@ const SideLogo = ({
             {" "}
             <Link href={`/${locale}`}>
               <Image
-                className=" pt-8 hidden xl:block"
+                className=" pt-8 hidden xl:block opacity-60"
                 src={logo}
                 alt="logo"
-                width={120}
-                height={150}
+                width={100}
+                height={100}
               />
             </Link>
             <h2 className="text-right text-2xl font-semibold right-2 pt-2 absolute ">

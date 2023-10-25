@@ -11,10 +11,7 @@ interface LayoutProps {
 }
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
-  const formattedDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return format(date, "dd MMMM yyyy"); // Format: 15 September 2023
-  };
+
 
   return (
     <Link
@@ -64,7 +61,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
               : customLayout === 3
               ? " @lg:text-3xl @md:text-2xl"
               : customLayout === 5
-              ? " @lg:text-4xl @md:text-3xl @lg:underline-3 md:mt-6"
+              ? " @lg:text-4xl @md:text-3xl @lg:underline-3"
               : customLayout === 4
               ? " @lg:text-3xl @md:text-2xl "
               : customLayout === 6
@@ -100,7 +97,11 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           <AppWindow className="w-4 h-4" />
           <div>{`${post.category.title}`}</div>
           <AppWindow className="w-4 h-4" />
-          <div>{formattedDate(post.date_created)}</div>
+          <div>   {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}</div>
         </div>
       </div>
 

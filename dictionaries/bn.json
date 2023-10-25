@@ -16,6 +16,15 @@
     }
     
   },
+
+  "archivedPage": {
+    "submitButton": "অণুরোধ করুন",
+    "hoverTitle": "আর্টিকেলটি সংগ্রহ করতে চাইলে আমাদের সাথে যোগাযোগ করুন",
+    "InputName": "আপনার নাম",
+    "InputEmail": "আপনার ইমেইল"
+  },
+
+
   "mainBody": {
     "moreCollection": "আরও সংগ্রহ",
     "studentProjects": "ছাত্র প্রকল্প",

@@ -41,7 +41,7 @@ const PostContent = ({
             <div>{`${post.category.title}`}</div>
             <AppWindow className="w-4 h-4" />
             <div>
-              {new Date(post.date_created).toLocaleDateString(undefined, {
+            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -82,7 +82,7 @@ const PostContent = ({
             <div>{`${post.category.title}`}</div>
             <AppWindow className="w-4 h-4" />
             <div>
-              {new Date(post.date_created).toLocaleDateString(undefined, {
+            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",

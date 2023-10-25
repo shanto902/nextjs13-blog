@@ -15,6 +15,13 @@
       "publishedMagazine": "Published Magazine"
     }
   },
+
+  "archivedPage": {
+    "submitButton": "Request",
+    "hoverTitle": "Contact us to collect constitution",
+    "InputName": "Your Name",
+    "InputEmail": "Your Email"
+  },
     "mainBody":{
         "moreCollection": "More Collection",
         "studentProjects":  "Student Projects",
