@@ -15,7 +15,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
     <Link
       href={`/${locale}/${post.category.slug}/${post.slug}`}
       key={post.id}
-      className={`@container flex space-y-2 ${
+      className={`@container flex justify-center space-y-2 ${
         customLayout === 0
           ? "md:flex-col  "
           : customLayout === 1

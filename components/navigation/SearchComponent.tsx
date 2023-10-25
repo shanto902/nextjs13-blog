@@ -23,12 +23,12 @@ const SearchComponent = ({ locale }: { locale: string }) => {
 
   return (
     <div className="flex flex-nowrap gap-2 items-center ">
-      <form className="border-2 border-neutral rounded-full relative hover:text-red-600 ">
+      <form className="border-2 border-accent rounded-full relative hover:text-red-600 ">
         <input
           type="text"
           name="search"
           placeholder="Search"
-          className={`bg-transparent px-5 py-3 text-neutral w-10 h-10   rounded-full focus:outline-0 focus:w-full focus:pl-10 transition-all duration-300 ${
+          className={`bg-transparent px-5 py-3 text-accent w-10 h-10   rounded-full focus:outline-0 focus:w-full focus:pl-10 transition-all duration-300 ${
             isInputFocused ? "w-full" : ""
           }`} // Toggle w-full class based on input focus
           onFocus={handleInputFocus}

@@ -1,5 +1,8 @@
+'use client'
 import parse from "html-react-parser";
 import Image from "next/image";
+import Zoom from 'react-medium-image-zoom'
+import './overlayStyle.css'
 
 const PostBody = ({ body, locale }: { body: string; locale: string }) => {
   const options = {
@@ -7,13 +10,15 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return (
-          <Image
+        <Zoom>
+            <Image
             className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
             src={src}
             alt={alt}
             width={1280}
             height={620}
           />
+        </Zoom>
         );
       }
     },
