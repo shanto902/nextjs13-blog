@@ -70,7 +70,7 @@ const page = async ({
     notFound();
   }
 
-  console.log(archivedPosts);
+  
 
   return (
     <div className=" min-h-[50vh]">

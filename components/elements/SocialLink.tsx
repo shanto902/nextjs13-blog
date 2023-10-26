@@ -30,8 +30,8 @@ const SocialLink = ({
       <div
         className={`${
           isShareURL
-            ? "px-2 py-2 bg-neutral-200 rounded-full text-neutral-700 hover:bg-neutral-800 hover:text-neutral-100 duration-100 ease-in-out transition-colors "
-            : " bg-black rounded-full text-white p-2"
+            ? "px-2 py-2 bg-accent rounded-full text-secondary hover:bg-base-100 hover:text-red-800 duration-100 ease-in-out transition-colors "
+            : " bg-accent rounded-full text-secondary hover:bg-secondary hover:text-red-800 p-2"
         }`}
       >
         {getIcon(platform)}

@@ -27,7 +27,7 @@ const ThemeSwitcher = () => {
   }, [theme]);
 
   return (
-    <label className="swap swap-rotate border-2 border-neutral rounded-full  w-10 h-10">
+    <label className="swap swap-rotate border-2 border-accent rounded-full  w-10 h-10">
       {/* Hidden checkbox controls the state */}
       <input type="checkbox" onClick={toggleTheme} />
 

@@ -205,29 +205,29 @@ const PostPage = async ({
             postSlug={post.slug}
           />
           <div className=" flex-1">
-           <div className=" flex flex-row items-center justify-between">
-           <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">
-              {comments && getLocalizedNumber(comments?.length + 1, locale)}{" "}
-              {dictionary.commentsSection.comment}
-            </h3>
-            <div className=" flex flex-row gap-2">
-            <SocialLink
-                isShareURL
-                platform="facebook"
-                link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="twitter"
-                link={`https://twitter.com/intent/tweet?url=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
-              />
-              <SocialLink
-                isShareURL
-                platform="linkedin"
-                link={`https://www.linkedin.com/shareArticle?mini=true&url=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
-              />
+            <div className=" flex flex-row items-center justify-between">
+              <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">
+                {comments && getLocalizedNumber(comments?.length + 1, locale)}{" "}
+                {dictionary.commentsSection.comment}
+              </h3>
+              <div className=" flex flex-row gap-2">
+                <SocialLink
+                  isShareURL
+                  platform="facebook"
+                  link={`https://www.facebook.com/sharer/sharer.php?u=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
+                />
+                <SocialLink
+                  isShareURL
+                  platform="twitter"
+                  link={`https://twitter.com/intent/tweet?url=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
+                />
+                <SocialLink
+                  isShareURL
+                  platform="linkedin"
+                  link={`https://www.linkedin.com/shareArticle?mini=true&url=${`${process.env.NEXT_PUBLIC_SITE_URL}/${post.category.slug}/${post.slug}`}`}
+                />
+              </div>
             </div>
-           </div>
             <div>
               {comments &&
                 comments.map((comment) => (

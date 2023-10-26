@@ -93,7 +93,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               {" "}
               <li>{dictionary.navigation.links.environmentPlaning}</li>
             </Link>
-            <div>
+            <div className=" col-span-2 place-self-end">
               <div className=" flex gap-3 items-center mt-2">
                 <SocialLink
                   platform="twitter"
