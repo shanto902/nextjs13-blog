@@ -19,7 +19,7 @@ const ArchiveCard = async ({
         <figure className="relative">
           <Image
             className="aspect-square object-cover object-center"
-            width={300}
+            width={600}
             height={600}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"

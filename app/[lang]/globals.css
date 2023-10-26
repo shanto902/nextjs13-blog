@@ -18,6 +18,6 @@
     @apply p-5;
   }
   [data-rmiz-modal-overlay="visible"] {
-   @apply bg-base-100
+    @apply bg-base-100;
   }
 }

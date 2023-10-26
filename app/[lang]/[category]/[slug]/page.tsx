@@ -55,9 +55,12 @@ const PostPage = async ({
     try {
       const post = await directus.items("post").readByQuery({
         filter: {
-          slug: {
+          "_and": [{ slug: {
             _eq: params.slug,
           },
+          status: {
+            _eq: "published",
+          },}]
         },
         fields: [
           "*",
@@ -107,40 +110,26 @@ const PostPage = async ({
     return notFound();
   }
   return (
-    <div className=" relative max-w-7xl mx-auto">
-      {post.left_add && (
-        <div className=" hidden xl:block fixed top-72 left-12">
-          <Image
-            className=" max-h-[400px] object-cover object-center "
-            width={100}
-            height={400}
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.left_add}?key=optimized`}
-            alt="Your Image"
-          />
-        </div>
-      )}
+  <div className=" relative max-w-7xl mx-auto">
+      { post.left_add && <div className=" hidden xl:block fixed top-72 left-12">
+        <Image  className=" max-h-[400px] object-cover object-center " width={100} height={400}  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.left_add}?key=optimized`} alt="Your Image" />
+        </div>}
       <PaddingContainer>
-        <div className=" space-y-10 relative">
-          <PostHero locale={locale} post={post} />
-          <div className=" flex gap-10 flex-col md:flex-row">
-            <PostBody locale={locale} body={post.body} />
-          </div>
-
-          {/* Bottom Add  */}
-          {post.bottom_add && (
-            <div className=" sticky  bottom-0 flex justify-center">
-              <Image
-                className=" max-h-24 object-cover object-center "
-                width={600}
-                height={100}
-                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`}
-                alt="Your Image"
-              />
-            </div>
-          )}
+      <div className=" space-y-10 relative">
+        <PostHero locale={locale} post={post}  />
+        <div className=" flex gap-10 flex-col md:flex-row">
+          <PostBody locale={locale} body={post.body} />
         </div>
-      </PaddingContainer>
-    </div>
+
+      
+
+        {/* Bottom Add  */}
+      { post.bottom_add &&  <div className=" sticky  bottom-0 flex justify-center">
+    <Image  className=" max-h-24 object-cover object-center " width={600} height={100}  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`} alt="Your Image" />
+  </div>  }
+  </div>
+    </PaddingContainer>
+  </div>
   );
 };
 
