@@ -141,17 +141,15 @@ const PostPage = async ({
 
   const comments = await getCommentsData();
 
-
   if (!post) {
     return notFound();
   }
 
-
   const dictionary = await getDictionary(locale);
 
   const getLocalizedNumber = (number: number, locale: string) => {
-    const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    const numbersInEnglish = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const numbersInBengali = ["০","১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
 
     if (locale === "en") {
       return numbersInEnglish[number - 1] || number.toString();
@@ -194,7 +192,7 @@ const PostPage = async ({
             </div>
           )}
         </div>
-        <div className="flex gap-10">
+        <div className="flex flex-col-reverse md:flex-row gap-10">
           <CommentsInput
             title={dictionary.commentsSection.title}
             descriptionPlaceholder={dictionary.commentsSection.description}
@@ -205,14 +203,16 @@ const PostPage = async ({
             postSlug={post.slug}
           />
           <div className=" flex-1">
-            <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">{comments && getLocalizedNumber(comments?.length, locale)} {dictionary.commentsSection.comment}</h3>
+            <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">
+              {comments && getLocalizedNumber(comments?.length, locale)}{" "}
+              {dictionary.commentsSection.comment}
+            </h3>
             <div>
               {comments &&
                 comments.map((comment) => (
                   <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
-                     <Image  src={userImag} alt=" User Image" />
+                    <Image src={userImag} alt=" User Image" />
                     <div>
-                     
                       <h2>{comment.name}</h2>
                       <p>
                         {new Date(comment.date_created).toLocaleDateString(
@@ -221,7 +221,7 @@ const PostPage = async ({
                             month: "long",
                             day: "numeric",
                             year: "numeric",
-                          }
+                          },
                         )}
                       </p>
                       <p>{comment.description}</p>
