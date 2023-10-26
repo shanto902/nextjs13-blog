@@ -20,8 +20,17 @@
   "archivedPage": {
     "submitButton": "অণুরোধ করুন",
     "hoverTitle": "আর্টিকেলটি সংগ্রহ করতে চাইলে আমাদের সাথে যোগাযোগ করুন",
-    "InputName": "আপনার নাম",
-    "InputEmail": "আপনার ইমেইল"
+    "inputName": "আপনার নাম",
+    "inputEmail": "আপনার ইমেইল"
+  },
+
+  "commentsSection": {
+    "comment": "কমেন্ট",
+    "submitButton": "কমেন্ট করুন",
+    "title": "আপনার মতামত দিন",
+    "description": "আপনার মন্তব্য এখানে লিখুন",
+    "inputName": "আপনার নাম",
+    "inputEmail": "আপনার ইমেইল"
   },
 
 

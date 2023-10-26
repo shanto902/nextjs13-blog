@@ -19,14 +19,23 @@
   "archivedPage": {
     "submitButton": "Request",
     "hoverTitle": "Contact us to collect constitution",
-    "InputName": "Your Name",
-    "InputEmail": "Your Email"
+    "inputName": "Your Name",
+    "inputEmail": "Your Email"
   },
     "mainBody":{
         "moreCollection": "More Collection",
         "studentProjects":  "Student Projects",
         "seeMore": "See More"
 
+    },
+
+    "commentsSection": {
+      "comment": "Comment",
+      "submitButton": "Comment",
+      "title": "Please let us know your opinion",
+      "description": "Write your opinion here",
+      "inputName": "Your Name",
+      "inputEmail": "Your Email"
     },
     "studentProjects": {
       "sliderTitle": "Among the final projects of students of Architecture Department of BUET 3 selected projects are highlighted here:",

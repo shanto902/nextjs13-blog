@@ -31,8 +31,8 @@ const ArchiveCard = async ({
               {dictionary.archivedPage.hoverTitle}
             </h3>
             <InputFormArchived
-              name={dictionary.archivedPage.InputName}
-              email={dictionary.archivedPage.InputEmail}
+              name={dictionary.archivedPage.inputName}
+              email={dictionary.archivedPage.inputEmail}
             />
             <button className=" w-fit self-center btn px-4 py-2 rounded-lg">
               {dictionary.archivedPage.submitButton}

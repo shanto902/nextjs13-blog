@@ -5,6 +5,9 @@ import PostHero from "@/components/post/PostHero";
 import PostBody from "@/components/post/PostBody";
 import directus from "@/lib/directus";
 import Image from "next/image";
+import CommentsInput from "@/components/comments/CommentsInput";
+import { getDictionary } from "@/lib/getDictionary";
+import userImag from "@/assets/userImage.svg";
 
 export const generateStaticParams = async () => {
   try {
@@ -110,13 +113,58 @@ const PostPage = async ({
 
   const post = await getPostData();
 
+  const getCommentsData = async () => {
+    try {
+      const comments = await directus.items("comments").readByQuery({
+        filter: {
+          _and: [
+            {
+              post_slug: {
+                _eq: post.slug,
+              },
+              status: {
+                _eq: "published",
+              },
+            },
+          ],
+        },
+
+        fields: ["*"],
+      });
+
+      return comments.data;
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching category");
+    }
+  };
+
+  const comments = await getCommentsData();
+
+
   if (!post) {
     return notFound();
   }
+
+
+  const dictionary = await getDictionary(locale);
+
+  const getLocalizedNumber = (number: number, locale: string) => {
+    const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+    if (locale === "en") {
+      return numbersInEnglish[number - 1] || number.toString();
+    } else if (locale === "bn") {
+      return numbersInBengali[number - 1] || number.toString();
+    } else {
+      return number.toString();
+    }
+  };
   return (
-    <div className=" relative max-w-7xl mx-auto">
+    <div className=" relative max-w-[1380px] mx-auto">
       {post.left_add && (
-        <div className=" hidden xl:block fixed top-72 left-12">
+        <div className=" hidden xl:block fixed top-72 ">
           <Image
             className=" max-h-[400px] object-cover object-center "
             width={100}
@@ -145,6 +193,43 @@ const PostPage = async ({
               />
             </div>
           )}
+        </div>
+        <div className="flex gap-10">
+          <CommentsInput
+            title={dictionary.commentsSection.title}
+            descriptionPlaceholder={dictionary.commentsSection.description}
+            inputName={dictionary.commentsSection.inputName}
+            inputEmail={dictionary.commentsSection.inputEmail}
+            submitButton={dictionary.commentsSection.submitButton}
+            postId={post.id}
+            postSlug={post.slug}
+          />
+          <div className=" flex-1">
+            <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">{comments && getLocalizedNumber(comments?.length, locale)} {dictionary.commentsSection.comment}</h3>
+            <div>
+              {comments &&
+                comments.map((comment) => (
+                  <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
+                     <Image  src={userImag} alt=" User Image" />
+                    <div>
+                     
+                      <h2>{comment.name}</h2>
+                      <p>
+                        {new Date(comment.date_created).toLocaleDateString(
+                          `${locale}`,
+                          {
+                            month: "long",
+                            day: "numeric",
+                            year: "numeric",
+                          }
+                        )}
+                      </p>
+                      <p>{comment.description}</p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
       </PaddingContainer>
     </div>

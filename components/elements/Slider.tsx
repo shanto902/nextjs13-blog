@@ -9,7 +9,6 @@ import Image from "next/image";
 import { StudentPost } from "@/types/collection";
 
 const Slider = ({ studentPosts }: { studentPosts: StudentPost[] }) => {
-  console.log(studentPosts);
   return (
     <Swiper navigation={true} modules={[Navigation]}>
       {studentPosts.map((post) => (

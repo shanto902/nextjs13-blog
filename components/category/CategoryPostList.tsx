@@ -37,7 +37,6 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
 
   const renderPostLayout = (post: Post, index: number) => {
     const randomLayout = possibleLayouts[index % possibleLayouts.length];
-    console.log(randomLayout);
     return (
       <LayoutComponent
         post={post}
