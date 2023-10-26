@@ -148,8 +148,8 @@ const PostPage = async ({
   const dictionary = await getDictionary(locale);
 
   const getLocalizedNumber = (number: number, locale: string) => {
-    const numbersInEnglish = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    const numbersInBengali = ["০","১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    const numbersInEnglish = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const numbersInBengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
 
     if (locale === "en") {
       return numbersInEnglish[number - 1] || number.toString();
@@ -204,7 +204,7 @@ const PostPage = async ({
           />
           <div className=" flex-1">
             <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">
-              {comments && getLocalizedNumber(comments?.length, locale)}{" "}
+              {comments && getLocalizedNumber(comments?.length + 1, locale)}{" "}
               {dictionary.commentsSection.comment}
             </h3>
             <div>
