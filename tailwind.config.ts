@@ -17,13 +17,11 @@ const config: Config = {
           ...require("daisyui/src/theming/themes")["[data-theme=corporate]"],
           accent: "black",
           secondary: "white",
-        
         },
         dark: {
           ...require("daisyui/src/theming/themes")["[data-theme=business]"],
           accent: "white",
           secondary: "black",
-        
         },
       },
     ],

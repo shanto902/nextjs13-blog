@@ -70,8 +70,6 @@ const page = async ({
     notFound();
   }
 
-  
-
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
