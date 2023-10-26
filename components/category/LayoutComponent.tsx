@@ -3,7 +3,7 @@ import { AppWindow, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { format } from "date-fns";
+
 interface LayoutProps {
   post: Post;
   locale: string;

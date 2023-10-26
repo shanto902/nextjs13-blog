@@ -83,9 +83,10 @@ const CategoryPage = async ({
       if (locale === "en") {
         return category?.data?.[0];
       } else {
-        
         const fetchedCategory = category?.data?.[0];
-        const publishedPosts = fetchedCategory.posts.filter((post: any) => post.status === "published");
+        const publishedPosts = fetchedCategory.posts.filter(
+          (post: any) => post.status === "published",
+        );
         const localizedCategory = {
           ...fetchedCategory,
           title: fetchedCategory.translations[0].title,
