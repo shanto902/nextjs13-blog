@@ -21,7 +21,9 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   };
 
   const currentPosts = posts.slice(startIndex, endIndex);
-  const publishedPosts = currentPosts.filter((post) => post.status === "published");
+  const publishedPosts = currentPosts.filter(
+    (post) => post.status === "published",
+  );
   const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
 
   // Shuffle the array using the Fisher-Yates algorithm
@@ -61,8 +63,6 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     const pageNumbers = Array.from(Array(totalPages).keys()).map(
       (page) => page + 1,
     );
-
-
 
     return (
       <div className=" w-full flex gap-5 justify-center items-center mt-20">

@@ -1,6 +1,6 @@
 export interface Post {
   id: string;
-  status:string;
+  status: string;
   title: string;
   description: string;
   category: Category;

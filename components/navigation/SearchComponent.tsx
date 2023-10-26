@@ -11,7 +11,13 @@ import LangSwitcher from "../elements/LangSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Post } from "@/types/collection";
 
-const SearchComponent = ({ locale, posts }: { locale: string, posts:Post[] }) => {
+const SearchComponent = ({
+  locale,
+  posts,
+}: {
+  locale: string;
+  posts: Post[];
+}) => {
   const [isInputFocused, setInputFocused] = useState(false); // Initialize state to track input focus
 
   const handleInputFocus = () => {

@@ -83,9 +83,8 @@ const CategoryPage = async ({
       if (locale === "en") {
         return category?.data?.[0];
       } else {
-        
         const fetchedCategory = category?.data?.[0];
-     
+
         const localizedCategory = {
           ...fetchedCategory,
           title: fetchedCategory.translations[0].title,
@@ -117,7 +116,6 @@ const CategoryPage = async ({
   };
 
   const category = await getCategoryData();
-
 
   if (!category) {
     notFound();
