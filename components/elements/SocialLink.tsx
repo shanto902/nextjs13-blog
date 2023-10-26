@@ -26,17 +26,17 @@ const SocialLink = ({
     }
   };
   return (
-    <Link href={link}>
+    <a href={link} target="_blank" rel="noopener noreferrer">
       <div
         className={`${
           isShareURL
-            ? "px-3 py-2 bg-neutral-200 rounded-md text-neutral-700 hover:bg-neutral-800 hover:text-neutral-100 duration-100 ease-in-out transition-colors "
+            ? "px-2 py-2 bg-neutral-200 rounded-full text-neutral-700 hover:bg-neutral-800 hover:text-neutral-100 duration-100 ease-in-out transition-colors "
             : " bg-black rounded-full text-white p-2"
         }`}
       >
         {getIcon(platform)}
       </div>
-    </Link>
+    </a>
   );
 };
 
