@@ -1,8 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Post } from "@/types/collection";
-import Link from "next/link";
-import Image from "next/image";
 import LayoutComponent from "./LayoutComponent";
 
 interface CategoryPostListProps {
@@ -23,7 +21,7 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   };
 
   const currentPosts = posts.slice(startIndex, endIndex);
-
+  const publishedPosts = currentPosts.filter((post) => post.status === "published");
   const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
 
   // Shuffle the array using the Fisher-Yates algorithm
@@ -46,30 +44,6 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     );
   };
 
-  // const renderPostLayout = (post: Post, index: number) => {
-  //   switch (index % 8) {
-  //     case 0:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={0} />;
-  //     case 1:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={1} />;
-  //     case 2:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={2} />;
-  //     case 3:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={3} />;
-  //     case 4:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={4} />;
-  //     case 5:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={5} />;
-  //     case 6:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={6} />;
-  //     case 7:
-  //       return <LayoutComponent post={post} locale={locale} customLayout={7} />;
-  //     // Add cases for other layout components
-  //     default:
-  //       return <div key={post.title}>Something went wrong</div>;
-  //   }
-  // };
-
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -87,6 +61,8 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     const pageNumbers = Array.from(Array(totalPages).keys()).map(
       (page) => page + 1,
     );
+
+
 
     return (
       <div className=" w-full flex gap-5 justify-center items-center mt-20">
@@ -110,7 +86,7 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   return (
     <div>
       <div className=" grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5">
-        {currentPosts.map((post, index) => (
+        {publishedPosts.map((post, index) => (
           <div
             className={`${
               index === 0 ? "md:col-span-2" : index === 5 ? "md:col-span-2" : ""

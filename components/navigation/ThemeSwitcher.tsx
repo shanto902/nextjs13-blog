@@ -27,14 +27,14 @@ const ThemeSwitcher = () => {
   }, [theme]);
 
   return (
-    <label className="swap swap-rotate border-2 border-accent rounded-full  w-10 h-10">
+    <label className="swap swap-rotate border border-accent rounded-full  w-7 h-7">
       {/* Hidden checkbox controls the state */}
       <input type="checkbox" onClick={toggleTheme} />
 
       {theme === "dark" ? (
         // Sun icon (for dark theme)
         <svg
-          className="w-6 h-6 fill-white"
+          className="w-5 h-5 fill-white"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -43,7 +43,7 @@ const ThemeSwitcher = () => {
       ) : (
         // Moon icon (for light theme)
         <svg
-          className="w-6 h-6 fill-black"
+          className="w-5 h-5 fill-black"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >

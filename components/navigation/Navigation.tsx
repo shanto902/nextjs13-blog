@@ -6,8 +6,53 @@ import MobileDrawer from "./MobileDrawer";
 import { getDictionary } from "@/lib/getDictionary";
 import HeaderLogo from "./HeaderLogo";
 import SideLogo from "./SideLogo";
+import directus from "@/lib/directus";
 
 const Navigation = async ({ locale }: { locale: string }) => {
+  const getAllPosts = async () => {
+    try {
+      const posts = await directus.items("post").readByQuery({
+        filter: {
+          status: {
+            _eq: "published",
+          },
+        },
+        fields: [
+          "id",
+          "slug",
+          "title",
+          "image",
+          "category.slug",
+          "category.id",
+          "category.title",
+          "category.translations.*",
+          "translations.*",
+        ],
+      });
+      if (locale === "en") {
+        return posts.data;
+      } else {
+        const localizedPost = posts.data?.map((post) => {
+          return {
+            ...post,
+            title: post.translations[0].title,
+            category: {
+              ...post.category,
+              title: post.category.translations[0].title,
+            },
+          };
+        });
+
+        return localizedPost;
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching posts");
+    }
+  };
+
+  const posts = await getAllPosts();
+
   const dictionary = await getDictionary(locale);
 
   const liStyle = "hover:text-red-800 flex-shrink-0";
@@ -22,14 +67,14 @@ const Navigation = async ({ locale }: { locale: string }) => {
             <SideLogo locale={locale} dictionary={dictionary} />
           </div>
           <div className=" xl:block hidden">
-            <div className=" flex items-center justify-between py-5">
+            <div className=" flex items-center justify-between gap-2 py-5">
               {/* Category Links */}
-              <nav>
+              <nav className=" w-full">
                 <ul
-                  className={`flex items-center flex-nowrap whitespace-nowrap uppercase  overflow-hidden w-auto mr-2 ${
+                  className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2 font-bold${
                     locale === "en"
-                      ? " text-[13px] gap-2 font-bold "
-                      : " text-[20px] gap-4 font-semibold"
+                      ? " text-[13px]"
+                      : " text-[17px]"
                   }`}
                 >
                   <li className={liStyle}>
@@ -86,7 +131,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               </nav>
 
               {/* Search  */}
-              <SearchComponent locale={locale} />
+              <SearchComponent locale={locale}  posts={posts || []} />
             </div>
             <hr className=" border-2 " />
           </div>

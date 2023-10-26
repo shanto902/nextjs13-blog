@@ -83,15 +83,14 @@ const CategoryPage = async ({
       if (locale === "en") {
         return category?.data?.[0];
       } else {
+        
         const fetchedCategory = category?.data?.[0];
-        const publishedPosts = fetchedCategory.posts.filter(
-          (post: any) => post.status === "published",
-        );
+     
         const localizedCategory = {
           ...fetchedCategory,
           title: fetchedCategory.translations[0].title,
           description: fetchedCategory.translations[0].description,
-          posts: publishedPosts.map((post: any) => {
+          posts: fetchedCategory.posts.map((post: any) => {
             return {
               ...post,
               title: post.translations[0].title,
@@ -118,6 +117,7 @@ const CategoryPage = async ({
   };
 
   const category = await getCategoryData();
+
 
   if (!category) {
     notFound();

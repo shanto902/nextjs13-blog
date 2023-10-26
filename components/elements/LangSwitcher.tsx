@@ -14,9 +14,9 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
     return segments.join("/");
   };
   return (
-    <div className="bg-base-100 border-accent border-2 w-20 h-10 rounded-3xl flex items-center justify-around">
+    <div className="bg-base-100 border-accent border w-20 h-7 rounded-3xl flex items-center justify-around">
       <button
-        className={` w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center ${
+        className={` w-5 h-5 rounded-full text-sm font-bold flex justify-center items-center ${
           locale === "en" ? " p-2  text-red-500" : " "
         }`}
       >
@@ -31,7 +31,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
       </button>
       <div className=" w-[1px] bg-accent h-7"></div>
       <button
-        className={` w-7 h-7 rounded-full text-sm font-bold flex justify-center items-center ${
+        className={` w-5 h-5 rounded-full text-sm font-bold flex justify-center items-center ${
           locale === "bn" ? " p-2 text-red-500  " : " "
         }`}
       >
