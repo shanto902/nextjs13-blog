@@ -15,43 +15,42 @@ const Footer = async ({ locale }: { locale: string }) => {
     <div className=" pt-8 mt-10 border-t bg-base-100 relative">
       <PaddingContainer>
         {/* Title Description */}
-        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-5  py-3">
-          <div className=" col-span-1 ">
+        <div className=" grid lg:grid-cols-4 grid-cols-2 gap-5  py-3">
+          <div className=" col-span-2 ">
             <Image src={logo} alt="Logo" width={135} height={160} />
 
-            <p className=" mt-4 grid grid-cols-5  w-fit space-y-2  text-sm">
+            <p className=" mt-4 grid grid-cols-8 col-span-2  w-fit space-y-2  text-sm">
               <span className=" font-bold mt-2">
                 {dictionary.footer.editor}
               </span>{" "}
               <span className=" text-center"> : </span>{" "}
-              <span className=" col-span-3 text-left">
+              <span className=" col-span-6 text-left">
                 {dictionary.footer.editorName}
               </span>
               <span className=" font-bold">{dictionary.footer.email}</span>{" "}
               <span className=" text-center"> : </span>{" "}
-              <span className=" col-span-3 text-left">
+              <span className=" col-span-6 text-left">
                 sthapattyanonirman@gmail.com
               </span>
               <span className=" font-bold">{dictionary.footer.phone}</span>{" "}
               <span className=" text-center"> : </span>{" "}
-              <span className=" col-span-3 text-left">
+              <span className=" col-span-6 text-left">
                 {dictionary.footer.phoneNo}
               </span>
               <span className=" font-bold">{dictionary.footer.address}</span>{" "}
               <span className=" text-center"> : </span>{" "}
-              <span className=" col-span-3 text-left">
-                {dictionary.footer.addressValue}
+              <span className=" col-span-6 text-left">
+                {dictionary.footer.addressValue} {dictionary.footer.addressValue2}
               </span>
-              <span className=" col-span-5">
-                {dictionary.footer.addressValue2}
-              </span>
+           
             </p>
-            <button className=" btn text-secondary hover:text-accent bg-accent mt-4 ">
+            <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 ">
               Editorial Board
             </button>
           </div>
 
-          <ul className="col-span-2 grid lg:grid-cols-2 grid-cols-1 gap-x-8">
+         <div className="col-span-2">
+         <ul className=" grid grid-cols-2 w-full gap-x-5 gap-y-2">
             <Link className={liStyle} href={`/${locale}/news`}>
               <li>{dictionary.navigation.links.news}</li>
             </Link>
@@ -93,7 +92,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               {" "}
               <li>{dictionary.navigation.links.environmentPlaning}</li>
             </Link>
-            <div className=" col-span-2 place-self-end">
+            <div className=" col-span-2 place-self-end pt-5">
               <div className=" flex gap-3 items-center mt-2">
                 <SocialLink
                   platform="twitter"
@@ -114,6 +113,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               </div>
             </div>
           </ul>
+         </div>
 
           {/* Social and Currently At Section  */}
         </div>

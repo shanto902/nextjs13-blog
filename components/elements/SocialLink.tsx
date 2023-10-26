@@ -28,13 +28,13 @@ const SocialLink = ({
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <div
-        className={`${
+        className={` p-1 ${
           isShareURL
-            ? "px-2 py-2 bg-accent rounded-full text-secondary hover:bg-base-100 hover:text-red-800 duration-100 ease-in-out transition-colors "
-            : " bg-accent rounded-full text-secondary hover:bg-secondary hover:text-red-800 p-2"
+            ? "bg-accent rounded-full text-secondary hover:bg-base-100 hover:text-red-800 duration-100 ease-in-out transition-colors "
+            : " bg-accent rounded-full text-secondary hover:bg-secondary hover:text-red-800 duration-100 ease-in-out "
         }`}
       >
-        {getIcon(platform)}
+      <p className="w-6 h-6">  {getIcon(platform)}</p>
       </div>
     </a>
   );

@@ -53,13 +53,13 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             customLayout === 0
               ? "@lg:text-3xl @md:text-2xl"
               : customLayout === 1
-              ? " @lg:text-4xl @md:text-3xl @lg:underline-3"
+              ? " @lg:text-4xl @md:text-3xl"
               : customLayout === 2
               ? " @lg:text-3xl @md:text-2xl"
               : customLayout === 3
               ? " @lg:text-3xl @md:text-2xl"
               : customLayout === 5
-              ? " @lg:text-4xl @md:text-3xl @lg:underline-3"
+              ? " @lg:text-4xl @md:text-3xl"
               : customLayout === 4
               ? " @lg:text-3xl @md:text-2xl "
               : customLayout === 6
@@ -67,7 +67,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
               : customLayout === 7
               ? " @lg:text-3xl @md:text-2xl "
               : ""
-          } underline underline-offset-[12px] decoration-[#0064c6] @md:pb-5 leading-relaxed py-4 text-xl`}
+          } underline  decoration-[#0064c6] @md:pb-5 leading-relaxed py-4 text-xl`}
         >
           {" "}
           {post.title}

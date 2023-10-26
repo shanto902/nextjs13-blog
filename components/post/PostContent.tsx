@@ -1,6 +1,6 @@
-import { getReadingTime, getRelativeDate } from "@/lib/helpers";
+
 import { Post } from "@/types/collection";
-import { AppWindow, ArrowRight, User } from "lucide-react";
+import { AppWindow, User } from "lucide-react";
 import Image from "next/image";
 
 interface PostContentProps {

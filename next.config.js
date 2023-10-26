@@ -8,6 +8,9 @@ const nextConfig = {
             },{
                 hostname: "sthapattaya-o-nirman.up.railway.app",
                 protocol: "https"
+            },{
+                hostname: "directus-production-616f.up.railway.app",
+                protocol: "https"
             }
         ]
     }
