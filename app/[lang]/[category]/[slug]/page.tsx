@@ -95,6 +95,7 @@ const PostPage = async ({
           title: postData?.translations?.[0]?.title,
           description: postData?.translations?.[0]?.description,
           body: postData?.translations?.[0]?.body,
+          image_side_title: postData?.translations?.[0]?.image_side_title,
           category: {
             ...postData?.category,
             title: postData?.category?.translations?.[0]?.title,

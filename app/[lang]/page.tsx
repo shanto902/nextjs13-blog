@@ -54,6 +54,7 @@ export default async function Home({
             title: post.translations[0].title,
             description: post.translations[0].description,
             body: post.translations[0].body,
+            image_side_title: post.translations[0].image_side_title,
             author: {
               first_name: post.author.translations[0].first_name,
               last_name: post.author.translations[0].last_name,

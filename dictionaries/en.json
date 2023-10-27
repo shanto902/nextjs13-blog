@@ -47,6 +47,14 @@
       "published" : "Published Magazine",
        "website" : "Website"
     },
+
+    "magazinePage": {
+      "collectMagazine": "Contact us to collect the archive",
+      "number" : "Number",
+      "inputName": "Your Name",
+      "inputEmail": "Your Email",
+      "submitButton": "Request"
+    },
     
     "footer":{
         "editor": "Editor",

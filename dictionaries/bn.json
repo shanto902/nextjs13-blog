@@ -51,6 +51,14 @@
     "published" : "প্রকাশিত ম্যাগাজিন",
     "website" : "ওয়েবসাইট"
   },
+
+  "magazinePage": {
+    "collectMagazine": "আর্কাইভটি সংগ্রহ করতে চাইলে আমাদের সাথে যোগাযোগ করুন",
+    "number" : "সংখ্যা",
+    "inputName" : "আপনার নাম",
+    "inputEmail": "আপনার ইমেইল",
+    "submitButton": "অণুরোধ করুন"
+  },
   "footer": {
     "editor": "সম্পাদক",
     "editorName": "স্থপতি কাজী আনিস উদ্দিন ইকবাল",
