@@ -3,7 +3,7 @@ import { Post } from "@/types/collection";
 import Image from "next/image";
 import React from "react";
 import InputFormArchived from "./InputFormArchived";
-import { AppWindow, User } from "lucide-react";
+import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 
 const ArchiveCard = async ({
   post,
@@ -40,18 +40,18 @@ const ArchiveCard = async ({
           </div>
         </div>
       </div>
-      <h2 className=" max-w-[300px] text-center mt-4 font-bold mb-2">
+      <h2 className="  text-center mt-4 font-bold mb-2">
         {post.title}
       </h2>
       <div
-        className={` gap-2 text-xs @md:text-sm flex flex-wrap items-center  pb-5`}
+        className={` gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5`}
       >
-        <User className="w-4 h-4" />
-        <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
-        <AppWindow className="w-4 h-4" />
-        <div>{`${post.category.title}`}</div>
-        <AppWindow className="w-4 h-4" />
-        <div>
+        
+        <div className=" flex flex-row items-center gap-2"><User className="w-4 h-4" />{`${post.author.first_name} ${post.author.last_name}`}</div>
+        
+        <div className=" flex flex-row items-center gap-2"><PanelRightCloseIcon className="w-4 h-4" />{`${post.category.title}`}</div>
+        
+        <div className=" flex flex-row items-center gap-2"> <AppWindow className="w-4 h-4" />
           {new Date(post.date_created).toLocaleDateString(`${locale}`, {
             month: "long",
             day: "numeric",

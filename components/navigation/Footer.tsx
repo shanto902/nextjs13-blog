@@ -7,12 +7,14 @@ import Image from "next/image";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 
-const Footer = async ({ locale }: { locale: string }) => {
+
+const Footer = async ({ locale  }: { locale: string }) => {
   const liStyle =
     "pt-2 font-bold border-t-4 uppercase hover:text-red-800  hover:border-red-800";
   const dictionary = await getDictionary(locale);
+
   return (
-    <div className=" pt-8 mt-10 border-t bg-base-100 relative">
+    <div className=" pt-8 mt-10 border-t bg-base-100 relative z-10">
       <PaddingContainer>
         {/* Title Description */}
         <div className=" grid lg:grid-cols-4 grid-cols-2 gap-5  py-3">
@@ -40,82 +42,85 @@ const Footer = async ({ locale }: { locale: string }) => {
               <span className=" font-bold">{dictionary.footer.address}</span>{" "}
               <span className=" text-center"> : </span>{" "}
               <span className=" col-span-6 text-left">
-                {dictionary.footer.addressValue} {dictionary.footer.addressValue2}
+                {dictionary.footer.addressValue}{" "}
+                {dictionary.footer.addressValue2}
               </span>
-           
             </p>
-            <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 ">
-              Editorial Board
-            </button>
           </div>
 
-         <div className="col-span-2">
-         <ul className=" grid grid-cols-2 w-full gap-x-5 gap-y-2">
-            <Link className={liStyle} href={`/${locale}/news`}>
-              <li>{dictionary.navigation.links.news}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/concepts`}>
-              <li>{dictionary.navigation.links.concepts}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/arts`}>
-              <li>{dictionary.navigation.links.arts}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/heritage`}>
-              {" "}
-              <li>{dictionary.navigation.links.heritage}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/personality`}>
-              {" "}
-              <li>{dictionary.navigation.links.personality}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/dialogue`}>
-              {" "}
-              <li>{dictionary.navigation.links.dialogue}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/projects`}>
-              {" "}
-              <li>{dictionary.navigation.links.projects}</li>
-            </Link>
-            <Link className={liStyle} href={`/${locale}/student-projects`}>
-              {" "}
-              <li>{dictionary.navigation.links.studentProjects}</li>
-            </Link>
+          <div className="col-span-2">
+            <ul className=" grid  text-sm grid-cols-2 w-full gap-x-5 gap-y-2">
+              <Link className={liStyle} href={`/${locale}/news`}>
+                <li>{dictionary.navigation.links.news}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/concepts`}>
+                <li>{dictionary.navigation.links.concepts}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/arts`}>
+                <li>{dictionary.navigation.links.arts}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/heritage`}>
+                {" "}
+                <li>{dictionary.navigation.links.heritage}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/personality`}>
+                {" "}
+                <li>{dictionary.navigation.links.personality}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/dialogue`}>
+                {" "}
+                <li>{dictionary.navigation.links.dialogue}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/projects`}>
+                {" "}
+                <li>{dictionary.navigation.links.projects}</li>
+              </Link>
+              <Link className={liStyle} href={`/${locale}/student-projects`}>
+                {" "}
+                <li>{dictionary.navigation.links.studentProjects}</li>
+              </Link>
 
-            <Link className={liStyle} href={`/${locale}/archived`}>
-              {" "}
-              <li>{dictionary.navigation.links.archived}</li>
-            </Link>
-            <Link
-              className={liStyle}
-              href={`/${locale}/environment-and-planning`}
-            >
-              {" "}
-              <li>{dictionary.navigation.links.environmentPlaning}</li>
-            </Link>
-            <div className=" col-span-2 place-self-end pt-5">
-              <div className=" flex gap-3 items-center mt-2">
-                <SocialLink
-                  platform="twitter"
-                  link={siteConfig.socialLinks.twitter}
-                />
-                <SocialLink
-                  platform="youtube"
-                  link={siteConfig.socialLinks.youtube}
-                />
-                <SocialLink
-                  platform="facebook"
-                  link={siteConfig.socialLinks.facebook}
-                />
-                <SocialLink
-                  platform="linkedin"
-                  link={siteConfig.socialLinks.linkedin}
-                />
-              </div>
-            </div>
-          </ul>
-         </div>
+              <Link className={liStyle} href={`/${locale}/archived`}>
+                {" "}
+                <li>{dictionary.navigation.links.archived}</li>
+              </Link>
+              <Link
+                className={liStyle}
+                href={`/${locale}/environment-and-planning`}
+              >
+                {" "}
+                <li>{dictionary.navigation.links.environmentPlaning}</li>
+              </Link>
+            </ul>
+          </div>
 
           {/* Social and Currently At Section  */}
+        </div>
+
+        <div className=" flex items-center w-full justify-between">
+
+        <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4 ">
+            Editorial Board
+          </button>
+          <div className=" flex gap-3 items-center mt-2">
+            <SocialLink
+              platform="twitter"
+              link={siteConfig.socialLinks.twitter}
+            />
+            <SocialLink
+              platform="youtube"
+              link={siteConfig.socialLinks.youtube}
+            />
+            <SocialLink
+              platform="facebook"
+              link={siteConfig.socialLinks.facebook}
+            />
+            <SocialLink
+              platform="linkedin"
+              link={siteConfig.socialLinks.linkedin}
+            />
+          </div>
+        
         </div>
 
         {/* Bottom Section */}

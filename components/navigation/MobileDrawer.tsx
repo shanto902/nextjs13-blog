@@ -12,7 +12,7 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
 
   const liStyle = "";
   return (
-    <div className=" xl:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
+    <div className=" lg:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
       <Link href={`/${locale}/`}>
         <Image src={logo} alt="logo" width={60} height={60} />
       </Link>

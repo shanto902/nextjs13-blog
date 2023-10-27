@@ -85,7 +85,6 @@ const PostPage = async ({
       });
 
       const postData = post?.data?.[0];
-
       if (locale === "en") {
         return postData;
       } else {
@@ -162,18 +161,7 @@ const PostPage = async ({
     }
   };
   return (
-    <div className=" relative max-w-[1380px] mx-auto">
-      {post.left_add && (
-        <div className=" hidden xl:block fixed top-72 ">
-          <Image
-            className=" max-h-[400px] object-cover object-center "
-            width={100}
-            height={400}
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.left_add}?key=optimized`}
-            alt="Your Image"
-          />
-        </div>
-      )}
+    <div className=" relative  mx-auto">
       <PaddingContainer>
         <div className=" space-y-10 relative">
           <PostHero locale={locale} post={post} />

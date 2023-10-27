@@ -14,7 +14,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
     return segments.join("/");
   };
   return (
-    <div className="bg-base-100 border-accent border w-20 h-7 rounded-3xl flex items-center justify-around">
+    <div className="bg-base-100 border-accent border w-16 h-7 rounded-3xl flex items-center justify-around">
       <button
         className={` w-5 h-5 rounded-full text-sm font-bold flex justify-center items-center ${
           locale === "en" ? " p-2  text-red-500" : " "
@@ -41,7 +41,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
           locale="bn"
         >
           {" "}
-          BN
+          বাং
         </Link>
       </button>
     </div>

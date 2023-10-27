@@ -34,7 +34,7 @@ const SocialLink = ({
             : " bg-accent rounded-full text-secondary hover:bg-secondary hover:text-red-800 duration-100 ease-in-out "
         }`}
       >
-      <p className="w-6 h-6">  {getIcon(platform)}</p>
+        <p className="w-6 h-6"> {getIcon(platform)}</p>
       </div>
     </a>
   );

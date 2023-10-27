@@ -22,6 +22,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
           "slug",
           "title",
           "image",
+          "left_add",
           "category.slug",
           "category.id",
           "category.title",
@@ -64,15 +65,15 @@ const Navigation = async ({ locale }: { locale: string }) => {
       <div className=" sticky z-40 top-0 left-0 right-0 bg-base-100">
         <PaddingContainer>
           <div className="mr-10">
-            <SideLogo locale={locale} dictionary={dictionary} />
+            <SideLogo locale={locale} dictionary={dictionary} posts ={posts || []} />
           </div>
-          <div className=" xl:block hidden">
+          <div className=" lg:block hidden">
             <div className=" flex items-center justify-between gap-2 py-5">
               {/* Category Links */}
               <nav className=" w-full">
                 <ul
                   className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2 font-bold${
-                    locale === "en" ? " text-[13px]" : " text-[17px]"
+                    locale === "en" ? " text-[12px]" : " text-[15px]"
                   }`}
                 >
                   <li className={liStyle}>

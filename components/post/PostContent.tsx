@@ -1,4 +1,3 @@
-
 import { Post } from "@/types/collection";
 import { AppWindow, User } from "lucide-react";
 import Image from "next/image";

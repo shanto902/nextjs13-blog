@@ -1,5 +1,5 @@
 import { Post } from "@/types/collection";
-import { AppWindow, User } from "lucide-react";
+import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -23,7 +23,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           : customLayout === 2
           ? "md:flex-col md:p-12 "
           : customLayout === 3
-          ? " md:mr-36"
+          ? " md:mr-24"
           : customLayout === 4
           ? " "
           : customLayout === 5
@@ -51,21 +51,21 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         <h3
           className={`${
             customLayout === 0
-              ? "@lg:text-3xl @md:text-2xl"
+              ? "@lg:text-2xl @md:text-xl"
               : customLayout === 1
-              ? " @lg:text-4xl @md:text-3xl"
+              ? " @lg:text-3xl @md:text-2xl"
               : customLayout === 2
-              ? " @lg:text-3xl @md:text-2xl"
+              ? " @lg:text-2xl @md:text-xl"
               : customLayout === 3
-              ? " @lg:text-3xl @md:text-2xl"
+              ? " @lg:text-2xl @md:text-xl"
               : customLayout === 5
-              ? " @lg:text-4xl @md:text-3xl"
-              : customLayout === 4
-              ? " @lg:text-3xl @md:text-2xl "
-              : customLayout === 6
               ? " @lg:text-3xl @md:text-2xl"
+              : customLayout === 4
+              ? " @lg:text-2xl @md:text-xl "
+              : customLayout === 6
+              ? " @lg:text-2xl @md:text-xl"
               : customLayout === 7
-              ? " @lg:text-3xl @md:text-2xl "
+              ? " @lg:text-2xl @md:text-xl "
               : ""
           } underline  decoration-[#0064c6] @md:pb-5 leading-relaxed py-4 text-xl`}
         >
@@ -76,13 +76,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         {/* Description Div  */}
 
         <p
-          className={`${
-            customLayout === 0
-              ? " max-w-[840px]"
-              : customLayout === 1
-              ? " "
-              : ""
-          } @lg:text-xl @md:text-lg text-base leading-snug line-clamp-6`}
+          className={` @lg:text-lg @md:text-md text-base leading-snug line-clamp-6`}
         >
           {post.description}
         </p>
@@ -90,22 +84,21 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         {/* Origin Text  */}
 
         <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center py-5 place-self-start">
-          <User className="w-4 h-4" />
-          <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
-          <AppWindow className="w-4 h-4" />
-          <div>{`${post.category.title}`}</div>
-          <AppWindow className="w-4 h-4" />
-          <div>
-            {" "}
-            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </div>
+         
+        <div className=" flex flex-row items-center gap-2"><User className="w-4 h-4" />{`${post.author.first_name} ${post.author.last_name}`}</div>
+        
+        <div className=" flex flex-row items-center gap-2"><PanelRightCloseIcon className="w-4 h-4" />{`${post.category.title}`}</div>
+        
+        <div className=" flex flex-row items-center gap-2"> <AppWindow className="w-4 h-4" />
+          {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
         </div>
-      </div>
+        </div>
 
+</div>
       <Image
         className={`${
           customLayout === 0
