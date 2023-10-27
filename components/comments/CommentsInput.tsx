@@ -20,7 +20,6 @@ const CommentsInput = ({
   postSlug: string;
 }) => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,7 +29,6 @@ const CommentsInput = ({
       setIsLoading(true);
       await directus.items("comments").createOne({
         name,
-        email,
         description,
         post: postId,
         status: "archived",
@@ -38,7 +36,6 @@ const CommentsInput = ({
       });
       setIsLoading(false);
       setName("");
-      setEmail("");
       setDescription("");
     } catch (error) {
       console.log(error);
@@ -71,18 +68,9 @@ const CommentsInput = ({
           className="input input-bordered w-full"
         />
         <input
-          type="email"
-          placeholder={inputEmail}
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          className="input input-bordered w-full"
-        />
-        <input
           className=" btn bg-red-700 text-white w-fit"
           type="submit"
-          value={submitButton}
+          value={isLoading ? "Loading":submitButton}
         />
       </form>
     </div>
