@@ -9,6 +9,8 @@ import CommentsInput from "@/components/comments/CommentsInput";
 import { getDictionary } from "@/lib/getDictionary";
 import userImag from "@/assets/userImage.svg";
 import SocialLink from "@/components/elements/SocialLink";
+import { Comments, Post } from "@/types/collection";
+import { getBlurData } from "@/utils/blur-data-generator";
 
 export const generateStaticParams = async () => {
   try {
@@ -20,14 +22,14 @@ export const generateStaticParams = async () => {
       },
       fields: ["slug", "category.slug"],
     });
-    const params = posts?.data?.map((post) => {
+    const params = posts?.data?.map((post:Post) => {
       return {
         category: post.category.slug as string,
         slug: post.slug as string,
         lang: "en",
       };
     });
-    const localizedParams = posts?.data?.map((post) => {
+    const localizedParams = posts?.data?.map((post:Post) => {
       return {
         category: post.category.slug as string,
         slug: post.slug as string,
@@ -112,7 +114,25 @@ const PostPage = async ({
     }
   };
 
-  const post = await getPostData();
+  const post = await getPostData(); // 
+  const processPostData = async (post: Post) => {
+    
+    const { base64 } = await getBlurData(`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`);
+  
+    // Create a new object with additional properties
+    const processedPost = {
+      ...post,
+      blurImg: base64,
+      author: { ...post.author },
+      category: { ...post.category },
+    };
+  
+    return processedPost; // Return the processed post
+  };
+
+  const processedPost = await processPostData(post); // Process the single post
+
+  
 
   const getCommentsData = async () => {
     try {
@@ -164,9 +184,9 @@ const PostPage = async ({
     <div className=" relative  mx-auto">
       <PaddingContainer>
         <div className=" space-y-10 relative">
-          <PostHero locale={locale} post={post} />
+          <PostHero locale={locale} post={processedPost} />
           <div className=" flex gap-10 flex-col md:flex-row">
-            <PostBody locale={locale} body={post.body} />
+            <PostBody locale={locale} body={processedPost.body} />
           </div>
 
           {/* Bottom Add  */}
@@ -176,8 +196,10 @@ const PostPage = async ({
                 className=" max-h-24 object-cover object-center "
                 width={600}
                 height={100}
-                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`}
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${processedPost.bottom_add}?key=optimized`}
                 alt="Your Image"
+                placeholder="blur"
+                blurDataURL={processedPost.blurImg}
               />
             </div>
           )}
@@ -218,7 +240,7 @@ const PostPage = async ({
             </div>
             <div>
               {comments &&
-                comments.map((comment) => (
+                comments.map((comment:Comments) => (
                   <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
                     <Image src={userImag} alt=" User Image" />
                     <div>

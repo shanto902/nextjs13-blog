@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import Footer from "@/components/navigation/Footer";
 
+
 const inter = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html lang={lang}>
       <body className={inter.className}>
         <Navigation locale={lang} />
-        <div className="pt-5 min-h-calc(100vh-300px)">{children}</div>
+       <div className="pt-5 min-h-calc(100vh-300px)">{children}</div>
         <Footer locale={lang} />
       </body>
     </html>

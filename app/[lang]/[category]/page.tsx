@@ -18,7 +18,7 @@ export const generateStaticParams = async () => {
     });
 
     const filteredCategories = categories?.data?.filter(
-      (category) => category.slug !== "student-projects",
+      (category:Category) => category?.slug !== "student-projects",
     );
 
     const params = filteredCategories?.map((category: { slug: string }) => {
@@ -132,7 +132,6 @@ const CategoryPage = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        {/* <PostList locale={locale} posts={typeCorrectedData.posts} /> */}
         <CategoryPostList
           locale={locale}
           posts={typeCorrectedData.posts.reverse()}

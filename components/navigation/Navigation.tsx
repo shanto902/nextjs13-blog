@@ -7,6 +7,7 @@ import { getDictionary } from "@/lib/getDictionary";
 import HeaderLogo from "./HeaderLogo";
 import SideLogo from "./SideLogo";
 import directus from "@/lib/directus";
+import { Post } from "@/types/collection";
 
 const Navigation = async ({ locale }: { locale: string }) => {
   const getAllPosts = async () => {
@@ -33,7 +34,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post) => {
+        const localizedPost = posts.data?.map((post:Post) => {
           return {
             ...post,
             title: post.translations[0].title,
