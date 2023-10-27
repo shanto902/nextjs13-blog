@@ -22,14 +22,14 @@ export const generateStaticParams = async () => {
       },
       fields: ["slug", "category.slug"],
     });
-    const params = posts?.data?.map((post:Post) => {
+    const params = posts?.data?.map((post: Post) => {
       return {
         category: post.category.slug as string,
         slug: post.slug as string,
         lang: "en",
       };
     });
-    const localizedParams = posts?.data?.map((post:Post) => {
+    const localizedParams = posts?.data?.map((post: Post) => {
       return {
         category: post.category.slug as string,
         slug: post.slug as string,
@@ -114,11 +114,12 @@ const PostPage = async ({
     }
   };
 
-  const post = await getPostData(); // 
+  const post = await getPostData(); //
   const processPostData = async (post: Post) => {
-    
-    const { base64 } = await getBlurData(`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`);
-  
+    const { base64 } = await getBlurData(
+      `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`,
+    );
+
     // Create a new object with additional properties
     const processedPost = {
       ...post,
@@ -126,13 +127,11 @@ const PostPage = async ({
       author: { ...post.author },
       category: { ...post.category },
     };
-  
+
     return processedPost; // Return the processed post
   };
 
   const processedPost = await processPostData(post); // Process the single post
-
-  
 
   const getCommentsData = async () => {
     try {
@@ -240,7 +239,7 @@ const PostPage = async ({
             </div>
             <div>
               {comments &&
-                comments.map((comment:Comments) => (
+                comments.map((comment: Comments) => (
                   <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
                     <Image src={userImag} alt=" User Image" />
                     <div>

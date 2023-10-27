@@ -10,8 +10,8 @@ import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import { Banner, Post } from "@/types/collection";
 import { Suspense } from "react";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { getBlurData } from "@/utils/blur-data-generator";
 
 export default async function Home({
@@ -48,7 +48,7 @@ export default async function Home({
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post:Post) => {
+        const localizedPost = posts.data?.map((post: Post) => {
           return {
             ...post,
             title: post.translations[0].title,
@@ -76,21 +76,7 @@ export default async function Home({
 
   const posts = await getAllPosts();
 
-  const processedPosts = await Promise.all(posts.map(async (post:Post) => {
-    const { base64 } = await getBlurData(`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`);
-    return { ...post,
-      blurImg : base64,
-      author: {
-        ...post.author
-      },
-      category: {
-        ...post.category
-      }, };
-  }));
-
-  if (!posts) {
-    notFound();
-  }
+  
 
   const getAllStudentPosts = async () => {
     try {
@@ -113,7 +99,7 @@ export default async function Home({
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post:Post) => {
+        const localizedPost = posts.data?.map((post: Post) => {
           return {
             ...post,
             title: post.translations[0].title,
@@ -153,7 +139,7 @@ export default async function Home({
       if (locale === "en") {
         return banners?.data || [];
       } else {
-        const localizedBanner = banners.data?.map((banner:Banner) => {
+        const localizedBanner = banners.data?.map((banner: Banner) => {
           return {
             ...banner,
             title: banner.translations[0].title,
@@ -169,30 +155,53 @@ export default async function Home({
     }
   };
 
+  const processedPosts = await Promise.all(
+    posts.map(async (post: Post) => {
+      const { base64 } = await getBlurData(
+        `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`,
+      );
+      return {
+        ...post,
+        blurImg: base64,
+        author: {
+          ...post.author,
+        },
+        category: {
+          ...post.category,
+        },
+      };
+    }),
+  );
+
+  if (!posts) {
+    notFound();
+  }
+
   const banners = await getAllBanners();
 
-  const processedBanners = await Promise.all(banners.map(async (banner:Banner) => {
-    const { base64 } = await getBlurData(`${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`);
-    return { ...banner, blurImg: base64 };
-  }));
-  
-  
+  const processedBanners = await Promise.all(
+    banners.map(async (banner: Banner) => {
+      const { base64 } = await getBlurData(
+        `${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`,
+      );
+      return { ...banner, blurImg: base64 };
+    }),
+  );
 
   return (
     <PaddingContainer>
-     
-     <Suspense fallback={<Skeleton height={500}/>}>
-     <Image
-        className=" object-cover object-center w-full mb-10"
-        src={coverPhoto}
-        width={1200}
-        height={500}
-        alt="Cover Photo"
-      />
-     </Suspense>
-  
+      <Suspense fallback={<Skeleton height={500} />}>
+        <Image
+          className=" object-cover object-center w-full mb-10"
+          src={coverPhoto}
+          width={1200}
+          height={500}
+          alt="Cover Photo"
+        />
+      </Suspense>
+
       <MainSlider banners={processedBanners} />
-     
+
       <main className=" h-auto space-y-10 mt-10">
         <PostList
           locale={locale}

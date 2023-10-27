@@ -42,7 +42,7 @@ const page = async ({
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post:Post) => {
+        const localizedPost = posts.data?.map((post: Post) => {
           return {
             ...post,
             title: post.translations[0].title,
@@ -75,7 +75,7 @@ const page = async ({
     <div className=" min-h-[50vh]">
       <PaddingContainer>
         <div className=" grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center">
-          {archivedPosts.map((post:Post) => (
+          {archivedPosts.map((post: Post) => (
             <ArchiveCard key={post.id} post={post} locale={locale} />
           ))}
         </div>
