@@ -238,27 +238,28 @@ const PostPage = async ({
               </div>
             </div>
             <Suspense fallback={<p>Load</p>}>
-            <div>
-              { comments.map((comment: Comments) => (
-                  <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
-                    <Image src={userImag} alt=" User Image" />
-                    <div>
-                      <h2>{comment.name}</h2>
-                      <p>
-                        {new Date(comment.date_created).toLocaleDateString(
-                          `${locale}`,
-                          {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          },
-                        )}
-                      </p>
-                      <p>{comment.description}</p>
+              <div>
+                {comments &&
+                  comments.map((comment: Comments) => (
+                    <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
+                      <Image src={userImag} alt=" User Image" />
+                      <div>
+                        <h2>{comment.name}</h2>
+                        <p>
+                          {new Date(comment.date_created).toLocaleDateString(
+                            `${locale}`,
+                            {
+                              month: "long",
+                              day: "numeric",
+                              year: "numeric",
+                            },
+                          )}
+                        </p>
+                        <p>{comment.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-            </div>
+                  ))}
+              </div>
             </Suspense>
           </div>
         </div>
