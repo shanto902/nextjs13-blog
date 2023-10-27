@@ -76,8 +76,6 @@ export default async function Home({
 
   const posts = await getAllPosts();
 
-  
-
   const getAllStudentPosts = async () => {
     try {
       const posts = await directus.items("studentProjects").readByQuery({
@@ -155,27 +153,28 @@ export default async function Home({
     }
   };
 
-  const processedPosts = await Promise.all(
-    posts.map(async (post: Post) => {
-      const { base64 } = await getBlurData(
-        `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`,
-      );
-      return {
-        ...post,
-        blurImg: base64,
-        author: {
-          ...post.author,
-        },
-        category: {
-          ...post.category,
-        },
-      };
-    }),
-  );
+  // Check if 'posts' is defined and not null before processing
+  const processedPosts = posts
+    ? await Promise.all(
+        posts.map(async (post: Post) => {
+          const { base64 } = await getBlurData(
+            `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`,
+          );
+          return {
+            ...post,
+            blurImg: base64,
+            author: {
+              ...post.author,
+            },
+            category: {
+              ...post.category,
+            },
+          };
+        }),
+      )
+    : [];
 
-  if (!posts) {
-    notFound();
-  }
+  // 'processedPosts' will be an empty array if 'posts' is null or undefined
 
   const banners = await getAllBanners();
 
@@ -187,6 +186,10 @@ export default async function Home({
       return { ...banner, blurImg: base64 };
     }),
   );
+
+  if (!posts) {
+    notFound();
+  }
 
   return (
     <PaddingContainer>

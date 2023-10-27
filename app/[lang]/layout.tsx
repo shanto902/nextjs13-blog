@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import Footer from "@/components/navigation/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Raleway({ subsets: ["latin"] });
 
@@ -24,7 +26,9 @@ export default function RootLayout({
     <html lang={lang}>
       <body className={inter.className}>
         <Navigation locale={lang} />
-        <div className="pt-5 min-h-calc(100vh-300px)">{children}</div>
+        <Suspense fallback={<Loading />}>
+          <div className="pt-5 min-h-calc(100vh-300px)">{children}</div>
+        </Suspense>
         <Footer locale={lang} />
       </body>
     </html>

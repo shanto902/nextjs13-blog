@@ -3,8 +3,21 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
 import "./overlayStyle.css";
+import { getBlurData } from "@/utils/blur-data-generator";
 
 const PostBody = ({ body, locale }: { body: string; locale: string }) => {
+  const fetchAndProcessData = async (imageUrl: string) => {
+    try {
+      const { base64 } = await getBlurData(imageUrl);
+      // Process the base64 data here or return it
+      return base64;
+    } catch (error) {
+      console.error("Error fetching and processing data:", error);
+      // Handle the error appropriately
+      return null;
+    }
+  };
+
   const options = {
     replace: (domNode: any) => {
       if (domNode.name === "img") {
@@ -17,6 +30,8 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
               alt={alt}
               width={1280}
               height={620}
+              placeholder="blur"
+              blurDataURL={src && fetchAndProcessData(src)}
             />
           </Zoom>
         );
