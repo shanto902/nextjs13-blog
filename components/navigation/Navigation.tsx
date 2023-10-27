@@ -65,7 +65,11 @@ const Navigation = async ({ locale }: { locale: string }) => {
       <div className=" sticky z-40 top-0 left-0 right-0 bg-base-100">
         <PaddingContainer>
           <div className="mr-10">
-            <SideLogo locale={locale} dictionary={dictionary} posts ={posts || []} />
+            <SideLogo
+              locale={locale}
+              dictionary={dictionary}
+              posts={posts || []}
+            />
           </div>
           <div className=" lg:block hidden">
             <div className=" flex items-center justify-between gap-2 py-5">

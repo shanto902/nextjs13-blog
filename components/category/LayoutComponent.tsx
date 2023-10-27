@@ -84,21 +84,27 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         {/* Origin Text  */}
 
         <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center py-5 place-self-start">
-         
-        <div className=" flex flex-row items-center gap-2"><User className="w-4 h-4" />{`${post.author.first_name} ${post.author.last_name}`}</div>
-        
-        <div className=" flex flex-row items-center gap-2"><PanelRightCloseIcon className="w-4 h-4" />{`${post.category.title}`}</div>
-        
-        <div className=" flex flex-row items-center gap-2"> <AppWindow className="w-4 h-4" />
-          {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}
-        </div>
-        </div>
+          <div className=" flex flex-row items-center gap-2">
+            <User className="w-4 h-4" />
+            {`${post.author.first_name} ${post.author.last_name}`}
+          </div>
 
-</div>
+          <div className=" flex flex-row items-center gap-2">
+            <PanelRightCloseIcon className="w-4 h-4" />
+            {`${post.category.title}`}
+          </div>
+
+          <div className=" flex flex-row items-center gap-2">
+            {" "}
+            <AppWindow className="w-4 h-4" />
+            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </div>
+        </div>
+      </div>
       <Image
         className={`${
           customLayout === 0

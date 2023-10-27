@@ -7,8 +7,7 @@ import Image from "next/image";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 
-
-const Footer = async ({ locale  }: { locale: string }) => {
+const Footer = async ({ locale }: { locale: string }) => {
   const liStyle =
     "pt-2 font-bold border-t-4 uppercase hover:text-red-800  hover:border-red-800";
   const dictionary = await getDictionary(locale);
@@ -98,8 +97,7 @@ const Footer = async ({ locale  }: { locale: string }) => {
         </div>
 
         <div className=" flex items-center w-full justify-between">
-
-        <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4 ">
+          <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4 ">
             Editorial Board
           </button>
           <div className=" flex gap-3 items-center mt-2">
@@ -120,7 +118,6 @@ const Footer = async ({ locale  }: { locale: string }) => {
               link={siteConfig.socialLinks.linkedin}
             />
           </div>
-        
         </div>
 
         {/* Bottom Section */}

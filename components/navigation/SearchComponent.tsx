@@ -51,7 +51,6 @@ const SearchComponent = ({
         // Construct the target URL
         const targetUrl = `/${locale}/${selectedPost.category.slug}/${selectedPost.slug}`;
 
-        
         // Navigate to the target URL
         router.push(targetUrl);
         setSelectedPosts("");

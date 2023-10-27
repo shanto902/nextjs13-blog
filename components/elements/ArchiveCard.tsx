@@ -40,18 +40,23 @@ const ArchiveCard = async ({
           </div>
         </div>
       </div>
-      <h2 className="  text-center mt-4 font-bold mb-2">
-        {post.title}
-      </h2>
+      <h2 className="  text-center mt-4 font-bold mb-2">{post.title}</h2>
       <div
         className={` gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5`}
       >
-        
-        <div className=" flex flex-row items-center gap-2"><User className="w-4 h-4" />{`${post.author.first_name} ${post.author.last_name}`}</div>
-        
-        <div className=" flex flex-row items-center gap-2"><PanelRightCloseIcon className="w-4 h-4" />{`${post.category.title}`}</div>
-        
-        <div className=" flex flex-row items-center gap-2"> <AppWindow className="w-4 h-4" />
+        <div className=" flex flex-row items-center gap-2">
+          <User className="w-4 h-4" />
+          {`${post.author.first_name} ${post.author.last_name}`}
+        </div>
+
+        <div className=" flex flex-row items-center gap-2">
+          <PanelRightCloseIcon className="w-4 h-4" />
+          {`${post.category.title}`}
+        </div>
+
+        <div className=" flex flex-row items-center gap-2">
+          {" "}
+          <AppWindow className="w-4 h-4" />
           {new Date(post.date_created).toLocaleDateString(`${locale}`, {
             month: "long",
             day: "numeric",

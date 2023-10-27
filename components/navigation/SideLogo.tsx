@@ -3,27 +3,28 @@
 import React from "react";
 import logo from "@/assets/logo.svg";
 import Image from "next/image";
-
+import ScaleText from "react-scale-text";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Post } from "@/types/collection";
 
+
 const SideLogo = ({
   dictionary,
   locale,
-  posts
+  posts,
 }: {
   dictionary: any;
   locale: string;
-  posts:Post[]
+  posts: Post[];
 }) => {
   const params = useParams();
   const pathname = usePathname();
-  const parts = pathname.split('/');
+  const parts = pathname.split("/");
 
-const lastValue = parts[parts.length - 1];
+  const lastValue = parts[parts.length - 1];
 
-const matchingPost = posts && posts.find(post => post.slug === lastValue);
+  const matchingPost = posts && posts.find((post) => post.slug === lastValue);
 
   return (
     <>
@@ -35,15 +36,16 @@ const matchingPost = posts && posts.find(post => post.slug === lastValue);
             {" "}
             <Link href={`/${locale}`}>
               <Image
-                className=" pt-8 hidden lg:block opacity-60"
+                className=" aspect-square hidden lg:block opacity-60"
                 src={logo}
                 alt="logo"
                 width={80}
                 height={80}
               />
             </Link>
-            <h2 className={`text-right hidden lg:block  font-semibold right-5 pt-2 leading-none absolute  ${locale === "bn" ? "text-lg ": "text-md"}`}>
-              {(params.category === "heritage" &&
+            <div className="parent  text-right leading-tight" style={{ width: "80px", height: "100%" }}>
+  <ScaleText widthOnly={true}>
+    <p className="child">{(params.category === "heritage" &&
                 dictionary.navigation.links.heritage) ||
                 (params.category === "arts" &&
                   dictionary.navigation.links.arts) ||
@@ -66,16 +68,20 @@ const matchingPost = posts && posts.find(post => post.slug === lastValue);
                 (pathname.match(/^\/(bn|en)\/archived$/) &&
                   dictionary.navigation.links.archived) ||
                 (pathname.match(/^\/(bn|en)\/published-magazine$/) &&
-                  dictionary.navigation.links.publishedMagazine)}
-            </h2>
-          { matchingPost?.left_add &&  <Image
+                  dictionary.navigation.links.publishedMagazine)}</p>
+  </ScaleText>
+</div>
+        
+          
+            {matchingPost?.left_add && (
+              <Image
                 className=" pt-24 pr-5 hidden lg:block -z-10"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.left_add}?key=optimized`}
                 alt="logo"
                 width={100}
                 height={400}
-              />}
-            
+              />
+            )}
           </div>
         </div>
       )}
