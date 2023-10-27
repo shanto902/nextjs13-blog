@@ -31,7 +31,7 @@ const CommentsInput = ({
         name,
         description,
         post: postId,
-        status: "archived",
+        status: "pending",
         post_slug: postSlug,
       });
       setIsLoading(false);

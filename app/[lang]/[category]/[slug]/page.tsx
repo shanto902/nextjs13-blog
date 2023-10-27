@@ -143,7 +143,7 @@ const PostPage = async ({
                 _eq: post.slug,
               },
               status: {
-                _eq: "published",
+                _eq: "approved",
               },
             },
           ],
