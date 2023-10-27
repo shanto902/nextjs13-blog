@@ -6,6 +6,7 @@ import directus from "@/lib/directus";
 import { Magazine } from "@/types/collection";
 import MagazineCard from "@/components/elements/MagazineCard";
 import { getDictionary } from "@/lib/getDictionary";
+import { getBlurData } from "@/utils/blur-data-generator";
 
 const page = async ({
   params,
@@ -14,7 +15,6 @@ const page = async ({
     lang: string;
   };
 }) => {
-
   const locale = params.lang;
   const dictionary = await getDictionary(locale);
   const getAllMagazines = async () => {
@@ -25,10 +25,7 @@ const page = async ({
             _eq: "published",
           },
         },
-        fields: [
-          "*",
-          "translations.*",
-        ],
+        fields: ["*", "translations.*"],
       });
       if (locale === "en") {
         return magazines.data;
@@ -50,13 +47,40 @@ const page = async ({
   };
 
   const magazines = await getAllMagazines();
-  console.log(magazines)
+
+  const processedMagazine = magazines
+    ? await Promise.all(
+      magazines.map(async (magazine: Magazine) => {
+          const { base64 } = await getBlurData(
+            `${process.env.NEXT_PUBLIC_ASSETS_URL}${magazine.image}?key=optimized`,
+          );
+          return {
+            ...magazine,
+            blurImg: base64,
+          };
+        }),
+      )
+    : [];
+
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-      { magazines ? 
-        magazines.map((magazine:Magazine) => <MagazineCard key={magazine.id} magazine={magazine} collectMagazine={dictionary.magazinePage.collectMagazine} number={dictionary.magazinePage.number} inputName={dictionary.magazinePage.inputName} inputEmail={dictionary.magazinePage.inputEmail} submitButton={dictionary.magazinePage.submitButton} locale={locale}/> ) : <h2 className=" text-center">No Magazine available</h2>
-      }
+        {processedMagazine ? (
+          processedMagazine.map((magazine: Magazine) => (
+            <MagazineCard
+              key={magazine.id}
+              magazine={magazine}
+              collectMagazine={dictionary.magazinePage.collectMagazine}
+              number={dictionary.magazinePage.number}
+              inputName={dictionary.magazinePage.inputName}
+              inputEmail={dictionary.magazinePage.inputEmail}
+              submitButton={dictionary.magazinePage.submitButton}
+              locale={locale}
+            />
+          ))
+        ) : (
+          <h2 className=" text-center">No Magazine available</h2>
+        )}
       </PaddingContainer>
     </div>
   );

@@ -14,7 +14,7 @@ export interface Post {
   left_add?: string;
   translations: Translations[];
   bottom_add?: string;
-  image_side_title:string;
+  image_side_title: string;
 }
 
 export interface Translations {
@@ -24,7 +24,7 @@ export interface Translations {
   body: string;
   first_name: string;
   last_name: string;
-  image_side_title:string;
+  image_side_title: string;
 }
 
 export interface Category {
@@ -46,10 +46,11 @@ export interface Magazine {
   id: string;
   title: string;
   number: number;
-  image:string;
+  image: string;
   date_created: string;
   description: string;
   translations: Translations[];
+  blurImg:string;
 }
 export interface Author {
   id: string;

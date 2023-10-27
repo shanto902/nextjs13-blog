@@ -13,16 +13,16 @@ const PostContent = ({
   isPagePost = false,
   locale,
 }: PostContentProps) => {
-
-
   const descriptionText = post.image_side_title;
-      
+
   // Split the text by '\n' and create an array of lines
-  const lines = descriptionText.split('\n');
-  
+  const lines = descriptionText.split("\n");
+
   // Create a separate JSX element for each line
   const formattedDescription = lines.map((line, index) => (
-    <p key={index} className='text-md'>{line}</p>
+    <p key={index} className="text-md">
+      {line}
+    </p>
   ));
   return (
     <div>
@@ -72,15 +72,19 @@ const PostContent = ({
             />
           )}
           {/* Description  */}
-      <div>
-      {!isPagePost ?  <p
-            className={`@lg:text-lg text-base leading-snug flex-1 ${
-              isPagePost ? "" : "line-clamp-3"
-            }`}
-          >
-            {post.description}
-          </p> : <div>{formattedDescription}</div>}
-      </div>
+          <div>
+            {!isPagePost ? (
+              <p
+                className={`@lg:text-lg text-base leading-snug flex-1 ${
+                  isPagePost ? "" : "line-clamp-3"
+                }`}
+              >
+                {post.description}
+              </p>
+            ) : (
+              <div>{formattedDescription}</div>
+            )}
+          </div>
         </div>
         {!isPagePost && (
           <div
