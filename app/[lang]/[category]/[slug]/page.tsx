@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostHero from "@/components/post/PostHero";
@@ -237,9 +237,9 @@ const PostPage = async ({
                 />
               </div>
             </div>
+            <Suspense fallback={<p>Load</p>}>
             <div>
-              {comments &&
-                comments.map((comment: Comments) => (
+              { comments.map((comment: Comments) => (
                   <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
                     <Image src={userImag} alt=" User Image" />
                     <div>
@@ -259,6 +259,7 @@ const PostPage = async ({
                   </div>
                 ))}
             </div>
+            </Suspense>
           </div>
         </div>
       </PaddingContainer>

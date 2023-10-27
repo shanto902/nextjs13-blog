@@ -70,7 +70,7 @@ const CommentsInput = ({
         <input
           className=" btn bg-red-700 text-white w-fit"
           type="submit"
-          value={isLoading ? "Loading":submitButton}
+          value={isLoading ? "Loading" : submitButton}
         />
       </form>
     </div>
