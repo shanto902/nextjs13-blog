@@ -43,10 +43,10 @@ const SideLogo = ({
               />
             </Link>
             <div
-              className="parent  hidden lg:block text-right leading-tight"
-              style={{ width: "80px", height: "100%" }}
+              className="parent  hidden lg:block text-right overflow-hidden leading-tight"
+              style={{ width: "80px", height: "120px" }}
             >
-              <ScaleText widthOnly={true}>
+              <ScaleText>
                 <p className="child">
                   {(params.category === "heritage" &&
                     dictionary.navigation.links.heritage) ||
