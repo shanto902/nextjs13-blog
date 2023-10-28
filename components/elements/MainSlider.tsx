@@ -27,8 +27,6 @@ const MainSlider = ({ banners }: MainSliderProps) => {
               width={1200}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`}
               className="w-full object-cover object-center max-h-[500px] brightness-50"
-              placeholder="blur"
-              blurDataURL={banner.blurImg}
             />
           </div>
         </SwiperSlide>

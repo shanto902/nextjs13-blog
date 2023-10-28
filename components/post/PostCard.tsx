@@ -35,8 +35,6 @@ const PostCard = async ({
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
           width={580}
           height={340}
-          placeholder="blur"
-          blurDataURL={post.blurImg}
         />
         <div className={`py-2 uppercase`}> {post.category.title}</div>
       </div>

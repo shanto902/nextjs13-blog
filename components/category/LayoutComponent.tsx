@@ -125,6 +125,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         height={1000}
         alt={post.title}
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+    
       ></Image>
     </Link>
   );

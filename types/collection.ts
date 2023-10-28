@@ -7,7 +7,6 @@ export interface Post {
   author: Author;
   slug: string;
   image: string;
-  blurImg: string;
   body: string;
   date_created: string;
   date_updated: string;
@@ -50,7 +49,6 @@ export interface Magazine {
   date_created: string;
   description: string;
   translations: Translations[];
-  blurImg:string;
 }
 export interface Author {
   id: string;
@@ -64,7 +62,6 @@ export interface Banner {
   title: string;
   description: string;
   image: string;
-  blurImg: string;
   translations: Translations[];
 }
 
@@ -76,7 +73,6 @@ export interface StudentPost {
   author: Author;
   slug: string;
   image: string;
-  blurImg: string;
   body: string;
   date_created: string;
   date_updated: string;

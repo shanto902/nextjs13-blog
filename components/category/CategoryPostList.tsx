@@ -15,6 +15,8 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
 
+  
+
   const handlePaginationButtonClick = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top

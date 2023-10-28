@@ -52,8 +52,6 @@ const MagazineCard = ({
         className="flex-1 max-w-[365px]"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${magazine.image}?key=optimized`}
         alt="image"
-        placeholder="blur"
-        blurDataURL={magazine.blurImg}
       />
       <div className="flex-1 flex flex-col gap-2">
         <h2 className=" text-5xl font-semibold">

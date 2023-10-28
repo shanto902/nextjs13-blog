@@ -10,9 +10,8 @@ import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import { Banner, Post } from "@/types/collection";
 import { Suspense } from "react";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import { getBlurData } from "@/utils/blur-data-generator";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default async function Home({
   params,
@@ -48,13 +47,12 @@ export default async function Home({
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post: Post) => {
+        const localizedPost = posts.data?.map((post:Post) => {
           return {
             ...post,
             title: post.translations[0].title,
             description: post.translations[0].description,
             body: post.translations[0].body,
-            image_side_title: post.translations[0].image_side_title,
             author: {
               first_name: post.author.translations[0].first_name,
               last_name: post.author.translations[0].last_name,
@@ -77,6 +75,10 @@ export default async function Home({
 
   const posts = await getAllPosts();
 
+  if (!posts) {
+    notFound();
+  }
+
   const getAllStudentPosts = async () => {
     try {
       const posts = await directus.items("studentProjects").readByQuery({
@@ -98,7 +100,7 @@ export default async function Home({
       if (locale === "en") {
         return posts.data;
       } else {
-        const localizedPost = posts.data?.map((post: Post) => {
+        const localizedPost = posts.data?.map((post:Post) => {
           return {
             ...post,
             title: post.translations[0].title,
@@ -138,7 +140,7 @@ export default async function Home({
       if (locale === "en") {
         return banners?.data || [];
       } else {
-        const localizedBanner = banners.data?.map((banner: Banner) => {
+        const localizedBanner = banners.data?.map((banner:Banner) => {
           return {
             ...banner,
             title: banner.translations[0].title,
@@ -154,62 +156,30 @@ export default async function Home({
     }
   };
 
-  // Check if 'posts' is defined and not null before processing
-  const processedPosts = posts
-    ? await Promise.all(
-        posts.map(async (post: Post) => {
-          const { base64 } = await getBlurData(
-            `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`,
-          );
-          return {
-            ...post,
-            blurImg: base64,
-            author: {
-              ...post.author,
-            },
-            category: {
-              ...post.category,
-            },
-          };
-        }),
-      )
-    : [];
-
-  // 'processedPosts' will be an empty array if 'posts' is null or undefined
-
   const banners = await getAllBanners();
 
-  const processedBanners = await Promise.all(
-    banners.map(async (banner: Banner) => {
-      const { base64 } = await getBlurData(
-        `${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`,
-      );
-      return { ...banner, blurImg: base64 };
-    }),
-  );
-
-  if (!posts) {
-    notFound();
-  }
+  
+  
 
   return (
     <PaddingContainer>
-      <Suspense fallback={<Skeleton height={500} />}>
-        <Image
-          className=" object-cover object-center w-full mb-10"
-          src={coverPhoto}
-          width={1200}
-          height={500}
-          alt="Cover Photo"
-        />
-      </Suspense>
-
-      <MainSlider banners={processedBanners} />
-
+     
+     <Suspense fallback={<Skeleton height={500}/>}>
+     <Image
+        className=" object-cover object-center w-full mb-10"
+        src={coverPhoto}
+        width={1200}
+        height={500}
+        alt="Cover Photo"
+      />
+     </Suspense>
+  
+      <MainSlider banners={banners} />
+     
       <main className=" h-auto space-y-10 mt-10">
         <PostList
           locale={locale}
-          posts={processedPosts}
+          posts={posts}
           studentPosts={studentPosts || []}
         />
         <div className=" flex flex-col md:flex-row gap-10">

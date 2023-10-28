@@ -6,7 +6,6 @@ import directus from "@/lib/directus";
 import { Magazine } from "@/types/collection";
 import MagazineCard from "@/components/elements/MagazineCard";
 import { getDictionary } from "@/lib/getDictionary";
-import { getBlurData } from "@/utils/blur-data-generator";
 
 const page = async ({
   params,
@@ -48,25 +47,12 @@ const page = async ({
 
   const magazines = await getAllMagazines();
 
-  const processedMagazine = magazines
-    ? await Promise.all(
-      magazines.map(async (magazine: Magazine) => {
-          const { base64 } = await getBlurData(
-            `${process.env.NEXT_PUBLIC_ASSETS_URL}${magazine.image}?key=optimized`,
-          );
-          return {
-            ...magazine,
-            blurImg: base64,
-          };
-        }),
-      )
-    : [];
 
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        {processedMagazine ? (
-          processedMagazine.map((magazine: Magazine) => (
+        {magazines ? (
+          magazines.map((magazine: Magazine) => (
             <MagazineCard
               key={magazine.id}
               magazine={magazine}
