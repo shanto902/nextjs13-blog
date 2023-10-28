@@ -80,8 +80,6 @@ const CategoryPage = async ({
         ],
       });
 
-      
-
       if (locale === "en") {
         return category?.data?.[0];
       } else {

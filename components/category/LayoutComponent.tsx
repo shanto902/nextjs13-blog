@@ -1,4 +1,5 @@
 import { Post } from "@/types/collection";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +12,7 @@ interface LayoutProps {
 }
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
+ 
   return (
     <Link
       href={`/${locale}/${post.category.slug}/${post.slug}`}
@@ -121,11 +123,11 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             ? "max-h-[380px] max-w-[580px] "
             : ""
         }  w-full object-cover object-center h-full`}
-        width={1000}
-        height={1000}
+        width={850}
+        height={600}
         alt={post.title}
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-    
+        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(850, 600))}`}
       ></Image>
     </Link>
   );

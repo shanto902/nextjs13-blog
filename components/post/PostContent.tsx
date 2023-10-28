@@ -1,4 +1,5 @@
 import { Post } from "@/types/collection";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 import { AppWindow, User } from "lucide-react";
 import Image from "next/image";
 
@@ -14,7 +15,7 @@ const PostContent = ({
   locale,
 }: PostContentProps) => {
   const descriptionText = post.image_side_title;
-
+  
   // Split the text by '\n' and create an array of lines
   const lines = descriptionText.split("\n");
 
@@ -69,6 +70,7 @@ const PostContent = ({
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
               width={600}
               height={400}
+              placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(600, 400))}`}
             />
           )}
           {/* Description  */}

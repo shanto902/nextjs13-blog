@@ -10,6 +10,7 @@ import { getDictionary } from "@/lib/getDictionary";
 import userImag from "@/assets/userImage.svg";
 import SocialLink from "@/components/elements/SocialLink";
 import { Comments, Post } from "@/types/collection";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 
 export const generateStaticParams = async () => {
   try {
@@ -53,7 +54,6 @@ const PostPage = async ({
   };
 }) => {
   // const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
-
   const locale = params.lang;
 
   const getPostData = async () => {
@@ -180,6 +180,7 @@ const PostPage = async ({
                 height={100}
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`}
                 alt="Your Image"
+                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(600, 100))}`}
               />
             </div>
           )}

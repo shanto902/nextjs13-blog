@@ -1,4 +1,5 @@
 import { Magazine } from "@/types/collection";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 import Image from "next/image";
 import React from "react";
 
@@ -19,6 +20,8 @@ const MagazineCard = ({
   submitButton: string;
   locale: string;
 }) => {
+
+
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -52,6 +55,7 @@ const MagazineCard = ({
         className="flex-1 max-w-[365px]"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${magazine.image}?key=optimized`}
         alt="image"
+        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(365, 480))}`}
       />
       <div className="flex-1 flex flex-col gap-2">
         <h2 className=" text-5xl font-semibold">
