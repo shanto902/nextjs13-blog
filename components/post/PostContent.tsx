@@ -35,19 +35,19 @@ const PostContent = ({
         <h2
           className={`${
             isPagePost
-              ? "text-xl text-center  @md:text-2xl @lg:text-3xl font-bold underline underline-offset-auto   decoration-red-700 "
-              : "@lg:text-2xl text-lg @md:text-xl font-medium underline underline-offset-auto decoration-red-700 pb-2 @md:leading-tight "
+              && "text-xl text-center @md:text-2xl @lg:text-3xl font-bold underline decoration-red-700 "
+            
           } `}
         >
           {!isPagePost ? (
-            <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
-              {" "}
+            <Link className=" @lg:text-4xl text-2xl @md:text-3xl font-medium underline decoration-red-700  @md:leading-tight " href={`/${locale}/${post.category.slug}/${post.slug}`}>
               {post.title}
             </Link>
           ) : (
             <span> {post.title}</span>
           )}
         </h2>
+
 
         {isPagePost && (
           <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5  ">
@@ -77,6 +77,7 @@ const PostContent = ({
         )}
 
         <div className=" flex flex-col md:flex-row gap-5 md:items-center">
+          {/* Image  */}
           {isPagePost && (
             <Image
               className={` object-cover object-center w-[500px]  h-[400px]
@@ -108,6 +109,7 @@ const PostContent = ({
             )}
           </div>
         </div>
+        {/* Quick link  */}
         {!isPagePost && (
           <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center pb-5 place-self-start">
             <div className=" flex flex-row items-center gap-2">

@@ -69,11 +69,26 @@ export interface StudentPost {
   id: string;
   title: string;
   description: string;
-  university: string;
+  university: University;
   author: Author;
   slug: string;
   image: string;
   body: string;
   date_created: string;
   date_updated: string;
+  translations: Translations[];
+  category: Category;
+  tag_line:string;
 }
+
+export interface University {
+  map(arg0: (university: University) => import("react").JSX.Element): import("react").ReactNode;
+  id: string;
+  name: string;
+  status: string;
+  posts: StudentPost[];
+  tag_line:string;
+  is_main_slider: boolean;
+  
+}
+

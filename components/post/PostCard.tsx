@@ -9,6 +9,7 @@ interface PostProps {
   layout?: "vertical" | "horizontal";
   reverse?: boolean;
   locale: string;
+  className:string;
 }
 
 const PostCard = async ({
@@ -16,11 +17,12 @@ const PostCard = async ({
   layout = "horizontal",
   reverse = false,
   locale,
+  className
 }: PostProps) => {
   return (
     <div>
       <Link
-        className={`@container ${
+        className={`@container ${className} ${
           layout === "horizontal"
             ? "grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
             : "space-y-2"

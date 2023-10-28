@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import magazineImage from "@/assets/magpic.png";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
-import { Banner, Post } from "@/types/collection";
+import { Banner, Post, StudentPost, University } from "@/types/collection";
 import "react-loading-skeleton/dist/skeleton.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
@@ -77,6 +77,69 @@ export default async function Home({
   if (!posts) {
     notFound();
   }
+
+  const getStudentsProjectData = async () => {
+    try {
+      const university = await directus.items("university").readByQuery({
+        filter: {
+          status: {
+            _eq: "published",
+          },
+        },
+        fields: [
+          "id",
+          "name",
+          "is_main_slider",
+          "translations.*",
+          "posts.id",
+          "posts.title",
+          "posts.image",
+          "posts.translations.*",
+          "posts.category.id",
+          "posts.category.title",
+          "posts.category.slug",
+          "posts.category.translations.*",
+          "posts.university.name",
+          "posts.university.id",
+        ],
+      });
+
+      if (locale === "en") {
+        return university?.data;
+      } else {
+        const localizedUniversity: University[] = (university?.data || []).map((fetchedUniversity) => {
+          return {
+            ...fetchedUniversity,
+            posts: (fetchedUniversity.posts || []).map((post: StudentPost) => {
+           
+              return {
+                ...post,
+                title: post.translations[0].title,
+                category: post.category ? {
+                  ...post.category,
+                  title: post.category.translations[0].title,
+                }: "",
+                university: post.university ? {
+                  ...post.university,
+                }: "",
+              };
+            }),
+          };
+        });
+  
+        return localizedUniversity;
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching category");
+    }
+  };
+
+  const universities = await getStudentsProjectData();
+  if (!universities) {
+    notFound();
+  }
+
 
   const getAllStudentPosts = async () => {
     try {
@@ -173,7 +236,8 @@ export default async function Home({
         <PostList
           locale={locale}
           posts={posts}
-          studentPosts={studentPosts || []}
+          universities={universities || []}
+          studentProjects = {studentPosts || []}
         />
         <div className=" flex flex-col md:flex-row gap-10">
           <div className=" flex-1 relative">

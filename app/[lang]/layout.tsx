@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={lang}>
-      <body
+      <body suppressHydrationWarning
         className={lang === "bn" ? banglaFont.className : englishFont.className}
       >
         <Navigation locale={lang} />

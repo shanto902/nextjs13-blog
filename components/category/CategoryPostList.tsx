@@ -83,16 +83,24 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     );
   };
 
+  function getRandomNumber() {
+    return Math.floor(Math.random() * 8) + 1;
+  }
   return (
     <div>
       <div className=" grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5">
         {publishedPosts.map((post, index) => (
+          
           <div
+          suppressHydrationWarning
             className={`${
-              index === 0 ? "md:col-span-2" : index === 5 ? "md:col-span-2" : ""
+              
+              index === getRandomNumber() ? "md:col-span-2" : index === getRandomNumber() ? "md:col-span-2" : ""
             } `}
             key={index}
           >
+            
+            
             {renderPostLayout(post, index)}
           </div>
         ))}

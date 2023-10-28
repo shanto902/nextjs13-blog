@@ -19,8 +19,12 @@ const MainSlider = ({ banners }: MainSliderProps) => {
         <SwiperSlide key={banner.id}>
           <div className=" h-full relative">
             <div className="absolute bottom-10 right-0 z-10 text-white text-right px-10">
-              <h2 className="xl:text-2xl lg:text-xl md:text-lg text-base">{banner.title}</h2>
-              <p className=" xl:text-xl lg:text-xl md:text-lg text-sm">{banner.description}</p>
+              <h2 className="xl:text-2xl lg:text-xl md:text-lg text-base">
+                {banner.title}
+              </h2>
+              <p className=" xl:text-xl lg:text-xl md:text-lg text-sm">
+                {banner.description}
+              </p>
             </div>
             <Image
               alt=""

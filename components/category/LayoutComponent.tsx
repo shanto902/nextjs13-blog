@@ -13,43 +13,43 @@ interface LayoutProps {
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
   return (
-    <Link
-      href={`/${locale}/${post.category.slug}/${post.slug}`}
+    <div 
+    suppressHydrationWarning
       key={post.id}
       className={`@container flex justify-center space-y-2 ${
         customLayout === 0
           ? "md:flex-col  "
           : customLayout === 1
-          ? " "
+          ? " flex flex-col justify-center items-center"
           : customLayout === 2
           ? "md:flex-col md:p-12 "
           : customLayout === 3
           ? " md:mr-24"
           : customLayout === 4
-          ? " "
+          ? " md:col-reverse"
           : customLayout === 5
-          ? "md:selection:flex-row-reverse md:justify-center md:gap-20"
+          ? "md:col-reverse md:justify-center "
           : customLayout === 6
-          ? " "
+          ? " md:flex-col"
           : customLayout === 7
-          ? "md:flex-col md:p-12"
+          ? "md:flex-col justify-center items-center md:px-12"
           : ""
-      }  flex-col-reverse `}
+      }  flex-col-reverse gap-4`}
     >
       {/* For Container Text Layout  */}
-      <div
+      <div suppressHydrationWarning
         className={`${
           customLayout === 0
             ? ""
             : customLayout === 1
             ? " md:flex md:flex-col md:justify-start md:items-center md:px-16"
-            : customLayout === 5
-            ? " md:flex-1 "
+            : customLayout === 5 && 2
+            ? " md:flex-1 flex-row gap-2"
             : ""
         }`}
       >
         {/* Title Div */}
-        <h3
+        <Link suppressHydrationWarning  href={`/${locale}/${post.category.slug}/${post.slug}`}
           className={`${
             customLayout === 0
               ? "@lg:text-2xl @md:text-xl"
@@ -72,15 +72,15 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         >
           {" "}
           {post.title}
-        </h3>
+        </Link>
 
         {/* Description Div  */}
 
-        <p
+        <Link   href={`/${locale}/${post.category.slug}/${post.slug}`}
           className={` @lg:text-lg @md:text-md text-base leading-snug line-clamp-6`}
         >
           {post.description}
-        </p>
+        </Link>
 
         {/* Origin Text  */}
 
@@ -107,6 +107,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         </div>
       </div>
       <Image
+      suppressHydrationWarning
         className={`${
           customLayout === 0
             ? " max-h-[540px] max-w-[850px]"
@@ -128,7 +129,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(850, 600))}`}
       ></Image>
-    </Link>
+    </div>
   );
 };
 
