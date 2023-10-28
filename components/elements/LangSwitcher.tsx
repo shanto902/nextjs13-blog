@@ -17,7 +17,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
     <div className="bg-base-100 border-accent border w-16 h-7 rounded-3xl flex items-center justify-around">
       <button
         className={` w-5 h-5 rounded-full text-sm font-bold flex justify-center items-center ${
-          locale === "en" ? " p-2  text-red-500" : " "
+          locale === "en" ? " p-2  text-red-700" : " "
         }`}
       >
         <Link
@@ -32,7 +32,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
       <div className=" w-[1px] bg-accent h-7"></div>
       <button
         className={` w-5 h-5 rounded-full text-sm font-bold flex justify-center items-center ${
-          locale === "bn" ? " p-2 text-red-500  " : " "
+          locale === "bn" ? " p-2 text-red-700  " : " "
         }`}
       >
         <Link

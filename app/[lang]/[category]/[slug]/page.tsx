@@ -180,7 +180,9 @@ const PostPage = async ({
                 height={100}
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`}
                 alt="Your Image"
-                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(600, 100))}`}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(600, 100),
+                )}`}
               />
             </div>
           )}
@@ -194,10 +196,11 @@ const PostPage = async ({
             submitButton={dictionary.commentsSection.submitButton}
             postId={post.id}
             postSlug={post.slug}
+            loadingText={dictionary.commentsSection.loading}
           />
           <div className=" flex-1">
             <div className=" flex flex-row items-center justify-between">
-              <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-blue-700">
+              <h3 className=" text-lg font-semibold underline underline-offset-4 decoration-red-700">
                 {comments && getLocalizedNumber(comments?.length + 1, locale)}{" "}
                 {dictionary.commentsSection.comment}
               </h3>

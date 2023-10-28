@@ -21,7 +21,6 @@ export default async function Home({
 }) {
   const locale = params.lang;
 
-  
   const getAllPosts = async () => {
     try {
       const posts = await directus.items("post").readByQuery({
@@ -158,20 +157,15 @@ export default async function Home({
 
   const banners = await getAllBanners();
 
-
-
-
   return (
     <PaddingContainer>
-
-        <Image
-          className=" object-cover object-center w-full mb-10"
-          src={coverPhoto}
-          width={800}
-          height={500}
-          alt="Cover Photo"
-        />
-
+      <Image
+        className=" object-cover object-center w-full mb-10"
+        src={coverPhoto}
+        width={800}
+        height={500}
+        alt="Cover Photo"
+      />
 
       <MainSlider banners={banners} />
 
@@ -183,7 +177,13 @@ export default async function Home({
         />
         <div className=" flex flex-col md:flex-row gap-10">
           <div className=" flex-1 relative">
-            <Image src={magazineImage} alt={"Magazine Picture"}  placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
+            <Image
+              src={magazineImage}
+              alt={"Magazine Picture"}
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(700, 475),
+              )}`}
+            />
             <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
               <h2 className="text-xl">{dictionary.magazineHome.title}</h2>
               <Link

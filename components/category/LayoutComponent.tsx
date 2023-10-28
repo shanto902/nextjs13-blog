@@ -12,7 +12,6 @@ interface LayoutProps {
 }
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
- 
   return (
     <Link
       href={`/${locale}/${post.category.slug}/${post.slug}`}
@@ -69,7 +68,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
               : customLayout === 7
               ? " @lg:text-2xl @md:text-xl "
               : ""
-          } underline  decoration-[#0064c6] @md:pb-5 leading-relaxed py-4 text-xl`}
+          } underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 text-xl`}
         >
           {" "}
           {post.title}

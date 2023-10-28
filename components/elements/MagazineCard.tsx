@@ -20,8 +20,6 @@ const MagazineCard = ({
   submitButton: string;
   locale: string;
 }) => {
-
-
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];

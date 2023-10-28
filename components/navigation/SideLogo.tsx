@@ -35,7 +35,7 @@ const SideLogo = ({
             {" "}
             <Link href={`/${locale}`}>
               <Image
-                className=" aspect-square hidden lg:block opacity-60"
+                className=" aspect-square hidden lg:block opacity-40"
                 src={logo}
                 alt="logo"
                 width={80}

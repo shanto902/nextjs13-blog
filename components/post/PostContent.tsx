@@ -15,7 +15,7 @@ const PostContent = ({
   locale,
 }: PostContentProps) => {
   const descriptionText = post.image_side_title;
-  
+
   // Split the text by '\n' and create an array of lines
   const lines = descriptionText.split("\n");
 
@@ -33,8 +33,8 @@ const PostContent = ({
         <h2
           className={`${
             isPagePost
-              ? "text-xl text-center  @md:text-2xl @lg:text-3xl font-bold underline underline-offset-auto   decoration-[#0064c6] "
-              : "@lg:text-2xl text-lg @md:text-xl font-medium underline underline-offset-auto decoration-[#0064c6] pb-2 @md:leading-tight "
+              ? "text-xl text-center  @md:text-2xl @lg:text-3xl font-bold underline underline-offset-auto   decoration-red-700 "
+              : "@lg:text-2xl text-lg @md:text-xl font-medium underline underline-offset-auto decoration-red-700 pb-2 @md:leading-tight "
           } `}
         >
           {post.title}
@@ -61,23 +61,25 @@ const PostContent = ({
           </div>
         )}
 
-        <div className=" flex flex-col md:flex-row gap-3 md:items-center">
+        <div className=" flex flex-col md:flex-row gap-5 md:items-center">
           {isPagePost && (
             <Image
-              className={`flex-1 w-full object-cover object-center h-full max-h-[400px]
+              className={` object-cover object-center w-[500px]  h-[400px]
           }`}
               alt={post.title}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-              width={600}
+              width={500}
               height={400}
-              placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(600, 400))}`}
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(500, 400),
+              )}`}
             />
           )}
           {/* Description  */}
-          <div>
+          <div className=" ">
             {!isPagePost ? (
               <p
-                className={`@lg:text-lg text-base leading-snug flex-1 ${
+                className={`@lg:text-lg text-base leading-snug ${
                   isPagePost ? "" : "line-clamp-3"
                 }`}
               >

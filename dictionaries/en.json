@@ -31,6 +31,7 @@
 
     "commentsSection": {
       "comment": "Comment",
+      "loading": "Loading",
       "submitButton": "Comment",
       "title": "Please let us know your opinion",
       "description": "Write your opinion here",

@@ -6,10 +6,10 @@ const CommentsInput = ({
   title,
   descriptionPlaceholder,
   inputName,
-  inputEmail,
   submitButton,
   postId,
   postSlug,
+  loadingText
 }: {
   title: string;
   descriptionPlaceholder: string;
@@ -18,6 +18,7 @@ const CommentsInput = ({
   submitButton: string;
   postId: string;
   postSlug: string;
+  loadingText:string;
 }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -70,7 +71,7 @@ const CommentsInput = ({
         <input
           className=" btn bg-red-700 text-white w-fit"
           type="submit"
-          value={isLoading ? "Loading" : submitButton}
+          value={isLoading ? loadingText : submitButton}
         />
       </form>
     </div>

@@ -12,6 +12,10 @@
   font-size: 20px;
 }
 
+.bar-of-progress {
+  z-index: 50;
+}
+
 .swiper-button-prev {
   top: 50px;
   left: unset;

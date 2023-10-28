@@ -77,8 +77,8 @@ const Navigation = async ({ locale }: { locale: string }) => {
               {/* Category Links */}
               <nav className=" w-full">
                 <ul
-                  className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2 font-bold${
-                    locale === "en" ? " text-[12px]" : " text-[15px]"
+                  className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2  ${
+                    locale === "en" ? " text-[12px] font-bold" : " text-[16px] font-semibold"
                   }`}
                 >
                   <li className={liStyle}>

@@ -14,7 +14,7 @@ const ArchiveCard = async ({
   locale: string;
 }) => {
   const dictionary = await getDictionary(locale);
- 
+
   return (
     <div>
       <div className="relative group image-full object-cover object-center">
@@ -25,7 +25,9 @@ const ArchiveCard = async ({
             height={600}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"
-            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(600, 600))}`}
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmer(600, 600),
+            )}`}
           />
         </figure>
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

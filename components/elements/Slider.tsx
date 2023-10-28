@@ -10,7 +10,6 @@ import { StudentPost } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
 const Slider = ({ studentPosts }: { studentPosts: StudentPost[] }) => {
-  
   return (
     <Swiper navigation={true} modules={[Navigation]}>
       {studentPosts.map((post) => (
@@ -20,8 +19,10 @@ const Slider = ({ studentPosts }: { studentPosts: StudentPost[] }) => {
             height={360}
             width={600}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-            className=" object-cover object-center max-h-[360px]"
-            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(360, 600))}`}
+            className=" object-cover object-center max-h-[360px] aspect-[5/4]"
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmer(360, 600),
+            )}`}
           />
         </SwiperSlide>
       ))}

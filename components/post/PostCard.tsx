@@ -17,7 +17,6 @@ const PostCard = async ({
   reverse = false,
   locale,
 }: PostProps) => {
-  
   return (
     <Link
       className={`@container ${
@@ -30,14 +29,16 @@ const PostCard = async ({
       {/* Post Image */}
       <div>
         <Image
-          className={` w-full object-cover object-center h-full max-h-[340px] ${
+          className={` w-full object-cover object-center h-full aspect-[5/4] max-h-[340px] ${
             reverse ? "md:order-last" : ""
           }`}
           alt={post.title}
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
           width={580}
           height={340}
-          placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(580, 340))}`}
+          placeholder={`data:image/svg+xml;base64,${toBase64(
+            shimmer(580, 340),
+          )}`}
         />
         <div className={`py-2 uppercase`}> {post.category.title}</div>
       </div>

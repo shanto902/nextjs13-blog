@@ -11,7 +11,7 @@
     @apply text-2xl font-semibold  mb-3;
   }
   .rich-text p {
-    @apply leading-snug  mb-3;
+    @apply leading-normal  mb-3;
   }
 
   .rich-text td {
@@ -20,4 +20,8 @@
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
   }
+}
+
+.bar-of-progress {
+  z-index: 50;
 }

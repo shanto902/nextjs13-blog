@@ -6,7 +6,6 @@ import "./overlayStyle.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
 const PostBody = ({ body, locale }: { body: string; locale: string }) => {
-  
   const options = {
     replace: (domNode: any) => {
       if (domNode.name === "img") {
@@ -19,7 +18,9 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
               alt={alt}
               width={1280}
               height={620}
-              placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(1280, 620))}`}
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(1280, 620),
+              )}`}
             />
           </Zoom>
         );
