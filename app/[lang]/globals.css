@@ -21,7 +21,3 @@
     @apply bg-base-100;
   }
 }
-
-.bar-of-progress {
-  z-index: 50;
-}

@@ -9,7 +9,7 @@ const CommentsInput = ({
   submitButton,
   postId,
   postSlug,
-  loadingText
+  loadingText,
 }: {
   title: string;
   descriptionPlaceholder: string;
@@ -18,7 +18,7 @@ const CommentsInput = ({
   submitButton: string;
   postId: string;
   postSlug: string;
-  loadingText:string;
+  loadingText: string;
 }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
