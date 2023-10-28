@@ -98,7 +98,7 @@ const Footer = async ({ locale }: { locale: string }) => {
 
         <div className=" flex items-center w-full justify-between">
           <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4 ">
-            Editorial Board
+            {dictionary.footer.editorialBoard}
           </button>
           <div className=" flex gap-3 items-center mt-2">
             <SocialLink

@@ -74,7 +74,7 @@ const page = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        <div className=" grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center">
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
           {archivedPosts.map((post: Post) => (
             <ArchiveCard key={post.id} post={post} locale={locale} />
           ))}

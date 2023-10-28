@@ -10,7 +10,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const MobileDrawer = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
 
-  const liStyle = "";
+  const liStyle = " hover:text-red-700";
   return (
     <div className=" lg:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
       <Link href={`/${locale}/`}>
@@ -40,14 +40,14 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 height={60}
               />
               {/* Sidebar content here */}
-              <ul className=" mt-10 text-xl gap-2">
+              <ul className=" mt-10 text-xl flex flex-col justify-center items-stretch gap-2">
                 <li className={liStyle}>
                   <Link href={`/${locale}/news`}>
                     {dictionary.navigation.links.news}
                   </Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href={`/${locale}/concepts`}>
+                  <Link href={`/${locale}/concept`}>
                     {dictionary.navigation.links.concepts}
                   </Link>
                 </li>
@@ -93,7 +93,7 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 </li>
               </ul>
 
-              <div className=" flex flex-row justify-center gap-5 mt-5">
+              <div className=" flex flex-row justify-around gap-5 mt-5">
                 <LangSwitcher locale={locale} />
                 <ThemeSwitcher />
               </div>

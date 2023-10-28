@@ -94,11 +94,11 @@ const MagazineCard = ({
   }, [showSuccessMessage]);
 
   return (
-    <div className=" flex flex-row gap-10 items-center">
+    <div className=" flex md:flex-row flex-col  gap-10 items-center">
       <Image
         width={365}
         height={480}
-        className="flex-1 max-w-[365px]"
+        className="flex-1 max-w-[360px]"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${magazine.image}?key=optimized`}
         alt="image"
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(365, 480))}`}

@@ -8,7 +8,7 @@ const InputFormArchived = ({
   email: string;
 }) => {
   return (
-    <div className=" flex flex-col gap-4">
+    <div className=" flex flex-col gap-4 justify-center items-center">
       <input
         type="text"
         placeholder={name}

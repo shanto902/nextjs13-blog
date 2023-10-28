@@ -19,15 +19,15 @@ const MainSlider = ({ banners }: MainSliderProps) => {
         <SwiperSlide key={banner.id}>
           <div className=" h-full relative">
             <div className="absolute bottom-10 right-0 z-10 text-white text-right px-10">
-              <h2 className="text-2xl">{banner.title}</h2>
-              <p>{banner.description}</p>
+              <h2 className="xl:text-2xl lg:text-xl md:text-lg text-base">{banner.title}</h2>
+              <p className=" xl:text-xl lg:text-xl md:text-lg text-sm">{banner.description}</p>
             </div>
             <Image
               alt=""
               height={500}
               width={1200}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`}
-              className="w-full object-cover object-center max-h-[500px] aspect-[5/4] brightness-50"
+              className="w-full object-cover object-center max-h-[500px] brightness-50"
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(1200, 500),
               )}`}

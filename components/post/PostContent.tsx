@@ -31,7 +31,7 @@ const PostContent = ({
       {/* Tags */}
       <div className=" space-y-2">
         {/* Title  */}
-        
+
         <h2
           className={`${
             isPagePost
@@ -39,38 +39,45 @@ const PostContent = ({
               : "@lg:text-2xl text-lg @md:text-xl font-medium underline underline-offset-auto decoration-red-700 pb-2 @md:leading-tight "
           } `}
         >
-        { !isPagePost ? <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>  {post.title}</Link> : <span> {post.title}</span> }
+          {!isPagePost ? (
+            <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
+              {" "}
+              {post.title}
+            </Link>
+          ) : (
+            <span> {post.title}</span>
+          )}
         </h2>
 
         {isPagePost && (
           <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5  ">
-          <div className=" flex flex-row items-center gap-2">
-            <User className="w-4 h-4" />
-            {`${post.author.first_name} ${post.author.last_name}`}
-          </div>
+            <div className=" flex flex-row items-center gap-2">
+              <User className="w-4 h-4" />
+              {`${post.author.first_name} ${post.author.last_name}`}
+            </div>
 
-          <Link className=" flex flex-row items-center gap-2" 
-         href={`/${locale}/${post.category.slug}`}>
-            <PanelRightCloseIcon className="w-4 h-4" />
-            {`${post.category.title}`}
-          </Link>
+            <Link
+              className=" flex flex-row items-center gap-2"
+              href={`/${locale}/${post.category.slug}`}
+            >
+              <PanelRightCloseIcon className="w-4 h-4" />
+              {`${post.category.title}`}
+            </Link>
 
-          <div className=" flex flex-row items-center gap-2">
-            {" "}
-            <AppWindow className="w-4 h-4" />
-            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
+            <div className=" flex flex-row items-center gap-2">
+              {" "}
+              <AppWindow className="w-4 h-4" />
+              {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </div>
           </div>
-        </div>
         )}
 
-       
         <div className=" flex flex-col md:flex-row gap-5 md:items-center">
           {isPagePost && (
-            
             <Image
               className={` object-cover object-center w-[500px]  h-[400px]
           }`}
@@ -82,48 +89,50 @@ const PostContent = ({
                 shimmer(500, 400),
               )}`}
             />
-    
           )}
-  
+
           {/* Description  */}
           <div className=" ">
             {!isPagePost ? (
               <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
-              <p
-                className={`@lg:text-lg text-base leading-snug ${
-                  isPagePost ? "" : "line-clamp-3"
-                }`}
-              >
-                {post.description}
-              </p></Link>
+                <p
+                  className={`@lg:text-lg text-base leading-snug ${
+                    isPagePost ? "" : "line-clamp-3"
+                  }`}
+                >
+                  {post.description}
+                </p>
+              </Link>
             ) : (
               <div>{formattedDescription}</div>
             )}
           </div>
         </div>
         {!isPagePost && (
-         <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center pb-5 place-self-start">
-         <div className=" flex flex-row items-center gap-2">
-           <User className="w-4 h-4" />
-           {`${post.author.first_name} ${post.author.last_name}`}
-         </div>
+          <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center pb-5 place-self-start">
+            <div className=" flex flex-row items-center gap-2">
+              <User className="w-4 h-4" />
+              {`${post.author.first_name} ${post.author.last_name}`}
+            </div>
 
-         <Link className=" flex flex-row items-center gap-2" 
-         href={`/${locale}/${post.category.slug}`}>
-           <PanelRightCloseIcon className="w-4 h-4" />
-           {`${post.category.title}`}
-         </Link>
+            <Link
+              className=" flex flex-row items-center gap-2"
+              href={`/${locale}/${post.category.slug}`}
+            >
+              <PanelRightCloseIcon className="w-4 h-4" />
+              {`${post.category.title}`}
+            </Link>
 
-         <div className=" flex flex-row items-center gap-2">
-           {" "}
-           <AppWindow className="w-4 h-4" />
-           {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-             month: "long",
-             day: "numeric",
-             year: "numeric",
-           })}
-         </div>
-       </div>
+            <div className=" flex flex-row items-center gap-2">
+              {" "}
+              <AppWindow className="w-4 h-4" />
+              {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </div>
+          </div>
         )}
       </div>
     </div>
