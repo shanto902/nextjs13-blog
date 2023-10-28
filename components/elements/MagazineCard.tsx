@@ -1,10 +1,9 @@
-'use client'
+"use client";
 import directus from "@/lib/directus";
 import { Magazine } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import Image from "next/image";
 import React, { FormEvent, useEffect, useState } from "react";
-
 
 const MagazineCard = ({
   magazine,
@@ -15,7 +14,7 @@ const MagazineCard = ({
   submitButton,
   locale,
   loadingText,
-  messageText
+  messageText,
 }: {
   magazine: Magazine;
   collectMagazine: string;
@@ -24,8 +23,8 @@ const MagazineCard = ({
   inputEmail: string;
   submitButton: string;
   locale: string;
-  loadingText:string;
-  messageText:string;
+  loadingText: string;
+  messageText: string;
 }) => {
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -118,8 +117,8 @@ const MagazineCard = ({
             placeholder={inputName}
             value={name}
             onChange={(e) => {
-            setName(e.target.value);
-          }}
+              setName(e.target.value);
+            }}
             className="input input-bordered w-full max-w-xs"
           />
           <input
@@ -128,33 +127,33 @@ const MagazineCard = ({
             placeholder={inputEmail}
             value={email}
             onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+              setEmail(e.target.value);
+            }}
             className="input input-bordered w-full max-w-xs"
           />
-           <input
-          className=" btn bg-red-700 text-white w-fit"
-          type="submit"
-          value={isLoading ? loadingText : submitButton}
-        />
-       {showSuccessMessage && (
-        <div className="alert alert-success">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span>{messageText}</span>
-        </div>
-      )}
+          <input
+            className=" btn bg-red-700 text-white w-fit"
+            type="submit"
+            value={isLoading ? loadingText : submitButton}
+          />
+          {showSuccessMessage && (
+            <div className="alert alert-success">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>{messageText}</span>
+            </div>
+          )}
         </form>
       </div>
     </div>

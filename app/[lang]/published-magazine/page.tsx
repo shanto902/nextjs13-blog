@@ -62,7 +62,7 @@ const page = async ({
               submitButton={dictionary.magazinePage.submitButton}
               loadingText={dictionary.magazinePage.loading}
               locale={locale}
-              messageText = {dictionary.magazinePage.messageText}
+              messageText={dictionary.magazinePage.messageText}
             />
           ))
         ) : (

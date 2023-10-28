@@ -1,7 +1,8 @@
 import { Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import { AppWindow, User } from "lucide-react";
+import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PostContentProps {
   post: Post;
@@ -30,6 +31,7 @@ const PostContent = ({
       {/* Tags */}
       <div className=" space-y-2">
         {/* Title  */}
+        
         <h2
           className={`${
             isPagePost
@@ -37,32 +39,38 @@ const PostContent = ({
               : "@lg:text-2xl text-lg @md:text-xl font-medium underline underline-offset-auto decoration-red-700 pb-2 @md:leading-tight "
           } `}
         >
-          {post.title}
+        { !isPagePost ? <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>  {post.title}</Link> : <span> {post.title}</span> }
         </h2>
 
         {isPagePost && (
-          <div
-            className={`${
-              isPagePost ? "justify-center" : ""
-            } gap-2 text-xs @md:text-sm flex flex-wrap items-center  pb-5`}
-          >
+          <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5  ">
+          <div className=" flex flex-row items-center gap-2">
             <User className="w-4 h-4" />
-            <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
-            <AppWindow className="w-4 h-4" />
-            <div>{`${post.category.title}`}</div>
-            <AppWindow className="w-4 h-4" />
-            <div>
-              {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </div>
+            {`${post.author.first_name} ${post.author.last_name}`}
           </div>
+
+          <Link className=" flex flex-row items-center gap-2" 
+         href={`/${locale}/${post.category.slug}`}>
+            <PanelRightCloseIcon className="w-4 h-4" />
+            {`${post.category.title}`}
+          </Link>
+
+          <div className=" flex flex-row items-center gap-2">
+            {" "}
+            <AppWindow className="w-4 h-4" />
+            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </div>
+        </div>
         )}
 
+       
         <div className=" flex flex-col md:flex-row gap-5 md:items-center">
           {isPagePost && (
+            
             <Image
               className={` object-cover object-center w-[500px]  h-[400px]
           }`}
@@ -74,41 +82,48 @@ const PostContent = ({
                 shimmer(500, 400),
               )}`}
             />
+    
           )}
+  
           {/* Description  */}
           <div className=" ">
             {!isPagePost ? (
+              <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
               <p
                 className={`@lg:text-lg text-base leading-snug ${
                   isPagePost ? "" : "line-clamp-3"
                 }`}
               >
                 {post.description}
-              </p>
+              </p></Link>
             ) : (
               <div>{formattedDescription}</div>
             )}
           </div>
         </div>
         {!isPagePost && (
-          <div
-            className={`${
-              isPagePost ? "justify-center" : ""
-            } gap-2 text-xs @md:text-sm flex flex-wrap items-center  pb-5`}
-          >
-            <User className="w-4 h-4" />
-            <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
-            <AppWindow className="w-4 h-4" />
-            <div>{`${post.category.title}`}</div>
-            <AppWindow className="w-4 h-4" />
-            <div>
-              {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </div>
-          </div>
+         <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center pb-5 place-self-start">
+         <div className=" flex flex-row items-center gap-2">
+           <User className="w-4 h-4" />
+           {`${post.author.first_name} ${post.author.last_name}`}
+         </div>
+
+         <Link className=" flex flex-row items-center gap-2" 
+         href={`/${locale}/${post.category.slug}`}>
+           <PanelRightCloseIcon className="w-4 h-4" />
+           {`${post.category.title}`}
+         </Link>
+
+         <div className=" flex flex-row items-center gap-2">
+           {" "}
+           <AppWindow className="w-4 h-4" />
+           {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+             month: "long",
+             day: "numeric",
+             year: "numeric",
+           })}
+         </div>
+       </div>
         )}
       </div>
     </div>

@@ -18,7 +18,8 @@ const PostCard = async ({
   locale,
 }: PostProps) => {
   return (
-    <Link
+    <div>
+      <Link
       className={`@container ${
         layout === "horizontal"
           ? "grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
@@ -40,11 +41,15 @@ const PostCard = async ({
             shimmer(580, 340),
           )}`}
         />
-        <div className={`py-2 uppercase`}> {post.category.title}</div>
-      </div>
+        </div>
+        </Link>
+       <Link href={`/${locale}/${post.category.slug}`}> <div className={`py-2 uppercase text-xl`}> {post.category.title}</div></Link>
+      
+      
       {/* Post Content */}
       <PostContent locale={locale} post={post} />
-    </Link>
+      
+    </div>
   );
 };
 

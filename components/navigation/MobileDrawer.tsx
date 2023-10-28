@@ -47,7 +47,7 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                   </Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href={`/${locale}/concept`}>
+                  <Link href={`/${locale}/concepts`}>
                     {dictionary.navigation.links.concepts}
                   </Link>
                 </li>
