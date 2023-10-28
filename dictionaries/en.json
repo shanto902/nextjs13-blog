@@ -54,7 +54,9 @@
       "number" : "Number",
       "inputName": "Your Name",
       "inputEmail": "Your Email",
-      "submitButton": "Request"
+      "submitButton": "Request",
+      "loading": "Loading",
+      "messageText": "Message delivered. We will contact you as soon as possible."
     },
     
     "footer":{

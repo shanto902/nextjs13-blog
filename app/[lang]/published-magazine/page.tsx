@@ -60,7 +60,9 @@ const page = async ({
               inputName={dictionary.magazinePage.inputName}
               inputEmail={dictionary.magazinePage.inputEmail}
               submitButton={dictionary.magazinePage.submitButton}
+              loadingText={dictionary.magazinePage.loading}
               locale={locale}
+              messageText = {dictionary.magazinePage.messageText}
             />
           ))
         ) : (
