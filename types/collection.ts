@@ -17,8 +17,6 @@ export interface Post {
   university: University;
 }
 
-
-
 export interface Translations {
   id: string;
   title: string;
@@ -72,9 +70,6 @@ export interface Advertisement {
   image: string;
   link: string;
 }
-
-
-
 
 export interface University {
   map(

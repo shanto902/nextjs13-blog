@@ -52,35 +52,32 @@ const page = async ({
             return {
               ...fetchedUniversity,
               tag_line: fetchedUniversity.translations[0].tag_line,
-              posts: (fetchedUniversity.posts || []).map(
-                (post: Post) => {
-                  return {
-                    ...post,
-                    title: post.translations[0].title,
-                    description: post.translations[0].description,
-                    body: post.translations[0].body,
-                    category: post.category
-                      ? {
-                          ...post.category,
-                          title: post.category.translations[0].title,
-                          description:
-                            post.category.translations[0].description,
-                        }
-                      : "",
-                    author: post.author
-                      ? {
-                          first_name: post.author.translations[0].first_name,
-                          last_name: post.author.translations[0].last_name,
-                        }
-                      : "",
-                      university: post.university
-                      ? {
-                          ... post.university
-                        }
-                      : "",
-                  };
-                },
-              ),
+              posts: (fetchedUniversity.posts || []).map((post: Post) => {
+                return {
+                  ...post,
+                  title: post.translations[0].title,
+                  description: post.translations[0].description,
+                  body: post.translations[0].body,
+                  category: post.category
+                    ? {
+                        ...post.category,
+                        title: post.category.translations[0].title,
+                        description: post.category.translations[0].description,
+                      }
+                    : "",
+                  author: post.author
+                    ? {
+                        first_name: post.author.translations[0].first_name,
+                        last_name: post.author.translations[0].last_name,
+                      }
+                    : "",
+                  university: post.university
+                    ? {
+                        ...post.university,
+                      }
+                    : "",
+                };
+              }),
             };
           },
         );

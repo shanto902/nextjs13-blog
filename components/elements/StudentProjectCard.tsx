@@ -1,7 +1,11 @@
-
 import { Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import { AppWindow, GraduationCap, PanelRightCloseIcon, User } from "lucide-react";
+import {
+  AppWindow,
+  GraduationCap,
+  PanelRightCloseIcon,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -41,7 +45,7 @@ const StudentProjectCard = ({
               {post.title}
             </Link>
             <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
-            <Link
+              <Link
                 href={`/${locale}/${post.category.slug}`}
                 className=" flex flex-row items-center justify-center gap-2"
               >

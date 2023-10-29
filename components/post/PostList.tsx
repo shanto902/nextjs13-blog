@@ -1,4 +1,4 @@
-import { Advertisement, Post,  University } from "@/types/collection";
+import { Advertisement, Post, University } from "@/types/collection";
 import PostCard from "./PostCard";
 import StudentProjectSlider from "./StudentProjectSlider";
 import StudentProjectCard from "../elements/StudentProjectCard";
@@ -13,7 +13,7 @@ interface PostListProps {
   locale: string;
   universities: University[];
   studentProjects: Post[];
-  advertisement:Advertisement[];
+  advertisement: Advertisement[];
 }
 
 const PostList = async ({
@@ -35,7 +35,7 @@ const PostList = async ({
     "environment-and-planning",
   ]; // Specify the desired order
 
-  const categorySlugToFilter = 'student-projects';
+  const categorySlugToFilter = "student-projects";
 
   // Filter the studentProjects array by category.slug
   const filteredProjects = studentProjects.filter((project) => {
@@ -44,13 +44,14 @@ const PostList = async ({
 
   const dictionary = await getDictionary(locale);
 
-
   // Combine the filtered arrays into a single array
   const combinedFilteredProjects = [...filteredProjects];
 
   // Sorting the combinedFilteredProjects array by date_created in descending order
   const sortedPosts = combinedFilteredProjects.slice().sort((a, b) => {
-    return new Date(b.date_created).getTime() - new Date(a.date_created).getTime();
+    return (
+      new Date(b.date_created).getTime() - new Date(a.date_created).getTime()
+    );
   });
 
   const latestThreePosts = sortedPosts.slice(0, 3);
@@ -113,19 +114,22 @@ const PostList = async ({
         className={`order-9`}
       />
       {latestThreePosts ? (
-       <div className=" lg:border-l lg:pl-10 flex flex-col justify-between order-last">
-         <StudentProjectCard
-          latestThreePosts={latestThreePosts}
-          locale={locale}
-        />
-        <Link href={`/${locale}/student-projects` } className=" btn w-fit self-center lg:mb-14 mt-5"> {dictionary.mainBody.seeMore} </Link>
-       </div>
+        <div className=" lg:border-l lg:pl-10 flex flex-col justify-between order-last">
+          <StudentProjectCard
+            latestThreePosts={latestThreePosts}
+            locale={locale}
+          />
+          <Link
+            href={`/${locale}/student-projects`}
+            className=" btn w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
+          >
+            {" "}
+            {dictionary.mainBody.seeMore}{" "}
+          </Link>
+        </div>
       ) : (
         <h2>No Posts to Show</h2>
       )}
-
-
-      
     </div>
   );
 };

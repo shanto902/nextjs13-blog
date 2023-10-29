@@ -115,25 +115,23 @@ const page = async ({
           (fetchedUniversity) => {
             return {
               ...fetchedUniversity,
-              posts: (fetchedUniversity.posts || []).map(
-                (post: Post) => {
-                  return {
-                    ...post,
-                    title: post.translations[0].title,
-                    category: post.category
-                      ? {
-                          ...post.category,
-                          title: post.category.translations[0].title,
-                        }
-                      : "",
-                    university: post.university
-                      ? {
-                          ...post.university,
-                        }
-                      : "",
-                  };
-                },
-              ),
+              posts: (fetchedUniversity.posts || []).map((post: Post) => {
+                return {
+                  ...post,
+                  title: post.translations[0].title,
+                  category: post.category
+                    ? {
+                        ...post.category,
+                        title: post.category.translations[0].title,
+                      }
+                    : "",
+                  university: post.university
+                    ? {
+                        ...post.university,
+                      }
+                    : "",
+                };
+              }),
             };
           },
         );
@@ -185,17 +183,18 @@ const page = async ({
 
   const banners = await getAllBanners();
 
-
   const getAdvertisementImage = async () => {
     try {
-      const advertisementImage = await directus.items("advertisement").readByQuery({
-        filter: {
-          status: {
-            _eq: "published",
+      const advertisementImage = await directus
+        .items("advertisement")
+        .readByQuery({
+          filter: {
+            status: {
+              _eq: "published",
+            },
           },
-        },
-        fields: ["image", "link"],
-      });
+          fields: ["image", "link"],
+        });
 
       return advertisementImage.data || [];
     } catch (error) {
@@ -230,7 +229,9 @@ const page = async ({
           <div className=" relative order-last md:order-none">
             <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
-              <h2 className="text-lg bg-base-100 pl-2">{dictionary.magazineHome.title}</h2>
+              <h2 className="text-lg bg-base-100 pl-2">
+                {dictionary.magazineHome.title}
+              </h2>
               <Link
                 href={`/${locale}/published-magazine`}
                 className=" btn btn-outline bg-base-100 w-fit"
@@ -246,26 +247,28 @@ const page = async ({
             </div>
           </div>
           <div className="  md:border-l place-item-end pl-10 ">
+            {advertisement &&
+              advertisement.map((adv, index) => (
+                <Link className="md:ml-10 " key={index} href={adv.link}>
+                  <Image
+                    className=" aspect-square   object-cover object-center"
+                    width={500}
+                    height={500}
+                    alt="Advertise Link"
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(500, 500),
+                    )}`}
+                  />
+                </Link>
+              ))}
 
-     
-        {
-          advertisement &&
-          advertisement.map((adv,index)=> <Link className="md:ml-10 " key={index} href={adv.link}>
-          <Image      className=" aspect-square   object-cover object-center"
-              width={500}
-              height={500}
-              alt="Advertise Link"
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
-              placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(500, 500),
-              )}`}/>
-          </Link>)
-        }
-
-        <Link className=" btn mt-10 normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full" href={""}>
-        {dictionary.mainBody.costBtn}
-        </Link>
-  
+            <Link
+              className=" btn mt-10 normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
+              href={""}
+            >
+              {dictionary.mainBody.costBtn}
+            </Link>
           </div>
         </div>
       </main>

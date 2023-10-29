@@ -2,7 +2,12 @@ import React from "react";
 import { Post, University } from "@/types/collection";
 import Image from "next/image";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import { AppWindow, GraduationCap, PanelRightCloseIcon, User } from "lucide-react";
+import {
+  AppWindow,
+  GraduationCap,
+  PanelRightCloseIcon,
+  User,
+} from "lucide-react";
 import Link from "next/link";
 
 const UniversityList = ({
@@ -20,8 +25,10 @@ const UniversityList = ({
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
         {university.posts.map((post: Post) => (
           <div key={post.id} className="">
-            <Link href={`/${locale}/${post.category.slug}/${post.slug}`}
-            className=" ">
+            <Link
+              href={`/${locale}/${post.category.slug}/${post.slug}`}
+              className=" "
+            >
               <Image
                 className=" w-[380px] h-[280px] object-cover object-center"
                 width={380}
