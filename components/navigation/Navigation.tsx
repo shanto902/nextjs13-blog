@@ -137,7 +137,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
               </nav>
 
               {/* Search  */}
-              {/* <SearchComponent locale={locale} posts={posts || []} /> */}
+              <SearchComponent locale={locale} posts={posts || []} />
             </div>
             <hr className=" border-2 " />
           </div>
