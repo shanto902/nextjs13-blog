@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import directus from "@/lib/directus";
 import React, { FormEvent, useEffect, useState } from "react";
@@ -8,15 +8,16 @@ const InputFormArchived = ({
   email,
   id,
   submitButton,
-  message
+  message,
+  hoverTitle
 }: {
   name: string;
   email: string;
   id: string;
-  submitButton:string;
-  message:string;
+  submitButton: string;
+  message: string;
+  hoverTitle:string;
 }) => {
-
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,7 @@ const InputFormArchived = ({
       setIsLoading(true);
       await directus.items("request_archived").createOne({
         name: inputName,
-        email : inputEmail,
+        email: inputEmail,
         requested_archived: id,
         status: "pending",
       });
@@ -57,51 +58,58 @@ const InputFormArchived = ({
     }
   }, [showSuccessMessage]);
 
-
   return (
-  <>
-   {showSuccessMessage ? (
-            <div className="alert alert-success">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="stroke-current shrink-0 h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>{message}</span>
-            </div>
-          ):  <form className=" flex flex-col gap-4 justify-center items-center" 
-          onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder={name}
-                  value={inputName}
-                  onChange={(e) => {
-                    setInputName(e.target.value);
-                  }}
-              className="input input-bordered w-full max-w-xs"
+    <>
+      {showSuccessMessage ? (
+        <div className="alert alert-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
-            <input
-              type="email"
-              placeholder={email}
-              value={inputEmail}
-                  onChange={(e) => {
-                    setInputEmail(e.target.value);
-                  }}
-              className="input input-bordered w-full max-w-xs"
-            />
-             <input className=" w-fit self-center btn px-4 py-2 rounded-lg"
-             type="submit" value={submitButton}/>
-                  
-                 
-          </form>}</>
+          </svg>
+          <span>{message}</span>
+        </div>
+      ) : (
+       <div>
+           <h3 className=" mb-4 text-lg text-white text-center">
+              {hoverTitle}
+            </h3>
+            <form className=" flex flex-col gap-4 justify-center items-center" 
+    onSubmit={submitHandler}>
+      <input
+        type="text"
+        placeholder={name}
+            value={inputName}
+            onChange={(e) => {
+              setInputName(e.target.value);
+            }}
+        className="input input-bordered w-full max-w-xs"
+      />
+      <input
+        type="email"
+        placeholder={email}
+        value={inputEmail}
+            onChange={(e) => {
+              setInputEmail(e.target.value);
+            }}
+        className="input input-bordered w-full max-w-xs"
+      />
+       <input className=" w-fit self-center btn px-4 py-2 rounded-lg"
+       type="submit" value={submitButton}/>
+            
+           
+    </form>
+       </div>
+      )}
+    </>
   );
 };
 

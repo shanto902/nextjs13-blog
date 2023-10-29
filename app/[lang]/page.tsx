@@ -11,15 +11,17 @@ import Link from "next/link";
 import { Banner, Post, StudentPost, University } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
-export default async function Home({
+const page  =  async ({
   params,
 }: {
   params: {
     lang: string;
   };
-}) {
+}) => {
   const locale = params.lang;
 
+
+  // FROM GETTING ALL STUDENTS POSTS 
   const getAllPosts = async () => {
     try {
       const posts = await directus.items("post").readByQuery({
@@ -77,6 +79,8 @@ export default async function Home({
     notFound();
   }
 
+  // FOR GET ALL UNIVERSITY BASED PROJECTS 
+  
   const getStudentsProjectData = async () => {
     try {
       const university = await directus.items("university").readByQuery({
@@ -274,3 +278,5 @@ export default async function Home({
     </PaddingContainer>
   );
 }
+
+export default page;

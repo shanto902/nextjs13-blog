@@ -1,4 +1,3 @@
-
 import { getDictionary } from "@/lib/getDictionary";
 import { Post } from "@/types/collection";
 import Image from "next/image";
@@ -18,11 +17,11 @@ const ArchiveCard = async ({
 
   return (
     <div>
-      <div className="relative group image-full object-cover object-center @container overflow-scroll">
+      <div className="relative group image-full ">
         <figure className="relative">
           <Image
             className="aspect-square object-cover object-center"
-            width={600}
+            width={600} 
             height={600}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"
@@ -32,21 +31,21 @@ const ArchiveCard = async ({
           />
         </figure>
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className=" p-4 flex flex-col justify-center gap-4 bg-black w-full h-full bg-opacity-50">
-            <h3 className=" @lg:text-2xl @md:text-xl text-lg text-white text-center">
-              {dictionary.archivedPage.hoverTitle}
-            </h3>
+          <div className=" p-4 flex flex-col justify-center gap-4 bg-black w-full h-full bg-opacity-50 ">
             <InputFormArchived
               name={dictionary.archivedPage.inputName}
               email={dictionary.archivedPage.inputEmail}
-              id = {post.id}
-              submitButton = {dictionary.archivedPage.submitButton}
-              message = {dictionary.magazinePage.messageText}
+              id={post.id}
+              submitButton={dictionary.archivedPage.submitButton}
+              message={dictionary.magazinePage.messageText}
+            hoverTitle = {dictionary.archivedPage.hoverTitle}
             />
           </div>
         </div>
       </div>
-      <h2 className="  text-center mt-4 font-bold @md:text-md text-base @lg:text-lg @xl:text-xl mb-2">{post.title}</h2>
+      <h2 className="  text-center mt-4 font-bold @md:text-md text-base @lg:text-lg @xl:text-xl mb-2">
+        {post.title}
+      </h2>
       <div
         className={` gap-2 text-xs @md:text-sm flex flex-wrap items-center justify-center pb-5`}
       >
