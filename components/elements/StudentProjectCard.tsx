@@ -16,22 +16,34 @@ const StudentProjectCard = ({
     <div className=" flex flex-col gap-5">
       {latestThreePosts.map((post) => (
         <div className=" flex flex-row items-center gap-5" key={post.id}>
-          <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
-          <Image
-            className=" w-[200px] h-[150px] object-cover object-center"
-            width={200}
-            height={150}
-            alt={post.title}
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-            placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(200, 150),
-            )}`}
-          /></Link>
+          <Link
+            href={`/${locale}/${post.category.slug}/${post.slug}`}
+            className="max-w-[200px] "
+          >
+            <Image
+              className=" aspect-video  object-cover object-center"
+              width={300}
+              height={150}
+              alt={post.title}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(200, 150),
+              )}`}
+            />
+          </Link>
 
           <div>
-            <Link href={`/${locale}/${post.category.slug}/${post.slug}`} className=" text-lg">{post.title}</Link>
+            <Link
+              href={`/${locale}/${post.category.slug}/${post.slug}`}
+              className=" text-lg"
+            >
+              {post.title}
+            </Link>
             <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
-              <Link href={`/${locale}/${post.category.slug}`} className=" flex flex-row items-center gap-2 ">
+              <Link
+                href={`/${locale}/${post.category.slug}`}
+                className=" flex flex-row items-center gap-2 "
+              >
                 <PanelRightCloseIcon className="w-4 h-4" />
                 {`${post.category.title}`}
               </Link>

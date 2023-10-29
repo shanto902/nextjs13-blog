@@ -1,6 +1,5 @@
 import CategoryPostList from "@/components/category/CategoryPostList";
 import PaddingContainer from "@/components/layout/PaddingContainer";
-import PostList from "@/components/post/PostList";
 import directus from "@/lib/directus";
 import { Category, Post } from "@/types/collection";
 import { notFound } from "next/navigation";
@@ -21,14 +20,14 @@ export const generateStaticParams = async () => {
       (category: Category) => category?.slug !== "student-projects",
     );
 
-    const params = filteredCategories?.map((category: { slug: string }) => {
+    const params = categories?.data?.map((category: { slug: string }) => {
       return {
         category: category.slug as string,
         lang: "en",
       };
     });
 
-    const localizedParams = filteredCategories?.map(
+    const localizedParams = categories?.data?.map(
       (category: { slug: string }) => {
         return {
           category: category.slug as string,

@@ -43,37 +43,43 @@ const SideLogo = ({
               />
             </Link>
             <div
-              className="parent  hidden lg:block text-right overflow-hidden leading-tight"
+              className="parent hidden lg:block text-right overflow-hidden leading-tight"
               style={{ width: "80px", height: "120px" }}
             >
-              <ScaleText>
-                <p className="child">
-                  {(params.category === "heritage" &&
-                    dictionary.navigation.links.heritage) ||
-                    (params.category === "arts" &&
-                      dictionary.navigation.links.arts) ||
-                    (params.category === "news" &&
-                      dictionary.navigation.links.news) ||
-                    (params.category === "concepts" &&
-                      dictionary.navigation.links.concepts) ||
-                    (params.category === "personality" &&
-                      dictionary.navigation.links.personality) ||
-                    (params.category === "dialogue" &&
-                      dictionary.navigation.links.dialogue) ||
-                    (params.category === "projects" &&
-                      dictionary.navigation.links.projects) ||
-                    (pathname.match(/^\/(bn|en)\/student-projects$/) &&
-                      dictionary.navigation.links.studentProjects) ||
-                    (params.category === "technology" &&
-                      dictionary.navigation.links.technology) ||
-                    (params.category === "environment-and-planning" &&
-                      dictionary.navigation.links.environmentPlaning) ||
-                    (pathname.match(/^\/(bn|en)\/archived$/) &&
-                      dictionary.navigation.links.archived) ||
-                    (pathname.match(/^\/(bn|en)\/published-magazine$/) &&
-                      dictionary.navigation.links.publishedMagazine)}
-                </p>
-              </ScaleText>
+              <div
+                className="parent hidden lg:block text-right overflow-hidden leading-tight"
+                style={{ width: "80px", height: "120px" }}
+              >
+                <ScaleText>
+                  <p className="child">
+                    {(params.category === "heritage" &&
+                      dictionary.navigation.links.heritage) ||
+                      (params.category === "arts" &&
+                        dictionary.navigation.links.arts) ||
+                      (params.category === "news" &&
+                        dictionary.navigation.links.news) ||
+                      (params.category === "concepts" &&
+                        dictionary.navigation.links.concepts) ||
+                      (params.category === "personality" &&
+                        dictionary.navigation.links.personality) ||
+                      (params.category === "dialogue" &&
+                        dictionary.navigation.links.dialogue) ||
+                      (params.category === "projects" &&
+                        dictionary.navigation.links.projects) ||
+                      (pathname.match(/^\/(bn|en)\/student-projects/) &&
+                        dictionary.navigation.links.studentProjects) ||
+                      (params.category === "technology" &&
+                        dictionary.navigation.links.technology) ||
+                      (params.category === "environment-and-planning" &&
+                        dictionary.navigation.links.environmentPlaning) ||
+                      (pathname.match(/^\/(bn|en)\/archived/) &&
+                        dictionary.navigation.links.archived) ||
+                      (pathname.match(/^\/(bn|en)\/published-magazine/) &&
+                        dictionary.navigation.links.publishedMagazine) ||
+                      "Not Found"}
+                  </p>
+                </ScaleText>
+              </div>
             </div>
             {matchingPost?.left_add && (
               <Image

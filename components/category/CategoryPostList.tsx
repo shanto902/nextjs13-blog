@@ -93,9 +93,7 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
         {publishedPosts.map((post, index) => (
           <div
             suppressHydrationWarning
-            className={`${
-              getRandomOddNumber() === 1 ? "md:col-span-2" : ""
-            } `}
+            className={`${getRandomOddNumber() === 1 ? "md:col-span-2" : ""} `}
             key={index}
           >
             {renderPostLayout(post, index)}

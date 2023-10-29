@@ -6,7 +6,6 @@ import { Post, StudentPost, University } from "@/types/collection";
 import { notFound } from "next/navigation";
 import React from "react";
 
-
 const page = async ({
   params,
 }: {

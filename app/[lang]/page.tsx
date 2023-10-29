@@ -9,7 +9,6 @@ import magazineImage from "@/assets/magpic.png";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import { Banner, Post, StudentPost, University } from "@/types/collection";
-import "react-loading-skeleton/dist/skeleton.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
 export default async function Home({
@@ -94,6 +93,7 @@ export default async function Home({
           "posts.id",
           "posts.title",
           "posts.image",
+          "posts.slug",
           "posts.translations.*",
           "posts.category.id",
           "posts.category.title",
@@ -149,10 +149,15 @@ export default async function Home({
 
   const getAllStudentPosts = async () => {
     try {
-      const posts = await directus.items("studentProjects").readByQuery({
+      const posts = await directus.items("post").readByQuery({
         filter: {
           status: {
             _eq: "published",
+          },
+          category: {
+            slug: {
+              _eq: "student-projects",
+            },
           },
         },
         fields: [
@@ -191,7 +196,6 @@ export default async function Home({
   };
 
   const studentPosts = await getAllStudentPosts();
-
   const dictionary = await getDictionary(locale);
 
   const getAllBanners = async () => {

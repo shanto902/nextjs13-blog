@@ -94,7 +94,10 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             {`${post.author.first_name} ${post.author.last_name}`}
           </div>
 
-          <Link href={`/${locale}/${post.category.slug}`} className=" flex flex-row items-center gap-2">
+          <Link
+            href={`/${locale}/${post.category.slug}`}
+            className=" flex flex-row items-center gap-2"
+          >
             <PanelRightCloseIcon className="w-4 h-4" />
             {`${post.category.title}`}
           </Link>
@@ -111,10 +114,10 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         </div>
       </div>
       <div>
-      <Link href={`/${locale}/${post.category.slug}/${post.slug}`} >
-      <Image
-        suppressHydrationWarning
-        className={`
+        <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
+          <Image
+            suppressHydrationWarning
+            className={`
         ${
           customLayout === 0
             ? " max-h-[540px] max-w-[850px]"
@@ -130,13 +133,15 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             ? "max-h-[380px] max-w-[580px] "
             : ""
         }  w-full object-cover object-center h-full`}
-        width={850}
-        height={600}
-        alt={post.title}
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(850, 600))}`}
-      ></Image>
-      </Link>
+            width={850}
+            height={600}
+            alt={post.title}
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmer(850, 600),
+            )}`}
+          ></Image>
+        </Link>
       </div>
     </div>
   );

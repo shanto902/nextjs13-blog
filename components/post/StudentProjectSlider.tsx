@@ -23,7 +23,7 @@ const StudentProjectSlider = async ({
         {dictionary.studentProjects.sliderTitle}
       </p>
       <div>
-        <Slider studentPosts={studentPosts} />
+        <Slider studentPosts={studentPosts} locale={locale} />
       </div>
     </div>
   );

@@ -8,22 +8,31 @@ import "./styles.css";
 import Image from "next/image";
 import { StudentPost } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import Link from "next/link";
 
-const Slider = ({ studentPosts }: { studentPosts: StudentPost[] }) => {
+const Slider = ({
+  studentPosts,
+  locale,
+}: {
+  studentPosts: StudentPost[];
+  locale: string;
+}) => {
   return (
     <Swiper navigation={true} modules={[Navigation]}>
       {studentPosts.map((post) => (
         <SwiperSlide key={post.id}>
-          <Image
-            alt=""
-            height={360}
-            width={600}
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-            className=" object-cover object-center max-h-[360px] aspect-[5/4]"
-            placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(360, 600),
-            )}`}
-          />
+          <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
+            <Image
+              alt=""
+              height={360}
+              width={600}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+              className=" object-cover object-center max-h-[360px] aspect-[5/4]"
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(360, 600),
+              )}`}
+            />
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
