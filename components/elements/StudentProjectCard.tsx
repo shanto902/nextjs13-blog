@@ -1,45 +1,56 @@
-import { StudentPost } from '@/types/collection'
-import { shimmer, toBase64 } from '@/utils/shimmer'
-import { AppWindow, PanelRightCloseIcon, User } from 'lucide-react'
-import Image from 'next/image'
-import React from 'react'
+import { StudentPost } from "@/types/collection";
+import { shimmer, toBase64 } from "@/utils/shimmer";
+import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-const StudentProjectCard = ({latestThreePosts, locale}:{latestThreePosts:StudentPost[], locale:string}) => {
+const StudentProjectCard = ({
+  latestThreePosts,
+  locale,
+}: {
+  latestThreePosts: StudentPost[];
+  locale: string;
+}) => {
   return (
-    <div className=' flex flex-col gap-5'>{
-      latestThreePosts.map((post)=> <div className=' flex flex-row items-center gap-5' key={post.id}>
-             <Image className=" w-[200px] h-[150px] object-cover object-center"
+    <div className=" flex flex-col gap-5">
+      {latestThreePosts.map((post) => (
+        <div className=" flex flex-row items-center gap-5" key={post.id}>
+          <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
+          <Image
+            className=" w-[200px] h-[150px] object-cover object-center"
             width={200}
-        height={150}
-        alt={post.title}
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(200, 150))}`}
-      />
-        
-        <div>
-        <h3 className=' text-lg'>{post.title}</h3>
-        <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
+            height={150}
+            alt={post.title}
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmer(200, 150),
+            )}`}
+          /></Link>
 
-          <div className=" flex flex-row items-center gap-2 ">
-            <PanelRightCloseIcon className="w-4 h-4" />
-            {`${post.category.title}`}
-          </div>
+          <div>
+            <Link href={`/${locale}/${post.category.slug}/${post.slug}`} className=" text-lg">{post.title}</Link>
+            <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
+              <Link href={`/${locale}/${post.category.slug}`} className=" flex flex-row items-center gap-2 ">
+                <PanelRightCloseIcon className="w-4 h-4" />
+                {`${post.category.title}`}
+              </Link>
 
-          <div className=" flex flex-row items-center gap-2">
-            {" "}
-            <AppWindow className="w-4 h-4" />
-            {new Date(post.date_created).toLocaleDateString(`${locale}`, {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
+              <div className=" flex flex-row items-center gap-2">
+                {" "}
+                <AppWindow className="w-4 h-4" />
+                {new Date(post.date_created).toLocaleDateString(`${locale}`, {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-        
-        </div>)
-      }</div>
-  )
-}
+      ))}
+    </div>
+  );
+};
 
-export default StudentProjectCard
+export default StudentProjectCard;

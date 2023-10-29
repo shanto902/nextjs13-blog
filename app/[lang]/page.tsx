@@ -107,26 +107,33 @@ export default async function Home({
       if (locale === "en") {
         return university?.data;
       } else {
-        const localizedUniversity: University[] = (university?.data || []).map((fetchedUniversity) => {
-          return {
-            ...fetchedUniversity,
-            posts: (fetchedUniversity.posts || []).map((post: StudentPost) => {
-           
-              return {
-                ...post,
-                title: post.translations[0].title,
-                category: post.category ? {
-                  ...post.category,
-                  title: post.category.translations[0].title,
-                }: "",
-                university: post.university ? {
-                  ...post.university,
-                }: "",
-              };
-            }),
-          };
-        });
-  
+        const localizedUniversity: University[] = (university?.data || []).map(
+          (fetchedUniversity) => {
+            return {
+              ...fetchedUniversity,
+              posts: (fetchedUniversity.posts || []).map(
+                (post: StudentPost) => {
+                  return {
+                    ...post,
+                    title: post.translations[0].title,
+                    category: post.category
+                      ? {
+                          ...post.category,
+                          title: post.category.translations[0].title,
+                        }
+                      : "",
+                    university: post.university
+                      ? {
+                          ...post.university,
+                        }
+                      : "",
+                  };
+                },
+              ),
+            };
+          },
+        );
+
         return localizedUniversity;
       }
     } catch (error) {
@@ -139,7 +146,6 @@ export default async function Home({
   if (!universities) {
     notFound();
   }
-
 
   const getAllStudentPosts = async () => {
     try {
@@ -237,7 +243,7 @@ export default async function Home({
           locale={locale}
           posts={posts}
           universities={universities || []}
-          studentProjects = {studentPosts || []}
+          studentProjects={studentPosts || []}
         />
         <div className=" flex flex-col md:flex-row gap-10">
           <div className=" flex-1 relative">

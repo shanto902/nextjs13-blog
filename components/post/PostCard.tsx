@@ -9,7 +9,7 @@ interface PostProps {
   layout?: "vertical" | "horizontal";
   reverse?: boolean;
   locale: string;
-  className:string;
+  className: string;
 }
 
 const PostCard = async ({
@@ -17,7 +17,7 @@ const PostCard = async ({
   layout = "horizontal",
   reverse = false,
   locale,
-  className
+  className,
 }: PostProps) => {
   return (
     <div>

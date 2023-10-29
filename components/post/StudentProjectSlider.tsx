@@ -18,7 +18,10 @@ const StudentProjectSlider = async ({
       <h2 className=" text-2xl italic md:text-3xl lg:text-4xl underline    decoration-red-700">
         {dictionary.navigation.links.studentProjects}
       </h2>
-      <p>{ studentPosts[0]?.university.name} {dictionary.studentProjects.sliderTitle}</p>
+      <p>
+        {studentPosts[0]?.university.name}{" "}
+        {dictionary.studentProjects.sliderTitle}
+      </p>
       <div>
         <Slider studentPosts={studentPosts} />
       </div>

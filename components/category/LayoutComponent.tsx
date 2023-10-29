@@ -13,8 +13,8 @@ interface LayoutProps {
 
 const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
   return (
-    <div 
-    suppressHydrationWarning
+    <div
+      suppressHydrationWarning
       key={post.id}
       className={`@container flex justify-center space-y-2 ${
         customLayout === 0
@@ -37,7 +37,8 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
       }  flex-col-reverse gap-4`}
     >
       {/* For Container Text Layout  */}
-      <div suppressHydrationWarning
+      <div
+        suppressHydrationWarning
         className={`${
           customLayout === 0
             ? ""
@@ -49,7 +50,9 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         }`}
       >
         {/* Title Div */}
-        <Link suppressHydrationWarning  href={`/${locale}/${post.category.slug}/${post.slug}`}
+        <Link
+          suppressHydrationWarning
+          href={`/${locale}/${post.category.slug}/${post.slug}`}
           className={`${
             customLayout === 0
               ? "@lg:text-2xl @md:text-xl"
@@ -76,7 +79,8 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
 
         {/* Description Div  */}
 
-        <Link   href={`/${locale}/${post.category.slug}/${post.slug}`}
+        <Link
+          href={`/${locale}/${post.category.slug}/${post.slug}`}
           className={` @lg:text-lg @md:text-md text-base leading-snug line-clamp-6`}
         >
           {post.description}
@@ -90,10 +94,10 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             {`${post.author.first_name} ${post.author.last_name}`}
           </div>
 
-          <div className=" flex flex-row items-center gap-2">
+          <Link href={`/${locale}/${post.category.slug}`} className=" flex flex-row items-center gap-2">
             <PanelRightCloseIcon className="w-4 h-4" />
             {`${post.category.title}`}
-          </div>
+          </Link>
 
           <div className=" flex flex-row items-center gap-2">
             {" "}
@@ -106,9 +110,12 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           </div>
         </div>
       </div>
+      <div>
+      <Link href={`/${locale}/${post.category.slug}/${post.slug}`} >
       <Image
-      suppressHydrationWarning
-        className={`${
+        suppressHydrationWarning
+        className={`
+        ${
           customLayout === 0
             ? " max-h-[540px] max-w-[850px]"
             : customLayout === 1
@@ -129,6 +136,8 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(850, 600))}`}
       ></Image>
+      </Link>
+      </div>
     </div>
   );
 };
