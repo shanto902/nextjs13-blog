@@ -20,14 +20,14 @@ export const generateStaticParams = async () => {
       (category: Category) => category?.slug !== "student-projects",
     );
 
-    const params = categories?.data?.map((category: { slug: string }) => {
+    const params = filteredCategories?.map((category: { slug: string }) => {
       return {
         category: category.slug as string,
         lang: "en",
       };
     });
 
-    const localizedParams = categories?.data?.map(
+    const localizedParams = filteredCategories?.map(
       (category: { slug: string }) => {
         return {
           category: category.slug as string,
