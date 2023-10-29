@@ -246,7 +246,7 @@ const page = async ({
               </Link>
             </div>
           </div>
-          <div className="  md:border-l place-item-end pl-10 ">
+          <div className="  md:border-l place-item-end lg:pl-10 ">
             {advertisement &&
               advertisement.map((adv, index) => (
                 <Link className="md:ml-10 " key={index} href={adv.link}>
