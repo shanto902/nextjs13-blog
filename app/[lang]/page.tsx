@@ -251,10 +251,7 @@ export default async function Home({
         />
         <div className=" flex flex-col md:flex-row gap-10">
           <div className=" flex-1 relative">
-            <Image
-              src={magazineImage}
-              alt={"Magazine Picture"}
-            />
+            <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
               <h2 className="text-lg">{dictionary.magazineHome.title}</h2>
               <Link
