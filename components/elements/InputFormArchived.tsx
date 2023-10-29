@@ -9,14 +9,14 @@ const InputFormArchived = ({
   id,
   submitButton,
   message,
-  hoverTitle
+  hoverTitle,
 }: {
   name: string;
   email: string;
   id: string;
   submitButton: string;
   message: string;
-  hoverTitle:string;
+  hoverTitle: string;
 }) => {
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
@@ -78,36 +78,37 @@ const InputFormArchived = ({
           <span>{message}</span>
         </div>
       ) : (
-       <div>
-           <h3 className=" mb-4 text-lg text-white text-center">
-              {hoverTitle}
-            </h3>
-            <form className=" flex flex-col gap-4 justify-center items-center" 
-    onSubmit={submitHandler}>
-      <input
-        type="text"
-        placeholder={name}
-            value={inputName}
-            onChange={(e) => {
-              setInputName(e.target.value);
-            }}
-        className="input input-bordered w-full max-w-xs"
-      />
-      <input
-        type="email"
-        placeholder={email}
-        value={inputEmail}
-            onChange={(e) => {
-              setInputEmail(e.target.value);
-            }}
-        className="input input-bordered w-full max-w-xs"
-      />
-       <input className=" w-fit self-center btn px-4 py-2 rounded-lg"
-       type="submit" value={submitButton}/>
-            
-           
-    </form>
-       </div>
+        <div>
+          <h3 className=" mb-4 text-lg text-white text-center">{hoverTitle}</h3>
+          <form
+            className=" flex flex-col gap-4 justify-center items-center"
+            onSubmit={submitHandler}
+          >
+            <input
+              type="text"
+              placeholder={name}
+              value={inputName}
+              onChange={(e) => {
+                setInputName(e.target.value);
+              }}
+              className="input input-bordered w-full max-w-xs"
+            />
+            <input
+              type="email"
+              placeholder={email}
+              value={inputEmail}
+              onChange={(e) => {
+                setInputEmail(e.target.value);
+              }}
+              className="input input-bordered w-full max-w-xs"
+            />
+            <input
+              className=" w-fit self-center btn px-4 py-2 rounded-lg"
+              type="submit"
+              value={submitButton}
+            />
+          </form>
+        </div>
       )}
     </>
   );

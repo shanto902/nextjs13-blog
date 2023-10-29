@@ -21,7 +21,7 @@ const ArchiveCard = async ({
         <figure className="relative">
           <Image
             className="aspect-square object-cover object-center"
-            width={600} 
+            width={600}
             height={600}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"
@@ -38,7 +38,7 @@ const ArchiveCard = async ({
               id={post.id}
               submitButton={dictionary.archivedPage.submitButton}
               message={dictionary.magazinePage.messageText}
-            hoverTitle = {dictionary.archivedPage.hoverTitle}
+              hoverTitle={dictionary.archivedPage.hoverTitle}
             />
           </div>
         </div>

@@ -40,7 +40,7 @@ const PostContent = ({
         >
           {!isPagePost ? (
             <Link
-              className=" @lg:text-4xl text-2xl @md:text-3xl font-medium underline decoration-red-700  @md:leading-tight "
+              className=" @lg:text-4xl text-2xl @md:text-3xl font-medium underline decoration-red-700  @md:leading-tight line-clamp-2 "
               href={`/${locale}/${post.category.slug}/${post.slug}`}
             >
               {post.title}

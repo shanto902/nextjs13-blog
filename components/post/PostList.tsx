@@ -1,22 +1,28 @@
-import { Post, StudentPost, University } from "@/types/collection";
+import { Advertisement, Post,  University } from "@/types/collection";
 import PostCard from "./PostCard";
 import StudentProjectSlider from "./StudentProjectSlider";
 import StudentProjectCard from "../elements/StudentProjectCard";
+import { getDictionary } from "@/lib/getDictionary";
+import Link from "next/link";
+import Image from "next/image";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 
 interface PostListProps {
   posts: Post[];
   layout?: "vertical" | "horizontal";
   locale: string;
   universities: University[];
-  studentProjects: StudentPost[];
+  studentProjects: Post[];
+  advertisement:Advertisement[];
 }
 
-const PostList = ({
+const PostList = async ({
   posts,
   layout = "vertical",
   locale,
   universities,
   studentProjects,
+  advertisement,
 }: PostListProps) => {
   const groupedPosts: { [categorySlug: string]: Post[] } = {};
   const categoryList = [
@@ -29,10 +35,23 @@ const PostList = ({
     "environment-and-planning",
   ]; // Specify the desired order
 
-  const sortedPosts = studentProjects.sort(
-    (a, b) =>
-      new Date(b.date_created).getTime() - new Date(a.date_created).getTime(),
-  );
+  const categorySlugToFilter = 'student-projects';
+
+  // Filter the studentProjects array by category.slug
+  const filteredProjects = studentProjects.filter((project) => {
+    return project.category.slug === categorySlugToFilter;
+  });
+
+  const dictionary = await getDictionary(locale);
+
+
+  // Combine the filtered arrays into a single array
+  const combinedFilteredProjects = [...filteredProjects];
+
+  // Sorting the combinedFilteredProjects array by date_created in descending order
+  const sortedPosts = combinedFilteredProjects.slice().sort((a, b) => {
+    return new Date(b.date_created).getTime() - new Date(a.date_created).getTime();
+  });
 
   const latestThreePosts = sortedPosts.slice(0, 3);
 
@@ -94,13 +113,19 @@ const PostList = ({
         className={`order-9`}
       />
       {latestThreePosts ? (
-        <StudentProjectCard
+       <div className=" lg:border-l lg:pl-10 flex flex-col justify-between order-last">
+         <StudentProjectCard
           latestThreePosts={latestThreePosts}
           locale={locale}
         />
+        <Link href={`/${locale}/student-projects` } className=" btn w-fit self-center lg:mb-14 mt-5"> {dictionary.mainBody.seeMore} </Link>
+       </div>
       ) : (
-        <h2>No Post to Show</h2>
+        <h2>No Posts to Show</h2>
       )}
+
+
+      
     </div>
   );
 };

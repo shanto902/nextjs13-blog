@@ -38,7 +38,8 @@
   "mainBody": {
     "moreCollection": "আরও সংগ্রহ",
     "studentProjects": "ছাত্র প্রকল্প",
-    "seeMore": "আরও দেখুন"
+    "seeMore": "আরও দেখুন",
+    "costBtn" : "স্থাপত্য ও নির্মাণের বাজারদর ও নির্মাণ খরচ জানতে ক্লিক করুন"
   },
 
   "studentProjects": {

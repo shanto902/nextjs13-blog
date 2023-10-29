@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/getDictionary";
-import { StudentPost } from "@/types/collection";
+import { Post } from "@/types/collection";
 import React from "react";
 import Slider from "../elements/Slider";
 
@@ -10,7 +10,7 @@ const StudentProjectSlider = async ({
 }: {
   locale: string;
   className: string;
-  studentPosts: StudentPost[];
+  studentPosts: Post[];
 }) => {
   const dictionary = await getDictionary(locale);
   return (

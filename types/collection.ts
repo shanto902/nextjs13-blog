@@ -14,7 +14,10 @@ export interface Post {
   translations: Translations[];
   bottom_add?: string;
   image_side_title: string;
+  university: University;
 }
+
+
 
 export interface Translations {
   id: string;
@@ -65,21 +68,13 @@ export interface Banner {
   translations: Translations[];
 }
 
-export interface StudentPost {
-  id: string;
-  title: string;
-  description: string;
-  university: University;
-  author: Author;
-  slug: string;
+export interface Advertisement {
   image: string;
-  body: string;
-  date_created: string;
-  date_updated: string;
-  translations: Translations[];
-  category: Category;
-  tag_line: string;
+  link: string;
 }
+
+
+
 
 export interface University {
   map(
@@ -88,7 +83,7 @@ export interface University {
   id: string;
   name: string;
   status: string;
-  posts: StudentPost[];
+  posts: Post[];
   tag_line: string;
   is_main_slider: boolean;
 }

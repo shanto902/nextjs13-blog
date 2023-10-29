@@ -2,7 +2,7 @@ import UniversityList from "@/components/elements/UniversityList";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
-import { Post, StudentPost, University } from "@/types/collection";
+import { Post, University } from "@/types/collection";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -40,6 +40,7 @@ const page = async ({
           "posts.category.slug",
           "posts.category.description",
           "posts.category.translations.*",
+          "posts.university.*",
         ],
       });
 
@@ -52,7 +53,7 @@ const page = async ({
               ...fetchedUniversity,
               tag_line: fetchedUniversity.translations[0].tag_line,
               posts: (fetchedUniversity.posts || []).map(
-                (post: StudentPost) => {
+                (post: Post) => {
                   return {
                     ...post,
                     title: post.translations[0].title,
@@ -70,6 +71,11 @@ const page = async ({
                       ? {
                           first_name: post.author.translations[0].first_name,
                           last_name: post.author.translations[0].last_name,
+                        }
+                      : "",
+                      university: post.university
+                      ? {
+                          ... post.university
                         }
                       : "",
                   };
@@ -102,7 +108,7 @@ const page = async ({
             {dictionary.studentProjects.botDesc}
           </p>
         </div>
-        <div className=" mt-20">
+        <div className=" mt-10 flex flex-col gap-10">
           {universities.map((university: University) =>
             university.posts && university.posts.length > 0 ? (
               <UniversityList
