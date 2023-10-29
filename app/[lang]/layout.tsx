@@ -1,7 +1,7 @@
 import Navigation from "@/components/navigation/Navigation";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Noto_Serif_Bengali, Raleway } from "next/font/google";
+import { Noto_Serif_Bengali, Open_Sans } from "next/font/google";
 import Footer from "@/components/navigation/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -9,7 +9,7 @@ const banglaFont = Noto_Serif_Bengali({
   subsets: ["latin"],
 });
 
-const englishFont = Raleway({
+const englishFont = Open_Sans({
   subsets: ["latin"],
 });
 

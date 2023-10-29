@@ -254,12 +254,9 @@ export default async function Home({
             <Image
               src={magazineImage}
               alt={"Magazine Picture"}
-              placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(700, 475),
-              )}`}
             />
             <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
-              <h2 className="text-xl">{dictionary.magazineHome.title}</h2>
+              <h2 className="text-lg">{dictionary.magazineHome.title}</h2>
               <Link
                 href={`/${locale}/published-magazine`}
                 className=" btn btn-outline w-fit"
