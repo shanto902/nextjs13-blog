@@ -57,7 +57,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
 
   const dictionary = await getDictionary(locale);
 
-  const liStyle = "hover:text-red-800 flex-shrink-0";
+  const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
 
   return (
     <>

@@ -17,7 +17,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
   return (
     <div className="bg-base-100 border-accent border-2 lg:border w-32 h-11 lg:w-16 lg:h-7 rounded-3xl flex items-center justify-center">
       <Link
-        className={`${locale === "en" ? "cursor-default" : ""} flex-1`}
+        className={`${locale === "en" ? "" : ""} flex-1`}
         href={redirectTarget("en")}
         locale="en"
       >
@@ -32,7 +32,7 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
       </Link>
       <div className=" w-[1px] bg-accent h-7"></div>
       <Link
-        className={`${locale === "bn" ? "cursor-default" : ""} flex-1`}
+        className={`${locale === "bn" ? "" : ""} flex-1`}
         href={redirectTarget("bn")}
         locale="bn"
       >

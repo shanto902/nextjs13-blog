@@ -27,8 +27,7 @@ const SideLogo = ({
 
   return (
     <>
-      {
-      pathname === "/bn" || pathname === "/en" ? (
+      {pathname === "/bn" || pathname === "/en" ? (
         <div></div>
       ) : (
         <div className=" max-w-7xl relative">
@@ -39,52 +38,93 @@ const SideLogo = ({
                 className=" aspect-square hidden lg:block opacity-40"
                 src={logo}
                 alt="logo"
-                width={80}
-                height={80}
+                width={85}
+                height={85}
               />
             </Link>
             <div
-              className="parent hidden lg:block text-right overflow-hidden leading-tight"
-              style={{ width: "80px", height: "120px" }}
+              className={`${
+                locale === "bn"
+                  ? params.category === "heritage"
+                    ? "text-[34px]"
+                    : params.category === "news"
+                    ? "text-[23px]"
+                    : params.category === "arts"
+                    ? "text-[27px] "
+                    : params.category === "concepts"
+                    ? "text-[62px] mt-[-15px]"
+                    : params.category === "personality"
+                    ? "text-[32px]"
+                    : params.category === "dialogue"
+                    ? "text-[32px]"
+                    : params.category === "projects"
+                    ? "text-[40px] mt-[-5px]"
+                    : pathname.match(/^\/(bn|en)\/student-projects/)
+                    ? "text-[20px]"
+                    : pathname.match(/^\/(bn|en)\/archived/)
+                    ? "text-[27px]"
+                    : pathname.match(/^\/(bn|en)\/published-magazine/)
+                    ? "text-[23px]"
+                    : params.category === "environment-and-planning"
+                    ? "text-[23px]"
+                    : ""
+                  : // FOR ENGLISH FONT
+                  params.category === "news"
+                  ? "text-[31px]"
+                  : params.category === "heritage"
+                  ? "text-[20px]"
+                  : params.category === "arts"
+                  ? "text-[42px]"
+                  : params.category === "concepts"
+                  ? "text-[18px]"
+                  : params.category === "personality"
+                  ? "text-[15px]"
+                  : params.category === "dialogue"
+                  ? "text-[19px]"
+                  : params.category === "projects"
+                  ? "text-[21px]"
+                  : pathname.match(/^\/(bn|en)\/student-projects/)
+                  ? "text-[21px]"
+                  : pathname.match(/^\/(bn|en)\/archived/)
+                  ? "text-[23px]"
+                  : pathname.match(/^\/(bn|en)\/published-magazine/)
+                  ? "text-[17px]"
+                  : params.category === "environment-and-planning"
+                  ? "text-[13px]"
+                  : "" // Add more conditions as needed
+              } hidden lg:block text-right overflow-hidden leading-tight max-w-[80px]`}
             >
-              <div
-                className="parent hidden lg:block text-right overflow-hidden leading-tight"
-                style={{ width: "80px", height: "120px" }}
-              >
-                <ScaleText>
-                  <p className="child">
-                    {(params.category === "heritage" &&
-                      dictionary.navigation.links.heritage) ||
-                      (params.category === "arts" &&
-                        dictionary.navigation.links.arts) ||
-                      (params.category === "news" &&
-                        dictionary.navigation.links.news) ||
-                      (params.category === "concepts" &&
-                        dictionary.navigation.links.concepts) ||
-                      (params.category === "personality" &&
-                        dictionary.navigation.links.personality) ||
-                      (params.category === "dialogue" &&
-                        dictionary.navigation.links.dialogue) ||
-                      (params.category === "projects" &&
-                        dictionary.navigation.links.projects) ||
-                      (pathname.match(/^\/(bn|en)\/student-projects/) &&
-                        dictionary.navigation.links.studentProjects) ||
-                      (params.category === "technology" &&
-                        dictionary.navigation.links.technology) ||
-                      (params.category === "environment-and-planning" &&
-                        dictionary.navigation.links.environmentPlaning) ||
-                      (pathname.match(/^\/(bn|en)\/archived/) &&
-                        dictionary.navigation.links.archived) ||
-                      (pathname.match(/^\/(bn|en)\/published-magazine/) &&
-                        dictionary.navigation.links.publishedMagazine) ||
-                      "Not Found"}
-                  </p>
-                </ScaleText>
-              </div>
+              <p>
+                {(params.category === "heritage" &&
+                  dictionary.navigation.links.heritage) ||
+                  (params.category === "arts" &&
+                    dictionary.navigation.links.arts) ||
+                  (params.category === "news" &&
+                    dictionary.navigation.links.news) ||
+                  (params.category === "concepts" &&
+                    dictionary.navigation.links.concepts) ||
+                  (params.category === "personality" &&
+                    dictionary.navigation.links.personality) ||
+                  (params.category === "dialogue" &&
+                    dictionary.navigation.links.dialogue) ||
+                  (params.category === "projects" &&
+                    dictionary.navigation.links.projects) ||
+                  (pathname.match(/^\/(bn|en)\/student-projects/) &&
+                    dictionary.navigation.links.studentProjects) ||
+                  (params.category === "technology" &&
+                    dictionary.navigation.links.technology) ||
+                  (params.category === "environment-and-planning" &&
+                    dictionary.navigation.links.environmentPlaning) ||
+                  (pathname.match(/^\/(bn|en)\/archived/) &&
+                    dictionary.navigation.links.archived) ||
+                  (pathname.match(/^\/(bn|en)\/published-magazine/) &&
+                    dictionary.navigation.links.publishedMagazine) ||
+                  "Not Found"}
+              </p>
             </div>
             {matchingPost?.left_add && (
               <Image
-                className=" pt-24 pr-5 hidden lg:block -z-10"
+                className="  pt-24 pr-5 hidden lg:block -z-10"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.left_add}?key=optimized`}
                 alt="logo"
                 width={100}
