@@ -52,11 +52,14 @@ const ArchivedTab = ({
         <TabList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 ">
           <div></div>
           <div></div>
-        <Link href={`/${locale}/published-magazine}/}`}  className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
-        locale === "bn" ? "text-lg" : "text-md"
-      }  w-60`} >
-   {dictionary.navigation.links.publishedMagazine}
-  </Link>
+          <Link
+            href={`/${locale}/published-magazine}/}`}
+            className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
+              locale === "bn" ? "text-lg" : "text-md"
+            }  w-60`}
+          >
+            {dictionary.navigation.links.publishedMagazine}
+          </Link>
           <CustomTab>{dictionary.navigation.links.news}</CustomTab>
           <CustomTab>{dictionary.navigation.links.concepts}</CustomTab>
           <CustomTab>{dictionary.navigation.links.arts}</CustomTab>

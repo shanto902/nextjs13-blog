@@ -90,9 +90,6 @@ const page = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-
-     
-    
         <ArchivedTab
           archivedPosts={archivedPosts}
           locale={locale}
