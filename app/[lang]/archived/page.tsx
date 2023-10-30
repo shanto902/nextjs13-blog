@@ -4,6 +4,7 @@ import PaddingContainer from "@/components/layout/PaddingContainer";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
 import { Post } from "@/types/collection";
+import { Link } from "lucide-react";
 import { notFound, usePathname } from "next/navigation";
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -89,6 +90,7 @@ const page = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
+        <Link href={`/${locale}/published-magazine`} className=" btn"> {dictionary.navigation.links.publishedMagazine} </Link>
         <ArchivedTab
           archivedPosts={archivedPosts}
           locale={locale}
