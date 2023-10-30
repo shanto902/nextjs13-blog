@@ -43,56 +43,56 @@ const SideLogo = ({
               />
             </Link>
             <div
-              className={`${
+              className={` -rotate-90 bg-base-100 ${
                 locale === "bn"
                   ? params.category === "heritage"
-                    ? "text-[34px]"
+                    ? "text-[60px] ml-[-19px] mt-[45px]"
                     : params.category === "news"
-                    ? "text-[23px]"
+                    ? "text-[60px] ml-[-50px] mt-[78px] "
                     : params.category === "arts"
-                    ? "text-[27px] "
+                    ? "text-[60px] ml-[-37px] mt-[62px]  "
                     : params.category === "concepts"
-                    ? "text-[62px] mt-[-15px]"
+                    ? "text-[60px] ml-[2px] mt-[12px]"
                     : params.category === "personality"
-                    ? "text-[32px]"
+                    ? "text-[60px] ml-[-23px] mt-[51px]" 
                     : params.category === "dialogue"
-                    ? "text-[32px]"
+                    ? "text-[60px] ml-[-22px] mt-[47px]"
                     : params.category === "projects"
-                    ? "text-[40px] mt-[-5px]"
+                    ? "text-[60px] ml-[-8px] mt-[35px]"
                     : pathname.match(/^\/(bn|en)\/student-projects/)
-                    ? "text-[20px]"
+                    ? "text-[45px] pt-[14px] break-words max-w-[180px] text-end mt-[60px] leading-[0.8] ml-[-57px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
-                    ? "text-[27px]"
+                    ? "text-[60px] mt-[65px] ml-[-37px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)
-                    ? "text-[23px]"
+                    ? "text-[45px] break-words text-end max-w-[158px] leading-[1.1] pt-[10px] ml-[-44px] mt-[39px]"
                     : params.category === "environment-and-planning"
-                    ? "text-[23px]"
+                    ? "text-[45px] break-words max-w-[171px] text-end mt-[44px] ml-[-57px] leading-[1.1] pt-[10px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
-                  ? "text-[31px]"
+                  ? "text-[45px] mt-[47px] ml-[-15px] uppercase"
                   : params.category === "heritage"
-                  ? "text-[20px]"
+                  ? "text-[45px] ml-[-57px] mt-[88px] uppercase"
                   : params.category === "arts"
-                  ? "text-[42px]"
+                  ? "text-[45px] uppercase ml-[-5px] mt-[37px]"
                   : params.category === "concepts"
-                  ? "text-[18px]"
+                  ? "text-[45px] ml-[-66px] mt-[98px] uppercase"
                   : params.category === "personality"
-                  ? "text-[15px]"
+                  ? "text-[45px] uppercase ml-[-96px] mt-[129px]"
                   : params.category === "dialogue"
-                  ? "text-[19px]"
+                  ? "text-[45px] uppercase ml-[-63px] mt-[95px]"
                   : params.category === "projects"
-                  ? "text-[21px]"
+                  ? "text-[45px] uppercase mt-[88px] ml-[-53px]"
                   : pathname.match(/^\/(bn|en)\/student-projects/)
-                  ? "text-[21px]"
+                  ? "text-[38px] uppercase ml-[-65px] mt-[75px] break-words pb-[5px] max-w-[206px] leading-[1] text-end"
                   : pathname.match(/^\/(bn|en)\/archived/)
-                  ? "text-[23px]"
+                  ? "text-[45px] uppercase ml-[-43px] mt-[74px]"
                   : pathname.match(/^\/(bn|en)\/published-magazine/)
-                  ? "text-[17px]"
+                  ? "text-[38px] uppercase ml-[-68px] mt-[77px] break-words  max-w-[205px] leading-[1] text-end"
                   : params.category === "environment-and-planning"
-                  ? "text-[13px]"
+                  ? "text-[38px]  uppercase ml-[-101px] mt-[110px] break-words  max-w-[272px] leading-[1] text-end"
                   : "" // Add more conditions as needed
-              } hidden lg:block text-right overflow-hidden leading-tight max-w-[80px]`}
+              } hidden lg:block  overflow-hidden leading-tight  `}
             >
               <p>
                 {(params.category === "heritage" &&
