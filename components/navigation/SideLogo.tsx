@@ -54,19 +54,19 @@ const SideLogo = ({
                     : params.category === "concepts"
                     ? "text-[60px] ml-[2px] mt-[12px]"
                     : params.category === "personality"
-                    ? "text-[60px] ml-[-23px] mt-[51px]" 
+                    ? "text-[60px] ml-[-23px] mt-[51px]"
                     : params.category === "dialogue"
                     ? "text-[60px] ml-[-22px] mt-[47px]"
                     : params.category === "projects"
                     ? "text-[60px] ml-[-8px] mt-[35px]"
                     : pathname.match(/^\/(bn|en)\/student-projects/)
-                    ? "text-[45px] pt-[14px] break-words max-w-[180px] text-end mt-[60px] leading-[0.8] ml-[-57px]"
+                    ? "text-[45px] pt-[14px] break-words max-w-[180px] text-end mt-[60px] leading-[34px] ml-[-57px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
                     ? "text-[60px] mt-[65px] ml-[-37px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)
-                    ? "text-[45px] break-words text-end max-w-[158px] leading-[1.1] pt-[10px] ml-[-44px] mt-[39px]"
+                    ? "text-[45px] break-words text-end max-w-[158px] leading-[45px] pt-[10px] ml-[-44px] mt-[39px]"
                     : params.category === "environment-and-planning"
-                    ? "text-[45px] break-words max-w-[171px] text-end mt-[44px] ml-[-57px] leading-[1.1] pt-[10px]"
+                    ? "text-[45px] break-words max-w-[171px] text-end mt-[44px] ml-[-57px] leading-[48px] pt-[10px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
@@ -84,13 +84,13 @@ const SideLogo = ({
                   : params.category === "projects"
                   ? "text-[45px] uppercase mt-[88px] ml-[-53px]"
                   : pathname.match(/^\/(bn|en)\/student-projects/)
-                  ? "text-[38px] uppercase ml-[-65px] mt-[75px] break-words pb-[5px] max-w-[206px] leading-[1] text-end"
+                  ? "text-[38px] uppercase ml-[-65px] mt-[75px] break-words pb-[5px] max-w-[206px] leading-[39px] text-end"
                   : pathname.match(/^\/(bn|en)\/archived/)
                   ? "text-[45px] uppercase ml-[-43px] mt-[74px]"
                   : pathname.match(/^\/(bn|en)\/published-magazine/)
-                  ? "text-[38px] uppercase ml-[-68px] mt-[77px] break-words  max-w-[205px] leading-[1] text-end"
+                  ? "text-[38px] uppercase ml-[-68px] mt-[77px] break-words  max-w-[205px] leading-[39px] text-end"
                   : params.category === "environment-and-planning"
-                  ? "text-[38px]  uppercase ml-[-101px] mt-[110px] break-words  max-w-[272px] leading-[1] text-end"
+                  ? "text-[38px]  uppercase ml-[-101px] mt-[110px] break-words  max-w-[272px] leading-[39px] text-end"
                   : "" // Add more conditions as needed
               } hidden lg:block  overflow-hidden leading-tight  `}
             >
