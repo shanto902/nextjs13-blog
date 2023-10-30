@@ -92,7 +92,7 @@ const SideLogo = ({
                   : params.category === "environment-and-planning"
                   ? "text-[38px]  uppercase ml-[-101px] mt-[110px] break-words  max-w-[272px] leading-[39px] text-end"
                   : "" // Add more conditions as needed
-              } hidden lg:block  overflow-hidden leading-tight  `}
+              } hidden lg:block  overflow-hidden`}
             >
               <p>
                 {(params.category === "heritage" &&
@@ -124,7 +124,7 @@ const SideLogo = ({
             </div>
             {matchingPost?.left_add && (
               <Image
-                className="  pt-24 pr-5 hidden lg:block -z-10"
+                className="  pt-12 pr-5 hidden lg:block"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.left_add}?key=optimized`}
                 alt="logo"
                 width={100}
