@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logo from "@/assets/logo.svg";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 import LangSwitcher from "../elements/LangSwitcher";
@@ -10,11 +10,17 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const MobileDrawer = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
 
-  const liStyle = " hover:text-red-700";
+  const liStyle = " hover:text-red-700 ";
   return (
     <div className=" lg:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
       <Link href={`/${locale}/`}>
-        <Image src={logo} alt="logo" width={60} height={60} />
+        <Image
+          className="aspect-square"
+          src={logo}
+          alt="logo"
+          width={60}
+          height={60}
+        />
       </Link>
       <div className="absolute top-4 right-5">
         <div className="drawer drawer-end w-full ">
@@ -31,23 +37,34 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
           <div className="drawer-side drawer-end">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
-            <div className=" overflow-y-scroll list-none text-center p-4 w-80 min-h-full bg-base-200 text-base-content">
-              <Image
-                className="mx-auto"
-                src={logo}
-                alt="logo"
-                width={60}
-                height={60}
-              />
+            <div className=" overflow-y-scroll list-none text-center p-4 w-80 min-h-full bg-base-100 text-base-content">
+              <div className=" grid grid-cols-3 place-items-center">
+                <div></div>
+                <Image
+                  className="mx-auto aspect-square"
+                  src={logo}
+                  alt="logo"
+                  width={60}
+                  height={60}
+                />
+                <label
+                  htmlFor="my-drawer"
+                  className=" cursor-pointer ml-10  hover:text-red-700 "
+                >
+                  <X height={40} width={40} />
+                </label>
+                {/* <input id="my-drawer" type="checkbox" className="drawer-toggle" /> */}
+              </div>
               {/* Sidebar content here */}
-              <ul className=" mt-10 text-xl flex flex-col justify-center items-stretch gap-2">
+              <ul className={` ${locale === "bn" ? " text-xl " : "text-lg " } mt-10 font-bold uppercase flex flex-col justify-center items-stretch gap-4`}>
+                
                 <li className={liStyle}>
                   <Link href={`/${locale}/news`}>
                     {dictionary.navigation.links.news}
                   </Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href={`/${locale}/concept`}>
+                  <Link href={`/${locale}/concepts`}>
                     {dictionary.navigation.links.concepts}
                   </Link>
                 </li>
@@ -93,7 +110,11 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 </li>
               </ul>
 
+              <button className=" btn rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 ">
+            {dictionary.footer.editorialBoard}
+          </button>
               <div className=" flex flex-row justify-around gap-5 mt-5">
+                
                 <LangSwitcher locale={locale} />
                 <ThemeSwitcher />
               </div>

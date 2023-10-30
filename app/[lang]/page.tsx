@@ -249,9 +249,9 @@ const page = async ({
           <div className="  md:border-l place-item-end lg:pl-10 ">
             {advertisement &&
               advertisement.map((adv, index) => (
-                <Link className="md:ml-10 " key={index} href={adv.link}>
+                <Link className="lg:ml-10 " key={index} href={adv.link}>
                   <Image
-                    className=" aspect-square   object-cover object-center"
+                    className=" aspect-square mx-auto  object-cover object-center"
                     width={500}
                     height={500}
                     alt="Advertise Link"

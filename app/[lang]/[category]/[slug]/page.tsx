@@ -187,7 +187,7 @@ const PostPage = async ({
             </div>
           )}
         </div>
-        <div className="flex flex-col-reverse md:flex-row gap-10">
+        <div className="flex flex-col-reverse md:flex-row gap-10 mt-10">
           <CommentsInput
             title={dictionary.commentsSection.title}
             descriptionPlaceholder={dictionary.commentsSection.description}
@@ -197,6 +197,7 @@ const PostPage = async ({
             postId={post.id}
             postSlug={post.slug}
             loadingText={dictionary.commentsSection.loading}
+            message = {dictionary.commentsSection.message}
           />
           <div className=" flex-1">
             <div className=" flex flex-row items-center justify-between">

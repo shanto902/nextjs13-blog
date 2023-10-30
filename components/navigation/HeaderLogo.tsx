@@ -15,14 +15,14 @@ const HeaderLogo = ({ locale }: { locale: string }) => {
         <Link href={`/${locale}/`}>
           {" "}
           <Image
-            className="mx-auto pt-8 hidden xl:block"
+            className="mx-auto aspect-square pt-8 hidden lg:block"
             src={logo}
             alt="logo"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
           />
           <PaddingContainer>
-            <hr className=" border-neutral-400 mt-4 hidden xl:block " />
+            <hr className=" border-neutral-400 mt-4 hidden lg:block " />
           </PaddingContainer>
         </Link>
       )}

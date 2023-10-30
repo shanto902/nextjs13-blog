@@ -39,7 +39,7 @@ const InputFormArchived = ({
       setInputEmail("");
       setTimeout(() => {
         setShowSuccessMessage(false);
-      }, 3000);
+      }, 10000);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -51,7 +51,7 @@ const InputFormArchived = ({
     if (showSuccessMessage) {
       const timeoutId = setTimeout(() => {
         setShowSuccessMessage(false);
-      }, 3000);
+      }, 10000);
 
       // Clear the timeout when the component unmounts
       return () => clearTimeout(timeoutId);
@@ -85,6 +85,7 @@ const InputFormArchived = ({
             onSubmit={submitHandler}
           >
             <input
+            required
               type="text"
               placeholder={name}
               value={inputName}
@@ -94,6 +95,7 @@ const InputFormArchived = ({
               className="input input-bordered w-full max-w-xs"
             />
             <input
+            required
               type="email"
               placeholder={email}
               value={inputEmail}

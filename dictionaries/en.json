@@ -36,7 +36,8 @@
       "title": "Please let us know your opinion",
       "description": "Write your opinion here",
       "inputName": "Your Name",
-      "inputEmail": "Your Email"
+      "inputEmail": "Your Email",
+      "message": "You made a successful remark. Kindly await permission."
     },
     "studentProjects": {
       "sliderTitle": "'s Architecture Department has selected three outstanding final projects, which are highlighted here.",

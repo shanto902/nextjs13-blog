@@ -9,7 +9,7 @@ const banglaFont = Noto_Serif_Bengali({
   subsets: ["latin"],
 });
 
-const englishFont = Open_Sans({
+export const englishFont = Open_Sans({
   subsets: ["latin"],
 });
 

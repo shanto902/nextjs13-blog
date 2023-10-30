@@ -23,10 +23,10 @@ const StudentProjectCard = ({
         <div className=" flex flex-row items-center gap-5" key={post.id}>
           <Link
             href={`/${locale}/${post.category.slug}/${post.slug}`}
-            className="max-w-[200px] "
+            className="md:max-w-[200px] max-w-[150px]"
           >
             <Image
-              className=" aspect-video  object-cover object-center"
+              className=" md:aspect-video  aspect-[5/4] object-cover object-center"
               width={300}
               height={150}
               alt={post.title}

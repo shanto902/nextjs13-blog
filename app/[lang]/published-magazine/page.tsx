@@ -48,7 +48,7 @@ const page = async ({
   const magazines = await getAllMagazines();
 
   return (
-    <div className=" min-h-[50vh]">
+    <div className="@container min-h-[50vh]">
       <PaddingContainer>
         {magazines ? (
           magazines.map((magazine: Magazine) => (
