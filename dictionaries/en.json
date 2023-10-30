@@ -20,7 +20,8 @@
     "submitButton": "Request",
     "hoverTitle": "Contact us to collect constitution",
     "inputName": "Your Name",
-    "inputEmail": "Your Email"
+    "inputEmail": "Your Email",
+    "chooseCategory": "Please choose one Category"
   },
     "mainBody":{
         "moreCollection": "More Collection",

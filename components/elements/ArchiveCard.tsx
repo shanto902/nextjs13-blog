@@ -6,15 +6,15 @@ import InputFormArchived from "./InputFormArchived";
 import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
-const ArchiveCard = async ({
+const ArchiveCard = ({
   post,
   locale,
+  dictionary,
 }: {
   post: Post;
   locale: string;
+  dictionary: any;
 }) => {
-  const dictionary = await getDictionary(locale);
-
   return (
     <div>
       <div className="relative group image-full ">

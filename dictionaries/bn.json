@@ -21,7 +21,8 @@
     "submitButton": "অণুরোধ করুন",
     "hoverTitle": "আর্টিকেলটি সংগ্রহ করতে চাইলে আমাদের সাথে যোগাযোগ করুন",
     "inputName": "আপনার নাম",
-    "inputEmail": "আপনার ইমেইল"
+    "inputEmail": "আপনার ইমেইল",
+    "chooseCategory": "একটা ক্যাটাগরি নির্বাচন করুন"
   },
 
   "commentsSection": {

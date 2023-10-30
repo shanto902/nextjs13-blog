@@ -1,9 +1,13 @@
+import ArchivedTab from "@/components/category/ArchivedTab";
 import ArchiveCard from "@/components/elements/ArchiveCard";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import directus from "@/lib/directus";
+import { getDictionary } from "@/lib/getDictionary";
 import { Post } from "@/types/collection";
 import { notFound, usePathname } from "next/navigation";
 import React from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const page = async ({
   params,
@@ -71,14 +75,25 @@ const page = async ({
     notFound();
   }
 
+  const categoryList = [
+    "concepts",
+    "arts",
+    "heritage",
+    "personality",
+    "dialogue",
+    "projects",
+    "environment-and-planning",
+  ];
+  const dictionary = await getDictionary(locale);
+
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-          {archivedPosts.map((post: Post) => (
-            <ArchiveCard key={post.id} post={post} locale={locale} />
-          ))}
-        </div>
+        <ArchivedTab
+          archivedPosts={archivedPosts}
+          locale={locale}
+          dictionary={dictionary}
+        />
       </PaddingContainer>
     </div>
   );
