@@ -27,7 +27,8 @@ const SideLogo = ({
 
   return (
     <>
-      {/* {pathname === "/bn" || pathname === "/en" ? (
+      {
+      pathname === "/bn" || pathname === "/en" ? (
         <div></div>
       ) : (
         <div className=" max-w-7xl relative">
@@ -92,7 +93,7 @@ const SideLogo = ({
             )}
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };
