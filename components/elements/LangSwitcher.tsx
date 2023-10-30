@@ -36,13 +36,13 @@ const LangSwitcher = ({ locale }: { locale: string }) => {
         href={redirectTarget("bn")}
         locale="bn"
       >
-    <span
+        <span
           className={`  rounded-full cursor-pointer text-center text-lg lg:text-xs font-bold flex justify-center items-center ${
             locale === "bn" ? " p-2  text-red-700" : " "
           }`}
         >
           বাং
-          </span>
+        </span>
       </Link>
     </div>
   );

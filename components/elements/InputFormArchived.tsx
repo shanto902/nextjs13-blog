@@ -85,7 +85,7 @@ const InputFormArchived = ({
             onSubmit={submitHandler}
           >
             <input
-            required
+              required
               type="text"
               placeholder={name}
               value={inputName}
@@ -95,7 +95,7 @@ const InputFormArchived = ({
               className="input input-bordered w-full max-w-xs"
             />
             <input
-            required
+              required
               type="email"
               placeholder={email}
               value={inputEmail}

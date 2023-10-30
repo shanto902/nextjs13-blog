@@ -56,8 +56,11 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
                 {/* <input id="my-drawer" type="checkbox" className="drawer-toggle" /> */}
               </div>
               {/* Sidebar content here */}
-              <ul className={` ${locale === "bn" ? " text-xl " : "text-lg " } mt-10 font-bold uppercase flex flex-col justify-center items-stretch gap-4`}>
-                
+              <ul
+                className={` ${
+                  locale === "bn" ? " text-xl " : "text-lg "
+                } mt-10 font-bold uppercase flex flex-col justify-center items-stretch gap-4`}
+              >
                 <li className={liStyle}>
                   <Link href={`/${locale}/news`}>
                     {dictionary.navigation.links.news}
@@ -111,10 +114,9 @@ const MobileDrawer = async ({ locale }: { locale: string }) => {
               </ul>
 
               <button className=" btn rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 ">
-            {dictionary.footer.editorialBoard}
-          </button>
+                {dictionary.footer.editorialBoard}
+              </button>
               <div className=" flex flex-row justify-around gap-5 mt-5">
-                
                 <LangSwitcher locale={locale} />
                 <ThemeSwitcher />
               </div>

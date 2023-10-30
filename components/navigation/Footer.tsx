@@ -18,7 +18,13 @@ const Footer = async ({ locale }: { locale: string }) => {
         {/* Title Description */}
         <div className=" grid lg:grid-cols-4 grid-cols-2 gap-5  py-3">
           <div className=" col-span-2 ">
-            <Image src={logo} alt="Logo" width={135} height={160} className=" aspect-square" />
+            <Image
+              src={logo}
+              alt="Logo"
+              width={135}
+              height={160}
+              className=" aspect-square"
+            />
 
             <p className=" mt-4 grid grid-cols-8 col-span-2  w-fit space-y-2  text-sm">
               <span className=" font-bold mt-2">
@@ -124,7 +130,16 @@ const Footer = async ({ locale }: { locale: string }) => {
         <div className=" border-t py-2 text-center">
           <div className=" text-sm text-neutral-400">
             © {new Date().getFullYear()} Copyrights by Sthapattya o Nirman. All
-            Rights Reserved. Developed by <a className="hover:underline hover:text-accent" href="https://www.shantosworkshop.com/" target="_blank" rel="noopener noreferrer">Deshi Inc</a>.
+            Rights Reserved. Developed by{" "}
+            <a
+              className="hover:underline hover:text-accent"
+              href="https://www.shantosworkshop.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Deshi Inc
+            </a>
+            .
           </div>
         </div>
       </PaddingContainer>

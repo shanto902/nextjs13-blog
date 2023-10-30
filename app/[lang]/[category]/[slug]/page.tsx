@@ -197,7 +197,7 @@ const PostPage = async ({
             postId={post.id}
             postSlug={post.slug}
             loadingText={dictionary.commentsSection.loading}
-            message = {dictionary.commentsSection.message}
+            message={dictionary.commentsSection.message}
           />
           <div className=" flex-1">
             <div className=" flex flex-row items-center justify-between">
