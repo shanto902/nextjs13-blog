@@ -215,7 +215,7 @@ const page = async ({
         alt="Cover Photo"
       />
 
-      <div className=" z-[-50]">
+      <div >
         <MainSlider banners={banners} />
       </div>
 
@@ -236,34 +236,20 @@ const page = async ({
               </h2>
               <Link
                 href={`/${locale}/published-magazine`}
-                className=" btn btn-outline bg-base-100 w-fit"
+                className=" btn  bg-accent text-secondary hover:text-accent w-fit"
               >
                 {dictionary.magazineHome.published}
               </Link>
               <Link
                 href={`/${locale}/archived`}
-                className=" btn btn-outline bg-base-100  w-fit"
+                className=" btn  bg-accent text-secondary hover:text-accent  w-fit"
               >
                 {dictionary.magazineHome.website}
               </Link>
             </div>
           </div>
           <div className="  md:border-l place-item-end lg:pl-10 ">
-            {advertisement &&
-              advertisement.map((adv, index) => (
-                <Link className="lg:ml-10 " key={index} href={adv.link}>
-                  <Image
-                    className=" aspect-square mx-auto  object-cover object-center"
-                    width={500}
-                    height={500}
-                    alt="Advertise Link"
-                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
-                    placeholder={`data:image/svg+xml;base64,${toBase64(
-                      shimmer(500, 500),
-                    )}`}
-                  />
-                </Link>
-              ))}
+    
 
             <Link
               className=" btn mt-10 normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"

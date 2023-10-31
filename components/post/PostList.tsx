@@ -6,6 +6,7 @@ import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import Image from "next/image";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import RecentNewsCard from "../elements/RecentNewsCard";
 
 interface PostListProps {
   posts: Post[];
@@ -56,6 +57,19 @@ const PostList = async ({
 
   const latestThreePosts = sortedPosts.slice(0, 3);
 
+  const categoryNewsSlugToFilter = "news";
+
+  const filteredNews = posts.filter((project) => {
+    return project.category.slug === categoryNewsSlugToFilter;
+  });
+  const combinedFilteredNews = [...filteredNews];
+  const sortedNews = combinedFilteredNews.slice().sort((a, b) => {
+    return (
+      new Date(b.date_created).getTime() - new Date(a.date_created).getTime()
+    );
+  });
+  const latestThreeNewsPosts = sortedNews.slice(0, 3);
+
   // Group the posts by category
   posts.forEach((post) => {
     const categorySlug = post.category?.slug || "uncategorized";
@@ -102,7 +116,7 @@ const PostList = async ({
         />
       ))}
       <StudentProjectSlider
-        className=" order-8 md:order-none "
+        className=" order-10 md:order-none "
         locale={locale}
         studentPosts={studentPosts}
       />
@@ -111,10 +125,10 @@ const PostList = async ({
         locale={locale}
         layout={layout}
         post={latestNewsPost}
-        className={`order-9`}
+        className={`order-8 md:order-9`}
       />
       {latestThreePosts ? (
-        <div className=" lg:border-l lg:pl-10 flex flex-col justify-between order-last">
+        <div className=" lg:border-l order-11  md:order-10 lg:pl-10 flex flex-col justify-between ">
           <StudentProjectCard
             latestThreePosts={latestThreePosts}
             locale={locale}
@@ -130,6 +144,43 @@ const PostList = async ({
       ) : (
         <h2>No Posts to Show</h2>
       )}
+        {latestThreeNewsPosts ? (
+        <div className="  lg:pr-10 order-9 md:order-11  flex flex-col justify-between ">
+          <RecentNewsCard
+            latestThreePosts={latestThreeNewsPosts}
+            locale={locale}
+          />
+          <Link
+            href={`/${locale}/news`}
+            className=" btn w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
+          >
+            {" "}
+            {dictionary.mainBody.seeMore}{" "}
+          </Link>
+        </div>
+      ) : (
+        <h2>No Posts to Show</h2>
+      )}
+
+<div className="  md:border-l place-item-end lg:pl-10 order-last">
+            {advertisement &&
+              advertisement.map((adv, index) => (
+                <Link className="lg:ml-10 " key={index} href={adv.link}>
+                  <Image
+                    className=" aspect-square mx-auto  object-cover object-center"
+                    width={500}
+                    height={500}
+                    alt="Advertise Link"
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
+                    placeholder={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(500, 500),
+                    )}`}
+                  />
+                </Link>
+              ))}
+
+           
+          </div>
     </div>
   );
 };

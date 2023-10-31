@@ -17,7 +17,7 @@ const MainSlider = ({ banners }: MainSliderProps) => {
     <Swiper
       navigation={true}
       modules={[Navigation]}
-      className="mySwiper !z-[-50]"
+      className="mySwiper !z-[0]"
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
