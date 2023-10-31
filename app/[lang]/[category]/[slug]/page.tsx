@@ -45,7 +45,7 @@ export const generateStaticParams = async () => {
   }
 };
 
-const PostPage = async ({
+const ArticlePage = async ({
   params,
 }: {
   params: {
@@ -254,4 +254,4 @@ const PostPage = async ({
   );
 };
 
-export default PostPage;
+export default ArticlePage;

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { Banner, Post, University } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
-const page = async ({
+const HomePage = async ({
   params,
 }: {
   params: {
@@ -80,6 +80,11 @@ const page = async ({
   }
 
   // FOR GET ALL UNIVERSITY BASED PROJECTS
+
+  const homePage = await directus.singleton("home_page").read({
+    fields: ["*"],
+  });
+  // const homePageData = getHomePageContents()
 
   const getStudentsProjectData = async () => {
     try {
@@ -183,44 +188,7 @@ const page = async ({
 
   const banners = await getAllBanners();
 
-  const getAdvertisementImage = async () => {
-    try {
-      const advertisementImage = await directus
-        .items("advertisement")
-        .readByQuery({
-          filter: {
-            status: {
-              _eq: "published",
-            },
-          },
-          fields: ["image", "link"],
-        });
-
-      return advertisementImage.data || [];
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching Banners");
-    }
-  };
-
-  const getHomePageImage = async () => {
-    try {
-      const advertisementImage = await directus
-        .items("home_page_image")
-        .readByQuery({
-          fields: ["image"],
-        });
-
-      return advertisementImage.data || [];
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching Banners");
-    }
-  };
-
-  const advertisement = await getAdvertisementImage();
-
-  const homeImage: any = await getHomePageImage();
+  console.log(homePage);
 
   return (
     <PaddingContainer>
@@ -229,7 +197,9 @@ const page = async ({
         width={1980}
         height={760}
         alt="Cover Photo"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${homeImage.image}?key=optimized`}
+        src={`${
+          process.env.NEXT_PUBLIC_ASSETS_URL
+        }${"597dc550-fef6-42e1-8a30-6d75980ad7ff"}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
         )}`}
@@ -241,12 +211,15 @@ const page = async ({
 
       <main className=" h-auto space-y-10 mt-10">
         <PostList
+          universityId={homePage.student_project_slider as string}
           locale={locale}
           posts={posts}
           universities={universities || []}
           studentProjects={posts || []}
-          advertisement={advertisement}
+          main_ad_photo={homePage.main_ad_photo}
+          main_ad_link={homePage.main_ad_link}
         />
+
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className=" order-last md:order-none">
             <Image src={magazineImage} alt={"Magazine Picture"} />
@@ -284,4 +257,4 @@ const page = async ({
   );
 };
 
-export default page;
+export default HomePage;

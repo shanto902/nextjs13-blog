@@ -18,14 +18,14 @@ const config: Config = {
           accent: "black",
           secondary: "white",
         },
-        // dark: {
-        //   ...require("daisyui/src/theming/themes")["[data-theme=business]"],
-        //   accent: "white",
-        //   secondary: "black",
-        // },
+        dark: {
+          ...require("daisyui/src/theming/themes")["[data-theme=business]"],
+          accent: "white",
+          secondary: "black",
+        },
       },
     ],
-    // darkTheme: "dark",
+    darkTheme: "dark",
   },
 };
 

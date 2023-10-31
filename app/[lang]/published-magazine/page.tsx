@@ -7,7 +7,7 @@ import { Magazine } from "@/types/collection";
 import MagazineCard from "@/components/elements/MagazineCard";
 import { getDictionary } from "@/lib/getDictionary";
 
-const page = async ({
+const MagazinePage = async ({
   params,
 }: {
   params: {
@@ -73,4 +73,4 @@ const page = async ({
   );
 };
 
-export default page;
+export default MagazinePage;

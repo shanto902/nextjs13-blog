@@ -3,7 +3,6 @@
 import React from "react";
 import logo from "@/assets/logo.svg";
 import Image from "next/image";
-import ScaleText from "react-scale-text";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Post } from "@/types/collection";

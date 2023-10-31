@@ -14,7 +14,9 @@ interface PostListProps {
   locale: string;
   universities: University[];
   studentProjects: Post[];
-  advertisement: Advertisement[];
+  universityId: string;
+  main_ad_photo: string;
+  main_ad_link: string;
 }
 
 const PostList = async ({
@@ -23,7 +25,9 @@ const PostList = async ({
   locale,
   universities,
   studentProjects,
-  advertisement,
+  universityId,
+  main_ad_link,
+  main_ad_photo,
 }: PostListProps) => {
   const groupedPosts: { [categorySlug: string]: Post[] } = {};
   const categoryList = [
@@ -93,8 +97,9 @@ const PostList = async ({
   const newsCategoryPosts = posts.filter(
     (post) => post.category.slug === "news",
   );
+
   const mainSliderUniversity = universities.find(
-    (university) => university.is_main_slider,
+    (university) => university.id === universityId,
   );
 
   const studentPosts = mainSliderUniversity ? mainSliderUniversity.posts : [];
@@ -163,21 +168,20 @@ const PostList = async ({
       )}
 
       <div className="  md:border-l place-item-end lg:pl-10 order-last">
-        {advertisement &&
-          advertisement.map((adv, index) => (
-            <Link className="lg:ml-10 " key={index} href={adv.link}>
-              <Image
-                className=" aspect-square mx-auto  object-cover object-center"
-                width={500}
-                height={500}
-                alt="Advertise Link"
-                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
-                placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(500, 500),
-                )}`}
-              />
-            </Link>
-          ))}
+        {main_ad_photo && (
+          <Link className="lg:ml-10 " href={main_ad_link || "/"}>
+            <Image
+              className=" aspect-square mx-auto  object-cover object-center"
+              width={500}
+              height={500}
+              alt="Advertise Link"
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${main_ad_photo}?key=optimized`}
+              placeholder={`data:image/svg+xml;base64,${toBase64(
+                shimmer(500, 500),
+              )}`}
+            />
+          </Link>
+        )}
       </div>
     </div>
   );

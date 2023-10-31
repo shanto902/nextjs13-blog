@@ -73,6 +73,7 @@ export interface Advertisement {
 }
 
 export interface University {
+  universityId: unknown;
   map(
     arg0: (university: University) => import("react").JSX.Element,
   ): import("react").ReactNode;
