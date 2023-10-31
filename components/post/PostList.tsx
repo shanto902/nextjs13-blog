@@ -144,7 +144,7 @@ const PostList = async ({
       ) : (
         <h2>No Posts to Show</h2>
       )}
-        {latestThreeNewsPosts ? (
+      {latestThreeNewsPosts ? (
         <div className="  lg:pr-10 order-9 md:order-11  flex flex-col justify-between ">
           <RecentNewsCard
             latestThreePosts={latestThreeNewsPosts}
@@ -162,25 +162,23 @@ const PostList = async ({
         <h2>No Posts to Show</h2>
       )}
 
-<div className="  md:border-l place-item-end lg:pl-10 order-last">
-            {advertisement &&
-              advertisement.map((adv, index) => (
-                <Link className="lg:ml-10 " key={index} href={adv.link}>
-                  <Image
-                    className=" aspect-square mx-auto  object-cover object-center"
-                    width={500}
-                    height={500}
-                    alt="Advertise Link"
-                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
-                    placeholder={`data:image/svg+xml;base64,${toBase64(
-                      shimmer(500, 500),
-                    )}`}
-                  />
-                </Link>
-              ))}
-
-           
-          </div>
+      <div className="  md:border-l place-item-end lg:pl-10 order-last">
+        {advertisement &&
+          advertisement.map((adv, index) => (
+            <Link className="lg:ml-10 " key={index} href={adv.link}>
+              <Image
+                className=" aspect-square mx-auto  object-cover object-center"
+                width={500}
+                height={500}
+                alt="Advertise Link"
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${adv.image}?key=optimized`}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500),
+                )}`}
+              />
+            </Link>
+          ))}
+      </div>
     </div>
   );
 };

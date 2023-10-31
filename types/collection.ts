@@ -15,6 +15,7 @@ export interface Post {
   bottom_add?: string;
   image_side_title: string;
   university: University;
+  cover_photo: string;
 }
 
 export interface Translations {

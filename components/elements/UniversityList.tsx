@@ -19,11 +19,13 @@ const UniversityList = ({
 }) => {
   return (
     <div className=" flex flex-col gap-4 my-4">
-      <h3 className=" underline decoration-red-700 text-lg font-semibold">
-        {university.tag_line}
-      </h3>
+      {university.posts.filter((post) => post.status === "published").length > 0 ? (
+  <h3 className="underline decoration-red-700 text-lg font-semibold">
+    {university.tag_line}
+  </h3>
+) : null}
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-        {university.posts.map((post: Post) => (
+        {university.posts.filter((post) => post.status === "published").map((post: Post) => (
           <div key={post.id} className="">
             <Link
               href={`/${locale}/${post.category.slug}/${post.slug}`}

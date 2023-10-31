@@ -215,7 +215,7 @@ const page = async ({
         alt="Cover Photo"
       />
 
-      <div >
+      <div>
         <MainSlider banners={banners} />
       </div>
 
@@ -249,8 +249,6 @@ const page = async ({
             </div>
           </div>
           <div className="  md:border-l place-item-end lg:pl-10 ">
-    
-
             <Link
               className=" btn mt-10 normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={""}
