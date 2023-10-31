@@ -8,6 +8,8 @@ import HeaderLogo from "./HeaderLogo";
 import SideLogo from "./SideLogo";
 import directus from "@/lib/directus";
 import { Post } from "@/types/collection";
+import Headroom from "react-headroom";
+import StickeyHeader from "./StickeyHeader";
 
 const Navigation = async ({ locale }: { locale: string }) => {
   const getAllPosts = async () => {
@@ -57,96 +59,15 @@ const Navigation = async ({ locale }: { locale: string }) => {
 
   const dictionary = await getDictionary(locale);
 
-  const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
-
   return (
     <>
       <HeaderLogo locale={locale} />
 
-      <div className=" sticky z-40 top-0 left-0 right-0 bg-base-100">
-        <PaddingContainer>
-          <div className="mr-10">
-            <SideLogo
-              locale={locale}
-              dictionary={dictionary}
-              posts={posts || []}
-            />
-          </div>
-          <div className=" lg:block hidden">
-            <div className=" flex items-center justify-between gap-2 py-5">
-              {/* Category Links */}
-              <nav className=" w-full">
-                <ul
-                  className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2  ${
-                    locale === "en"
-                      ? " text-[12px] font-bold"
-                      : " text-[16px] font-semibold"
-                  }`}
-                >
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/news`}>
-                      {dictionary.navigation.links.news}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/concepts`}>
-                      {dictionary.navigation.links.concepts}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/arts`}>
-                      {dictionary.navigation.links.arts}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/heritage`}>
-                      {dictionary.navigation.links.heritage}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/personality`}>
-                      {dictionary.navigation.links.personality}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/dialogue`}>
-                      {dictionary.navigation.links.dialogue}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/projects`}>
-                      {dictionary.navigation.links.projects}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/student-projects`}>
-                      {dictionary.navigation.links.studentProjects}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/archived`}>
-                      {dictionary.navigation.links.archived}
-                    </Link>
-                  </li>
-                  <li className={liStyle}>
-                    <Link href={`/${locale}/environment-and-planning`}>
-                      {dictionary.navigation.links.environmentPlaning}
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-
-              {/* Search  */}
-              <SearchComponent locale={locale} posts={posts || []} />
-            </div>
-            <hr className=" border-2 " />
-          </div>
-        </PaddingContainer>
-
-        <div>
-          <MobileDrawer locale={locale} />
-        </div>
-      </div>
+      <StickeyHeader
+        locale={locale}
+        dictionary={dictionary}
+        posts={posts || []}
+      />
     </>
   );
 };

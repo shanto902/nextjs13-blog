@@ -22,7 +22,7 @@ const StudentProjectSlider = async ({
         {studentPosts[0]?.university.name}{" "}
         {dictionary.studentProjects.sliderTitle}
       </p>
-      <div>
+      <div className=" z-[-50]">
         <Slider studentPosts={studentPosts} locale={locale} />
       </div>
     </div>

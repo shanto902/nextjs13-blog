@@ -31,6 +31,7 @@
     "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-headroom": "^3.2.1",
     "react-medium-image-zoom": "^5.1.8",
     "react-spinners": "^0.13.8",
     "react-tabs": "^6.0.2",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@types/luxon": "^3.3.2",
+    "@types/react-headroom": "^3.2.2",
     "daisyui": "^3.7.4",
     "husky": "^8.0.0"
   }

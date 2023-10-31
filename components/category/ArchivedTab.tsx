@@ -23,7 +23,7 @@ const ArchivedTab = ({
       {...otherProps}
       className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
         locale === "bn" ? "text-lg" : "text-md"
-      }  w-60`}
+      }  w-full md:w-60`}
     >
       <h1>{children}</h1>
     </Tab>
@@ -49,14 +49,14 @@ const ArchivedTab = ({
   return (
     <div>
       <Tabs>
-        <TabList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 ">
-          <div></div>
-          <div></div>
+        <TabList className="grid grid-cols-2 md:grid-cols-3 gap-5 py-10 ">
+          <div className=" hidden lg:block"></div>
+          <div className=" hidden lg:block"></div>
           <Link
-            href={`/${locale}/published-magazine}/}`}
+            href={`/${locale}/published-magazine`}
             className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
               locale === "bn" ? "text-lg" : "text-md"
-            }  w-60`}
+            }  w-full md:w-60 order-last lg:order-none`}
           >
             {dictionary.navigation.links.publishedMagazine}
           </Link>

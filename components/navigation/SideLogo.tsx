@@ -31,7 +31,7 @@ const SideLogo = ({
         <div></div>
       ) : (
         <div className=" max-w-7xl relative">
-          <div className=" absolute left-[-100px] top-16">
+          <div className=" absolute left-[-100px] top-16 mt-5">
             {" "}
             <Link href={`/${locale}`}>
               <Image
@@ -94,7 +94,13 @@ const SideLogo = ({
                   : "" // Add more conditions as needed
               } hidden lg:block  overflow-hidden`}
             >
-              <p>
+              <Link
+                href={
+                  params.category
+                    ? `/${locale}/${params.category}`
+                    : `${pathname}`
+                }
+              >
                 {(params.category === "heritage" &&
                   dictionary.navigation.links.heritage) ||
                   (params.category === "arts" &&
@@ -120,15 +126,15 @@ const SideLogo = ({
                   (pathname.match(/^\/(bn|en)\/published-magazine/) &&
                     dictionary.navigation.links.publishedMagazine) ||
                   "Not Found"}
-              </p>
+              </Link>
             </div>
             {matchingPost?.left_add && (
               <Image
-                className="  pt-12 pr-5 hidden lg:block"
+                className="  object-cover max-h-[300px] max-w-[80px] hidden aspect-[1/4] lg:block mt-20"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.left_add}?key=optimized`}
                 alt="logo"
-                width={100}
-                height={400}
+                width={80}
+                height={300}
               />
             )}
           </div>

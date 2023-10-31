@@ -14,7 +14,11 @@ type MainSliderProps = {
 
 const MainSlider = ({ banners }: MainSliderProps) => {
   return (
-    <Swiper navigation={true} modules={[Navigation]} className="mySwiper ">
+    <Swiper
+      navigation={true}
+      modules={[Navigation]}
+      className="mySwiper !z-[-50]"
+    >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
           <div className=" h-full relative">

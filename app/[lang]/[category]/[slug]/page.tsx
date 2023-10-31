@@ -175,9 +175,9 @@ const PostPage = async ({
           {post.bottom_add && (
             <div className=" sticky  bottom-0 flex justify-center">
               <Image
-                className=" max-h-24 object-cover object-center "
-                width={600}
-                height={100}
+                className=" aspect-[1:5] max-h-[80px] object-cover object-center "
+                width={500}
+                height={80}
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_add}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(

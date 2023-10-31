@@ -215,7 +215,9 @@ const page = async ({
         alt="Cover Photo"
       />
 
-      <MainSlider banners={banners} />
+      <div className=" z-[-50]">
+        <MainSlider banners={banners} />
+      </div>
 
       <main className=" h-auto space-y-10 mt-10">
         <PostList

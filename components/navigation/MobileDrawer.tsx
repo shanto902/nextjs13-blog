@@ -7,9 +7,13 @@ import { getDictionary } from "@/lib/getDictionary";
 import LangSwitcher from "../elements/LangSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 
-const MobileDrawer = async ({ locale }: { locale: string }) => {
-  const dictionary = await getDictionary(locale);
-
+const MobileDrawer = ({
+  locale,
+  dictionary,
+}: {
+  locale: string;
+  dictionary: any;
+}) => {
   const liStyle = " hover:text-red-700 ";
   return (
     <div className=" lg:hidden flex justify-center items-center  bg-base-100 py-2 w-full relative h-20">
