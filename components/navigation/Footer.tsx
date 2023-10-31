@@ -31,7 +31,7 @@ const Footer = async ({ locale }: { locale: string }) => {
 
               <OurPhotoZoom />
             </div>
-            <div className=" col-span-3  lg:place-self-end">
+            <div className=" col-span-3  md:place-self-end">
               <p className=" mt-4 grid grid-cols-9 col-span-2  w-fit space-y-2  text-sm">
                 <span className=" col-span-2 font-bold mt-2">
                   {dictionary.footer.editor}
