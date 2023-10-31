@@ -20,19 +20,19 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         customLayout === 0
           ? "md:flex-col  "
           : customLayout === 1
-          ? " flex flex-col justify-center items-center"
+          ? " flex flex-col "
           : customLayout === 2
-          ? "md:flex-col md:p-12 "
+          ? "md:flex-col md:pr-12 "
           : customLayout === 3
           ? " md:mr-24"
           : customLayout === 4
           ? " md:col-reverse"
           : customLayout === 5
-          ? "md:col-reverse md:justify-center "
+          ? "md:col-reverse  "
           : customLayout === 6
           ? " md:flex-col"
           : customLayout === 7
-          ? "md:flex-col justify-center items-center md:px-12"
+          ? "md:flex-col "
           : ""
       }  flex-col-reverse gap-4`}
     >
@@ -43,7 +43,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
           customLayout === 0
             ? ""
             : customLayout === 1
-            ? " md:flex md:flex-col md:justify-start md:items-center md:px-16"
+            ? " md:flex md:flex-col md:justify-start md:items-center md:pr-16"
             : customLayout === 5 && 2
             ? " md:flex-1 flex-row gap-2"
             : ""
