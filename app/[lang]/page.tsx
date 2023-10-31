@@ -203,16 +203,36 @@ const page = async ({
     }
   };
 
+  const getHomePageImage = async () => {
+    try {
+      const advertisementImage = await directus
+        .items("home_page_image")
+        .readByQuery({
+          fields: ["image"],
+        });
+
+      return advertisementImage.data || [];
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching Banners");
+    }
+  };
+
   const advertisement = await getAdvertisementImage();
+
+  const homeImage: any = await getHomePageImage();
 
   return (
     <PaddingContainer>
       <Image
         className=" object-cover object-center w-full mb-10"
-        src={coverPhoto}
-        width={800}
-        height={500}
+        width={1980}
+        height={760}
         alt="Cover Photo"
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${homeImage.image}?key=optimized`}
+        placeholder={`data:image/svg+xml;base64,${toBase64(
+          shimmer(1980, 760),
+        )}`}
       />
 
       <div>

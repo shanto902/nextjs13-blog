@@ -31,7 +31,7 @@ const MainSlider = ({ banners }: MainSliderProps) => {
               </p>
             </div>
             <Image
-              alt=""
+              alt="Banner"
               height={675}
               width={1200}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`}
