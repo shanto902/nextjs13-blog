@@ -228,24 +228,26 @@ const page = async ({
           advertisement={advertisement}
         />
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className=" relative order-last md:order-none">
+          <div className=" order-last md:order-none">
             <Image src={magazineImage} alt={"Magazine Picture"} />
-            <div className="  absolute top-10 right-0 flex flex-col gap-5 items-end">
-              <h2 className="text-lg bg-base-100 pl-2">
+            <div className="  ">
+              <h2 className="text-xl font-semiboldg my-4 bg-base-100 text-center">
                 {dictionary.magazineHome.title}
               </h2>
-              <Link
-                href={`/${locale}/published-magazine`}
-                className=" btn  bg-accent text-secondary hover:text-accent w-fit"
-              >
-                {dictionary.magazineHome.published}
-              </Link>
-              <Link
-                href={`/${locale}/archived`}
-                className=" btn  bg-accent text-secondary hover:text-accent  w-fit"
-              >
-                {dictionary.magazineHome.website}
-              </Link>
+              <div className="flex flex-row gap-5 justify-center">
+                <Link
+                  href={`/${locale}/published-magazine`}
+                  className=" btn  bg-accent text-secondary hover:text-accent "
+                >
+                  {dictionary.magazineHome.published}
+                </Link>
+                <Link
+                  href={`/${locale}/archived`}
+                  className=" btn  bg-accent text-secondary hover:text-accent "
+                >
+                  {dictionary.magazineHome.website}
+                </Link>
+              </div>
             </div>
           </div>
           <div className="  md:border-l place-item-end lg:pl-10 ">
