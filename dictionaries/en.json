@@ -68,8 +68,12 @@
         "phone" : "Phone",
         "phoneNo": "+880-1679-090901",
         "address":"Address:",
-        "addressValue":"Gagan Shirish",
+        "addressValue":"Gagan Shirish,",
         "addressValue2": "76 & 76/1, Panthapath (3rd Floor), Dhaka-1215",
-        "editorialBoard":"Editorial Board"
+        "editorialBoard":"Editorial Board",
+        "administratorPanel": "Administrator Panel",
+        "ratba":"Ar. Raatba Aziz",
+        "nishi": "Ar. Nishi Shaymoon",
+        "faiza": "Ar. Faiza Fairooz"
     }
 }

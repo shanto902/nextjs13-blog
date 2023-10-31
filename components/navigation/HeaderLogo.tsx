@@ -18,8 +18,8 @@ const HeaderLogo = ({ locale }: { locale: string }) => {
             className="mx-auto aspect-square pt-8 hidden lg:block"
             src={logo}
             alt="logo"
-            width={100}
-            height={100}
+            width={120}
+            height={120}
           />
           <PaddingContainer>
             <hr className=" border-neutral-400 mt-4 hidden lg:block " />

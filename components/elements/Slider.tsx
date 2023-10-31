@@ -26,7 +26,9 @@ const Slider = ({
               alt=""
               height={360}
               width={600}
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.cover_photo ? post.cover_photo : post.image}?key=optimized`}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${
+                post.cover_photo ? post.cover_photo : post.image
+              }?key=optimized`}
               className=" object-cover object-center max-h-[360px] aspect-[5/4]"
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(600, 360),
