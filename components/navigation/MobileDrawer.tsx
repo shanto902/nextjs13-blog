@@ -38,7 +38,7 @@ const MobileDrawer = ({
               <MenuIcon height={40} width={40} />
             </label>
           </div>
-          <div className="drawer-side drawer-end">
+          <div className="drawer-side drawer-end !z-50">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
             <div className=" overflow-y-scroll list-none text-center p-4 w-80 min-h-full bg-base-100 text-base-content">
@@ -122,7 +122,7 @@ const MobileDrawer = ({
               </button>
               <div className=" flex flex-row justify-around gap-5 mt-5">
                 <LangSwitcher locale={locale} />
-                <ThemeSwitcher />
+                {/* <ThemeSwitcher /> */}
               </div>
             </div>
           </div>
