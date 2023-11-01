@@ -16,8 +16,6 @@ const PostContent = ({
   isPagePost = false,
   locale,
 }: PostContentProps) => {
-
-
   // Create a separate JSX element for each line
   // const formattedDescription = lines.map((line, index) => (
   //   <p key={index} className="text-md">
@@ -103,8 +101,10 @@ const PostContent = ({
                   {post.description}
                 </p>
               </Link>
+            ) : post.project_description ? (
+              <PostBody locale={locale} body={post.project_description} />
             ) : (
-              post.project_description ?  <PostBody locale={locale} body={post.project_description} /> : ""
+              ""
             )}
           </div>
         </div>

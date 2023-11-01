@@ -95,7 +95,7 @@ const ArticlePage = async ({
           description: postData?.translations?.[0]?.description,
           body: postData?.translations?.[0]?.body,
           image_side_title: postData?.translations?.[0]?.image_side_title,
-          project_description:postData?.translations?.[0]?.project_description,
+          project_description: postData?.translations?.[0]?.project_description,
           category: {
             ...postData?.category,
             title: postData?.category?.translations?.[0]?.title,

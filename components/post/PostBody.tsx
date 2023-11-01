@@ -4,25 +4,48 @@ import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
 import "./overlayStyle.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import { useState } from "react";
 
 const PostBody = ({ body, locale }: { body: string; locale: string }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
   const options = {
     replace: (domNode: any) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return (
-          <Zoom>
-            <Image
-              className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
-              src={src}
-              alt={alt}
-              width={1280}
-              height={620}
-              placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(1280, 620),
-              )}`}
-            />
-          </Zoom>
+          <>
+            {!isImageLoaded ? (
+              <Image
+                className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
+                src={src}
+                alt={alt}
+                width={1280}
+                height={620}
+                onLoad={handleImageLoad}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(1280, 620),
+                )}`}
+              />
+            ) : (
+              <Zoom>
+                <Image
+                  className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
+                  src={src}
+                  alt={alt}
+                  width={1280}
+                  height={620}
+                  onLoad={handleImageLoad}
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(1280, 620),
+                  )}`}
+                />
+              </Zoom>
+            )}
+          </>
         );
       }
     },
