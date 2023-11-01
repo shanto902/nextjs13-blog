@@ -127,6 +127,8 @@ const SideLogo = ({
                   "Not Found"}
               </Link>
             </div>
+          </div>
+          <div className=" absolute left-[-90px] top-96">
             {matchingPost?.left_ad && (
               <Image
                 className="  object-cover max-h-[300px] max-w-[80px] hidden aspect-[1/4] lg:block mt-20"
@@ -137,7 +139,7 @@ const SideLogo = ({
               />
             )}
           </div>
-          <div className=" absolute right-[-135px] top-24">
+          <div className=" absolute right-[-135px] top-96">
             {matchingPost?.right_ad && (
               <Image
                 className="  object-cover max-h-[300px] max-w-[80px] hidden aspect-[1/4] lg:block mt-20"

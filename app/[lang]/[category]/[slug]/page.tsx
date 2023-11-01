@@ -176,13 +176,13 @@ const ArticlePage = async ({
           {post.bottom_ad && (
             <div className=" sticky lg:hidden  bottom-0 flex justify-center">
               <Image
-                className=" aspect-[1:5] max-h-[100px] object-cover object-center "
-                width={600}
-                height={100}
+                className=" aspect-[1:5] max-h-[130px] object-cover object-center "
+                width={650}
+                height={130}
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(600, 100),
+                  shimmer(650, 130),
                 )}`}
               />
             </div>
