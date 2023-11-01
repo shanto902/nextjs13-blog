@@ -3,6 +3,7 @@ import { shimmer, toBase64 } from "@/utils/shimmer";
 import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import PostBody from "./PostBody";
 
 interface PostContentProps {
   post: Post;
@@ -15,17 +16,14 @@ const PostContent = ({
   isPagePost = false,
   locale,
 }: PostContentProps) => {
-  const descriptionText = post.image_side_title;
 
-  // Split the text by '\n' and create an array of lines
-  const lines = descriptionText.split("\n");
 
   // Create a separate JSX element for each line
-  const formattedDescription = lines.map((line, index) => (
-    <p key={index} className="text-md">
-      {line}
-    </p>
-  ));
+  // const formattedDescription = lines.map((line, index) => (
+  //   <p key={index} className="text-md">
+  //     {line}
+  //   </p>
+  // ));
   return (
     <div>
       {/* Tags */}
@@ -77,7 +75,7 @@ const PostContent = ({
           </div>
         )}
 
-        <div className=" flex flex-col md:flex-row gap-5 md:items-center">
+        <div className=" flex flex-col md:flex-row gap-5 ">
           {/* Image  */}
           {isPagePost && (
             <Image
@@ -106,7 +104,7 @@ const PostContent = ({
                 </p>
               </Link>
             ) : (
-              <div>{formattedDescription}</div>
+              post.project_description ?  <PostBody locale={locale} body={post.project_description} /> : ""
             )}
           </div>
         </div>

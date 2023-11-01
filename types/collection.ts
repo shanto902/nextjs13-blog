@@ -1,4 +1,5 @@
 export interface Post {
+  project_description: string;
   id: string;
   status: string;
   title: string;
@@ -13,7 +14,6 @@ export interface Post {
   left_ad?: string;
   translations: Translations[];
   bottom_ad?: string;
-  image_side_title: string;
   university: University;
   cover_photo: string;
   right_ad?: string;

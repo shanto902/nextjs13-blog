@@ -7,6 +7,10 @@
     @apply text-3xl font-semibold  mb-3;
   }
 
+  .rich-text ol {
+    @apply list-decimal
+  }
+
   .rich-text h3 {
     @apply text-2xl font-semibold  mb-3;
   }
