@@ -131,22 +131,22 @@ const SideLogo = ({
           <div className=" absolute left-[-90px] top-96">
             {matchingPost?.left_ad && (
               <Image
-                className="  object-cover max-h-[300px] max-w-[80px] hidden aspect-[1/4] lg:block mt-20"
+                className="  object-cover max-h-[400px] max-w-[80px] hidden aspect-[1/5] lg:block mt-20"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.left_ad}?key=optimized`}
                 alt="logo"
                 width={80}
-                height={300}
+                height={400}
               />
             )}
           </div>
           <div className=" absolute right-[-135px] top-96">
             {matchingPost?.right_ad && (
               <Image
-                className="  object-cover max-h-[300px] max-w-[80px] hidden aspect-[1/4] lg:block mt-20"
+                className="  object-cover max-h-[400px] max-w-[80px] hidden aspect-[1/5] lg:block mt-20"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${matchingPost.right_ad}?key=optimized`}
                 alt="logo"
                 width={80}
-                height={300}
+                height={400}
               />
             )}
           </div>
