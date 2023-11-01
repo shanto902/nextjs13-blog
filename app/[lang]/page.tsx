@@ -188,7 +188,6 @@ const HomePage = async ({
 
   const banners = await getAllBanners();
 
-  console.log(homePage);
 
   return (
     <PaddingContainer>
@@ -199,7 +198,7 @@ const HomePage = async ({
         alt="Cover Photo"
         src={`${
           process.env.NEXT_PUBLIC_ASSETS_URL
-        }${"597dc550-fef6-42e1-8a30-6d75980ad7ff"}?key=optimized`}
+        }${homePage.cover_photo}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
         )}`}
