@@ -15,6 +15,7 @@ const ArchivedTab = ({
   locale: string;
   dictionary: any;
 }) => {
+  
   const CustomTab: ReactTabsFunctionComponent<TabProps> = ({
     children,
     ...otherProps
@@ -75,7 +76,7 @@ const ArchivedTab = ({
 
         <TabPanel>
           <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {newsPost
+            {newsPost && newsPost.length > 0
               ? newsPost.map((post: Post) => (
                   <ArchiveCard
                     key={post.id}
@@ -84,101 +85,119 @@ const ArchivedTab = ({
                     dictionary={dictionary}
                   />
                 ))
-              : " Noting "}
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {conceptsPosts.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {conceptsPosts && conceptsPosts.length > 0
+              ? conceptsPosts.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {artsPosts.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {artsPosts && artsPosts.length > 0
+              ? artsPosts.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          {heritagePost.map((post: Post) => (
-            <ArchiveCard
-              key={post.id}
-              post={post}
-              locale={locale}
-              dictionary={dictionary}
-            />
-          ))}
-        </TabPanel>
-        <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {personalityPost.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {heritagePost && heritagePost.length > 0
+              ? heritagePost.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {dialogue.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {personalityPost && personalityPost.length > 0
+              ? personalityPost.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {projectsPost.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {dialogue && dialogue.length > 0
+              ? dialogue.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {studentProjectsPost.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {projectsPost && projectsPost.length > 0
+              ? projectsPost.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
-            {environmentPlaningPost.map((post: Post) => (
-              <ArchiveCard
-                key={post.id}
-                post={post}
-                locale={locale}
-                dictionary={dictionary}
-              />
-            ))}
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {studentProjectsPost && studentProjectsPost.length > 0
+              ? studentProjectsPost.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
+          </div>
+        </TabPanel>
+        <TabPanel>
+        <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 justify-items-center">
+            {environmentPlaningPost && environmentPlaningPost.length > 0
+              ? environmentPlaningPost.map((post: Post) => (
+                  <ArchiveCard
+                    key={post.id}
+                    post={post}
+                    locale={locale}
+                    dictionary={dictionary}
+                  />
+                ))
+              : <p className=" col-span-3 py-10 font-bold text-xl"> {dictionary.archivedPage.noPostText}</p>}
           </div>
         </TabPanel>
       </Tabs>

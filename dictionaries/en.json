@@ -21,13 +21,14 @@
     "hoverTitle": "Contact us to collect constitution",
     "inputName": "Your Name",
     "inputEmail": "Your Email",
-    "chooseCategory": "Please choose one Category"
+    "chooseCategory": "Please choose one Category",
+    "noPostText": "No archive available select other categories"
   },
     "mainBody":{
         "moreCollection": "More Collection",
         "studentProjects":  "Student Projects",
         "seeMore": "See More",
-        "costBtn" : "Click to know the market rate and construction cost of Sthapattya-O-Nirman "
+        "costBtn" : "Click to know the market rate and construction cost of Sthapattya-O-Nirman"
     },
 
     "commentsSection": {

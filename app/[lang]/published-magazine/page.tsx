@@ -51,9 +51,10 @@ const MagazinePage = async ({
     <div className="@container min-h-[50vh]">
       <PaddingContainer>
         {magazines ? (
-          magazines.map((magazine: Magazine) => (
-            <MagazineCard
-              key={magazine.id}
+          magazines.reverse().map((magazine: Magazine) => (
+            <div  key={magazine.id} className="  flex flex-col space-y-16">
+              <MagazineCard
+             
               magazine={magazine}
               collectMagazine={dictionary.magazinePage.collectMagazine}
               number={dictionary.magazinePage.number}
@@ -64,6 +65,7 @@ const MagazinePage = async ({
               locale={locale}
               messageText={dictionary.magazinePage.messageText}
             />
+            </div>
           ))
         ) : (
           <h2 className=" text-center">No Magazine available</h2>

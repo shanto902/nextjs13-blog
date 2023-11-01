@@ -188,7 +188,6 @@ const HomePage = async ({
 
   const banners = await getAllBanners();
 
-
   return (
     <PaddingContainer>
       <Image
@@ -196,9 +195,7 @@ const HomePage = async ({
         width={1980}
         height={760}
         alt="Cover Photo"
-        src={`${
-          process.env.NEXT_PUBLIC_ASSETS_URL
-        }${homePage.cover_photo}?key=optimized`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${homePage.cover_photo}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
         )}`}
@@ -223,7 +220,7 @@ const HomePage = async ({
           <div className=" order-last md:order-none">
             <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className="  ">
-              <h2 className="text-xl font-semiboldg my-4 bg-base-100 text-center">
+              <h2 className="text-xl font-semibold my-4 bg-base-100 text-center">
                 {dictionary.magazineHome.title}
               </h2>
               <div className="flex flex-row gap-5 justify-center">
