@@ -9,7 +9,7 @@ import SideLogo from "./SideLogo";
 import directus from "@/lib/directus";
 import { Post } from "@/types/collection";
 import Headroom from "react-headroom";
-import StickeyHeader from "./StickeyHeader";
+import StickyHeader from "./StickeyHeader";
 
 const Navigation = async ({ locale }: { locale: string }) => {
   const getAllPosts = async () => {
@@ -64,7 +64,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
     <>
       <HeaderLogo locale={locale} />
 
-      <StickeyHeader
+      <StickyHeader
         locale={locale}
         dictionary={dictionary}
         posts={posts || []}
