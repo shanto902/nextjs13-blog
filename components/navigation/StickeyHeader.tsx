@@ -29,7 +29,7 @@ const StickyHeader = ({
     if (screenWidth < 1024) {
       px = 0;
     } else if (pathname === "/bn" || pathname === "/en") {
-      px = 155;
+      px = 142;
     }
 
     return px;
