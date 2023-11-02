@@ -10,8 +10,6 @@ import Link from "next/link";
 import Headroom from "react-headroom";
 import { usePathname } from "next/navigation";
 
-
-
 const StickyHeader = ({
   locale,
   dictionary,
@@ -22,28 +20,29 @@ const StickyHeader = ({
   posts: Post[];
 }) => {
 
+  
   const pathname = usePathname();
   const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
 
   const pinStartPx = (pathname: string, screenWidth: number): number => {
     let px = 0; // Initialize px to a default value
-  
+
     // Check if the screen width is under 1024
     if (screenWidth < 1024) {
       px = 0;
     } else if (pathname === "/bn" || pathname === "/en") {
       px = 155;
     }
-  
+
     return px;
   };
 
   let screenWidth = 1024; // Default screen width
-  if (typeof window !== 'undefined' && window.innerWidth) {
+  if (typeof window !== "undefined" && window.innerWidth) {
     screenWidth = window.innerWidth; // In a browser environment
   }
   return (
-    <Headroom pinStart={pinStartPx(pathname,screenWidth)}>
+    <Headroom pinStart={pinStartPx(pathname, screenWidth)}>
       <div className="bg-base-100">
         <PaddingContainer>
           <div className="mr-10">

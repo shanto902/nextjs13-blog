@@ -10,19 +10,20 @@ const page = async ({
 }) => {
   const locale = params.lang;
 
-
   const getEditorialBoardData = async () => {
     try {
       const editorialBoard = await directus.singleton("editorial_board").read({
         fields: ["write_up"],
       });
-  
+
       if (locale === "en") {
         return editorialBoard;
       } else {
-        const localizedEditorialBoard = await directus.singleton("editorial_board_translations").read({
-          fields: ["write_up"],
-        });
+        const localizedEditorialBoard = await directus
+          .singleton("editorial_board_translations")
+          .read({
+            fields: ["write_up"],
+          });
         return localizedEditorialBoard[0];
       }
     } catch (error) {
@@ -30,13 +31,11 @@ const page = async ({
       console.error(error);
       throw error; // Optionally rethrow the error for upper-level handling
     }
-  }
-  
+  };
 
   const editorialBoard = await getEditorialBoardData();
 
-  console.log(editorialBoard)
-  
+  console.log(editorialBoard);
 
   return <div>page</div>;
 };
