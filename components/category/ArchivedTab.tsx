@@ -21,7 +21,7 @@ const ArchivedTab = ({
   }) => (
     <Tab
       {...otherProps}
-      className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
+      className={`btn bg-zinc-700 active:bg-red-700 text-base-100 hover:text-accent place-self-center ${
         locale === "bn" ? "text-lg" : "text-md"
       }  w-full md:w-60`}
     >
@@ -54,7 +54,7 @@ const ArchivedTab = ({
           <div className=" hidden lg:block"></div>
           <Link
             href={`/${locale}/published-magazine`}
-            className={`btn bg-accent text-base-100 hover:text-accent place-self-center ${
+            className={`btn bg-zinc-700 text-base-100 hover:text-accent place-self-center ${
               locale === "bn" ? "text-lg" : "text-md"
             }  w-full md:w-60 order-last lg:order-none`}
           >

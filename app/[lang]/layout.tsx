@@ -28,7 +28,7 @@ export default function RootLayout({
   };
 }) {
   return (
-    <html translate="no" lang={lang}>
+    <html lang={lang}>
       <body
         className={lang === "bn" ? banglaFont.className : englishFont.className}
       >
