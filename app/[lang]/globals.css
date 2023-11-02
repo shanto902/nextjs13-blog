@@ -27,5 +27,5 @@
 }
 
 .react-tabs__tab--selected {
-  @apply !bg-red-700 !rounded-none !border-none !text-white hover:!bg-base-300 hover:!text-black active:!bg-red-700;
+  @apply !bg-red-700 !rounded-none !border-none !text-white hover:!bg-black hover:!text-white active:!bg-red-700;
 }

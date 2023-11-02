@@ -106,13 +106,13 @@ const MobileDrawer = ({
                   </Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href={`/${locale}/archived`}>
-                    {dictionary.navigation.links.archived}
+                  <Link href={`/${locale}/environment-and-planning`}>
+                    {dictionary.navigation.links.environmentPlaning}
                   </Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href={`/${locale}/environment-and-planning`}>
-                    {dictionary.navigation.links.environmentPlaning}
+                  <Link href={`/${locale}/archived`}>
+                    {dictionary.navigation.links.archived}
                   </Link>
                 </li>
               </ul>

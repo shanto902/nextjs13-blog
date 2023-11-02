@@ -19,8 +19,6 @@ const StickyHeader = ({
   dictionary: any;
   posts: Post[];
 }) => {
-
-  
   const pathname = usePathname();
   const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
 
@@ -104,13 +102,13 @@ const StickyHeader = ({
                     </Link>
                   </li>
                   <li className={liStyle}>
-                    <Link href={`/${locale}/archived`}>
-                      {dictionary.navigation.links.archived}
+                    <Link href={`/${locale}/environment-and-planning`}>
+                      {dictionary.navigation.links.environmentPlaning}
                     </Link>
                   </li>
                   <li className={liStyle}>
-                    <Link href={`/${locale}/environment-and-planning`}>
-                      {dictionary.navigation.links.environmentPlaning}
+                    <Link href={`/${locale}/archived`}>
+                      {dictionary.navigation.links.archived}
                     </Link>
                   </li>
                 </ul>

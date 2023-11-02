@@ -12,7 +12,7 @@ const OurPhotoZoom = () => {
         alt="Logo"
         width={1280}
         height={720}
-        className=" aspect-vide max-w-[135px]"
+        className=" aspect-vide max-w-[129px]"
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(135, 76))}`}
       />
     </Zoom>

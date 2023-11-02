@@ -21,7 +21,7 @@ const ArchivedTab = ({
   }) => (
     <Tab
       {...otherProps}
-      className={`btn bg-zinc-700 active:bg-red-700 text-base-100 hover:text-accent place-self-center ${
+      className={`btn bg-neutral-300 active:bg-red-700 text-accent hover:text-white hover:bg-accent border-none place-self-center ${
         locale === "bn" ? "text-lg" : "text-md"
       }  w-full md:w-60`}
     >
@@ -50,13 +50,11 @@ const ArchivedTab = ({
     <div>
       <Tabs>
         <TabList className="grid grid-cols-2 md:grid-cols-3 gap-5 py-10 ">
-          <div className=" hidden lg:block"></div>
-          <div className=" hidden lg:block"></div>
           <Link
             href={`/${locale}/published-magazine`}
-            className={`btn bg-zinc-700 text-base-100 hover:text-accent place-self-center ${
-              locale === "bn" ? "text-lg" : "text-md"
-            }  w-full md:w-60 order-last lg:order-none`}
+            className={`place-self-center text-center md:col-span-3 col-span-2  cursor-pointer ${
+              locale === "bn" ? "text-2xl" : "text-xl"
+            }  max-w-[893px] w-full font-bold  border-2 border-red-700  py-5 rounded-md`}
           >
             {dictionary.navigation.links.publishedMagazine}
           </Link>

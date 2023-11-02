@@ -115,16 +115,17 @@ const Footer = async ({ locale }: { locale: string }) => {
                   <li>{dictionary.navigation.links.studentProjects}</li>
                 </Link>
 
-                <Link className={liStyle} href={`/${locale}/archived`}>
-                  {" "}
-                  <li>{dictionary.navigation.links.archived}</li>
-                </Link>
                 <Link
                   className={liStyle}
                   href={`/${locale}/environment-and-planning`}
                 >
                   {" "}
                   <li>{dictionary.navigation.links.environmentPlaning}</li>
+                </Link>
+
+                <Link className={liStyle} href={`/${locale}/archived`}>
+                  {" "}
+                  <li>{dictionary.navigation.links.archived}</li>
                 </Link>
               </ul>
             </div>
@@ -133,7 +134,7 @@ const Footer = async ({ locale }: { locale: string }) => {
           </div>
 
           <div className=" flex items-center w-full justify-between">
-            <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-full">
+            <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-[129px]">
               {dictionary.footer.editorialBoard}
             </button>
             <div className=" flex gap-3 items-center mt-2">
