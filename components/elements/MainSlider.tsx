@@ -15,27 +15,30 @@ type MainSliderProps = {
 const MainSlider = ({ banners }: MainSliderProps) => {
   return (
     <Swiper
+      autoplay={true}
       navigation={true}
       modules={[Navigation]}
       className="mySwiper !z-[0]"
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
-          <div className=" h-full relative">
-            <div className="absolute bottom-10 right-0 z-10 text-white text-right px-10">
-              <h2 className="xl:text-2xl lg:text-xl md:text-lg text-base">
-                {banner.title}
-              </h2>
-              <p className=" xl:text-xl lg:text-xl md:text-lg text-sm">
-                {banner.description}
-              </p>
+          <div className=" h-full relative ">
+            <div className="absolute w-full right-0 z-10 bg-gradient-to-b from-transparent opacity-80 to-black h-full text-black text-right px-10">
+              <div className=" flex flex-col gap-3 justify-end items-end h-full py-10 px-5 text-white">
+                <h2 className="xl:text-3xl lg:text-2xl md:text-xl text-lg ">
+                  {banner.title}
+                </h2>
+                <p className=" xl:text-xl lg:text-lg md:text-md text-base">
+                  {banner.description}
+                </p>
+              </div>
             </div>
             <Image
               alt="Banner"
               height={675}
               width={1200}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${banner.image}?key=optimized`}
-              className="w-full object-cover object-center md:aspect-video aspect-[5/4] brightness-50"
+              className="w-full object-cover object-center md:aspect-video aspect-[5/4]"
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(1200, 675),
               )}`}

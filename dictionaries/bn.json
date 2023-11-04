@@ -12,7 +12,8 @@
       "technology": "প্রযুক্তি",
       "archived": "আর্কাইভ",
       "environmentPlaning": "পরিবেশ ও পরিকল্পনা",
-      "publishedMagazine": "প্রকাশিত ম্যাগাজিন"
+      "publishedMagazine": "প্রকাশিত ম্যাগাজিন",
+      "editorialBoard": "সম্পাদনা পরিষদ"
     }
     
   },
@@ -80,5 +81,12 @@
     "ratba":"স্থপতি রাতবা আজিজ",
     "nishi": "স্থপতি নিশি সাইমুন",
     "faiza": "স্থপতি ফাইজা ফাইরুজ"
+  },
+
+   "editor_board": {
+    "editor": "সম্পাদক",
+    "joint_editor": "যুগ্ম সম্পাদক",
+    "administrator_Panel": "প্রশাসক প্যানেল",
+    "action_team": "অ্যাকশনে দল"
   }
 }

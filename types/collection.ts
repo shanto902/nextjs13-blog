@@ -73,6 +73,12 @@ export interface Advertisement {
   link: string;
 }
 
+export interface jointEditor {
+  image: string;
+  name: string;
+  info: string;
+}
+
 export interface University {
   universityId: unknown;
   map(

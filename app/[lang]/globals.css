@@ -24,6 +24,10 @@
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
   }
+
+  .editor-info p {
+    @apply @lg:text-xl @md:text-lg lg:leading-relaxed leading-normal;
+  }
 }
 
 .react-tabs__tab--selected {

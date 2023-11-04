@@ -12,7 +12,9 @@
       "technology": "Technology",
       "archived": "Archive",
       "environmentPlaning": "Environment & Planing",
-      "publishedMagazine": "Published Magazine"
+      "publishedMagazine": "Published Magazine",
+      "editorialBoard": "Editorial Board"
+
     }
   },
 
@@ -76,5 +78,12 @@
         "ratba":"Ar. Raatba Aziz",
         "nishi": "Ar. Nishi Shaymoon",
         "faiza": "Ar. Faiza Fairooz"
+    },
+
+    "editor_board": {
+      "editor": "Editor",
+      "joint_editor": "Joint Editor",
+      "administrator_Panel": "Administration Panel",
+      "action_team": "Team in Action"
     }
 }

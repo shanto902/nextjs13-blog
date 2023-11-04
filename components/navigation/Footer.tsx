@@ -134,9 +134,12 @@ const Footer = async ({ locale }: { locale: string }) => {
           </div>
 
           <div className=" flex items-center w-full justify-between">
-            <button className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-[129px]">
+            <Link
+              href={"/editorial-board"}
+              className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-[129px]"
+            >
               {dictionary.footer.editorialBoard}
-            </button>
+            </Link>
             <div className=" flex gap-3 items-center mt-2">
               <SocialLink
                 platform="instagram"

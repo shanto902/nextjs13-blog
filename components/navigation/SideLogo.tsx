@@ -66,6 +66,8 @@ const SideLogo = ({
                     ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[56px]"
                     : params.category === "environment-and-planning"
                     ? "text-[43px] break-words max-w-[171px] text-end mt-[64px] ml-[-55px] leading-[41px] pt-[10px]"
+                    : pathname.match(/^\/(bn|en)\/editorial-board/)
+                    ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[56px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
@@ -90,6 +92,8 @@ const SideLogo = ({
                   ? "text-[38px] uppercase ml-[-70px] mt-[87px] break-words  max-w-[205px] leading-[39px] text-end"
                   : params.category === "environment-and-planning"
                   ? "text-[38px]  uppercase ml-[-103px] mt-[122px] break-words  max-w-[272px] leading-[39px] text-end"
+                  : pathname.match(/^\/(bn|en)\/editorial-board/)
+                  ? "text-[43px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-76px] mt-[87px]"
                   : "" // Add more conditions as needed
               } hidden lg:block  overflow-hidden`}
             >
@@ -124,6 +128,8 @@ const SideLogo = ({
                     dictionary.navigation.links.archived) ||
                   (pathname.match(/^\/(bn|en)\/published-magazine/) &&
                     dictionary.navigation.links.publishedMagazine) ||
+                  (pathname.match(/^\/(bn|en)\/editorial-board/) &&
+                    dictionary.navigation.links.editorialBoard) ||
                   "Not Found"}
               </Link>
             </div>
