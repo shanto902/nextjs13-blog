@@ -134,7 +134,7 @@ const page = async ({
 
           {/* Editor Section */}
           <div>
-            <h2 className=" text-center  text-5xl mt-14 mb-5">
+            <h2 className=" text-center  text-4xl mt-14 mb-10">
               {dictionary.editor_board.editor}
             </h2>
             <div className=" grid grid-cols-2 gap-14">
@@ -149,7 +149,7 @@ const page = async ({
                 )}`}
               />
               <div className=" place-self-center">
-                <h2 className=" text-4xl font-semibold">
+                <h2 className=" text-3xl font-semibold">
                   {" "}
                   {editorialBoard.editor_name}
                 </h2>
@@ -163,7 +163,7 @@ const page = async ({
 
         {/* Joint Editors  */}
         <div className=" mt-10">
-          <h2 className=" text-center py-5  text-5xl mt-14 mb-5">
+          <h2 className=" text-center py-5  text-4xl mt-14 mb-10">
             {dictionary.editor_board.joint_editor}
           </h2>
           <div className=" grid grid-cols-2 gap-5">
@@ -175,7 +175,7 @@ const page = async ({
 
         {/* Admin Panel  */}
         <div className=" mt-10">
-          <h2 className=" text-center py-5  text-5xl mt-14 mb-5">
+          <h2 className=" text-center py-5  text-4xl mt-14 mb-10">
             {dictionary.editor_board.administrator_Panel}
           </h2>
           <div className=" grid grid-cols-3 gap-3">
@@ -190,7 +190,7 @@ const page = async ({
         </div>
 
         <div className=" mt-10">
-          <h2 className=" text-center py-5  text-5xl mt-14 mb-5">
+          <h2 className="py-5  text-4xl mt-14 mb-10">
             {dictionary.editor_board.action_team}
           </h2>
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-12">
