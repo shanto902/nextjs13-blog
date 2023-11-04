@@ -13,11 +13,7 @@ const getParsedHtml = (body: string) => {
 };
 const EditorCard = ({ jointEditor, isAdminPanel }: jointEditorProps) => {
   return (
-    <div
-      className={`${
-        isAdminPanel ? "gap-3" : "gap-5"
-      }  grid grid-cols-2 `}
-    >
+    <div className={`${isAdminPanel ? "gap-3" : "gap-5"}  grid grid-cols-2 `}>
       <Image
         alt={"Photo of: " + jointEditor.name}
         height={500}
@@ -29,7 +25,9 @@ const EditorCard = ({ jointEditor, isAdminPanel }: jointEditorProps) => {
         )}`}
       />
       <div className="col-span-1  place-self-center">
-        <h2 className={`${isAdminPanel ? " text-xl" : "text-2xl"} font-semibold`}>
+        <h2
+          className={`${isAdminPanel ? " text-xl" : "text-2xl"} font-semibold`}
+        >
           {" "}
           {jointEditor.name}
         </h2>
