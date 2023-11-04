@@ -30,7 +30,7 @@ const SideLogo = ({
         <div></div>
       ) : (
         <div className=" max-w-7xl relative">
-          <div className=" absolute left-[-90px] top-16 -mt-[4px]">
+          <div className=" absolute left-[-90px] top-16 ">
             {" "}
             <Link href={`/${locale}`}>
               <Image

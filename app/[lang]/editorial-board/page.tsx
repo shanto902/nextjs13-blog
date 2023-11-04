@@ -134,7 +134,7 @@ const page = async ({
 
           {/* Editor Section */}
           <div>
-            <h2 className=" text-center  text-4xl mt-14 mb-10">
+            <h2 className=" text-center font-semibold text-4xl mt-14 mb-10">
               {dictionary.editor_board.editor}
             </h2>
             <div className=" grid grid-cols-2 gap-14">
@@ -163,10 +163,10 @@ const page = async ({
 
         {/* Joint Editors  */}
         <div className=" mt-10">
-          <h2 className=" text-center py-5  text-4xl mt-14 mb-10">
+          <h2 className=" text-center py-5 font-semibold text-4xl mt-14 mb-10">
             {dictionary.editor_board.joint_editor}
           </h2>
-          <div className=" grid grid-cols-2 gap-5">
+          <div className=" grid  grid-cols-1 md:grid-cols-2  gap-5">
             {jointEditors.map((jointEditor) => (
               <EditorCard key={jointEditor.id} jointEditor={jointEditor} />
             ))}
@@ -175,10 +175,10 @@ const page = async ({
 
         {/* Admin Panel  */}
         <div className=" mt-10">
-          <h2 className=" text-center py-5  text-4xl mt-14 mb-10">
+          <h2 className=" text-center py-5 font-semibold text-4xl mt-14 mb-10">
             {dictionary.editor_board.administrator_Panel}
           </h2>
-          <div className=" grid grid-cols-3 gap-3">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {adminEditors.map((jointEditor) => (
               <EditorCard
                 key={jointEditor.id}
@@ -190,7 +190,7 @@ const page = async ({
         </div>
 
         <div className=" mt-10">
-          <h2 className="py-5  text-4xl mt-14 mb-10">
+          <h2 className="py-5 font-semibold text-4xl mt-14 mb-10">
             {dictionary.editor_board.action_team}
           </h2>
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-12">

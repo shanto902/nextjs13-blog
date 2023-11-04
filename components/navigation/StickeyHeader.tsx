@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import PaddingContainer from "../layout/PaddingContainer";
 import SideLogo from "./SideLogo";
 import { Post } from "@/types/collection";
@@ -22,6 +22,7 @@ const StickyHeader = ({
   const pathname = usePathname();
   const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
 
+  const [isTransparent, setIsTransparent] = useState(Boolean)
   const pinStartPx = (pathname: string, screenWidth: number): number => {
     let px = 0; // Initialize px to a default value
 
@@ -40,7 +41,7 @@ const StickyHeader = ({
     screenWidth = window.innerWidth; // In a browser environment
   }
   return (
-    <Headroom pinStart={pinStartPx(pathname, screenWidth)}>
+    <Headroom onUnpin={()=>(setIsTransparent(true))} onPin={()=>(setIsTransparent(false))} pinStart={pinStartPx(pathname, screenWidth)}>
       <div className="bg-base-100">
         <PaddingContainer>
           <div className="mr-10">
@@ -53,7 +54,7 @@ const StickyHeader = ({
           <div className=" lg:block hidden">
             <div className=" flex items-center justify-between gap-2 py-5">
               {/* Category Links */}
-              <nav className=" w-full">
+              <nav className=" w-full -mb-[4px]">
                 <ul
                   className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2  ${
                     locale === "en"
@@ -117,8 +118,9 @@ const StickyHeader = ({
               {/* Search  */}
               <SearchComponent locale={locale} posts={posts || []} />
             </div>
-            <hr className=" border-2 -mb-[4px]" />
+            
           </div>
+          <hr className={`border-2  ${isTransparent ? 'border-transparent' : ''} transition-colors duration-300`} />
         </PaddingContainer>
 
         <div>
