@@ -7,6 +7,20 @@
     @apply text-3xl font-semibold  mb-3;
   }
 
+  .rich-text colgroup {
+    @apply md:table-column-group flex; 
+  }
+  
+  .rich-text tbody {
+    @apply md:table-header-group flex flex-col; 
+    /* @apply flex flex-col;  */
+  }
+
+  .rich-text tr {
+    @apply md:table-row flex flex-col; 
+    /* @apply flex flex-col;  */
+  }
+
   .rich-text ol {
     @apply list-decimal;
   }
@@ -33,3 +47,5 @@
 .react-tabs__tab--selected {
   @apply !bg-red-700 !rounded-none !border-none !text-white hover:!bg-black hover:!text-white active:!bg-red-700;
 }
+
+
