@@ -54,7 +54,7 @@ const ArchivedTab = ({
             href={`/${locale}/published-magazine`}
             className={`place-self-center text-center md:col-span-3 col-span-2  cursor-pointer ${
               locale === "bn" ? "text-2xl" : "text-xl"
-            }  max-w-[893px] w-full font-bold  border border-red-700  py-5 rounded-md`}
+            }  max-w-[893px] w-full font-bold  py-5 rounded-md`}
           >
             {dictionary.navigation.links.publishedMagazine}
           </Link>
