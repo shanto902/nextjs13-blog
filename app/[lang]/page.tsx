@@ -1,15 +1,15 @@
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import Image from "next/image";
 import PostList from "@/components/post/PostList";
-import coverPhoto from "@/assets/cover-photo.png";
 import MainSlider from "@/components/elements/MainSlider";
 import directus from "@/lib/directus";
 import { notFound } from "next/navigation";
 import magazineImage from "@/assets/magpic.png";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
-import { Banner, Post, University } from "@/types/collection";
+import { Banner, Post, Review, University } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import parse from "html-react-parser";
 
 const HomePage = async ({
   params,
@@ -188,6 +188,43 @@ const HomePage = async ({
 
   const banners = await getAllBanners();
 
+
+  
+  const getAllBookReview = async () => {
+    try {
+      const reviews = await directus.items("book_review").readByQuery({
+        fields: ["*", "translations.*"],
+      });
+  
+      if (locale === "en") {
+        return reviews?.data || [];
+      } else {
+        const localizedReview = reviews.data?.map((review:Review) => {
+          return {
+            ...review,
+            title: review?.translations[0].title,
+            review: review?.translations[0].review,
+          };
+        });
+  
+        return localizedReview || [];
+      }
+    } catch (error) {
+      console.error(error);
+      throw new Error("Error fetching reviews");
+    }
+  };
+
+  
+  
+  const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
+  
+  console.log(lastBookReview);
+  
+  const getParsedHtml = (body: string) => {
+    return parse(body);
+  };
+
   return (
     <PaddingContainer>
       <Image
@@ -218,12 +255,15 @@ const HomePage = async ({
 
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className=" order-last md:order-none">
-            <Image src={magazineImage} alt={"Magazine Picture"} />
-            <div className="  ">
-              <h2 className="text-xl font-semiboldg my-4 bg-base-100 text-center">
+
+          <h2 className="text-2xl font-semibold  my-2 bg-base-100 text-center">
                 {dictionary.magazineHome.title}
               </h2>
-              <div className="flex flex-row gap-5 justify-center">
+
+            <Image src={magazineImage} alt={"Magazine Picture"} />
+            <div className="  ">
+             
+              <div className="flex flex-row gap-5 my-4 justify-center">
                 <Link
                   href={`/${locale}/published-magazine`}
                   className=" btn  bg-accent text-secondary hover:text-accent "
@@ -239,9 +279,15 @@ const HomePage = async ({
               </div>
             </div>
           </div>
-          <div className="  md:border-l place-item-end lg:pl-10 ">
+          <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between h-full ">
+            <h2 className=" text-2xl font-semibold  my-2 text-center">{dictionary.mainBody.bookReview}</h2>
+          <h3 className="text-xl font-semibold mt-10 mb-5">{lastBookReview.title}</h3>
+          <div>
+            { getParsedHtml(lastBookReview.review) }
+          </div>
+          
             <Link
-              className=" btn mt-10 normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
+              className=" self-end btn my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={""}
             >
               {dictionary.mainBody.costBtn}

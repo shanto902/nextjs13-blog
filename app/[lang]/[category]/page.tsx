@@ -132,7 +132,7 @@ const CategoryPage = async ({
       <PaddingContainer>
         <CategoryPostList
           locale={locale}
-          posts={typeCorrectedData.posts.reverse()}
+          posts={typeCorrectedData.posts}
         />
       </PaddingContainer>
     </div>

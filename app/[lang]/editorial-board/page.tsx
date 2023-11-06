@@ -143,7 +143,7 @@ const page = async ({
                 height={500}
                 width={500}
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${editorialBoard.editor_image}?key=optimized`}
-                className="lg:max-w-[365px] col-span-1 object-cover object-center aspect-square rounded-full "
+                className="lg:max-w-[200px] place-self-end col-span-1 object-cover object-center aspect-square rounded-full "
                 placeholder={`data:image/svg+xml;base64,${toBase64(
                   shimmer(1200, 675),
                 )}`}
@@ -195,13 +195,13 @@ const page = async ({
           </h2>
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-12">
             {actionTeam.map((person) => (
-              <div key={person.id}>
+              <div key={person.id} className="place-self-center">
                 <Image
                   alt={"Photo of: " + person.name}
                   height={500}
                   width={500}
                   src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${person.image}?key=optimized`}
-                  className=" col-span-1 object-cover object-center aspect-square rounded-md "
+                  className=" col-span-1 object-cover max-w-[200px]  object-center aspect-square rounded-md "
                   placeholder={`data:image/svg+xml;base64,${toBase64(
                     shimmer(1200, 675),
                   )}`}

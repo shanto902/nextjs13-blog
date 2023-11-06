@@ -27,6 +27,7 @@ export interface Translations {
   first_name: string;
   last_name: string;
   image_side_title: string;
+  review:string;
 }
 
 export interface Category {
@@ -90,4 +91,13 @@ export interface University {
   posts: Post[];
   tag_line: string;
   is_main_slider: boolean;
+}
+
+export interface Review {
+  id?: string;
+  date_created: string;
+  title: string;
+  review: string;
+  translations:Translations[];
+  sort?:string;
 }

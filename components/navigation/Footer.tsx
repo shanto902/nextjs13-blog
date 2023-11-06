@@ -135,7 +135,7 @@ const Footer = async ({ locale }: { locale: string }) => {
 
           <div className=" flex items-center w-full justify-between">
             <Link
-              href={"/editorial-board"}
+              href={`/${locale}/editorial-board`}
               className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-[129px]"
             >
               {dictionary.footer.editorialBoard}

@@ -19,7 +19,7 @@ const EditorCard = ({ jointEditor, isAdminPanel }: jointEditorProps) => {
         height={500}
         width={500}
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${jointEditor.image}?key=optimized`}
-        className="col-span-1 object-cover object-center aspect-square rounded-full "
+        className="col-span-1 max-w-[150px] place-self-end object-cover object-center aspect-square rounded-full "
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1200, 675),
         )}`}
