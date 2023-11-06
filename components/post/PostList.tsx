@@ -110,7 +110,7 @@ const PostList = async ({
   }, newsCategoryPosts[0]); // Use the first post as the initial value
 
   return (
-    <div className="  grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="  grid grid-cols-1  md:grid-cols-2 gap-10">
       {orderedPosts.map((post, index) => (
         <PostCard
           key={post.id}
@@ -121,7 +121,7 @@ const PostList = async ({
         />
       ))}
       <StudentProjectSlider
-        className=" order-10 md:order-none "
+      className=" order-10 md:order-none lg:border-l pl-10"  
         locale={locale}
         studentPosts={studentPosts}
       />

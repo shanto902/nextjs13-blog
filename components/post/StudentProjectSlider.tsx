@@ -9,7 +9,7 @@ const StudentProjectSlider = async ({
   studentPosts,
 }: {
   locale: string;
-  className: string;
+  className?: string;
   studentPosts: Post[];
 }) => {
   const dictionary = await getDictionary(locale);

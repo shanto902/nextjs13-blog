@@ -1,12 +1,10 @@
 "use client";
 import parse from "html-react-parser";
 import Image from "next/image";
-import Zoom from "react-medium-image-zoom";
-import "./overlayStyle.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import { useState } from "react";
 
-const PostBody = ({ body, locale }: { body: string; locale: string }) => {
+const EditorBody = ({ body, locale }: { body: string; locale: string }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const handleImageLoad = () => {
@@ -17,10 +15,8 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return (
-          <>
-            {!isImageLoaded ? (
               <Image
-                className=" w-full object-cover object-center h-auto  "
+                className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
                 src={src}
                 alt={alt}
                 width={1280}
@@ -30,22 +26,6 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
                   shimmer(1280, 620),
                 )}`}
               />
-            ) : (
-              <Zoom>
-                <Image
-                  className=" w-full object-cover object-center h-auto "
-                  src={src}
-                  alt={alt}
-                  width={1280}
-                  height={620}
-                  onLoad={handleImageLoad}
-                  placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(1280, 620),
-                  )}`}
-                />
-              </Zoom>
-            )}
-          </>
         );
       }
     },
@@ -58,4 +38,4 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
   return <div className=" rich-text">{getParsedHtml(body)}</div>;
 };
 
-export default PostBody;
+export default EditorBody;

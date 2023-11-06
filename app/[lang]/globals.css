@@ -8,17 +8,15 @@
   }
 
   .rich-text colgroup {
-    @apply md:table-column-group flex; 
+    @apply md:table-column-group flex;
   }
-  
+
   .rich-text tbody {
-    @apply md:table-header-group flex flex-col; 
-    /* @apply flex flex-col;  */
+    @apply md:table-header-group flex flex-col;
   }
 
   .rich-text tr {
-    @apply md:table-row flex flex-col; 
-    /* @apply flex flex-col;  */
+    @apply md:table-row flex flex-col;
   }
 
   .rich-text ol {
@@ -33,7 +31,7 @@
   }
 
   .rich-text td {
-    @apply p-5;
+    @apply md:p-5 p-0; 
   }
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
@@ -47,5 +45,3 @@
 .react-tabs__tab--selected {
   @apply !bg-red-700 !rounded-none !border-none !text-white hover:!bg-black hover:!text-white active:!bg-red-700;
 }
-
-

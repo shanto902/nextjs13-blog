@@ -26,7 +26,7 @@ const Footer = async ({ locale }: { locale: string }) => {
                 alt="Logo"
                 width={135}
                 height={160}
-                className=" aspect-square"
+                className=" aspect-square p-5"
               />
 
               <OurPhotoZoom />

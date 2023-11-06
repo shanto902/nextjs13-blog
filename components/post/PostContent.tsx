@@ -90,7 +90,7 @@ const PostContent = ({
           )}
 
           {/* Description  */}
-          <div className=" ">
+          <div className=" self-center ">
             {!isPagePost ? (
               <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
                 <p

@@ -215,7 +215,6 @@ const HomePage = async ({
 
   const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
 
-  console.log(lastBookReview);
 
   const getParsedHtml = (body: string) => {
     return parse(body);
@@ -228,7 +227,7 @@ const HomePage = async ({
         width={1980}
         height={760}
         alt="Cover Photo"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${homePage.cover_photo}?key=optimized`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${locale === 'bn' ? homePage.cover_photo : homePage.cover_photo_english}?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
         )}`}

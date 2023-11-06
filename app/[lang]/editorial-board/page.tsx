@@ -6,6 +6,8 @@ import Image from "next/image";
 import React from "react";
 import parse from "html-react-parser";
 import EditorCard from "@/components/cards/EditorCard";
+import PostBody from "@/components/post/PostBody";
+import EditorBody from "@/components/elements/EditorBody";
 const page = async ({
   params,
 }: {
@@ -29,6 +31,7 @@ const page = async ({
           write_up: editorialBoard.translations[0].write_up,
           editor_name: editorialBoard.translations[0].editor_name,
           editor_info: editorialBoard.translations[0].editor_info,
+          editorial_board: editorialBoard.translations[0].editorial_board,
         };
 
         return localizedEditorialBoard;
@@ -39,85 +42,85 @@ const page = async ({
     }
   };
 
-  const getJointEditorsData = async () => {
-    try {
-      const jointEditors = await directus.items("joint_editor").readByQuery({
-        fields: ["*", "translations.*"],
-      });
+  // const getJointEditorsData = async () => {
+  //   try {
+  //     const jointEditors = await directus.items("joint_editor").readByQuery({
+  //       fields: ["*", "translations.*"],
+  //     });
 
-      if (locale === "en") {
-        return jointEditors?.data || [];
-      } else {
-        const localizedEditors = jointEditors.data?.map((Editors) => {
-          return {
-            ...Editors,
-            name: Editors.translations[0].name,
-            info: Editors.translations[0].info,
-          };
-        });
+  //     if (locale === "en") {
+  //       return jointEditors?.data || [];
+  //     } else {
+  //       const localizedEditors = jointEditors.data?.map((Editors) => {
+  //         return {
+  //           ...Editors,
+  //           name: Editors.translations[0].name,
+  //           info: Editors.translations[0].info,
+  //         };
+  //       });
 
-        return localizedEditors || [];
-      }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching jointEditors");
-    }
-  };
+  //       return localizedEditors || [];
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new Error("Error fetching jointEditors");
+  //   }
+  // };
 
-  const getAdminData = async () => {
-    try {
-      const admin = await directus.items("administration_panel").readByQuery({
-        fields: ["*", "translations.*"],
-      });
+  // const getAdminData = async () => {
+  //   try {
+  //     const admin = await directus.items("administration_panel").readByQuery({
+  //       fields: ["*", "translations.*"],
+  //     });
 
-      if (locale === "en") {
-        return admin?.data || [];
-      } else {
-        const localizedAdmins = admin.data?.map((Editors) => {
-          return {
-            ...Editors,
-            name: Editors.translations[0].name,
-            info: Editors.translations[0].info,
-          };
-        });
+  //     if (locale === "en") {
+  //       return admin?.data || [];
+  //     } else {
+  //       const localizedAdmins = admin.data?.map((Editors) => {
+  //         return {
+  //           ...Editors,
+  //           name: Editors.translations[0].name,
+  //           info: Editors.translations[0].info,
+  //         };
+  //       });
 
-        return localizedAdmins || [];
-      }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching admin");
-    }
-  };
+  //       return localizedAdmins || [];
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new Error("Error fetching admin");
+  //   }
+  // };
 
-  const getTeamActionData = async () => {
-    try {
-      const team = await directus.items("action_team").readByQuery({
-        fields: ["*", "translations.*"],
-      });
+  // const getTeamActionData = async () => {
+  //   try {
+  //     const team = await directus.items("action_team").readByQuery({
+  //       fields: ["*", "translations.*"],
+  //     });
 
-      if (locale === "en") {
-        return team?.data || [];
-      } else {
-        const localizedTeam = team.data?.map((Editors) => {
-          return {
-            ...Editors,
-            name: Editors.translations[0].name,
-          };
-        });
+  //     if (locale === "en") {
+  //       return team?.data || [];
+  //     } else {
+  //       const localizedTeam = team.data?.map((Editors) => {
+  //         return {
+  //           ...Editors,
+  //           name: Editors.translations[0].name,
+  //         };
+  //       });
 
-        return localizedTeam || [];
-      }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching Team");
-    }
-  };
+  //       return localizedTeam || [];
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     throw new Error("Error fetching Team");
+  //   }
+  // };
   const editorialBoard = await getEditorialBoardData();
 
-  const adminEditors = await getAdminData();
+  // const adminEditors = await getAdminData();
 
-  const jointEditors = await getJointEditorsData();
-  const actionTeam = await getTeamActionData();
+  // const jointEditors = await getJointEditorsData();
+  // const actionTeam = await getTeamActionData();
 
   const dictionary = await getDictionary(locale);
 
@@ -137,7 +140,7 @@ const page = async ({
             <h2 className=" text-center font-semibold text-4xl mt-14 mb-10">
               {dictionary.editor_board.editor}
             </h2>
-            <div className=" grid grid-cols-2 gap-14">
+            <div className=" flex flex-col md:flex-row gap-14">
               <Image
                 alt={"Photo of: " + editorialBoard.editor_name}
                 height={500}
@@ -161,58 +164,8 @@ const page = async ({
           </div>
         </div>
 
-        {/* Joint Editors  */}
-        <div className=" mt-10">
-          <h2 className=" text-center py-5 font-semibold text-4xl mt-14 mb-10">
-            {dictionary.editor_board.joint_editor}
-          </h2>
-          <div className=" grid  grid-cols-1 md:grid-cols-2  gap-5">
-            {jointEditors.map((jointEditor) => (
-              <EditorCard key={jointEditor.id} jointEditor={jointEditor} />
-            ))}
-          </div>
-        </div>
-
-        {/* Admin Panel  */}
-        <div className=" mt-10">
-          <h2 className=" text-center py-5 font-semibold text-4xl mt-14 mb-10">
-            {dictionary.editor_board.administrator_Panel}
-          </h2>
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {adminEditors.map((jointEditor) => (
-              <EditorCard
-                key={jointEditor.id}
-                jointEditor={jointEditor}
-                isAdminPanel={true}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className=" mt-10">
-          <h2 className="py-5 font-semibold text-4xl mt-14 mb-10">
-            {dictionary.editor_board.action_team}
-          </h2>
-          <div className=" grid grid-cols-1 md:grid-cols-3 gap-12">
-            {actionTeam.map((person) => (
-              <div key={person.id} className="place-self-center">
-                <Image
-                  alt={"Photo of: " + person.name}
-                  height={500}
-                  width={500}
-                  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${person.image}?key=optimized`}
-                  className=" col-span-1 object-cover max-w-[200px]  object-center aspect-square rounded-md "
-                  placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(1200, 675),
-                  )}`}
-                />
-
-                <p className=" text-center text-2xl font-semibold py-5">
-                  {person.name}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className=" py-10">
+          <EditorBody body={editorialBoard.editorial_board} locale={locale}/>
         </div>
       </PaddingContainer>
     </>
