@@ -27,7 +27,7 @@ export interface Translations {
   first_name: string;
   last_name: string;
   image_side_title: string;
-  review:string;
+  review: string;
 }
 
 export interface Category {
@@ -98,6 +98,6 @@ export interface Review {
   date_created: string;
   title: string;
   review: string;
-  translations:Translations[];
-  sort?:string;
+  translations: Translations[];
+  sort?: string;
 }

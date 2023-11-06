@@ -188,25 +188,23 @@ const HomePage = async ({
 
   const banners = await getAllBanners();
 
-
-  
   const getAllBookReview = async () => {
     try {
       const reviews = await directus.items("book_review").readByQuery({
         fields: ["*", "translations.*"],
       });
-  
+
       if (locale === "en") {
         return reviews?.data || [];
       } else {
-        const localizedReview = reviews.data?.map((review:Review) => {
+        const localizedReview = reviews.data?.map((review: Review) => {
           return {
             ...review,
             title: review?.translations[0].title,
             review: review?.translations[0].review,
           };
         });
-  
+
         return localizedReview || [];
       }
     } catch (error) {
@@ -215,12 +213,10 @@ const HomePage = async ({
     }
   };
 
-  
-  
   const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
-  
+
   console.log(lastBookReview);
-  
+
   const getParsedHtml = (body: string) => {
     return parse(body);
   };
@@ -255,14 +251,12 @@ const HomePage = async ({
 
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className=" order-last md:order-none">
-
-          <h2 className="text-2xl font-semibold  my-2 bg-base-100 text-center">
-                {dictionary.magazineHome.title}
-              </h2>
+            <h2 className="text-2xl font-semibold  my-2 bg-base-100 text-center">
+              {dictionary.magazineHome.title}
+            </h2>
 
             <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className="  ">
-             
               <div className="flex flex-row gap-5 my-4 justify-center">
                 <Link
                   href={`/${locale}/published-magazine`}
@@ -280,12 +274,14 @@ const HomePage = async ({
             </div>
           </div>
           <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between h-full ">
-            <h2 className=" text-2xl font-semibold  my-2 text-center">{dictionary.mainBody.bookReview}</h2>
-          <h3 className="text-xl font-semibold mt-10 mb-5">{lastBookReview.title}</h3>
-          <div>
-            { getParsedHtml(lastBookReview.review) }
-          </div>
-          
+            <h2 className=" text-2xl font-semibold  my-2 text-center">
+              {dictionary.mainBody.bookReview}
+            </h2>
+            <h3 className="text-xl font-semibold mt-10 mb-5">
+              {lastBookReview.title}
+            </h3>
+            <div>{getParsedHtml(lastBookReview.review)}</div>
+
             <Link
               className=" self-end btn my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={""}

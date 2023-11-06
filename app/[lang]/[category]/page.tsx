@@ -130,10 +130,7 @@ const CategoryPage = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        <CategoryPostList
-          locale={locale}
-          posts={typeCorrectedData.posts}
-        />
+        <CategoryPostList locale={locale} posts={typeCorrectedData.posts} />
       </PaddingContainer>
     </div>
   );
