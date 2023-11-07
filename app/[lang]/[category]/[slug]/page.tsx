@@ -149,7 +149,6 @@ const ArticlePage = async ({
     return notFound();
   }
 
-
   // const getPageView = async (post:Post) => {
   //   try {
   //     const views = await directus.items("page_view").readByQuery({
@@ -158,17 +157,17 @@ const ArticlePage = async ({
   //       },
   //       fields: ["*"],
   //     });
-  
+
   //     if (views.data && views.data.length > 0) {
   //       // If views exist, update the counter by 1
   //       const existingView = views.data[0]; // Assuming there's only one view
   //       const updatedCounter = existingView.counter + 1;
-  
+
   //       // Update the existing page view
   //       await directus.items("page_view").updateOne(existingView.id, {
   //         counter: updatedCounter
   //       });
-  
+
   //       return updatedCounter;
   //     } else {
   //       // If no views were found, create a new page view
@@ -177,10 +176,10 @@ const ArticlePage = async ({
   //         counter: 1, // Initialize the counter with 1
   //         // You can add other fields for the page view as needed
   //       };
-  
+
   //       // Create the new page view
   //       const createdPageView = await directus.items("page_view").createOne(newPageView);
-  
+
   //       if (createdPageView) {
   //         return createdPageView.counter;
   //       } else {
@@ -192,12 +191,9 @@ const ArticlePage = async ({
   //     throw new Error("Error fetching/updating page view");
   //   }
   // };
-  
-  
+
   // const updatedCounter = await getPageView(post);
   // console.log("Updated counter:", updatedCounter);
-  
-  
 
   const dictionary = await getDictionary(locale);
 

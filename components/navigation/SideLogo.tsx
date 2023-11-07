@@ -69,7 +69,7 @@ const SideLogo = ({
                     : pathname.match(/^\/(bn|en)\/editorial-board/)
                     ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[67px]"
                     : pathname.match(/^\/(bn|en)\/book-review/)
-                    ? "text-[43px] break-words text-end max-w-[165px] leading-[43px] pt-[10px] ml-[-47px] mt-[69px]"
+                    ? "text-[43px] break-words text-end max-w-[190px] leading-[43px] pt-[10px] ml-[-61px] mt-[82px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
