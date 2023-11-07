@@ -45,27 +45,27 @@ const SideLogo = ({
               className={` -rotate-90 bg-base-100 ${
                 locale === "bn"
                   ? params.category === "heritage"
-                    ? "text-[43px] ml-[-37px] mt-[54px]"
+                    ? "text-[43px] ml-[-37px] mt-[56px]"
                     : params.category === "news"
-                    ? "text-[43px] ml-[-57px] mt-[78px] "
+                    ? "text-[43px] ml-[-63px] mt-[84px] "
                     : params.category === "arts"
-                    ? "text-[43px] ml-[-48px] mt-[67px]  "
+                    ? "text-[43px] ml-[-55px] mt-[74px]  "
                     : params.category === "concepts"
                     ? "text-[43px] ml-[-40px] mt-[57px] text-end"
                     : params.category === "personality"
-                    ? "text-[43px] ml-[-40px] mt-[57px]"
+                    ? "text-[43px] ml-[-40px] mt-[60px]"
                     : params.category === "dialogue"
-                    ? "text-[43px] ml-[-37px] mt-[55px]"
+                    ? "text-[43px] ml-[-40px] mt-[59px]"
                     : params.category === "projects"
                     ? "text-[43px] ml-[-38px] mt-[57px] text-end"
                     : pathname.match(/^\/(bn|en)\/student-projects/)
                     ? "text-[43px] pt-[14px] break-words max-w-[195px] text-end mt-[91px] leading-[34px] ml-[-69px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
-                    ? "text-[43px] mt-[68px] ml-[-48px] "
+                    ? "text-[43px] mt-[76px] ml-[-55px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)
-                    ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[67px]"
+                    ? "text-[43px] break-words text-end max-w-[165px] leading-[43px] pt-[10px] ml-[-47px] mt-[67px]"
                     : params.category === "environment-and-planning"
-                    ? "text-[43px] break-words max-w-[171px] text-end mt-[75px] ml-[-55px] leading-[41px] pt-[10px]"
+                    ? "text-[43px] break-words max-w-[171px] text-end mt-[75px] ml-[-53px] leading-[41px] pt-[10px]"
                     : pathname.match(/^\/(bn|en)\/editorial-board/)
                     ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[67px]"
                     : pathname.match(/^\/(bn|en)\/book-review/)
