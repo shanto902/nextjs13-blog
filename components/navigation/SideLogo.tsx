@@ -59,7 +59,7 @@ const SideLogo = ({
                     : params.category === "projects"
                     ? "text-[43px] ml-[-38px] mt-[57px] text-end"
                     : pathname.match(/^\/(bn|en)\/student-projects/)
-                    ? "text-[43px] pt-[14px] break-words max-w-[180px] text-end mt-[84px] leading-[34px] ml-[-64px]"
+                    ? "text-[43px] pt-[14px] break-words max-w-[195px] text-end mt-[91px] leading-[34px] ml-[-69px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
                     ? "text-[43px] mt-[68px] ml-[-48px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)

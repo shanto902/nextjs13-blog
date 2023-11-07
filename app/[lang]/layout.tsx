@@ -1,11 +1,11 @@
 import Navigation from "@/components/navigation/Navigation";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Noto_Serif_Bengali, Open_Sans } from "next/font/google";
+import { Baloo_Da_2, Open_Sans } from "next/font/google";
 import Footer from "@/components/navigation/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
-const banglaFont = Noto_Serif_Bengali({
+const banglaFont = Baloo_Da_2({
   subsets: ["latin"],
 });
 
