@@ -1,0 +1,32 @@
+.swiper-button-next {
+  top: 50px;
+  right: 20px;
+  background-color: black;
+  opacity: 60%;
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  font-size: 20px;
+}
+.swiper-button-next::after {
+  font-size: 20px;
+}
+
+.bar-of-progress {
+  z-index: 50;
+}
+
+.swiper-button-prev {
+  top: 50px;
+  left: unset;
+  right: 80px;
+  background-color: black;
+  opacity: 60%;
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  font-size: 20px;
+}
+.swiper-button-prev::after {
+  font-size: 20px;
+}

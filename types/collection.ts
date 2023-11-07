@@ -94,6 +94,7 @@ export interface University {
 }
 
 export interface Review {
+  book_cover: string;
   id?: string;
   date_created: string;
   title: string;

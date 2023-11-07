@@ -215,7 +215,6 @@ const HomePage = async ({
 
   const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
 
-
   const getParsedHtml = (body: string) => {
     return parse(body);
   };
@@ -227,7 +226,9 @@ const HomePage = async ({
         width={1980}
         height={760}
         alt="Cover Photo"
-        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${locale === 'bn' ? homePage.cover_photo : homePage.cover_photo_english}?key=optimized`}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${
+          locale === "bn" ? homePage.cover_photo : homePage.cover_photo_english
+        }?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
         )}`}
@@ -272,14 +273,25 @@ const HomePage = async ({
               </div>
             </div>
           </div>
-          <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between h-full ">
+          <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between items-stretch h-full ">
             <h2 className=" text-2xl font-semibold  my-2 text-center">
               {dictionary.mainBody.bookReview}
             </h2>
-            <h3 className="text-xl font-semibold mt-10 mb-5">
-              {lastBookReview.title}
-            </h3>
-            <div>{getParsedHtml(lastBookReview.review)}</div>
+            <Link href={`/${locale}/book-review`} className=" self-center">
+              <Image
+                className=" aspect-square mx-auto  object-cover object-center"
+                width={500}
+                height={500}
+                alt="Advertise Link"
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${lastBookReview.book_cover}?key=optimized`}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500),
+                )}`}
+              />
+              <h3 className=" text-center text-xl font-semibold my-4">
+                {lastBookReview.title}
+              </h3>
+            </Link>
 
             <Link
               className=" self-end btn my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"

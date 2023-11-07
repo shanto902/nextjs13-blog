@@ -15,17 +15,17 @@ const EditorBody = ({ body, locale }: { body: string; locale: string }) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return (
-              <Image
-                className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
-                src={src}
-                alt={alt}
-                width={1280}
-                height={620}
-                onLoad={handleImageLoad}
-                placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(1280, 620),
-                )}`}
-              />
+          <Image
+            className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
+            src={src}
+            alt={alt}
+            width={1280}
+            height={620}
+            onLoad={handleImageLoad}
+            placeholder={`data:image/svg+xml;base64,${toBase64(
+              shimmer(1280, 620),
+            )}`}
+          />
         );
       }
     },

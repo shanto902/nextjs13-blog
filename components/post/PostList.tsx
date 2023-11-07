@@ -121,7 +121,7 @@ const PostList = async ({
         />
       ))}
       <StudentProjectSlider
-      className=" order-10 md:order-none lg:border-l pl-10"  
+        className=" order-10 md:order-none lg:border-l pl-10"
         locale={locale}
         studentPosts={studentPosts}
       />

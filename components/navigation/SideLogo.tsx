@@ -68,6 +68,8 @@ const SideLogo = ({
                     ? "text-[43px] break-words max-w-[171px] text-end mt-[75px] ml-[-55px] leading-[41px] pt-[10px]"
                     : pathname.match(/^\/(bn|en)\/editorial-board/)
                     ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-47px] mt-[67px]"
+                    : pathname.match(/^\/(bn|en)\/book-review/)
+                    ? "text-[43px] break-words text-end max-w-[165px] leading-[43px] pt-[10px] ml-[-47px] mt-[69px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
@@ -93,6 +95,8 @@ const SideLogo = ({
                   : params.category === "environment-and-planning"
                   ? "text-[38px]  uppercase ml-[-103px] mt-[134px] break-words  max-w-[272px] leading-[39px] text-end"
                   : pathname.match(/^\/(bn|en)\/editorial-board/)
+                  ? "text-[43px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-76px] mt-[98px]"
+                  : pathname.match(/^\/(bn|en)\/book-review/)
                   ? "text-[43px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-76px] mt-[98px]"
                   : "" // Add more conditions as needed
               } hidden lg:block  overflow-hidden`}
@@ -130,6 +134,8 @@ const SideLogo = ({
                     dictionary.navigation.links.publishedMagazine) ||
                   (pathname.match(/^\/(bn|en)\/editorial-board/) &&
                     dictionary.navigation.links.editorialBoard) ||
+                  (pathname.match(/^\/(bn|en)\/book-review/) &&
+                    dictionary.navigation.links.bookReview) ||
                   "Not Found"}
               </Link>
             </div>

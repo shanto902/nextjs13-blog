@@ -16,7 +16,7 @@
   }
 
   .rich-text tr {
-    @apply md:table-row flex flex-col;
+    @apply md:table-row flex flex-col gap-4;
   }
 
   .rich-text ol {
@@ -31,7 +31,7 @@
   }
 
   .rich-text td {
-    @apply md:p-5 p-0; 
+    @apply md:p-5 p-0;
   }
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
@@ -40,6 +40,10 @@
   .editor-info p {
     @apply @lg:text-xl @md:text-lg lg:leading-relaxed leading-normal break-all;
   }
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-red-700;
 }
 
 .react-tabs__tab--selected {

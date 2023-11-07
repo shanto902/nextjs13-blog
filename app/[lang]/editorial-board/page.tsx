@@ -165,7 +165,7 @@ const page = async ({
         </div>
 
         <div className=" py-10">
-          <EditorBody body={editorialBoard.editorial_board} locale={locale}/>
+          <EditorBody body={editorialBoard.editorial_board} locale={locale} />
         </div>
       </PaddingContainer>
     </>
