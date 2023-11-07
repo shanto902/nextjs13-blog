@@ -42,6 +42,7 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
         post={post}
         locale={locale}
         customLayout={randomLayout}
+
       />
     );
   };
@@ -82,7 +83,7 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
       </div>
     );
   };
-  function getRandomOddNumber() {
+  const  getRandomOddNumber = ()=> {
     const oddNumbers = [1, 3, 5, 7];
     const randomIndex = Math.floor(Math.random() * oddNumbers.length);
     return oddNumbers[randomIndex];
@@ -93,8 +94,9 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
         {publishedPosts.map((post, index) => (
           <div
             suppressHydrationWarning
-            className={`${getRandomOddNumber() === 1 ? "md:col-span-2" : ""} `}
+            className={`${getRandomOddNumber() === 1  ? "md:col-span-2" : ""} `}
             key={index}
+            
           >
             {renderPostLayout(post, index)}
           </div>

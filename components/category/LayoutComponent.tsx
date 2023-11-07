@@ -132,7 +132,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
             : customLayout === 5
             ? "max-h-[380px] max-w-[580px] "
             : ""
-        }  w-full object-cover object-center h-full`}
+        }  w-full aspect-[5/4] object-cover object-center h-full`}
             width={850}
             height={600}
             alt={post.title}
