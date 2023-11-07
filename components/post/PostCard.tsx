@@ -10,6 +10,7 @@ interface PostProps {
   reverse?: boolean;
   locale: string;
   className: string;
+  isNewsPost?:boolean;
 }
 
 const PostCard = async ({
@@ -18,9 +19,10 @@ const PostCard = async ({
   reverse = false,
   locale,
   className,
+  isNewsPost = false
 }: PostProps) => {
   return (
-    <div>
+    <div className={ isNewsPost ? `lg:border-l-2 lg:border-r-2 lg:border-t-2 lg:p-5`: ""}>
       <Link
         className={`@container ${className} ${
           layout === "horizontal"

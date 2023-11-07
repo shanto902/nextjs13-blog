@@ -121,7 +121,7 @@ const PostList = async ({
         />
       ))}
       <StudentProjectSlider
-        className=" order-10 md:order-none lg:border-l lg:pl-10"
+        className=" order-10 md:order-none lg:border-l-2 lg:border-r-2 lg:border-t-2 lg:p-5"
         locale={locale}
         studentPosts={studentPosts}
       />
@@ -130,10 +130,11 @@ const PostList = async ({
         locale={locale}
         layout={layout}
         post={latestNewsPost}
+        isNewsPost
         className={`order-8 md:order-9`}
       />
       {latestThreePosts ? (
-        <div className=" lg:border-l order-11  md:order-10 lg:pl-10 flex flex-col justify-between ">
+        <div className=" lg:border-l-2 lg:border-r-2 lg:border-b-2 order-11  md:order-10  lg:mt-[-40px] lg:px-5 flex flex-col justify-between ">
           <StudentProjectCard
             latestThreePosts={latestThreePosts}
             locale={locale}
@@ -150,7 +151,7 @@ const PostList = async ({
         <h2>No Posts to Show</h2>
       )}
       {latestThreeNewsPosts ? (
-        <div className="  lg:pr-10 order-9 md:order-11  flex flex-col justify-between ">
+        <div className="  order-9 md:order-11  flex flex-col lg:border-l-2 lg:border-r-2 lg:border-b-2 lg:mt-[-40px] lg:px-5 justify-between ">
           <RecentNewsCard
             latestThreePosts={latestThreeNewsPosts}
             locale={locale}
@@ -167,7 +168,7 @@ const PostList = async ({
         <h2>No Posts to Show</h2>
       )}
 
-      <div className="  md:border-l place-item-end lg:pl-10 order-last">
+      <div className=" place-item-end lg:p-5 order-last">
         {main_ad_photo && (
           <Link className="lg:ml-10 " href={main_ad_link || "/"}>
             <Image
