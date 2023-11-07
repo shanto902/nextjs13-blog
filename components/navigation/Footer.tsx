@@ -15,7 +15,7 @@ const Footer = async ({ locale }: { locale: string }) => {
   const dictionary = await getDictionary(locale);
 
   return (
-    <div className=" pt-8 mt-10 border-t flex flex-col bg-base-100 relative lg:z-10">
+    <div className=" mt-10 border-t flex flex-col bg-base-100 relative lg:z-10">
       <PaddingContainer>
         {/* Title Description */}
         <div>
@@ -76,7 +76,7 @@ const Footer = async ({ locale }: { locale: string }) => {
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
-                  {dictionary.footer.addressValue} {" "}
+                  {dictionary.footer.addressValue}{" "}
                   {dictionary.footer.addressValue2}
                 </span>
               </p>
@@ -147,7 +147,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               />
               <SocialLink
                 platform="facebook"
-                link={siteConfig.socialLinks.facebook}
+                link={"https://www.facebook.com/SthapattyaONirman"}
               />
             </div>
           </div>

@@ -24,7 +24,6 @@ const PostContent = ({
   locale,
   formattedCounter,
 }: PostContentProps) => {
-
   return (
     <div>
       {/* Tags */}
@@ -34,7 +33,7 @@ const PostContent = ({
         <h2
           className={`${
             isPagePost &&
-            "text-xl text-center @md:text-2xl @lg:text-3xl font-bold underline decoration-red-700 "
+            "text-2xl text-center @md:text-3xl @lg:text-4xl font-bold  "
           } `}
         >
           {!isPagePost ? (

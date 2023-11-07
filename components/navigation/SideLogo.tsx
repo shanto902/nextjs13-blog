@@ -29,7 +29,7 @@ const SideLogo = ({
       {pathname === "/bn" || pathname === "/en" ? (
         <div></div>
       ) : (
-        <div className=" max-w-7xl relative">
+        <div className=" max-w-7xl relative ">
           <div className=" absolute left-[-90px] top-16 ">
             {" "}
             <Link href={`/${locale}`}>
@@ -95,9 +95,9 @@ const SideLogo = ({
                   : params.category === "environment-and-planning"
                   ? "text-[38px]  uppercase ml-[-103px] mt-[134px] break-words  max-w-[272px] leading-[39px] text-end"
                   : pathname.match(/^\/(bn|en)\/editorial-board/)
-                  ? "text-[43px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-76px] mt-[98px]"
+                  ? "text-[38px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-78px] mt-[98px]"
                   : pathname.match(/^\/(bn|en)\/book-review/)
-                  ? "text-[43px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-76px] mt-[98px]"
+                  ? "text-[38px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-78px] mt-[98px]"
                   : "" // Add more conditions as needed
               } hidden lg:block  overflow-hidden`}
             >
