@@ -1,6 +1,12 @@
 import { Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import { AppWindow, Eye, EyeIcon, PanelRightCloseIcon, User } from "lucide-react";
+import {
+  AppWindow,
+  Eye,
+  EyeIcon,
+  PanelRightCloseIcon,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PostBody from "./PostBody";
@@ -9,14 +15,14 @@ interface PostContentProps {
   post: Post;
   isPagePost?: boolean;
   locale: string;
-  formattedCounter?:string;
+  formattedCounter?: string;
 }
 
 const PostContent = ({
   post,
   isPagePost = false,
   locale,
-  formattedCounter
+  formattedCounter,
 }: PostContentProps) => {
   // Create a separate JSX element for each line
   // const formattedDescription = lines.map((line, index) => (
@@ -75,7 +81,7 @@ const PostContent = ({
 
             <div className=" flex flex-row items-center gap-2">
               <EyeIcon className="w-4 h-4" />
-            <span>{formattedCounter}</span>
+              <span>{formattedCounter}</span>
             </div>
           </div>
         )}

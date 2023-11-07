@@ -21,8 +21,8 @@ export interface Post {
 
 export interface PostCounter {
   id: number;
-  post_id:string;
-  counter:number;
+  post_id: string;
+  counter: number;
 }
 
 export interface Translations {
