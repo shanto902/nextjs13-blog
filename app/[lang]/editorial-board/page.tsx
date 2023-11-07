@@ -42,9 +42,7 @@ const page = async ({
     }
   };
 
- 
   const editorialBoard = await getEditorialBoardData();
-
 
   const dictionary = await getDictionary(locale);
 

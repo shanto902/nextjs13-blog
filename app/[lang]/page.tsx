@@ -215,8 +215,6 @@ const HomePage = async ({
 
   const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
 
-
-
   return (
     <PaddingContainer>
       <Image
