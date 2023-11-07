@@ -19,6 +19,12 @@ export interface Post {
   right_ad?: string;
 }
 
+export interface PostCounter {
+  id: number;
+  post_id:string;
+  counter:number;
+}
+
 export interface Translations {
   id: string;
   title: string;

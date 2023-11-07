@@ -42,85 +42,9 @@ const page = async ({
     }
   };
 
-  // const getJointEditorsData = async () => {
-  //   try {
-  //     const jointEditors = await directus.items("joint_editor").readByQuery({
-  //       fields: ["*", "translations.*"],
-  //     });
-
-  //     if (locale === "en") {
-  //       return jointEditors?.data || [];
-  //     } else {
-  //       const localizedEditors = jointEditors.data?.map((Editors) => {
-  //         return {
-  //           ...Editors,
-  //           name: Editors.translations[0].name,
-  //           info: Editors.translations[0].info,
-  //         };
-  //       });
-
-  //       return localizedEditors || [];
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error("Error fetching jointEditors");
-  //   }
-  // };
-
-  // const getAdminData = async () => {
-  //   try {
-  //     const admin = await directus.items("administration_panel").readByQuery({
-  //       fields: ["*", "translations.*"],
-  //     });
-
-  //     if (locale === "en") {
-  //       return admin?.data || [];
-  //     } else {
-  //       const localizedAdmins = admin.data?.map((Editors) => {
-  //         return {
-  //           ...Editors,
-  //           name: Editors.translations[0].name,
-  //           info: Editors.translations[0].info,
-  //         };
-  //       });
-
-  //       return localizedAdmins || [];
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error("Error fetching admin");
-  //   }
-  // };
-
-  // const getTeamActionData = async () => {
-  //   try {
-  //     const team = await directus.items("action_team").readByQuery({
-  //       fields: ["*", "translations.*"],
-  //     });
-
-  //     if (locale === "en") {
-  //       return team?.data || [];
-  //     } else {
-  //       const localizedTeam = team.data?.map((Editors) => {
-  //         return {
-  //           ...Editors,
-  //           name: Editors.translations[0].name,
-  //         };
-  //       });
-
-  //       return localizedTeam || [];
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error("Error fetching Team");
-  //   }
-  // };
+ 
   const editorialBoard = await getEditorialBoardData();
 
-  // const adminEditors = await getAdminData();
-
-  // const jointEditors = await getJointEditorsData();
-  // const actionTeam = await getTeamActionData();
 
   const dictionary = await getDictionary(locale);
 

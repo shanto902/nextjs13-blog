@@ -215,9 +215,7 @@ const HomePage = async ({
 
   const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
 
-  const getParsedHtml = (body: string) => {
-    return parse(body);
-  };
+
 
   return (
     <PaddingContainer>
@@ -242,7 +240,7 @@ const HomePage = async ({
         <PostList
           universityId={homePage.student_project_slider as string}
           locale={locale}
-          posts={posts}
+          posts={posts.reverse()}
           universities={universities || []}
           studentProjects={posts || []}
           main_ad_photo={homePage.main_ad_photo}

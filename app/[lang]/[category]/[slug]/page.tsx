@@ -149,51 +149,58 @@ const ArticlePage = async ({
     return notFound();
   }
 
-  // const getPageView = async (post:Post) => {
-  //   try {
-  //     const views = await directus.items("page_view").readByQuery({
-  //       filter: {
-  //         post_id: post.id
-  //       },
-  //       fields: ["*"],
-  //     });
+  const getPageView = async (post:Post) => {
+    try {
+      const views = await directus.items("page_view").readByQuery({
+        filter: {
+          post_id: post.id
+        },
+        fields: ["*"],
+      });
+  
+      if (views.data && views.data.length > 0) {
+        // If views exist, update the counter by 1
+        const existingView = views.data[0];
+        const updatedCounter = existingView.counter + 1;
+  
+        // Update the existing page view
+        await directus.items("page_view").updateOne(existingView.id, {
+          counter: updatedCounter
+        });
+  
+        return updatedCounter;
+      } else {
+        // If no views were found, create a new page view
+        const newPageView = {
+          post_id: post.id,
+          counter: 1, // Initialize the counter with 1
+          // You can add other fields for the page view as needed
+        };
+  
+        // Create the new page view
+        const createdPageView = (await directus.items("page_view").createOne(newPageView)) as { counter: number };
+  
+        if (createdPageView) {
+          return createdPageView.counter;
+        } else {
+          throw new Error("Error creating page view");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      throw new Error("Error fetching/updating page view");
+    }
+  };
+  
+  // Assuming you have the `post` object defined
 
-  //     if (views.data && views.data.length > 0) {
-  //       // If views exist, update the counter by 1
-  //       const existingView = views.data[0]; // Assuming there's only one view
-  //       const updatedCounter = existingView.counter + 1;
+  
+  const updatedCounter = await getPageView(post);
 
-  //       // Update the existing page view
-  //       await directus.items("page_view").updateOne(existingView.id, {
-  //         counter: updatedCounter
-  //       });
+  
+  const formattedCounter = new Intl.NumberFormat(locale).format(updatedCounter);
 
-  //       return updatedCounter;
-  //     } else {
-  //       // If no views were found, create a new page view
-  //       const newPageView = {
-  //         post_id: post.id,
-  //         counter: 1, // Initialize the counter with 1
-  //         // You can add other fields for the page view as needed
-  //       };
 
-  //       // Create the new page view
-  //       const createdPageView = await directus.items("page_view").createOne(newPageView);
-
-  //       if (createdPageView) {
-  //         return createdPageView.counter;
-  //       } else {
-  //         throw new Error("Error creating page view");
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error("Error fetching/updating page view");
-  //   }
-  // };
-
-  // const updatedCounter = await getPageView(post);
-  // console.log("Updated counter:", updatedCounter);
 
   const dictionary = await getDictionary(locale);
 
@@ -213,7 +220,7 @@ const ArticlePage = async ({
     <div className=" relative  mx-auto">
       <PaddingContainer>
         <div className=" space-y-10 relative">
-          <PostHero locale={locale} post={post} />
+          <PostHero locale={locale} post={post}  formattedCounter={formattedCounter} />
           <div className=" flex gap-10 flex-col md:flex-row">
             <PostBody locale={locale} body={post.body} />
           </div>
