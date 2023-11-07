@@ -11,7 +11,6 @@ interface PostProps {
   locale: string;
   className: string;
   isNewsPost?: boolean;
-
 }
 
 const PostCard = async ({
@@ -21,7 +20,6 @@ const PostCard = async ({
   locale,
   className,
   isNewsPost = false,
-
 }: PostProps) => {
   return (
     <div
@@ -59,11 +57,7 @@ const PostCard = async ({
       </Link>
 
       {/* Post Content */}
-      <PostContent
-        locale={locale}
-        post={post}
-  
-      />
+      <PostContent locale={locale} post={post} />
     </div>
   );
 };

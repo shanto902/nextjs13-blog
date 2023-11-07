@@ -24,12 +24,7 @@ const PostContent = ({
   locale,
   formattedCounter,
 }: PostContentProps) => {
-  // Create a separate JSX element for each line
-  // const formattedDescription = lines.map((line, index) => (
-  //   <p key={index} className="text-md">
-  //     {line}
-  //   </p>
-  // ));
+
   return (
     <div>
       {/* Tags */}

@@ -32,51 +32,51 @@ const Footer = async ({ locale }: { locale: string }) => {
               <OurPhotoZoom />
             </div>
             <div className=" col-span-3  md:place-self-end">
-              <p className=" mt-4 grid grid-cols-9 col-span-2  w-fit space-y-2  text-sm">
-                <span className=" col-span-2 font-bold mt-2">
+              <p className=" mt-4 grid grid-cols-10 col-span-2  w-fit space-y-2  text-sm">
+                <span className=" col-span-3 font-bold mt-2">
                   {dictionary.footer.editor}
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
                   {dictionary.footer.editorName}
                 </span>
-                <span className=" col-span-2 font-bold mt-2">
+                <span className=" col-span-3 font-bold mt-2 whitespace-nowrap">
                   {dictionary.footer.administratorPanel}
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
                   {dictionary.footer.ratba}
                 </span>
-                <span className=" col-span-2 font-bold mt-2"></span>{" "}
+                <span className=" col-span-3 font-bold mt-2"></span>{" "}
                 <span className=" text-center"> </span>{" "}
                 <span className=" col-span-6 text-left">
                   {dictionary.footer.nishi}
                 </span>
-                <span className=" col-span-2 font-bold mt-2"></span>{" "}
+                <span className=" col-span-3 font-bold mt-2"></span>{" "}
                 <span className=" text-center"> </span>{" "}
                 <span className=" col-span-6 text-left">
                   {dictionary.footer.faiza}
                 </span>
-                <span className=" col-span-2 font-bold">
+                <span className=" col-span-3 font-bold">
                   {dictionary.footer.email}
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
                   sthapattyanonirman@gmail.com
                 </span>
-                <span className=" col-span-2 font-bold">
+                <span className=" col-span-3 font-bold">
                   {dictionary.footer.phone}
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
                   {dictionary.footer.phoneNo}
                 </span>
-                <span className=" col-span-2 font-bold">
+                <span className=" col-span-3 font-bold">
                   {dictionary.footer.address}
                 </span>{" "}
                 <span className=" text-center"> : </span>{" "}
                 <span className=" col-span-6 text-left">
-                  {dictionary.footer.addressValue}{" "}
+                  {dictionary.footer.addressValue} {" "}
                   {dictionary.footer.addressValue2}
                 </span>
               </p>
