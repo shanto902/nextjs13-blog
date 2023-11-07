@@ -16,7 +16,7 @@ const EditorBody = ({ body, locale }: { body: string; locale: string }) => {
         const { src, alt } = domNode.attribs;
         return (
           <Image
-            className=" w-full object-cover object-center h-auto max-h-[300px] md:max-h-[600px] "
+            className=" w-full object-cover object-center aspect-square h-auto  "
             src={src}
             alt={alt}
             width={1280}

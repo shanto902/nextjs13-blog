@@ -117,9 +117,9 @@ const MobileDrawer = ({
                 </li>
               </ul>
 
-              <button className=" btn rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 ">
+              <Link href={`/${locale}/editorial-board`} className=" btn rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 ">
                 {dictionary.footer.editorialBoard}
-              </button>
+              </Link>
               <div className=" flex flex-row justify-around gap-5 mt-5">
                 <LangSwitcher locale={locale} />
                 {/* <ThemeSwitcher /> */}
