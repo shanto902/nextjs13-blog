@@ -64,12 +64,12 @@ const HomePage = async ({
             },
           };
         });
-
+        console.log(localizedPost);
         return localizedPost;
       }
     } catch (error) {
       console.log(error);
-      // throw new Error("Error fetching posts");
+      throw new Error("Error fetching posts");
     }
   };
 

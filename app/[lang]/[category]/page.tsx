@@ -85,22 +85,22 @@ const CategoryPage = async ({
         const fetchedCategory = category?.data?.[0];
         const localizedCategory = {
           ...fetchedCategory,
-          title: fetchedCategory.translations[0].title,
-          description: fetchedCategory.translations[0].description,
-          posts: fetchedCategory.posts.map((post: any) => {
+          title: fetchedCategory?.translations[0]?.title,
+          description: fetchedCategory?.translations[0]?.description,
+          posts: fetchedCategory?.posts.map((post: any) => {
             return {
               ...post,
-              title: post.translations[0].title,
-              description: post.translations[0].description,
-              body: post.translations[0].body,
+              title: post?.translations[0]?.title,
+              description: post?.translations[0]?.description,
+              body: post?.translations[0]?.body,
               category: {
                 ...post.category,
-                title: fetchedCategory.translations[0].title,
-                description: fetchedCategory.translations[0].description,
+                title: fetchedCategory?.translations[0]?.title,
+                description: fetchedCategory?.translations[0]?.description,
               },
               author: {
-                first_name: post.author.translations[0].first_name,
-                last_name: post.author.translations[0].last_name,
+                first_name: post?.author?.translations[0].first_name,
+                last_name: post?.author?.translations[0].last_name,
               },
             };
           }),
