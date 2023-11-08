@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import PostBody from "./PostBody";
+import PostImage from "./PostImage";
 
 interface PostContentProps {
   post: Post;
@@ -83,21 +84,11 @@ const PostContent = ({
         <div className=" flex flex-col md:flex-row gap-5 ">
           {/* Image  */}
           {isPagePost && (
-            <Image
-              className={` object-cover object-center w-[500px]  h-[400px]
-          }`}
-              alt={post.title}
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
-              width={500}
-              height={400}
-              placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(500, 400),
-              )}`}
-            />
+         <PostImage post={post}/>
           )}
 
           {/* Description  */}
-          <div className=" self-center ">
+          <div className=" self-center flex-1 ">
             {!isPagePost ? (
               <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
                 <p
