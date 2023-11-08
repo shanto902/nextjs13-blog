@@ -21,9 +21,13 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
   };
 
   const currentPosts = posts.slice(startIndex, endIndex);
-  const publishedPosts = currentPosts.filter(
-    (post) => post.status === "published",
-  );
+  const publishedPosts = currentPosts
+    .sort(
+      (a, b) =>
+        new Date(a.date_created).getTime() - new Date(b.date_created).getTime(),
+    )
+    .filter((post) => post.status === "published")
+    .reverse();
   const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
 
   // Shuffle the array using the Fisher-Yates algorithm

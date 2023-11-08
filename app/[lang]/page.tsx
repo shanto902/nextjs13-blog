@@ -78,6 +78,10 @@ const HomePage = async ({
   if (!posts) {
     notFound();
   }
+  posts.sort(
+    (a, b) =>
+      new Date(a.date_created).getTime() - new Date(b.date_created).getTime(),
+  );
 
   // FOR GET ALL UNIVERSITY BASED PROJECTS
 
@@ -238,7 +242,7 @@ const HomePage = async ({
         <PostList
           universityId={homePage.student_project_slider as string}
           locale={locale}
-          posts={posts.reverse()}
+          posts={posts}
           universities={universities || []}
           studentProjects={posts || []}
           main_ad_photo={homePage.main_ad_photo}
