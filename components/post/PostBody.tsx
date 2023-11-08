@@ -38,7 +38,6 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
                   alt={alt}
                   width={1280}
                   height={620}
-                  onLoad={handleImageLoad}
                   placeholder={`data:image/svg+xml;base64,${toBase64(
                     shimmer(1280, 620),
                   )}`}

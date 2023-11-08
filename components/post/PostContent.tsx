@@ -83,9 +83,7 @@ const PostContent = ({
 
         <div className=" flex flex-col md:flex-row gap-5 ">
           {/* Image  */}
-          {isPagePost && (
-         <PostImage post={post}/>
-          )}
+          {isPagePost && <PostImage post={post} />}
 
           {/* Description  */}
           <div className=" self-center flex-1 ">
