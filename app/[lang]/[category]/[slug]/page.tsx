@@ -24,15 +24,15 @@ export const generateStaticParams = async () => {
     });
     const params = posts?.data?.map((post: Post) => {
       return {
-        category: post.category.slug as string,
-        slug: post.slug as string,
+        category: post?.category?.slug as string,
+        slug: post?.slug as string,
         lang: "en",
       };
     });
     const localizedParams = posts?.data?.map((post: Post) => {
       return {
-        category: post.category.slug as string,
-        slug: post.slug as string,
+        category: post?.category?.slug as string,
+        slug: post?.slug as string,
         lang: "bn",
       };
     });

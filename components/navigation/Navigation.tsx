@@ -8,7 +8,6 @@ import HeaderLogo from "./HeaderLogo";
 import SideLogo from "./SideLogo";
 import directus from "@/lib/directus";
 import { Post } from "@/types/collection";
-import Headroom from "react-headroom";
 import StickyHeader from "./StickeyHeader";
 
 const Navigation = async ({ locale }: { locale: string }) => {
@@ -52,7 +51,7 @@ const Navigation = async ({ locale }: { locale: string }) => {
       }
     } catch (error) {
       console.log(error);
-      throw new Error("Error fetching posts");
+      // throw new Error("Error fetching posts");
     }
   };
 

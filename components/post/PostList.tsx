@@ -44,7 +44,7 @@ const PostList = async ({
 
   // Filter the studentProjects array by category.slug
   const filteredProjects = studentProjects.filter((project) => {
-    return project.category.slug === categorySlugToFilter;
+    return project?.category?.slug === categorySlugToFilter;
   });
 
   const dictionary = await getDictionary(locale);
@@ -64,7 +64,7 @@ const PostList = async ({
   const categoryNewsSlugToFilter = "news";
 
   const filteredNews = posts.filter((project) => {
-    return project.category.slug === categoryNewsSlugToFilter;
+    return project?.category?.slug === categoryNewsSlugToFilter;
   });
   const combinedFilteredNews = [...filteredNews];
   const sortedNews = combinedFilteredNews.slice().sort((a, b) => {
@@ -76,7 +76,7 @@ const PostList = async ({
 
   // Group the posts by category
   posts.forEach((post) => {
-    const categorySlug = post.category?.slug || "uncategorized";
+    const categorySlug = post?.category?.slug || "uncategorized";
 
     if (!groupedPosts[categorySlug]) {
       groupedPosts[categorySlug] = [];
@@ -95,11 +95,11 @@ const PostList = async ({
     .filter((post) => post);
 
   const newsCategoryPosts = posts.filter(
-    (post) => post.category.slug === "news",
+    (post) => post?.category?.slug === "news",
   );
 
   const mainSliderUniversity = universities.find(
-    (university) => university.id === universityId,
+    (university) => university?.id === universityId,
   );
 
   const studentPosts = mainSliderUniversity ? mainSliderUniversity.posts : [];

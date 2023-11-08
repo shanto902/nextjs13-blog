@@ -50,17 +50,17 @@ const HomePage = async ({
         const localizedPost = posts.data?.map((post: Post) => {
           return {
             ...post,
-            title: post.translations[0].title,
-            description: post.translations[0].description,
-            body: post.translations[0].body,
+            title: post?.translations[0]?.title,
+            description: post?.translations[0]?.description,
+            body: post?.translations[0]?.body,
             author: {
-              first_name: post.author.translations[0].first_name,
-              last_name: post.author.translations[0].last_name,
+              first_name: post?.author?.translations[0].first_name,
+              last_name: post?.author?.translations[0].last_name,
             },
             category: {
               ...post.category,
-              title: post.category.translations[0].title,
-              description: post.category.translations[0].description,
+              title: post?.category?.translations[0].title,
+              description: post?.category?.translations[0].description,
             },
           };
         });
@@ -69,7 +69,7 @@ const HomePage = async ({
       }
     } catch (error) {
       console.log(error);
-      throw new Error("Error fetching posts");
+      // throw new Error("Error fetching posts");
     }
   };
 
@@ -127,16 +127,16 @@ const HomePage = async ({
               posts: (fetchedUniversity.posts || []).map((post: Post) => {
                 return {
                   ...post,
-                  title: post.translations[0].title,
+                  title: post?.translations[0].title,
                   category: post.category
                     ? {
                         ...post.category,
-                        title: post.category.translations[0].title,
+                        title: post?.category?.translations[0].title,
                       }
                     : "",
                   university: post.university
                     ? {
-                        ...post.university,
+                        ...post?.university,
                       }
                     : "",
                 };
@@ -177,8 +177,8 @@ const HomePage = async ({
         const localizedBanner = banners.data?.map((banner: Banner) => {
           return {
             ...banner,
-            title: banner.translations[0].title,
-            description: banner.translations[0].description,
+            title: banner?.translations[0].title,
+            description: banner?.translations[0].description,
           };
         });
 
