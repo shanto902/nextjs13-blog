@@ -225,7 +225,9 @@ const HomePage = async ({
         height={760}
         alt="Cover Photo"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${
-          locale === "bn" ? homePage?.cover_photo : homePage?.cover_photo_english
+          locale === "bn"
+            ? homePage?.cover_photo
+            : homePage?.cover_photo_english
         }?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),

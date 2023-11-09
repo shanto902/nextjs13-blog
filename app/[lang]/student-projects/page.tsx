@@ -62,7 +62,8 @@ const page = async ({
                     ? {
                         ...post?.category,
                         title: post?.category?.translations[0]?.title,
-                        description: post?.category?.translations[0]?.description,
+                        description:
+                          post?.category?.translations[0]?.description,
                       }
                     : "",
                   author: post?.author

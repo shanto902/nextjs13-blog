@@ -90,7 +90,7 @@ const PostContent = ({
             {!isPagePost ? (
               <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
                 <p
-                  className={`@lg:text-lg text-base leading-snug ${
+                  className={`@lg:text-lg text-base leading-normal ${
                     isPagePost ? "" : "line-clamp-3"
                   }`}
                 >
