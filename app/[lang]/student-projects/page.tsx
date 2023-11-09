@@ -51,29 +51,29 @@ const page = async ({
           (fetchedUniversity) => {
             return {
               ...fetchedUniversity,
-              tag_line: fetchedUniversity.translations[0].tag_line,
-              posts: (fetchedUniversity.posts || []).map((post: Post) => {
+              tag_line: fetchedUniversity?.translations[0]?.tag_line,
+              posts: (fetchedUniversity?.posts || []).map((post: Post) => {
                 return {
                   ...post,
-                  title: post.translations[0].title,
-                  description: post.translations[0].description,
-                  body: post.translations[0].body,
-                  category: post.category
+                  title: post?.translations[0]?.title,
+                  description: post?.translations[0]?.description,
+                  body: post?.translations[0]?.body,
+                  category: post?.category
                     ? {
-                        ...post.category,
-                        title: post.category.translations[0].title,
-                        description: post.category.translations[0].description,
+                        ...post?.category,
+                        title: post?.category?.translations[0]?.title,
+                        description: post?.category?.translations[0]?.description,
                       }
                     : "",
-                  author: post.author
+                  author: post?.author
                     ? {
-                        first_name: post.author.translations[0].first_name,
-                        last_name: post.author.translations[0].last_name,
+                        first_name: post?.author?.translations[0]?.first_name,
+                        last_name: post?.author?.translations[0]?.last_name,
                       }
                     : "",
-                  university: post.university
+                  university: post?.university
                     ? {
-                        ...post.university,
+                        ...post?.university,
                       }
                     : "",
                 };
@@ -99,15 +99,15 @@ const page = async ({
       <PaddingContainer>
         <div className=" border border-red-700 rounded-lg p-4">
           <p>
-            {dictionary.studentProjects.topDesc}
+            {dictionary?.studentProjects?.topDesc}
             <br />
             <br />
-            {dictionary.studentProjects.botDesc}
+            {dictionary?.studentProjects?.botDesc}
           </p>
         </div>
         <div className=" mt-10 flex flex-col gap-10">
-          {universities.map((university: University) =>
-            university.posts && university.posts.length > 0 ? (
+          {universities?.map((university: University) =>
+            university?.posts && university?.posts.length > 0 ? (
               <UniversityList
                 key={university.id}
                 university={university}

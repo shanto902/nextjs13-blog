@@ -28,10 +28,10 @@ const page = async ({
       } else {
         const localizedEditorialBoard = {
           ...editorialBoard,
-          write_up: editorialBoard.translations[0].write_up,
-          editor_name: editorialBoard.translations[0].editor_name,
-          editor_info: editorialBoard.translations[0].editor_info,
-          editorial_board: editorialBoard.translations[0].editorial_board,
+          write_up: editorialBoard?.translations[0]?.write_up,
+          editor_name: editorialBoard?.translations[0]?.editor_name,
+          editor_info: editorialBoard?.translations[0]?.editor_info,
+          editorial_board: editorialBoard?.translations[0]?.editorial_board,
         };
 
         return localizedEditorialBoard;
@@ -60,14 +60,14 @@ const page = async ({
           {/* Editor Section */}
           <div>
             <h2 className=" text-center font-semibold text-4xl mt-14 mb-10">
-              {dictionary.editor_board.editor}
+              {dictionary?.editor_board.editor}
             </h2>
             <div className=" flex flex-col md:flex-row gap-14">
               <Image
-                alt={"Photo of: " + editorialBoard.editor_name}
+                alt={"Photo of: " + editorialBoard?.editor_name}
                 height={500}
                 width={500}
-                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${editorialBoard.editor_image}?key=optimized`}
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${editorialBoard?.editor_image}?key=optimized`}
                 className="lg:max-w-[200px] place-self-end col-span-1 object-cover object-center aspect-square rounded-full "
                 placeholder={`data:image/svg+xml;base64,${toBase64(
                   shimmer(1200, 675),
@@ -76,10 +76,10 @@ const page = async ({
               <div className=" place-self-center">
                 <h2 className=" text-3xl font-semibold">
                   {" "}
-                  {editorialBoard.editor_name}
+                  {editorialBoard?.editor_name}
                 </h2>
                 <div className=" editor-info mt-7">
-                  {getParsedHtml(editorialBoard.editor_info)}
+                  {getParsedHtml(editorialBoard?.editor_info)}
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ const page = async ({
         </div>
 
         <div className=" py-10">
-          <EditorBody body={editorialBoard.editorial_board} locale={locale} />
+          <EditorBody body={editorialBoard?.editorial_board} locale={locale} />
         </div>
       </PaddingContainer>
     </>

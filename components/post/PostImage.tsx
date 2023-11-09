@@ -23,7 +23,7 @@ const PostImage = ({ post }: { post: Post }) => {
             width={500}
             height={400}
             placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(500, 400)
+              shimmer(500, 400),
             )}`}
           />
         </Zoom>
@@ -37,7 +37,7 @@ const PostImage = ({ post }: { post: Post }) => {
           onLoad={handleImageLoad}
           height={400}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(500, 400)
+            shimmer(500, 400),
           )}`}
         />
       )}

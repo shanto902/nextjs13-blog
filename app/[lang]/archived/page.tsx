@@ -50,14 +50,14 @@ const ArchivedPage = async ({
         const localizedPost = posts.data?.map((post: Post) => {
           return {
             ...post,
-            title: post.translations[0].title,
+            title: post?.translations[0]?.title,
             author: {
-              first_name: post.author.translations[0].first_name,
-              last_name: post.author.translations[0].last_name,
+              first_name: post.author?.translations[0]?.first_name,
+              last_name: post.author?.translations[0]?.last_name,
             },
             category: {
-              ...post.category,
-              title: post.category.translations[0].title,
+              ...post?.category,
+              title: post?.category?.translations[0]?.title,
             },
           };
         });

@@ -9,7 +9,6 @@ import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import { Banner, Post, Review, University } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import parse from "html-react-parser";
 
 const HomePage = async ({
   params,
@@ -54,17 +53,16 @@ const HomePage = async ({
             description: post?.translations[0]?.description,
             body: post?.translations[0]?.body,
             author: {
-              first_name: post?.author?.translations[0].first_name,
-              last_name: post?.author?.translations[0].last_name,
+              first_name: post?.author?.translations[0]?.first_name,
+              last_name: post?.author?.translations[0]?.last_name,
             },
             category: {
               ...post.category,
-              title: post?.category?.translations[0].title,
-              description: post?.category?.translations[0].description,
+              title: post?.category?.translations[0]?.title,
+              description: post?.category?.translations[0]?.description,
             },
           };
         });
-        console.log(localizedPost);
         return localizedPost;
       }
     } catch (error) {
@@ -124,17 +122,17 @@ const HomePage = async ({
           (fetchedUniversity) => {
             return {
               ...fetchedUniversity,
-              posts: (fetchedUniversity.posts || []).map((post: Post) => {
+              posts: (fetchedUniversity?.posts || []).map((post: Post) => {
                 return {
                   ...post,
-                  title: post?.translations[0].title,
-                  category: post.category
+                  title: post?.translations[0]?.title,
+                  category: post?.category
                     ? {
-                        ...post.category,
+                        ...post?.category,
                         title: post?.category?.translations[0].title,
                       }
                     : "",
-                  university: post.university
+                  university: post?.university
                     ? {
                         ...post?.university,
                       }
@@ -174,11 +172,11 @@ const HomePage = async ({
       if (locale === "en") {
         return banners?.data || [];
       } else {
-        const localizedBanner = banners.data?.map((banner: Banner) => {
+        const localizedBanner = banners?.data?.map((banner: Banner) => {
           return {
             ...banner,
-            title: banner?.translations[0].title,
-            description: banner?.translations[0].description,
+            title: banner?.translations[0]?.title,
+            description: banner?.translations[0]?.description,
           };
         });
 
@@ -201,11 +199,11 @@ const HomePage = async ({
       if (locale === "en") {
         return reviews?.data || [];
       } else {
-        const localizedReview = reviews.data?.map((review: Review) => {
+        const localizedReview = reviews?.data?.map((review: Review) => {
           return {
             ...review,
-            title: review?.translations[0].title,
-            review: review?.translations[0].review,
+            title: review?.translations[0]?.title,
+            review: review?.translations[0]?.review,
           };
         });
 
@@ -227,7 +225,7 @@ const HomePage = async ({
         height={760}
         alt="Cover Photo"
         src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${
-          locale === "bn" ? homePage.cover_photo : homePage.cover_photo_english
+          locale === "bn" ? homePage?.cover_photo : homePage?.cover_photo_english
         }?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
           shimmer(1980, 760),
@@ -240,42 +238,42 @@ const HomePage = async ({
 
       <main className=" h-auto space-y-10 mt-10">
         <PostList
-          universityId={homePage.student_project_slider as string}
+          universityId={homePage?.student_project_slider as string}
           locale={locale}
           posts={posts}
           universities={universities || []}
           studentProjects={posts || []}
-          main_ad_photo={homePage.main_ad_photo}
-          main_ad_link={homePage.main_ad_link}
+          main_ad_photo={homePage?.main_ad_photo}
+          main_ad_link={homePage?.main_ad_link}
         />
 
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className=" order-last md:order-none">
             <h2 className="text-2xl font-semibold  my-2 bg-base-100 text-center">
-              {dictionary.magazineHome.title}
+              {dictionary?.magazineHome?.title}
             </h2>
 
             <Image src={magazineImage} alt={"Magazine Picture"} />
-            <div className="  ">
+            <div className=" mt-10  ">
               <div className="flex flex-row gap-5 my-4 justify-center">
                 <Link
                   href={`/${locale}/published-magazine`}
-                  className=" btn  bg-accent text-secondary hover:text-accent "
+                  className=" btn btn-sm  bg-accent text-secondary hover:text-accent "
                 >
-                  {dictionary.magazineHome.published}
+                  {dictionary?.magazineHome?.published}
                 </Link>
                 <Link
                   href={`/${locale}/archived`}
-                  className=" btn  bg-accent text-secondary hover:text-accent "
+                  className=" btn  bg-accent btn-sm text-secondary hover:text-accent "
                 >
-                  {dictionary.magazineHome.website}
+                  {dictionary?.magazineHome?.website}
                 </Link>
               </div>
             </div>
           </div>
           <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between items-stretch h-full ">
             <h2 className=" text-2xl font-semibold  my-2 text-center">
-              {dictionary.mainBody.bookReview}
+              {dictionary?.mainBody?.bookReview}
             </h2>
             <Link href={`/${locale}/book-review`} className=" self-center">
               <Image
@@ -283,13 +281,13 @@ const HomePage = async ({
                 width={500}
                 height={500}
                 alt="Advertise Link"
-                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${lastBookReview.book_cover}?key=optimized`}
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${lastBookReview?.book_cover}?key=optimized`}
                 placeholder={`data:image/svg+xml;base64,${toBase64(
                   shimmer(500, 500),
                 )}`}
               />
               <h3 className=" text-center text-xl font-semibold my-4">
-                {lastBookReview.title}
+                {lastBookReview?.title}
               </h3>
             </Link>
 
@@ -297,7 +295,7 @@ const HomePage = async ({
               className=" self-end btn my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={""}
             >
-              {dictionary.mainBody.costBtn}
+              {dictionary?.mainBody?.costBtn}
             </Link>
           </div>
         </div>

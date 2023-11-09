@@ -25,8 +25,8 @@ const BookReview = async ({
         const localizedReview = reviews.data?.map((review: Review) => {
           return {
             ...review,
-            title: review?.translations[0].title,
-            review: review?.translations[0].review,
+            title: review?.translations[0]?.title,
+            review: review?.translations[0]?.review,
           };
         });
 

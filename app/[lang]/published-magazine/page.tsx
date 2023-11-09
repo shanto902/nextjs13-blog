@@ -27,13 +27,13 @@ const MagazinePage = async ({
         fields: ["*", "translations.*"],
       });
       if (locale === "en") {
-        return magazines.data;
+        return magazines?.data;
       } else {
         const localizedPost = magazines.data?.map((magazine: Magazine) => {
           return {
             ...magazine,
-            title: magazine.translations[0].title,
-            description: magazine.translations[0].description,
+            title: magazine?.translations[0]?.title,
+            description: magazine?.translations[0]?.description,
           };
         });
 

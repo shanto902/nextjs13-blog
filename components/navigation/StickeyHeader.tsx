@@ -124,7 +124,7 @@ const StickyHeader = ({
             </div>
           </div>
           <hr
-            className={`border-2  ${
+            className={`border-2  mt-[4px] ${
               isTransparent ? "border-transparent" : ""
             } transition-colors duration-300`}
           />
