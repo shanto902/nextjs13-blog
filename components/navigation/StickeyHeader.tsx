@@ -22,7 +22,6 @@ const StickyHeader = ({
   const pathname = usePathname();
   const liStyle = "hover:text-red-800 flex-shrink-0 cursor-pointer";
 
-  const [isTransparent, setIsTransparent] = useState(Boolean);
   const pinStartPx = (pathname: string, screenWidth: number): number => {
     let px = 0; // Initialize px to a default value
 
@@ -42,8 +41,6 @@ const StickyHeader = ({
   }
   return (
     <Headroom
-      onUnpin={() => setIsTransparent(true)}
-      onPin={() => setIsTransparent(false)}
       pinStart={pinStartPx(pathname, screenWidth)}
     >
       <div className="bg-base-100">
@@ -122,12 +119,11 @@ const StickyHeader = ({
               {/* Search  */}
               <SearchComponent locale={locale} posts={posts || []} />
             </div>
-          </div>
-          <hr
-            className={`border-2 ${
-              isTransparent ? "border-transparent" : ""
-            } transition-colors duration-300`}
+            <hr
+            className={`border-2 `}
           />
+          </div>
+         
         </PaddingContainer>
 
         <div>

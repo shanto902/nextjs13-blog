@@ -80,7 +80,7 @@ const CategoryPostList = ({
               (categorySlug === "projects" ||
                 categorySlug === "environment-and-planning") &&
               index % 3 === 0
-                ? "col-span-2"
+                ? "md:col-span-2"
                 : ""
             } `}
             key={index}

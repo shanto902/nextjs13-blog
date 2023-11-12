@@ -30,7 +30,7 @@ const SideLogo = ({
         <div></div>
       ) : (
         <div className=" max-w-7xl relative ">
-          <div className=" absolute left-[-90px] top-16 mt-[-2px]  ">
+          <div className=" absolute left-[-90px] top-[91px]   ">
             {" "}
             <Link href={`/${locale}`}>
               <Image
@@ -42,34 +42,34 @@ const SideLogo = ({
               />
             </Link>
             <div
-              className={` -rotate-90 bg-base-100 ${
+              className={` -rotate-90 bg-base-100 text-end ${
                 locale === "bn"
                   ? params.category === "heritage"
-                    ? "text-[43px] ml-[-41px] mt-[43px]"
+                    ? "text-[43px]  ml-[-41px] mt-[36px]"
                     : params.category === "news"
-                    ? "text-[43px] ml-[-48px] mt-[73px] "
+                    ? "text-[43px] ml-[-47px] mt-[41px] "
                     : params.category === "arts"
-                    ? "text-[43px] ml-[-47px] mt-[70px]  "
+                    ? "text-[43px] ml-[-47px] mt-[40px]  "
                     : params.category === "concepts"
-                    ? "text-[43px] ml-[-41px] mt-[66px] text-end"
+                    ? "text-[43px] ml-[-41px] mt-[35px] "
                     : params.category === "personality"
-                    ? "text-[43px] ml-[-41px] mt-[51px]"
+                    ? "text-[43px] ml-[-41px] mt-[36px]"
                     : params.category === "dialogue"
-                    ? "text-[43px] ml-[-42px] mt-[44px]"
+                    ? "text-[43px] ml-[-42px] mt-[35px]"
                     : params.category === "projects"
-                    ? "text-[43px] ml-[-41px] mt-[65px] text-end"
+                    ? "text-[43px] ml-[-41px] mt-[34px] "
                     : pathname.match(/^\/(bn|en)\/student-projects/)
-                    ? "text-[43px] pt-[14px] break-words max-w-[195px] text-end mt-[98px] leading-[34px] ml-[-74px]"
+                    ? "text-[43px] pt-[14px] break-words max-w-[195px]  mt-[68px] leading-[34px] ml-[-74px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
-                    ? "text-[43px] mt-[66px] ml-[-42px] "
+                    ? "text-[43px] mt-[36px] ml-[-42px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)
-                    ? "text-[43px] break-words text-end max-w-[165px] leading-[43px] pt-[10px] ml-[-52px] mt-[78px]"
+                    ? "text-[43px] break-words  max-w-[165px] leading-[43px] pt-[10px] ml-[-52px] mt-[47px]"
                     : params.category === "environment-and-planning"
-                    ? "text-[43px] break-words max-w-[171px] text-end mt-[81px] ml-[-56px] leading-[41px] pt-[10px]"
+                    ? "text-[43px] break-words max-w-[171px]  mt-[50px] ml-[-56px] leading-[41px] pt-[10px]"
                     : pathname.match(/^\/(bn|en)\/editorial-board/)
-                    ? "text-[43px] break-words text-end max-w-[158px] leading-[43px] pt-[10px] ml-[-48px] mt-[73px]"
+                    ? "text-[43px] break-words  max-w-[158px] leading-[43px] pt-[10px] ml-[-48px] mt-[42px]"
                     : pathname.match(/^\/(bn|en)\/book-review/)
-                    ? "text-[43px] break-words text-end max-w-[190px] leading-[43px] pt-[10px] ml-[-64px] mt-[89px]"
+                    ? "text-[43px] break-words  max-w-[190px] leading-[43px] pt-[10px] ml-[-64px] mt-[89px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"

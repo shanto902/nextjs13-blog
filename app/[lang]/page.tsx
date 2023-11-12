@@ -44,9 +44,9 @@ const HomePage = async ({
         ],
       });
       if (locale === "en") {
-        return posts.data;
+        return posts?.data;
       } else {
-        const localizedPost = posts.data?.map((post: Post) => {
+        const localizedPost = posts?.data?.map((post: Post) => {
           return {
             ...post,
             title: post?.translations[0]?.title,

@@ -30,14 +30,14 @@ const LayoutComponent = ({
         categorySlug === "arts" || categorySlug === "heritage"
           ? (categorySlug === "arts" || categorySlug === "heritage") &&
             index % 2 === 1
-            ? "flex-col"
+            ? "md:flex-col flex-col-reverse"
             : "flex-col-reverse"
           : ""
       } ${
         categorySlug === "personality" || categorySlug === "dialogue"
           ? (categorySlug === "personality" || categorySlug === "dialogue") &&
             index % 2 === 0
-            ? "flex-col"
+            ? "md:flex-col flex-col-reverse"
             : "flex-col-reverse"
           : ""
       } 
@@ -47,7 +47,7 @@ const LayoutComponent = ({
           ? (categorySlug === "projects" ||
               categorySlug === "environment-and-planning") &&
             index % 2 === 0
-            ? "flex-col"
+            ? "md:flex-col flex-col-reverse"
             : "flex-col-reverse"
           : ""
       }  `}
@@ -57,7 +57,7 @@ const LayoutComponent = ({
         {/* Title Div */}
         <Link
           href={`/${locale}/${post.category.slug}/${post.slug}`}
-          className={` underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 text-xl`}
+          className={` underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 @lg:text-3xl font-bold md:text-2xl text-2xl`}
         >
           {post.title}
         </Link>
