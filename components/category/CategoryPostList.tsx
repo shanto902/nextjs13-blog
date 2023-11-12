@@ -6,9 +6,14 @@ import LayoutComponent from "./LayoutComponent";
 interface CategoryPostListProps {
   posts: Post[];
   locale: string;
+  categorySlug: string;
 }
 
-const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
+const CategoryPostList = ({
+  categorySlug,
+  posts,
+  locale,
+}: CategoryPostListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 8;
   const totalPages = Math.ceil(posts.length / postsPerPage);
@@ -28,27 +33,6 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
     )
     .filter((post) => post.status === "published")
     .reverse();
-  const possibleLayouts = [0, 1, 2, 3, 4, 5, 6, 7];
-
-  // Shuffle the array using the Fisher-Yates algorithm
-  function shuffleArray(array: Number[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-  shuffleArray(possibleLayouts);
-
-  const renderPostLayout = (post: Post, index: number) => {
-    const randomLayout = possibleLayouts[index % possibleLayouts.length];
-    return (
-      <LayoutComponent
-        post={post}
-        locale={locale}
-        customLayout={randomLayout}
-      />
-    );
-  };
 
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -86,21 +70,27 @@ const CategoryPostList = ({ posts, locale }: CategoryPostListProps) => {
       </div>
     );
   };
-  const getRandomOddNumber = () => {
-    const oddNumbers = [1, 3, 5, 7];
-    const randomIndex = Math.floor(Math.random() * oddNumbers.length);
-    return oddNumbers[randomIndex];
-  };
+
   return (
     <div>
       <div className=" grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5">
         {publishedPosts.map((post, index) => (
           <div
-            suppressHydrationWarning
-            className={`${getRandomOddNumber() === 1 ? "md:col-span-2" : ""} `}
+            className={` ${
+              (categorySlug === "projects" ||
+                categorySlug === "environment-and-planning") &&
+              index % 3 === 0
+                ? "col-span-2"
+                : ""
+            } `}
             key={index}
           >
-            {renderPostLayout(post, index)}
+            <LayoutComponent
+              post={post}
+              locale={locale}
+              categorySlug={categorySlug}
+              index={index}
+            />
           </div>
         ))}
       </div>

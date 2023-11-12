@@ -8,72 +8,57 @@ import React from "react";
 interface LayoutProps {
   post: Post;
   locale: string;
-  customLayout: number;
+  categorySlug: string;
+  index: number;
 }
 
-const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
+const LayoutComponent = ({
+  post,
+  locale,
+  categorySlug,
+  index,
+}: LayoutProps) => {
   return (
     <div
-      suppressHydrationWarning
       key={post.id}
-      className={`@container flex justify-center space-y-2 ${
-        customLayout === 0
-          ? "md:flex-col  "
-          : customLayout === 1
-          ? " flex flex-col "
-          : customLayout === 2
-          ? "md:flex-col md:pr-12 "
-          : customLayout === 3
-          ? " md:mr-24"
-          : customLayout === 4
-          ? " md:col-reverse"
-          : customLayout === 5
-          ? "md:col-reverse  "
-          : customLayout === 6
-          ? " md:flex-col"
-          : customLayout === 7
-          ? "md:flex-col "
+      className={`@container flex space-y-2  gap-4 justify-between
+      ${
+        categorySlug === "news" || categorySlug === "concepts"
+          ? "flex-col-reverse"
           : ""
-      }  flex-col-reverse gap-4`}
+      } ${
+        categorySlug === "arts" || categorySlug === "heritage"
+          ? (categorySlug === "arts" || categorySlug === "heritage") &&
+            index % 2 === 1
+            ? "flex-col"
+            : "flex-col-reverse"
+          : ""
+      } ${
+        categorySlug === "personality" || categorySlug === "dialogue"
+          ? (categorySlug === "personality" || categorySlug === "dialogue") &&
+            index % 2 === 0
+            ? "flex-col"
+            : "flex-col-reverse"
+          : ""
+      } 
+      ${
+        categorySlug === "projects" ||
+        categorySlug === "environment-and-planning"
+          ? (categorySlug === "projects" ||
+              categorySlug === "environment-and-planning") &&
+            index % 2 === 0
+            ? "flex-col"
+            : "flex-col-reverse"
+          : ""
+      }  `}
     >
       {/* For Container Text Layout  */}
-      <div
-        suppressHydrationWarning
-        className={`${
-          customLayout === 0
-            ? ""
-            : customLayout === 1
-            ? " md:flex md:flex-col md:justify-start md:items-center md:pr-16"
-            : customLayout === 5 && 2
-            ? " md:flex-1 flex-row gap-2"
-            : ""
-        }`}
-      >
+      <div>
         {/* Title Div */}
         <Link
-          suppressHydrationWarning
           href={`/${locale}/${post.category.slug}/${post.slug}`}
-          className={`${
-            customLayout === 0
-              ? "@lg:text-2xl @md:text-xl"
-              : customLayout === 1
-              ? " @lg:text-3xl @md:text-2xl"
-              : customLayout === 2
-              ? " @lg:text-2xl @md:text-xl"
-              : customLayout === 3
-              ? " @lg:text-2xl @md:text-xl"
-              : customLayout === 5
-              ? " @lg:text-3xl @md:text-2xl"
-              : customLayout === 4
-              ? " @lg:text-2xl @md:text-xl "
-              : customLayout === 6
-              ? " @lg:text-2xl @md:text-xl"
-              : customLayout === 7
-              ? " @lg:text-2xl @md:text-xl "
-              : ""
-          } underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 text-xl`}
+          className={` underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 text-xl`}
         >
-          {" "}
           {post.title}
         </Link>
 
@@ -85,9 +70,7 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
         >
           {post.description}
         </Link>
-
         {/* Origin Text  */}
-
         <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center py-5 place-self-start">
           <div className=" flex flex-row items-center gap-2">
             <User className="w-4 h-4" />
@@ -116,23 +99,8 @@ const LayoutComponent = ({ post, locale, customLayout }: LayoutProps) => {
       <div>
         <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
           <Image
-            suppressHydrationWarning
             className={`
-        ${
-          customLayout === 0
-            ? " max-h-[540px] max-w-[850px]"
-            : customLayout === 1
-            ? "  max-h-[400px] max-w-[620px]"
-            : customLayout === 2
-            ? "max-h-[280px] max-w-[450px]"
-            : customLayout === 3
-            ? "max-h-[300px] max-w-[450px]"
-            : customLayout === 4
-            ? "max-h-[390px] max-w-[600px]"
-            : customLayout === 5
-            ? "max-h-[380px] max-w-[580px] "
-            : ""
-        }  w-full aspect-[5/4] object-cover object-center h-full`}
+          w-full aspect-[5/4] object-cover object-center h-full`}
             width={850}
             height={600}
             alt={post.title}

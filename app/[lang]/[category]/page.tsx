@@ -53,6 +53,7 @@ const CategoryPage = async ({
   };
 }) => {
   const locale = params.lang;
+  const categorySlug = params.category;
 
   const getCategoryData = async () => {
     try {
@@ -130,7 +131,11 @@ const CategoryPage = async ({
   return (
     <div className=" min-h-[50vh]">
       <PaddingContainer>
-        <CategoryPostList locale={locale} posts={typeCorrectedData.posts} />
+        <CategoryPostList
+          categorySlug={categorySlug}
+          locale={locale}
+          posts={typeCorrectedData.posts}
+        />
       </PaddingContainer>
     </div>
   );
