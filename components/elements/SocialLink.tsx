@@ -14,27 +14,28 @@ const SocialLink = ({
   const getIcon = (platform: string) => {
     switch (platform) {
       case "twitter":
-        return <Twitter />;
+        return <Twitter size={18} strokeWidth={2} />;
       case "facebook":
-        return <Facebook />;
+        return <Facebook size={18} strokeWidth={2} />;
       case "linkedin":
-        return <Linkedin />;
+        return <Linkedin size={18} strokeWidth={2} />;
       case "youtube":
-        return <Youtube />;
+        return <Youtube size={18} strokeWidth={2} />;
       case "instagram":
-        return <Instagram />;
+        return <Instagram size={18} strokeWidth={2} />;
     }
   };
+
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <div
-        className={` p-1 ${
+        className={` p-[3px]${
           isShareURL
             ? "bg-accent  text-secondary hover:bg-base-100 hover:text-red-800 duration-100 ease-in-out transition-colors "
             : " bg-accent  text-secondary hover:bg-secondary hover:text-red-800 duration-100 ease-in-out "
         }`}
       >
-        <p className="w-6 h-6"> {getIcon(platform)}</p>
+        <p className="text-xs"> {getIcon(platform)}</p>
       </div>
     </a>
   );

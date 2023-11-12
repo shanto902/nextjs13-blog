@@ -72,6 +72,7 @@ export interface Banner {
   title: string;
   description: string;
   image: string;
+  link: string;
   translations: Translations[];
 }
 

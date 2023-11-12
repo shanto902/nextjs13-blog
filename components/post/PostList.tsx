@@ -141,7 +141,7 @@ const PostList = async ({
           />
           <Link
             href={`/${locale}/student-projects`}
-            className=" btn w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
+            className=" btn btn-sm w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
           >
             {" "}
             {dictionary.mainBody.seeMore}{" "}
@@ -158,7 +158,7 @@ const PostList = async ({
           />
           <Link
             href={`/${locale}/news`}
-            className=" btn w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
+            className=" btn btn-sm w-fit self-center lg:mb-14 mt-5 bg-accent text-secondary hover:text-accent"
           >
             {" "}
             {dictionary.mainBody.seeMore}{" "}

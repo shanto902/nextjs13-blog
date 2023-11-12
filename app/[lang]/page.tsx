@@ -235,7 +235,7 @@ const HomePage = async ({
       />
 
       <div>
-        <MainSlider banners={banners} />
+        <MainSlider banners={banners} locale={locale} />
       </div>
 
       <main className=" h-auto space-y-10 mt-10">
@@ -294,7 +294,7 @@ const HomePage = async ({
             </Link>
 
             <Link
-              className=" self-end btn my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
+              className=" self-end btn btn-sm my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={""}
             >
               {dictionary?.mainBody?.costBtn}

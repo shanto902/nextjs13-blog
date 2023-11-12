@@ -10,7 +10,9 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const handleImageLoad = () => {
-    setIsImageLoaded(true);
+    setTimeout(function () {
+      setIsImageLoaded(true);
+    }, 1000);
   };
   const options = {
     replace: (domNode: any) => {

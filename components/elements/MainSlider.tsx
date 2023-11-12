@@ -7,12 +7,14 @@ import "./styles.css";
 import Image from "next/image";
 import { Banner } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import Link from "next/link";
 
 type MainSliderProps = {
   banners: Banner[];
+  locale: string;
 };
 
-const MainSlider = ({ banners }: MainSliderProps) => {
+const MainSlider = ({ banners, locale }: MainSliderProps) => {
   return (
     <Swiper
       autoplay={true}
@@ -22,7 +24,10 @@ const MainSlider = ({ banners }: MainSliderProps) => {
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
-          <div className=" h-full relative ">
+          <Link
+            href={`/${locale}/${banner.link}`}
+            className=" h-full relative "
+          >
             <div className="absolute w-full right-0 z-10 bg-gradient-to-b from-transparent opacity-80 to-black h-full text-black text-right px-10">
               <div className=" flex flex-col gap-3 justify-end items-end h-full py-10 px-5 text-white">
                 <h2 className="xl:text-3xl lg:text-2xl md:text-xl text-lg ">
@@ -43,7 +48,7 @@ const MainSlider = ({ banners }: MainSliderProps) => {
                 shimmer(1200, 675),
               )}`}
             />
-          </div>
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>

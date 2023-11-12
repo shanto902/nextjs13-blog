@@ -63,7 +63,7 @@ const StickyHeader = ({
                   className={`flex flex-row items-center uppercase justify-between  overflow-hidden w-full mr-2  ${
                     locale === "en"
                       ? " text-[12px] font-bold"
-                      : " text-[16px] font-semibold"
+                      : " text-[20px] font-bold"
                   }`}
                 >
                   <li className={liStyle}>
@@ -124,7 +124,7 @@ const StickyHeader = ({
             </div>
           </div>
           <hr
-            className={`border-2  mt-[4px] ${
+            className={`border-2  lg:mt-[4px] mt-[-4px]${
               isTransparent ? "border-transparent" : ""
             } transition-colors duration-300`}
           />

@@ -19,7 +19,7 @@ const Footer = async ({ locale }: { locale: string }) => {
       <PaddingContainer>
         {/* Title Description */}
         <div>
-          <div className=" grid lg:grid-cols-6 grid-cols-3 gap-5  py-3">
+          <div className=" grid lg:grid-cols-6 grid-cols-3 gap-2  py-2">
             <div className=" col-span-1 ">
               <Image
                 src={logo}
@@ -31,8 +31,12 @@ const Footer = async ({ locale }: { locale: string }) => {
 
               <OurPhotoZoom />
             </div>
-            <div className=" col-span-3  md:place-self-end">
-              <p className=" mt-4 grid grid-cols-10 col-span-2  w-fit space-y-2  text-sm">
+            <div className=" col-span-3  lg:place-self-end">
+              <p
+                className={`grid grid-cols-10 col-span-2  w-fit space-y-2  ${
+                  locale === "bn" ? "text-sm" : "text-xs"
+                }`}
+              >
                 <span className=" col-span-3 font-bold mt-2">
                   {dictionary.footer.editor}
                 </span>{" "}
@@ -84,7 +88,11 @@ const Footer = async ({ locale }: { locale: string }) => {
 
             {/* bottom category */}
             <div className="lg:col-span-2 col-span-3 lg:place-self-end">
-              <ul className=" grid  text-sm grid-cols-2 w-full gap-x-5 gap-y-2">
+              <ul
+                className={`${
+                  locale == "bn" ? "text-sm " : "text-[10px]"
+                } grid   grid-cols-2 w-full gap-x-5 gap-y-2`}
+              >
                 <Link className={liStyle} href={`/${locale}/news`}>
                   <li>{dictionary.navigation.links.news}</li>
                 </Link>
@@ -133,10 +141,10 @@ const Footer = async ({ locale }: { locale: string }) => {
             {/* Social and Currently At Section  */}
           </div>
 
-          <div className=" flex items-center w-full justify-between">
+          <div className=" flex items-center mb-2 w-full justify-between">
             <Link
               href={`/${locale}/editorial-board`}
-              className=" btn btn-sm text-secondary hover:text-accent bg-accent mt-4 mb-4  w-[129px]"
+              className=" btn btn-sm text-secondary hover:text-accent bg-accent    w-[129px]"
             >
               {dictionary.footer.editorialBoard}
             </Link>
@@ -154,7 +162,7 @@ const Footer = async ({ locale }: { locale: string }) => {
         </div>
         {/* Bottom Section */}
         <div className=" border-t py-2 text-center">
-          <div className=" text-sm text-neutral-400">
+          <div className=" text-xs text-neutral-400">
             © {new Date().getFullYear()} Copyrights by Sthapattya o Nirman. All
             Rights Reserved. Developed by{" "}
             <a
