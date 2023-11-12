@@ -249,15 +249,15 @@ const HomePage = async ({
           main_ad_link={homePage?.main_ad_link}
         />
 
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className=" order-last md:order-none">
+        <div className=" grid grid-cols-1 md:grid-cols-2 ">
+          <div className=" order-last md:order-none px-5">
             <h2 className="text-2xl font-semibold  my-2 bg-base-100 text-center">
               {dictionary?.magazineHome?.title}
             </h2>
 
             <Image src={magazineImage} alt={"Magazine Picture"} />
             <div className=" mt-10  ">
-              <div className="flex flex-row gap-5 my-4 justify-center">
+              <div className="flex flex-row gap-5 my-4  justify-center">
                 <Link
                   href={`/${locale}/published-magazine`}
                   className=" btn btn-sm  bg-accent text-secondary hover:text-accent "
@@ -273,7 +273,7 @@ const HomePage = async ({
               </div>
             </div>
           </div>
-          <div className="  md:border-l place-item-end lg:pl-10 flex flex-col justify-between items-stretch h-full ">
+          <div className="  md:border-l-2 px-5 place-item-end lg:pl-10 flex flex-col justify-between items-stretch h-full ">
             <h2 className=" text-2xl font-semibold  my-2 text-center">
               {dictionary?.mainBody?.bookReview}
             </h2>
