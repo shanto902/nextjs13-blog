@@ -22,7 +22,7 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
           <>
             {!isImageLoaded ? (
               <Image
-                className=" w-full object-cover object-center h-auto  "
+                className=" w-full object-cover object-center p-3 h-auto  "
                 src={src}
                 alt={alt}
                 width={1280}
@@ -35,7 +35,7 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
             ) : (
               <Zoom>
                 <Image
-                  className=" w-full object-cover object-center h-auto "
+                  className=" w-full object-cover object-center p-3 h-auto "
                   src={src}
                   alt={alt}
                   width={1280}

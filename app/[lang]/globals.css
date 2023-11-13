@@ -31,7 +31,7 @@
   }
 
   .rich-text td {
-    @apply md:p-5 p-0;
+    @apply gap-5;
   }
 
   /* English  */
@@ -64,7 +64,7 @@
   }
 
   .rich-text-en td {
-    @apply md:p-5 p-0;
+    @apply  gap-5;
   }
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
