@@ -156,17 +156,19 @@ const ArticlePage = async ({
         },
         fields: ["*"],
       });
-
+  
       if (views.data && views.data.length > 0) {
         // If views exist, update the counter by 1
         const existingView = views.data[0];
         const updatedCounter = existingView.counter + 1;
-
-        // Update the existing page view
-        await directus.items("page_view").updateOne(existingView.id, {
-          counter: updatedCounter,
-        });
-
+  
+        // Update the existing page view after a delay of 20 seconds
+        setTimeout(async () => {
+          await directus.items("page_view").updateOne(existingView.id, {
+            counter: updatedCounter,
+          });
+        }, 30000); // 20 seconds in milliseconds
+  
         return updatedCounter;
       } else {
         // If no views were found, create a new page view
@@ -175,23 +177,24 @@ const ArticlePage = async ({
           counter: 1, // Initialize the counter with 1
           // You can add other fields for the page view as needed
         };
-
-        // Create the new page view
-        const createdPageView = (await directus
-          .items("page_view")
-          .createOne(newPageView)) as { counter: number };
-
-        if (createdPageView) {
-          return createdPageView.counter;
-        } else {
-          throw new Error("Error creating page view");
-        }
+  
+        // Create the new page view after a delay of 20 seconds
+        setTimeout(async () => {
+          const createdPageView = await directus.items("page_view").createOne(newPageView) as { counter: number };
+  
+          if (!createdPageView) {
+            throw new Error("Error creating page view");
+          }
+        }, 20000); // 20 seconds in milliseconds
+  
+        return 1; // Return 1 as the counter value for the newly created view
       }
     } catch (error) {
       console.log(error);
       throw new Error("Error fetching/updating page view");
     }
   };
+  
 
   // Assuming you have the `post` object defined
 
