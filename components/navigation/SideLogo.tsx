@@ -102,7 +102,7 @@ const SideLogo = ({
                   ? "text-[32px] uppercase break-words text-end max-w-[209px] leading-[39px] pt-[10px] ml-[-78px] mt-[75px]"
                   : pathname.match(/^\/(bn|en)\/market-cost/)
                   ? "text-[32px] uppercase break-words text-end max-w-[209px] leading-[39px] pt-[10px] ml-[-78px] mt-[75px]"
-                  : "" 
+                  : ""
               } hidden lg:block  overflow-hidden`}
             >
               <Link
@@ -140,7 +140,7 @@ const SideLogo = ({
                     dictionary.navigation.links.editorialBoard) ||
                   (pathname.match(/^\/(bn|en)\/book-review/) &&
                     dictionary.navigation.links.bookReview) ||
-                    (pathname.match(/^\/(bn|en)\/market-cost/) &&
+                  (pathname.match(/^\/(bn|en)\/market-cost/) &&
                     dictionary.navigation.links.marketCost) ||
                   "Not Found"}
               </Link>

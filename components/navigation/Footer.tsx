@@ -29,7 +29,9 @@ const Footer = async ({ locale }: { locale: string }) => {
                 className=" aspect-square p-5"
               />
 
-              <OurPhotoZoom />
+             <div className="mt-[-8px]">
+             <OurPhotoZoom />
+             </div>
             </div>
             <div className=" col-span-3  lg:place-self-end">
               <p
@@ -146,7 +148,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               href={`/${locale}/editorial-board`}
               className={` ${
                 locale === "bn" ? "  " : "text-[11px]"
-              } btn btn-sm text-secondary hover:text-accent bg-accent  w-[129px]`}
+              } btn btn-sm text-secondary hover:text-accent bg-accent  w-[130px]`}
             >
               {dictionary.footer.editorialBoard}
             </Link>
