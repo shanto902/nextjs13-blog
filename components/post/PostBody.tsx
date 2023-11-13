@@ -19,10 +19,10 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
         return (
-          <>
+          <div className="md:p-5">
             {!isImageLoaded ? (
               <Image
-                className=" w-full object-cover object-center md:p-5  h-auto  "
+                className=" w-full object-cover object-center  h-auto  "
                 src={src}
                 alt={alt}
                 width={1280}
@@ -35,7 +35,7 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
             ) : (
               <Zoom>
                 <Image
-                  className=" w-full object-cover object-center md:p-5 h-auto "
+                  className=" w-full object-cover object-center  h-auto "
                   src={src}
                   alt={alt}
                   width={1280}
@@ -46,7 +46,7 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
                 />
               </Zoom>
             )}
-          </>
+          </div>
         );
       }
     },
