@@ -8,8 +8,37 @@ import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
 import "@/components/post/overlayStyle.css";
 import OurPhotoZoom from "./OurPhotoZoom";
+import directus from "@/lib/directus";
+import parse from "html-react-parser";
 
 const Footer = async ({ locale }: { locale: string }) => {
+  const getParsedHtml = (body: string) => {
+    return parse(body);
+  };
+
+  const getFooterContent = async () => {
+    try {
+      const footer = await directus.singleton("footer").read({
+        fields: ["*", "translations.*"],
+      });
+
+      if (locale === "en") {
+        return footer;
+      } else {
+        const localizedFooter = {
+          ...footer,
+          footer_details: footer?.translations[0]?.footer_details,
+        };
+
+        return localizedFooter;
+      }
+    } catch (error) {
+      // Handle errors here
+      console.error("Error fetching editorial board data:", error);
+    }
+  };
+
+  const footerContent = await getFooterContent();
   const liStyle =
     "pt-2 font-bold border-t-4 uppercase hover:text-red-800  hover:border-red-800";
   const dictionary = await getDictionary(locale);
@@ -30,66 +59,19 @@ const Footer = async ({ locale }: { locale: string }) => {
               />
 
               <div className="mt-[-8px]">
-                <OurPhotoZoom />
+                <OurPhotoZoom footer_image={footerContent.footer_image} />
               </div>
             </div>
-            <div className=" col-span-3  lg:place-self-end">
-              <p
-                className={`grid grid-cols-10 col-span-2  w-fit space-y-2  ${
-                  locale === "bn" ? "text-sm" : "text-xs"
-                }`}
-              >
-                <span className=" col-span-3 font-bold mt-2">
-                  {dictionary.footer.editor}
-                </span>{" "}
-                <span className=" text-center"> : </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.editorName}
-                </span>
-                <span className=" col-span-3 font-bold mt-2 whitespace-nowrap">
-                  {dictionary.footer.administratorPanel}
-                </span>{" "}
-                <span className=" text-center"> : </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.ratba}
-                </span>
-                <span className=" col-span-3 font-bold mt-2"></span>{" "}
-                <span className=" text-center"> </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.nishi}
-                </span>
-                <span className=" col-span-3 font-bold mt-2"></span>{" "}
-                <span className=" text-center"> </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.faiza}
-                </span>
-                <span className=" col-span-3 font-bold">
-                  {dictionary.footer.email}
-                </span>{" "}
-                <span className=" text-center"> : </span>{" "}
-                <span className=" col-span-6 text-left">
-                  sthapattyanonirman@gmail.com
-                </span>
-                <span className=" col-span-3 font-bold">
-                  {dictionary.footer.phone}
-                </span>{" "}
-                <span className=" text-center"> : </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.phoneNo}
-                </span>
-                <span className=" col-span-3 font-bold">
-                  {dictionary.footer.address}
-                </span>{" "}
-                <span className=" text-center"> : </span>{" "}
-                <span className=" col-span-6 text-left">
-                  {dictionary.footer.addressValue}{" "}
-                  {dictionary.footer.addressValue2}
-                </span>
-              </p>
+            <div
+              className={`col-span-3 pt-5 ${
+                locale === "bn" ? "footer-text " : "footer-text-en"
+              }`}
+            >
+              {getParsedHtml(footerContent.footer_details)}
             </div>
 
             {/* bottom category */}
-            <div className="lg:col-span-2 col-span-3 lg:place-self-end">
+            <div className="lg:col-span-2 col-span-3 pt-[22px]">
               <ul
                 className={`${
                   locale == "bn" ? "text-sm " : "text-[10px]"

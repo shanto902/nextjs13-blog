@@ -84,7 +84,7 @@ const LayoutComponent = ({
             locale === "bn" ? "text-xs @md:text-sm" : " text-[10px] @md:text-xs"
           } gap-2  flex flex-wrap items-center  place-self-start`}
         >
-          <div className=" flex flex-row items-center gap-2 pt-2">
+          <div className=" flex flex-row items-center gap-2">
             <User className="w-4 h-4" />
             {`${post.author.first_name} ${post.author.last_name}`}
           </div>

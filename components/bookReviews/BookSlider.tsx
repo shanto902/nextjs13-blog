@@ -12,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import "./styles.css";
+import PostBody from "../post/PostBody";
 const BookSlider = ({
   reviews,
   locale,
@@ -19,9 +20,6 @@ const BookSlider = ({
   reviews: Review[];
   locale: string;
 }) => {
-  const getParsedHtml = (body: string) => {
-    return parse(body);
-  };
   return (
     <div className="h-screen ">
       <Swiper
@@ -52,7 +50,7 @@ const BookSlider = ({
                   )}`}
                 />
                 <div className=" text-center flex-1">
-                  {getParsedHtml(review.review)}
+                  <PostBody body={review.review} locale={locale} />
                 </div>
               </div>
             </div>

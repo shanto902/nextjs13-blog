@@ -12,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import "./styles.css";
+import PostBody from "../post/PostBody";
 const BazarDor = ({
   bazarDor,
   locale,
@@ -52,7 +53,7 @@ const BazarDor = ({
                   )}`}
                 />
                 <div className=" text-center flex-1">
-                  {getParsedHtml(bazar.description)}
+                  <PostBody body={bazar.description} locale={locale} />
                 </div>
               </div>
             </div>

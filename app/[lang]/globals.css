@@ -73,6 +73,14 @@
   .editor-info p {
     @apply @lg:text-lg @md:text-base lg:leading-relaxed leading-normal break-all;
   }
+
+  .footer-text p {
+    @apply leading-loose text-sm;
+  }
+
+  .footer-text-en p {
+    @apply leading-loose text-xs;
+  }
 }
 
 .swiper-pagination-bullet-active {

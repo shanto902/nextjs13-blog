@@ -4,11 +4,11 @@ import ourPhoto from "@/assets/our-photo.jpeg";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import Zoom from "react-medium-image-zoom";
 import Image from "next/image";
-const OurPhotoZoom = () => {
+const OurPhotoZoom = ({ footer_image }: { footer_image: string }) => {
   return (
     <Zoom>
       <Image
-        src={ourPhoto}
+        src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${footer_image}?key=optimized`}
         alt="Logo"
         width={1280}
         height={720}

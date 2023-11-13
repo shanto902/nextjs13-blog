@@ -283,7 +283,7 @@ const ArticlePage = async ({
                 {comments &&
                   comments.map((comment: Comments) => (
                     <div key={comment.id} className=" flex gap-5 mt-5 flex-row">
-                      <Image src={userImag} alt=" User Image" />
+                      <Image src={userImag} alt="User Image" />
                       <div>
                         <h2>{comment.name}</h2>
                         <p>

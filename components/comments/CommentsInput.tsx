@@ -91,7 +91,7 @@ const CommentsInput = ({
           className="input input-bordered w-full"
         />
         <input
-          className=" btn bg-red-700 text-white w-fit"
+          className=" btn bg-red-700 text-white font-normal w-fit"
           type="submit"
           value={isLoading ? loadingText : submitButton}
         />
