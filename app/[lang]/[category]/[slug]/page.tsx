@@ -227,7 +227,7 @@ const ArticlePage = async ({
             formattedCounter={formattedCounter}
           />
           <div className=" flex md:pt-5 gap-10 flex-col md:flex-row">
-            <PostBody locale={locale} body={post.body} />
+            <PostBody locale={locale} body={post.body} pagePost/>
           </div>
 
           {/* Bottom Add  */}
