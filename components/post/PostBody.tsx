@@ -35,7 +35,7 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
             ) : (
               <Zoom>
                 <Image
-                  className=" w-full object-cover object-center md:m-3 h-auto "
+                  className=" w-full object-cover object-center md:p-3 h-auto "
                   src={src}
                   alt={alt}
                   width={1280}
