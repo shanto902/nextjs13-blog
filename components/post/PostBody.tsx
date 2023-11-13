@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
 import "./overlayStyle.css";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 import { useState } from "react";
 
 const PostBody = ({ body, locale }: { body: string; locale: string }) => {
@@ -27,7 +28,9 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
                 width={1280}
                 height={620}
                 onLoad={handleImageLoad}
-        
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500),
+                )}`}
               />
             ) : (
               <Zoom>
@@ -37,7 +40,9 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
                   alt={alt}
                   width={1280}
                   height={620}
-
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(500, 500),
+                  )}`}
                 />
               </Zoom>
             )}
