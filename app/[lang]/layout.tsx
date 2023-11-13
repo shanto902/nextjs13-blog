@@ -19,7 +19,7 @@ export const englishFont = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `স্থাপত্য ও নির্মাণ`,
+  title: "স্থাপত্য ও নির্মাণ | Sthapattyan O Nirman",
   description: "",
 };
 

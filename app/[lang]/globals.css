@@ -33,12 +33,45 @@
   .rich-text td {
     @apply md:p-5 p-0;
   }
+
+  /* English  */
+
+  .rich-text-en h2 {
+    @apply text-2xl font-semibold  mb-3;
+  }
+
+  .rich-text-en colgroup {
+    @apply md:table-column-group flex;
+  }
+
+  .rich-text-en tbody {
+    @apply md:table-header-group flex flex-col;
+  }
+
+  .rich-text-en tr {
+    @apply md:table-row flex flex-col gap-4;
+  }
+
+  .rich-text-en ol {
+    @apply list-decimal;
+  }
+
+  .rich-text-en h3 {
+    @apply text-xl font-semibold  mb-3;
+  }
+  .rich-text-en p {
+    @apply leading-snug text-sm  mb-3;
+  }
+
+  .rich-text-en td {
+    @apply md:p-5 p-0;
+  }
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;
   }
 
   .editor-info p {
-    @apply @lg:text-xl @md:text-lg lg:leading-relaxed leading-normal break-all;
+    @apply @lg:text-lg @md:text-base lg:leading-relaxed leading-normal break-all;
   }
 }
 

@@ -40,11 +40,19 @@ const RecentNewsCard = ({
           <div className=" flex-1">
             <Link
               href={`/${locale}/${post.category.slug}/${post.slug}`}
-              className=" text-lg line-clamp-2"
+              className={`${
+                locale === "bn" ? "text-lg " : "text-base "
+              } line-clamp-2 font-bold`}
             >
               {post.title}
             </Link>
-            <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
+            <div
+              className={`${
+                locale === "bn"
+                  ? "text-xs @md:text-sm"
+                  : " text-[10px] @md:text-xs"
+              } gap-2  flex flex-wrap items-center mt-2`}
+            >
               <div className=" flex flex-row items-center gap-2">
                 <User className="w-4 h-4" />
                 {`${post.author.first_name} ${post.author.last_name}`}

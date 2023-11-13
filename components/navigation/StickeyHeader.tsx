@@ -40,9 +40,7 @@ const StickyHeader = ({
     screenWidth = window.innerWidth; // In a browser environment
   }
   return (
-    <Headroom
-      pinStart={pinStartPx(pathname, screenWidth)}
-    >
+    <Headroom pinStart={pinStartPx(pathname, screenWidth)}>
       <div className="bg-base-100">
         <PaddingContainer>
           <div className="mr-10">
@@ -119,11 +117,8 @@ const StickyHeader = ({
               {/* Search  */}
               <SearchComponent locale={locale} posts={posts || []} />
             </div>
-            <hr
-            className={`border-2 `}
-          />
+            <hr className={`border-2 `} />
           </div>
-         
         </PaddingContainer>
 
         <div>

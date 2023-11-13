@@ -29,11 +29,11 @@ const MainSlider = ({ banners, locale }: MainSliderProps) => {
             className=" h-full relative "
           >
             <div className="absolute w-full right-0 z-10 bg-gradient-to-b from-transparent opacity-80 to-black h-full text-black text-right px-10">
-              <div className=" flex flex-col gap-3 justify-end items-end h-full py-10 px-5 text-white">
-                <h2 className="xl:text-3xl lg:text-2xl md:text-xl text-lg ">
+              <div className=" flex flex-col gap-3 justify-end items-end h-full md:py-10 py-5 text-white">
+                <h2 className="xl:text-3xl lg:text-2xl md:text-xl text-base ">
                   {banner.title}
                 </h2>
-                <p className=" xl:text-xl lg:text-lg md:text-md text-base">
+                <p className=" xl:text-xl lg:text-lg md:text-md text-sm">
                   {banner.description}
                 </p>
               </div>

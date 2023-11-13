@@ -45,60 +45,64 @@ const SideLogo = ({
               className={` -rotate-90 bg-base-100 text-end ${
                 locale === "bn"
                   ? params.category === "heritage"
-                    ? "text-[43px]  ml-[-41px] mt-[36px]"
+                    ? "text-[43px]  ml-[-41px] mt-[38px]"
                     : params.category === "news"
-                    ? "text-[43px] ml-[-47px] mt-[41px] "
+                    ? "text-[43px] ml-[-47px] mt-[44px] "
                     : params.category === "arts"
-                    ? "text-[43px] ml-[-47px] mt-[40px]  "
+                    ? "text-[43px] ml-[-47px] mt-[41px]  "
                     : params.category === "concepts"
-                    ? "text-[43px] ml-[-41px] mt-[35px] "
+                    ? "text-[43px] ml-[-41px] mt-[38px] "
                     : params.category === "personality"
-                    ? "text-[43px] ml-[-41px] mt-[36px]"
+                    ? "text-[43px] ml-[-41px] mt-[38px]"
                     : params.category === "dialogue"
-                    ? "text-[43px] ml-[-42px] mt-[35px]"
+                    ? "text-[43px] ml-[-42px] mt-[37px]"
                     : params.category === "projects"
-                    ? "text-[43px] ml-[-41px] mt-[34px] "
+                    ? "text-[43px] ml-[-41px] mt-[36px] "
                     : pathname.match(/^\/(bn|en)\/student-projects/)
-                    ? "text-[43px] pt-[14px] break-words max-w-[195px]  mt-[68px] leading-[34px] ml-[-74px]"
+                    ? "text-[43px] pt-[14px] break-words max-w-[195px]  mt-[70px] leading-[34px] ml-[-74px]"
                     : pathname.match(/^\/(bn|en)\/archived/)
-                    ? "text-[43px] mt-[36px] ml-[-42px] "
+                    ? "text-[43px] mt-[38px] ml-[-42px] "
                     : pathname.match(/^\/(bn|en)\/published-magazine/)
-                    ? "text-[43px] break-words  max-w-[165px] leading-[43px] pt-[10px] ml-[-52px] mt-[47px]"
+                    ? "text-[43px] break-words  max-w-[165px] leading-[43px] pt-[10px] ml-[-52px] mt-[49px]"
                     : params.category === "environment-and-planning"
-                    ? "text-[43px] break-words max-w-[171px]  mt-[50px] ml-[-56px] leading-[41px] pt-[10px]"
+                    ? "text-[43px] break-words max-w-[171px]  mt-[52px] ml-[-56px] leading-[41px] pt-[10px]"
                     : pathname.match(/^\/(bn|en)\/editorial-board/)
-                    ? "text-[43px] break-words  max-w-[158px] leading-[43px] pt-[10px] ml-[-48px] mt-[42px]"
+                    ? "text-[43px] break-words  max-w-[158px] leading-[43px] pt-[10px] ml-[-48px] mt-[44px]"
                     : pathname.match(/^\/(bn|en)\/book-review/)
-                    ? "text-[43px] break-words  max-w-[190px] leading-[43px] pt-[10px] ml-[-64px] mt-[89px]"
+                    ? "text-[43px] break-words  max-w-[190px] leading-[43px] pt-[10px] ml-[-65px] mt-[60px]"
+                    : pathname.match(/^\/(bn|en)\/market-cost/)
+                    ? "text-[43px] break-words  max-w-[130px] leading-[43px] pt-[10px] ml-[-35px] mt-[30px]"
                     : ""
                   : // FOR ENGLISH FONT
                   params.category === "news"
-                  ? "text-[38px] mt-[64px] ml-[-43px] uppercase text-end"
+                  ? "text-[32px] mt-[47px] ml-[-45px] uppercase text-end"
                   : params.category === "heritage"
-                  ? "text-[38px] ml-[-75px] mt-[95px] uppercase text-end"
+                  ? "text-[32px] ml-[-63px] mt-[63px] uppercase text-end"
                   : params.category === "arts"
-                  ? "text-[38px] uppercase ml-[-43px] mt-[64px] text-end"
+                  ? "text-[32px] uppercase ml-[-45px] mt-[47px] text-end"
                   : params.category === "concepts"
-                  ? "text-[38px] ml-[-82px] mt-[104px] uppercase  text-end"
+                  ? "text-[32px] ml-[-68px] mt-[70px] uppercase  text-end"
                   : params.category === "personality"
-                  ? "text-[38px] uppercase ml-[-108px] mt-[129px] text-end"
+                  ? "text-[32px] uppercase ml-[-90px] mt-[93px] text-end"
                   : params.category === "dialogue"
-                  ? "text-[38px] uppercase ml-[-81px] mt-[100px] text-end"
+                  ? "text-[32px] uppercase ml-[-67px] mt-[68px] text-end"
                   : params.category === "projects"
-                  ? "text-[38px] uppercase mt-[93px] ml-[-73px] text-end"
+                  ? "text-[32px] uppercase mt-[61px] ml-[-61px] text-end"
                   : pathname.match(/^\/(bn|en)\/student-projects/)
-                  ? "text-[38px] uppercase ml-[-68px] mt-[97px] break-words pb-[5px] max-w-[206px] leading-[39px] text-end"
+                  ? "text-[32px] uppercase ml-[-69px] mt-[76px] break-words pb-[5px] max-w-[206px] leading-[39px] text-end"
                   : pathname.match(/^\/(bn|en)\/archived/)
-                  ? "text-[38px] uppercase ml-[-63px] mt-[83px] text-end"
+                  ? "text-[32px] uppercase ml-[-53px] mt-[53px] text-end"
                   : pathname.match(/^\/(bn|en)\/published-magazine/)
-                  ? "text-[38px] uppercase ml-[-70px] mt-[98px] break-words  max-w-[205px] leading-[39px] text-end"
+                  ? "text-[32px] uppercase ml-[-71px] mt-[77px] break-words  max-w-[205px] leading-[39px] text-end"
                   : params.category === "environment-and-planning"
-                  ? "text-[38px]  uppercase ml-[-103px] mt-[134px] break-words  max-w-[272px] leading-[39px] text-end"
+                  ? "text-[32px]  uppercase ml-[-94px] mt-[100px] break-words  max-w-[250px] leading-[39px] text-end"
                   : pathname.match(/^\/(bn|en)\/editorial-board/)
-                  ? "text-[38px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-78px] mt-[98px]"
+                  ? "text-[32px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-80px] mt-[77px]"
                   : pathname.match(/^\/(bn|en)\/book-review/)
-                  ? "text-[38px] uppercase break-words text-end max-w-[214px] leading-[39px] pt-[10px] ml-[-78px] mt-[98px]"
-                  : "" // Add more conditions as needed
+                  ? "text-[32px] uppercase break-words text-end max-w-[209px] leading-[39px] pt-[10px] ml-[-78px] mt-[75px]"
+                  : pathname.match(/^\/(bn|en)\/market-cost/)
+                  ? "text-[32px] uppercase break-words text-end max-w-[209px] leading-[39px] pt-[10px] ml-[-78px] mt-[75px]"
+                  : "" 
               } hidden lg:block  overflow-hidden`}
             >
               <Link
@@ -136,6 +140,8 @@ const SideLogo = ({
                     dictionary.navigation.links.editorialBoard) ||
                   (pathname.match(/^\/(bn|en)\/book-review/) &&
                     dictionary.navigation.links.bookReview) ||
+                    (pathname.match(/^\/(bn|en)\/market-cost/) &&
+                    dictionary.navigation.links.marketCost) ||
                   "Not Found"}
               </Link>
             </div>

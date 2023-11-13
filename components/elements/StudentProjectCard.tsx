@@ -40,11 +40,19 @@ const StudentProjectCard = ({
           <div className=" flex-1">
             <Link
               href={`/${locale}/${post.category.slug}/${post.slug}`}
-              className=" text-lg line-clamp-2"
+              className={`${
+                locale === "bn" ? "text-lg " : "text-base "
+              } line-clamp-2 font-bold`}
             >
               {post.title}
             </Link>
-            <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center mt-2">
+            <div
+              className={`${
+                locale === "bn"
+                  ? "text-xs @md:text-sm"
+                  : " text-[10px] @md:text-xs"
+              } gap-2 flex flex-wrap items-center mt-2`}
+            >
               <Link
                 href={`/${locale}/${post.category.slug}`}
                 className=" flex flex-row items-center justify-center gap-2"

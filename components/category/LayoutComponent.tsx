@@ -57,7 +57,11 @@ const LayoutComponent = ({
         {/* Title Div */}
         <Link
           href={`/${locale}/${post.category.slug}/${post.slug}`}
-          className={` underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 @lg:text-3xl font-bold md:text-2xl text-2xl`}
+          className={` ${
+            locale === "bn"
+              ? "@lg:text-3xl font-bold md:text-2xl text-2xl"
+              : "@lg:text-2xl font-semibold md:text-xl text-lg"
+          } underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 `}
         >
           {post.title}
         </Link>
@@ -66,13 +70,21 @@ const LayoutComponent = ({
 
         <Link
           href={`/${locale}/${post.category.slug}/${post.slug}`}
-          className={` @lg:text-lg @md:text-md text-base leading-snug line-clamp-6`}
+          className={` ${
+            locale === "bn"
+              ? "@lg:text-lg @md:text-md text-base leading-snug"
+              : "@lg:text-lg @md:text-sm text-sm leading-2"
+          }  line-clamp-3 pt-2`}
         >
           {post.description}
         </Link>
         {/* Origin Text  */}
-        <div className=" gap-2 text-xs @md:text-sm flex flex-wrap items-center py-5 place-self-start">
-          <div className=" flex flex-row items-center gap-2">
+        <div
+          className={`${
+            locale === "bn" ? "text-xs @md:text-sm" : " text-[10px] @md:text-xs"
+          } gap-2  flex flex-wrap items-center  place-self-start`}
+        >
+          <div className=" flex flex-row items-center gap-2 pt-2">
             <User className="w-4 h-4" />
             {`${post.author.first_name} ${post.author.last_name}`}
           </div>

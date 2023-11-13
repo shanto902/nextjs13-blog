@@ -52,13 +52,11 @@ const PostCard = async ({
         </div>
       </Link>
       <Link href={`/${locale}/${post.category.slug}`}>
-        {" "}
         <div
           className={`py-2 uppercase ${
             locale === "bn" ? "text-lg" : "text-sm"
           }`}
         >
-          {" "}
           {post.category.title}
         </div>
       </Link>

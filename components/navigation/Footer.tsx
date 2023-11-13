@@ -19,7 +19,7 @@ const Footer = async ({ locale }: { locale: string }) => {
       <PaddingContainer>
         {/* Title Description */}
         <div>
-          <div className=" grid lg:grid-cols-6 grid-cols-3 gap-2  py-2">
+          <div className=" grid lg:grid-cols-6 grid-cols-3 gap-2">
             <div className=" col-span-1 ">
               <Image
                 src={logo}
@@ -144,7 +144,9 @@ const Footer = async ({ locale }: { locale: string }) => {
           <div className=" flex items-center mb-2 w-full justify-between">
             <Link
               href={`/${locale}/editorial-board`}
-              className=" btn btn-sm text-secondary hover:text-accent bg-accent    w-[129px]"
+              className={` ${
+                locale === "bn" ? "  " : "text-[11px]"
+              } btn btn-sm text-secondary hover:text-accent bg-accent  w-[129px]`}
             >
               {dictionary.footer.editorialBoard}
             </Link>

@@ -56,7 +56,11 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
     return parse(body, options);
   };
 
-  return <div className=" rich-text">{getParsedHtml(body)}</div>;
+  return (
+    <div className={`${locale === "bn" ? "rich-text " : "rich-text-en"} `}>
+      {getParsedHtml(body)}
+    </div>
+  );
 };
 
 export default PostBody;

@@ -295,7 +295,7 @@ const HomePage = async ({
 
             <Link
               className=" self-end btn btn-sm my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
-              href={""}
+              href={`/${locale}/market-cost`}
             >
               {dictionary?.mainBody?.costBtn}
             </Link>
