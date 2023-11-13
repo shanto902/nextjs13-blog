@@ -64,7 +64,7 @@
   }
 
   .rich-text-en td {
-    @apply  gap-5;
+    @apply gap-5;
   }
   [data-rmiz-modal-overlay="visible"] {
     @apply bg-base-100;

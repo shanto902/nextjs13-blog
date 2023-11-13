@@ -226,7 +226,7 @@ const ArticlePage = async ({
             post={post}
             formattedCounter={formattedCounter}
           />
-          <div className=" flex gap-10 flex-col md:flex-row">
+          <div className=" flex pt-5 gap-10 flex-col md:flex-row">
             <PostBody locale={locale} body={post.body} />
           </div>
 
