@@ -22,20 +22,20 @@ const PostBody = ({ body, locale }: { body: string; locale: string }) => {
           <>
             {!isImageLoaded ? (
               <Image
-                className=" w-full object-cover object-center md:p-3 h-auto  "
+                className=" w-full object-cover object-center md:m-3 h-auto  "
                 src={src}
                 alt={alt}
                 width={1280}
                 height={620}
                 onLoad={handleImageLoad}
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(1280, 620),
+                  shimmer(500, 500),
                 )}`}
               />
             ) : (
               <Zoom>
                 <Image
-                  className=" w-full object-cover object-center md:p-3 h-auto "
+                  className=" w-full object-cover object-center md:m-3 h-auto "
                   src={src}
                   alt={alt}
                   width={1280}
