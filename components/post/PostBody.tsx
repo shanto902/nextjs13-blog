@@ -6,7 +6,15 @@ import "./overlayStyle.css";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import { useState } from "react";
 
-const PostBody = ({ body, locale, pagePost = false }: { body: string; locale: string; pagePost?:boolean; }) => {
+const PostBody = ({
+  body,
+  locale,
+  pagePost = false,
+}: {
+  body: string;
+  locale: string;
+  pagePost?: boolean;
+}) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const handleImageLoad = () => {
@@ -57,7 +65,11 @@ const PostBody = ({ body, locale, pagePost = false }: { body: string; locale: st
   };
 
   return (
-    <div className={`${locale === "bn" ? "rich-text " : "rich-text-en"} ${pagePost && "mx-[-20px]"} ` }>
+    <div
+      className={`${locale === "bn" ? "rich-text " : "rich-text-en"} ${
+        pagePost && "md:mx-[-20px]"
+      } `}
+    >
       {getParsedHtml(body)}
     </div>
   );
