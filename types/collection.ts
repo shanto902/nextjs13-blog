@@ -109,3 +109,13 @@ export interface Review {
   translations: Translations[];
   sort?: string;
 }
+
+export interface BazaarDor {
+  image: string;
+  id: string;
+  date_created: string;
+  title: string;
+  description: string;
+  translations: Translations[];
+  sort?: string;
+}
