@@ -81,7 +81,9 @@ const LayoutComponent = ({
         {/* Origin Text  */}
         <div
           className={`${
-            locale === "bn" ? "text-xs @md:text-sm" : " text-[10px] @md:text-[10px]"
+            locale === "bn"
+              ? "text-xs @md:text-sm"
+              : " text-[10px] @md:text-[10px]"
           } gap-2 mt-2  flex flex-wrap items-center  place-self-start`}
         >
           <div className=" flex flex-row items-center gap-2">
