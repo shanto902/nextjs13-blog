@@ -260,13 +260,13 @@ const HomePage = async ({
               <div className="flex flex-row gap-5 my-4  justify-center">
                 <Link
                   href={`/${locale}/published-magazine`}
-                  className=" btn btn-sm  bg-accent text-secondary hover:text-accent "
+                  className=" btn btn-sm font-normal  bg-accent text-secondary hover:text-accent "
                 >
                   {dictionary?.magazineHome?.published}
                 </Link>
                 <Link
                   href={`/${locale}/archived`}
-                  className=" btn  bg-accent btn-sm text-secondary hover:text-accent "
+                  className=" btn  font-normal bg-accent btn-sm text-secondary hover:text-accent "
                 >
                   {dictionary?.magazineHome?.website}
                 </Link>
@@ -294,7 +294,7 @@ const HomePage = async ({
             </Link>
 
             <Link
-              className=" self-end btn btn-sm my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
+              className=" self-end btn btn-sm font-normal my-4  normal-case leading-relaxed bg-accent text-secondary hover:text-accent w-full"
               href={`/${locale}/market-cost`}
             >
               {dictionary?.mainBody?.costBtn}

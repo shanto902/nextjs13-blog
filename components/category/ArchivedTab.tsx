@@ -21,7 +21,7 @@ const ArchivedTab = ({
   }) => (
     <Tab
       {...otherProps}
-      className={`btn bg-neutral-300 active:bg-red-700 text-accent hover:text-white hover:bg-accent border-none place-self-center ${
+      className={`btn bg-neutral-300 font-normal active:bg-red-700 text-accent hover:text-white hover:bg-accent border-none place-self-center ${
         locale === "bn" ? "text-lg" : "text-md"
       }  w-full md:w-60`}
     >

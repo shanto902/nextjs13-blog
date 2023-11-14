@@ -130,7 +130,7 @@ const Footer = async ({ locale }: { locale: string }) => {
               href={`/${locale}/editorial-board`}
               className={` ${
                 locale === "bn" ? "" : "text-[11px]"
-              } btn btn-sm text-secondary hover:text-accent bg-accent  w-[130px]`}
+              } btn btn-sm font-normal text-secondary hover:text-accent bg-accent  w-[130px]`}
             >
               {dictionary.footer.editorialBoard}
             </Link>

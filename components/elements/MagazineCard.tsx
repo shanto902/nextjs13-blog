@@ -132,7 +132,7 @@ const MagazineCard = ({
             className="input input-bordered w-full max-w-xs"
           />
           <input
-            className=" btn bg-red-700 text-white w-fit"
+            className=" btn font-normal bg-red-700 text-white w-fit"
             type="submit"
             value={isLoading ? loadingText : submitButton}
           />

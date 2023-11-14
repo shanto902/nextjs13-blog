@@ -119,7 +119,7 @@ const MobileDrawer = ({
 
               <Link
                 href={`/${locale}/editorial-board`}
-                className=" btn rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 "
+                className=" btn font-normal rounded-md  text-xl text-secondary hover:text-accent bg-accent mt-8 mb-4 "
               >
                 {dictionary.footer.editorialBoard}
               </Link>
