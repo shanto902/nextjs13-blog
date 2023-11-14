@@ -44,7 +44,7 @@ const PostContent = ({
             <Link
               className={`${
                 locale === "bn"
-                  ? "@lg:text-5xl @md:text-4xl  text-3xl underline-offset-[9px] pb-[5px]"
+                  ? "@lg:text-4xl @md:text-3xl  text-2xl underline-offset-[8px] pb-[5px]"
                   : "@lg:text-3xl @md:text-2xl  text-xl underline-offset-[8px] pb-[5px]"
               } font-semibold underline  decoration-red-700  @md:leading-loose line-clamp-2 "`}
               href={`/${locale}/${post.category.slug}/${post.slug}`}

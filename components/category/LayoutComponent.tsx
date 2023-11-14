@@ -59,9 +59,9 @@ const LayoutComponent = ({
           href={`/${locale}/${post.category.slug}/${post.slug}`}
           className={` ${
             locale === "bn"
-              ? "@lg:text-3xl font-bold md:text-2xl text-2xl"
+              ? "@lg:text-3xl font-bold md:text-2xl text-2xl "
               : "@lg:text-2xl font-semibold md:text-xl text-lg"
-          } underline  decoration-red-700 @md:pb-5 leading-relaxed py-4 `}
+          } underline underline-offset-[8px]  decoration-red-700 @md:pb-5 leading-relaxed py-4 `}
         >
           {post.title}
         </Link>
