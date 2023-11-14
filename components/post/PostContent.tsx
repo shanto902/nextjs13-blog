@@ -7,7 +7,6 @@ import {
   PanelRightCloseIcon,
   User,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import PostBody from "./PostBody";
 import PostImage from "./PostImage";
@@ -45,9 +44,9 @@ const PostContent = ({
             <Link
               className={`${
                 locale === "bn"
-                  ? "@lg:text-5xl @md:text-4xl  text-3xl"
-                  : "@lg:text-3xl @md:text-2xl  text-xl"
-              } font-semibold underline decoration-red-700  @md:leading-tight line-clamp-2 "`}
+                  ? "@lg:text-5xl @md:text-4xl  text-3xl underline-offset-[9px] pb-[5px]"
+                  : "@lg:text-3xl @md:text-2xl  text-xl underline-offset-[8px] pb-[5px]"
+              } font-semibold underline  decoration-red-700  @md:leading-loose line-clamp-2 "`}
               href={`/${locale}/${post.category.slug}/${post.slug}`}
             >
               {post.title}

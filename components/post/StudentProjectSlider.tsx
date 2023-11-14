@@ -15,7 +15,7 @@ const StudentProjectSlider = async ({
   const dictionary = await getDictionary(locale);
   return (
     <div className={`${className} flex flex-col gap-5`}>
-      <h2 className=" text-2xl italic md:text-3xl lg:text-4xl underline    decoration-red-700">
+      <h2 className=" text-2xl italic md:text-3xl lg:text-4xl underline  underline-offset-[10px] pb-[5px]  decoration-red-700">
         {dictionary.navigation.links.studentProjects}
       </h2>
       <p>
