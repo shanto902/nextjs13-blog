@@ -67,7 +67,13 @@ const CategoryPage = async ({
         fields: [
           "*",
           "translations.*",
-          "posts.*",
+          "posts.id",
+          "posts.slug",
+          "posts.title",
+          "posts.status",
+          "posts.date_created",
+          "posts.description",
+          "posts.image",
           "posts.author.id",
           "posts.author.first_name",
           "posts.author.last_name",
@@ -93,7 +99,6 @@ const CategoryPage = async ({
               ...post,
               title: post?.translations[0]?.title,
               description: post?.translations[0]?.description,
-              body: post?.translations[0]?.body,
               category: {
                 ...post.category,
                 title: fetchedCategory?.translations[0]?.title,

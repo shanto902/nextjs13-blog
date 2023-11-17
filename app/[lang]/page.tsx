@@ -19,7 +19,7 @@ const HomePage = async ({
 }) => {
   const locale = params.lang;
 
-  // FROM GETTING ALL STUDENTS POSTS
+  // FROM GETTING ALL  POSTS
   const getAllPosts = async () => {
     try {
       const posts = await directus.items("post").readByQuery({
@@ -29,7 +29,12 @@ const HomePage = async ({
           },
         },
         fields: [
-          "*",
+          "id",
+          "title",
+          "description",
+          "date_created",
+          "slug",
+          "image",
           "author.id",
           "author.first_name",
           "author.last_name",
@@ -44,6 +49,7 @@ const HomePage = async ({
         ],
       });
       if (locale === "en") {
+        
         return posts?.data;
       } else {
         const localizedPost = posts?.data?.map((post: Post) => {
@@ -51,15 +57,13 @@ const HomePage = async ({
             ...post,
             title: post?.translations[0]?.title,
             description: post?.translations[0]?.description,
-            body: post?.translations[0]?.body,
             author: {
               first_name: post?.author?.translations[0]?.first_name,
               last_name: post?.author?.translations[0]?.last_name,
             },
             category: {
               ...post.category,
-              title: post?.category?.translations[0]?.title,
-              description: post?.category?.translations[0]?.description,
+              title: post?.category?.translations[0]?.title
             },
           };
         });
@@ -72,7 +76,6 @@ const HomePage = async ({
   };
 
   const posts = await getAllPosts();
-
   if (!posts) {
     notFound();
   }
