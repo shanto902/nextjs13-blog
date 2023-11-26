@@ -14,7 +14,7 @@ type ErrorBoundaryProps = {
 };
 
 // Error boundary class component
-class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,
   { hasError: boolean }
 > {

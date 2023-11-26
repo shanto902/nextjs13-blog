@@ -113,7 +113,11 @@ const PostContent = ({
                 </p>
               </Link>
             ) : post.project_description ? (
-              <PostBody locale={locale} body={post.project_description} />
+              <PostBody
+                locale={locale}
+                body={post.project_description}
+                id={post.id}
+              />
             ) : (
               ""
             )}
