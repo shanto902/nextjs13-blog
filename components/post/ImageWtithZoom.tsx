@@ -49,12 +49,12 @@ const ImageWithZoom = ({
 }: {
   src: string;
   alt: string;
-  id: string;
+  id?: string;
 }) => {
   return (
     // Wrap the component with the ErrorBoundary
     <ErrorBoundary>
-      <Zoom key={id} wrapElement="span">
+      <Zoom key={id ? id : Math.random()} wrapElement="span">
         <Image
           className="w-full object-cover object-center h-auto"
           src={src}
@@ -62,7 +62,7 @@ const ImageWithZoom = ({
           width={1280}
           height={620}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(500, 500),
+            shimmer(500, 500)
           )}`}
         />
       </Zoom>

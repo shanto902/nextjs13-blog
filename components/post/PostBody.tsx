@@ -13,7 +13,7 @@ const PostBody = ({
   body: string;
   locale: string;
   pagePost?: boolean;
-  id: string;
+  id?: string;
 }) => {
   const options = {
     replace: (domNode: any) => {
