@@ -1,61 +1,25 @@
-"use client";
 import parse from "html-react-parser";
-import Image from "next/image";
-import Zoom from "react-medium-image-zoom";
+
 import "./overlayStyle.css";
-import { shimmer, toBase64 } from "@/utils/shimmer";
-import { useState } from "react";
+
+import ImageWithZoom from "./ImageWtithZoom";
 
 const PostBody = ({
   body,
   locale,
   pagePost = false,
+  id,
 }: {
   body: string;
   locale: string;
   pagePost?: boolean;
+  id: string;
 }) => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setTimeout(function () {
-      setIsImageLoaded(true);
-    }, 1000);
-  };
   const options = {
     replace: (domNode: any) => {
       if (domNode.name === "img") {
         const { src, alt } = domNode.attribs;
-        return (
-          <div className="">
-            {!isImageLoaded ? (
-              <Image
-                className=" w-full object-cover object-center  h-auto  "
-                src={src}
-                alt={alt}
-                width={1280}
-                height={620}
-                onLoad={handleImageLoad}
-                placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(500, 500),
-                )}`}
-              />
-            ) : (
-              <Zoom>
-                <Image
-                  className=" w-full object-cover object-center  h-auto "
-                  src={src}
-                  alt={alt}
-                  width={1280}
-                  height={620}
-                  placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(500, 500),
-                  )}`}
-                />
-              </Zoom>
-            )}
-          </div>
-        );
+        return <ImageWithZoom src={src} alt={alt} id={id} />;
       }
     },
   };

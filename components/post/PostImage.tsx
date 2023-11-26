@@ -16,28 +16,39 @@ const PostImage = ({ post }: { post: Post }) => {
       {isImageLoaded ? (
         <Zoom>
           <Image
-            className={` object-cover aspect-[5/4] object-center w-[500px]  h-[400px]
-          }`}
+            style={{
+              objectFit: "cover",
+              aspectRatio: "5/4",
+              objectPosition: post.image_position
+                ? post.image_position
+                : "center",
+              width: "500px",
+              height: "400px",
+            }}
             alt={post.title}
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             width={500}
             height={400}
-            placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(500, 400),
-            )}`}
           />
         </Zoom>
       ) : (
         <Image
-          className={` object-cover aspect-[5/4] object-center w-[500px]  h-[400px]
-      }`}
+          style={{
+            objectFit: "cover",
+            aspectRatio: "5/4",
+            objectPosition: post.image_position
+              ? post.image_position
+              : "center",
+            width: "500px",
+            height: "400px",
+          }}
           alt={post.title}
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
           width={500}
           onLoad={handleImageLoad}
           height={400}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(500, 400),
+            shimmer(500, 400)
           )}`}
         />
       )}

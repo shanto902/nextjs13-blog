@@ -227,7 +227,7 @@ const ArticlePage = async ({
             formattedCounter={formattedCounter}
           />
           <div className=" flex md:pt-5 gap-10 flex-col md:flex-row">
-            <PostBody locale={locale} body={post.body} pagePost />
+            <PostBody locale={locale} body={post.body} pagePost id={post.id} />
           </div>
 
           {/* Bottom Add  */}
@@ -240,7 +240,7 @@ const ArticlePage = async ({
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(650, 130),
+                  shimmer(650, 130)
                 )}`}
               />
             </div>
@@ -297,7 +297,7 @@ const ArticlePage = async ({
                               month: "long",
                               day: "numeric",
                               year: "numeric",
-                            },
+                            }
                           )}
                         </p>
                         <p>{comment.description}</p>

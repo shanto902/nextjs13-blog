@@ -8,6 +8,7 @@ export interface Post {
   author: Author;
   slug: string;
   image: string;
+  image_position?: string;
   body: string;
   date_created: string;
   date_updated: string;
@@ -90,7 +91,7 @@ export interface jointEditor {
 export interface University {
   universityId: unknown;
   map(
-    arg0: (university: University) => import("react").JSX.Element,
+    arg0: (university: University) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: string;
   name: string;

@@ -95,11 +95,11 @@ const PostList = async ({
     .filter((post) => post);
 
   const newsCategoryPosts = posts.filter(
-    (post) => post?.category?.slug === "news",
+    (post) => post?.category?.slug === "news"
   );
 
   const mainSliderUniversity = universities.find(
-    (university) => university?.id === universityId,
+    (university) => university?.id === universityId
   );
 
   const studentPosts = mainSliderUniversity ? mainSliderUniversity.posts : [];
@@ -125,14 +125,18 @@ const PostList = async ({
         locale={locale}
         studentPosts={studentPosts}
       />
-      <PostCard
-        key={latestNewsPost.id}
-        locale={locale}
-        layout={layout}
-        post={latestNewsPost}
-        isNewsPost
-        className={`order-8 md:order-9`}
-      />
+      {latestNewsPost ? (
+        <PostCard
+          key={latestNewsPost.id}
+          locale={locale}
+          layout={layout}
+          post={latestNewsPost}
+          isNewsPost
+          className={`order-8 md:order-9`}
+        />
+      ) : (
+        <h2>No Posts to Show</h2>
+      )}
       {latestThreePosts ? (
         <div className=" lg:border-l-2 lg:border-r-2 lg:border-b-2 order-11  md:order-10  lg:mt-[-40px] lg:px-5 flex flex-col justify-between ">
           <StudentProjectCard
@@ -148,9 +152,11 @@ const PostList = async ({
           </Link>
         </div>
       ) : (
-        <h2>No Posts to Show</h2>
+        <div className="lg:border-l-2 lg:border-r-2 lg:border-b-2 order-11  md:order-10  lg:mt-[-40px] lg:px-5 flex flex-col justify-between">
+          No Posts to Show
+        </div>
       )}
-      {latestThreeNewsPosts ? (
+      {latestThreeNewsPosts && latestNewsPost ? (
         <div className="  order-9 md:order-11  flex flex-col lg:border-l-2 lg:border-r-2 lg:border-b-2 lg:mt-[-40px] lg:px-5 justify-between ">
           <RecentNewsCard
             latestThreePosts={latestThreeNewsPosts}
@@ -165,7 +171,9 @@ const PostList = async ({
           </Link>
         </div>
       ) : (
-        <h2>No Posts to Show</h2>
+        <div className="order-9 md:order-11  flex flex-col   justify-between">
+          No Posts to Show
+        </div>
       )}
 
       <div className=" place-item-end lg:p-5 order-last">
@@ -178,7 +186,7 @@ const PostList = async ({
               alt="Advertise Link"
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${main_ad_photo}?key=optimized`}
               placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(500, 500),
+                shimmer(500, 500)
               )}`}
             />
           </Link>
