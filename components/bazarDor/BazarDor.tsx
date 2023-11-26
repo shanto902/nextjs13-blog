@@ -49,11 +49,15 @@ const BazarDor = ({
                   alt="Advertise Link"
                   src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${bazar.image}?key=optimized`}
                   placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(500, 500),
+                    shimmer(500, 500)
                   )}`}
                 />
                 <div className=" text-center flex-1">
-                  <PostBody body={bazar.description} locale={locale} />
+                  <PostBody
+                    body={bazar.description}
+                    locale={locale}
+                    id={bazar.id}
+                  />
                 </div>
               </div>
             </div>
