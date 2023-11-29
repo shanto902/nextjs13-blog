@@ -30,6 +30,7 @@ export interface Translations {
   id: string;
   title: string;
   description: string;
+  desc: string;
   body: string;
   first_name: string;
   last_name: string;
@@ -58,7 +59,7 @@ export interface Magazine {
   number: number;
   image: string;
   date_created: string;
-  description: string;
+  desc: string;
   translations: Translations[];
 }
 export interface Author {
@@ -91,7 +92,7 @@ export interface jointEditor {
 export interface University {
   universityId: unknown;
   map(
-    arg0: (university: University) => import("react").JSX.Element,
+    arg0: (university: University) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: string;
   name: string;

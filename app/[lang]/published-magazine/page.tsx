@@ -25,6 +25,7 @@ const MagazinePage = async ({
           },
         },
         fields: ["*", "translations.*"],
+        sort: ["number"] as never[],
       });
       if (locale === "en") {
         return magazines?.data;
@@ -33,7 +34,7 @@ const MagazinePage = async ({
           return {
             ...magazine,
             title: magazine?.translations[0]?.title,
-            description: magazine?.translations[0]?.description,
+            desc: magazine?.translations[0]?.desc,
           };
         });
 

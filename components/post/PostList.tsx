@@ -95,11 +95,11 @@ const PostList = async ({
     .filter((post) => post);
 
   const newsCategoryPosts = posts.filter(
-    (post) => post?.category?.slug === "news",
+    (post) => post?.category?.slug === "news"
   );
 
   const mainSliderUniversity = universities.find(
-    (university) => university?.id === universityId,
+    (university) => university?.id === universityId
   );
 
   const studentPosts = mainSliderUniversity ? mainSliderUniversity.posts : [];
@@ -120,11 +120,15 @@ const PostList = async ({
           post={post}
         />
       ))}
-      <StudentProjectSlider
-        className=" order-10 md:order-none lg:border-l-2 lg:border-r-2 lg:border-t-2 lg:p-5"
-        locale={locale}
-        studentPosts={studentPosts}
-      />
+      {studentPosts ? (
+        <StudentProjectSlider
+          className=" order-10 md:order-none lg:border-l-2 lg:border-r-2 lg:border-t-2 lg:p-5"
+          locale={locale}
+          studentPosts={studentPosts}
+        />
+      ) : (
+        <h2>No Posts to Show</h2>
+      )}
       {latestNewsPost ? (
         <PostCard
           key={latestNewsPost.id}
@@ -186,7 +190,7 @@ const PostList = async ({
               alt="Advertise Link"
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${main_ad_photo}?key=optimized`}
               placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(500, 500),
+                shimmer(500, 500)
               )}`}
             />
           </Link>

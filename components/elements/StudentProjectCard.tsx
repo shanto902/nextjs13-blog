@@ -32,7 +32,7 @@ const StudentProjectCard = ({
               alt={post.title}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
               placeholder={`data:image/svg+xml;base64,${toBase64(
-                shimmer(300, 150),
+                shimmer(300, 150)
               )}`}
             />
           </Link>
@@ -58,7 +58,7 @@ const StudentProjectCard = ({
                 className=" flex flex-row items-center justify-center gap-2"
               >
                 <GraduationCap className="w-4 h-4" />
-                {`${post.university.name}`}
+                {`${post?.university?.name}`}
               </Link>
 
               <div className=" flex flex-row items-center gap-2">

@@ -16,7 +16,7 @@ const OurPhotoZoom = ({ footer_image }: { footer_image: string }) => {
           height={720}
           className=" aspect-vide max-w-[129px]"
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(135, 76)
+            shimmer(135, 76),
           )}`}
         />
       </Zoom>

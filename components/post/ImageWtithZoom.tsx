@@ -62,7 +62,7 @@ const ImageWithZoom = ({
           width={1280}
           height={620}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(500, 500)
+            shimmer(500, 500),
           )}`}
         />
       </Zoom>
