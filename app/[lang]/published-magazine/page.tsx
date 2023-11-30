@@ -52,7 +52,7 @@ const MagazinePage = async ({
     <div className="@container min-h-[50vh]">
       <PaddingContainer>
         {magazines ? (
-          magazines.reverse().map((magazine: Magazine) => (
+          magazines.map((magazine: Magazine) => (
             <div key={magazine.id} className="  flex flex-col space-y-16">
               <MagazineCard
                 magazine={magazine}
