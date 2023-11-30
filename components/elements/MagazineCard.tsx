@@ -27,13 +27,28 @@ const MagazineCard = ({
   messageText: string;
 }) => {
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
-    const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    const convertToBengali = (num: number) => {
+      const numbersInBengali = [
+        "০",
+        "১",
+        "২",
+        "৩",
+        "৪",
+        "৫",
+        "৬",
+        "৭",
+        "৮",
+        "৯",
+      ];
+      const digits = num.toString().split("");
+      const bengaliDigits = digits.map(
+        (digit) => numbersInBengali[Number(digit)]
+      );
+      return bengaliDigits.join("");
+    };
 
-    if (locale === "en") {
-      return numbersInEnglish[pageNumber - 1] || pageNumber.toString();
-    } else if (locale === "bn") {
-      return numbersInBengali[pageNumber - 1] || pageNumber.toString();
+    if (locale === "bn") {
+      return convertToBengali(pageNumber);
     } else {
       return pageNumber.toString();
     }
