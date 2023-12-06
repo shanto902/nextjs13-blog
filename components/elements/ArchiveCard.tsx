@@ -3,7 +3,12 @@ import { Post } from "@/types/collection";
 import Image from "next/image";
 import React from "react";
 import InputFormArchived from "./InputFormArchived";
-import { AppWindow, PanelRightCloseIcon, User } from "lucide-react";
+import {
+  AppWindow,
+  GraduationCapIcon,
+  PanelRightCloseIcon,
+  User,
+} from "lucide-react";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
 const ArchiveCard = ({
@@ -26,7 +31,7 @@ const ArchiveCard = ({
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"
             placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(600, 600),
+              shimmer(600, 600)
             )}`}
           />
         </figure>
@@ -54,10 +59,17 @@ const ArchiveCard = ({
           {`${post.author.first_name} ${post.author.last_name}`}
         </div>
 
-        <div className=" flex flex-row items-center gap-2">
-          <PanelRightCloseIcon className="w-4 h-4" />
-          {`${post.category.title}`}
-        </div>
+        {post?.university?.name ? (
+          <div className=" flex flex-row items-center gap-2">
+            <GraduationCapIcon className="w-4 h-4" />
+            {`${post.university.name}`}
+          </div>
+        ) : (
+          <div className=" flex flex-row items-center gap-2">
+            <PanelRightCloseIcon className="w-4 h-4" />
+            {`${post.category.title}`}
+          </div>
+        )}
 
         <div className=" flex flex-row items-center gap-2">
           {" "}

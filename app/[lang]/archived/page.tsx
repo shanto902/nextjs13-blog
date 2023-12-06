@@ -37,6 +37,7 @@ const ArchivedPage = async ({
           "author.last_name",
           "author.translations.first_name",
           "author.translations.last_name",
+          "university.name",
           "category.slug",
           "category.id",
           "category.title",

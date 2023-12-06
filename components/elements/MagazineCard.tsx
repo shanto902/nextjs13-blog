@@ -42,7 +42,7 @@ const MagazineCard = ({
       ];
       const digits = num.toString().split("");
       const bengaliDigits = digits.map(
-        (digit) => numbersInBengali[Number(digit)]
+        (digit) => numbersInBengali[Number(digit)],
       );
       return bengaliDigits.join("");
     };
