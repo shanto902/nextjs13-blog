@@ -31,7 +31,7 @@ const ArchiveCard = ({
             src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
             alt="Shoes"
             placeholder={`data:image/svg+xml;base64,${toBase64(
-              shimmer(600, 600)
+              shimmer(600, 600),
             )}`}
           />
         </figure>
