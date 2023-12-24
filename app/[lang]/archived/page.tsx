@@ -1,13 +1,11 @@
 import ArchivedTab from "@/components/category/ArchivedTab";
-import ArchiveCard from "@/components/elements/ArchiveCard";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
 import { Post } from "@/types/collection";
-import Link from "next/link";
 import { notFound, usePathname } from "next/navigation";
 import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+
 import "react-tabs/style/react-tabs.css";
 
 const ArchivedPage = async ({

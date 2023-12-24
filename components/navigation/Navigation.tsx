@@ -1,11 +1,6 @@
-import Link from "next/link";
 import React from "react";
-import PaddingContainer from "../layout/PaddingContainer";
-import SearchComponent from "./SearchComponent";
-import MobileDrawer from "./MobileDrawer";
 import { getDictionary } from "@/lib/getDictionary";
 import HeaderLogo from "./HeaderLogo";
-import SideLogo from "./SideLogo";
 import directus from "@/lib/directus";
 import { Post } from "@/types/collection";
 import StickyHeader from "./StickeyHeader";

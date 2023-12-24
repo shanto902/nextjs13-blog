@@ -88,7 +88,6 @@ const HomePage = async ({
   const homePage = await directus.singleton("home_page").read({
     fields: ["*"],
   });
-  // const homePageData = getHomePageContents()
 
   const getStudentsProjectData = async () => {
     try {
