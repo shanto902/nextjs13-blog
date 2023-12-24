@@ -51,7 +51,7 @@ export default function RootLayout({
               />
               <h3 className=" text-center text-4xl leading-loose ">
                 ‘স্থাপত্য ও নির্মাণ’ ওয়েবসাইটটি বর্তমানে নির্মাণাধীন অবস্থায়
-                আছে। খূব শীঘ্রই ওয়েবসাইটটি নতুনভাবে প্রকাশিত হবে।
+                আছে। খুবখুব শীঘ্রই ওয়েবসাইটটি নতুনভাবে প্রকাশিত হবে।
               </h3>
             </div>
           </PaddingContainer>
