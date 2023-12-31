@@ -18,6 +18,7 @@ export interface Post {
   university: University;
   cover_photo: string;
   right_ad?: string;
+  serial_no?: number;
 }
 
 export interface PostCounter {
@@ -92,7 +93,7 @@ export interface jointEditor {
 export interface University {
   universityId: unknown;
   map(
-    arg0: (university: University) => import("react").JSX.Element,
+    arg0: (university: University) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: string;
   name: string;

@@ -43,7 +43,7 @@ export default function RootLayout({
           <PaddingContainer>
             <div className=" flex h-screen items-center justify-center flex-col gap-10">
               <Image
-                className="mx-auto aspect-square pt-8 hidden lg:block"
+                className="mx-auto aspect-square pt-8"
                 src={logo}
                 alt="logo"
                 width={120}

@@ -17,7 +17,7 @@ export const generateStaticParams = async () => {
     });
 
     const filteredCategories = categories?.data?.filter(
-      (category: Category) => category?.slug !== "student-projects",
+      (category: Category) => category?.slug !== "student-projects"
     );
 
     const params = filteredCategories?.map((category: { slug: string }) => {
@@ -33,7 +33,7 @@ export const generateStaticParams = async () => {
           category: category.slug as string,
           lang: "bn",
         };
-      },
+      }
     );
 
     const allParams = params?.concat(localizedParams ?? []);
@@ -74,6 +74,7 @@ const CategoryPage = async ({
           "posts.date_created",
           "posts.description",
           "posts.image",
+          "posts.serial_no",
           "posts.author.id",
           "posts.author.first_name",
           "posts.author.last_name",

@@ -27,13 +27,27 @@ const CategoryPostList = ({
 
   const currentPosts = posts.slice(startIndex, endIndex);
   const publishedPosts = currentPosts
-    .sort(
-      (a, b) =>
-        new Date(a.date_created).getTime() - new Date(b.date_created).getTime(),
-    )
-    .filter((post) => post.status === "published")
-    .reverse();
+    .sort((a, b) => {
+      const serialA = a.serial_no ?? 0;
+      const serialB = b.serial_no ?? 0;
 
+      if (serialA !== 0 && serialB !== 0) {
+        // Both have serial_no, compare by serial_no
+        return serialA - serialB;
+      } else if (serialA !== 0) {
+        // Only a has serial_no, a comes first
+        return -1;
+      } else if (serialB !== 0) {
+        // Only b has serial_no, b comes first
+        return 1;
+      }
+
+      // If neither has serial_no, compare by date_created
+      return (
+        new Date(a.date_created).getTime() - new Date(b.date_created).getTime()
+      );
+    })
+    .filter((post) => post.status === "published");
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -49,7 +63,7 @@ const CategoryPostList = ({
 
   const renderPagination = () => {
     const pageNumbers = Array.from(Array(totalPages).keys()).map(
-      (page) => page + 1,
+      (page) => page + 1
     );
 
     return (
