@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, cache } from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostHero from "@/components/post/PostHero";
@@ -12,6 +12,79 @@ import SocialLink from "@/components/elements/SocialLink";
 import { Comments, Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
+const getPostData = cache(async (postSlug: string, locale: string) => {
+  try {
+    const post = await directus.items("post").readByQuery({
+      filter: {
+        _and: [
+          {
+            slug: {
+              _eq: postSlug,
+            },
+            status: {
+              _eq: "published",
+            },
+          },
+        ],
+      },
+      fields: [
+        "*",
+        "category.id",
+        "category.title",
+        "category.slug",
+        "author.id",
+        "author.first_name",
+        "author.last_name",
+        "translations.*",
+        "category.translations.*",
+        "author.translations.*",
+      ],
+    });
+
+    const postData = post?.data?.[0];
+    if (locale === "en") {
+      return postData;
+    } else {
+      const localizedPostData = {
+        ...postData,
+        title: postData?.translations?.[0]?.title,
+        description: postData?.translations?.[0]?.description,
+        body: postData?.translations?.[0]?.body,
+        project_description: postData?.translations?.[0]?.project_description,
+        category: {
+          ...postData?.category,
+          title: postData?.category?.translations?.[0]?.title,
+          description: postData?.category?.translations?.[0]?.description,
+        },
+        author: {
+          ...postData?.author,
+          first_name: postData?.author?.translations?.[0]?.first_name,
+          last_name: postData?.author?.translations?.[0]?.last_name,
+        },
+      };
+      return localizedPostData;
+    }
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error fetching post");
+  }
+});
+
+export const generateMetadata = async ({
+  params: { slug, lang },
+}: {
+  params: {
+    slug: string;
+    lang: string;
+  };
+}) => {
+  const post = await getPostData(slug, lang);
+
+  return {
+    title: post?.title,
+    description: post?.description,
+  };
+};
 export const generateStaticParams = async () => {
   try {
     const posts = await directus.items("post").readByQuery({
@@ -55,66 +128,25 @@ const ArticlePage = async ({
 }) => {
   // const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
   const locale = params.lang;
+  const postSlug = params.slug;
 
-  const getPostData = async () => {
-    try {
-      const post = await directus.items("post").readByQuery({
-        filter: {
-          _and: [
-            {
-              slug: {
-                _eq: params.slug,
-              },
-              status: {
-                _eq: "published",
-              },
-            },
-          ],
-        },
-        fields: [
-          "*",
-          "category.id",
-          "category.title",
-          "category.slug",
-          "author.id",
-          "author.first_name",
-          "author.last_name",
-          "translations.*",
-          "category.translations.*",
-          "author.translations.*",
-        ],
-      });
-
-      const postData = post?.data?.[0];
-      if (locale === "en") {
-        return postData;
-      } else {
-        const localizedPostData = {
-          ...postData,
-          title: postData?.translations?.[0]?.title,
-          description: postData?.translations?.[0]?.description,
-          body: postData?.translations?.[0]?.body,
-          project_description: postData?.translations?.[0]?.project_description,
-          category: {
-            ...postData?.category,
-            title: postData?.category?.translations?.[0]?.title,
-            description: postData?.category?.translations?.[0]?.description,
-          },
-          author: {
-            ...postData?.author,
-            first_name: postData?.author?.translations?.[0]?.first_name,
-            last_name: postData?.author?.translations?.[0]?.last_name,
-          },
-        };
-        return localizedPostData;
-      }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching post");
-    }
+  const post = await getPostData(postSlug, locale);
+  const dictionary = await getDictionary(locale);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    image: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/post/${postSlug}/opengraph-image.png`,
+    author: post.author.first_name + " " + post.author.last_name,
+    genre: post.category.title,
+    publisher: dictionary.metaData.title,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${post?.category?.slug}/${postSlug}`,
+    datePublished: new Date(post.date_created).toISOString(),
+    dateCreated: new Date(post.date_created).toISOString(),
+    dateModified: new Date(post.date_updated).toISOString(),
+    description: post.description,
+    articleBody: post.body,
   };
-
-  const post = await getPostData();
 
   const getCommentsData = async () => {
     try {
@@ -203,8 +235,6 @@ const ArticlePage = async ({
 
   const formattedCounter = new Intl.NumberFormat(locale).format(updatedCounter);
 
-  const dictionary = await getDictionary(locale);
-
   const getLocalizedNumber = (number: number, locale: string) => {
     const numbersInEnglish = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -220,6 +250,10 @@ const ArticlePage = async ({
   return (
     <div className=" relative  mx-auto">
       <PaddingContainer>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div className=" space-y-10 relative">
           <PostHero
             locale={locale}
@@ -240,7 +274,7 @@ const ArticlePage = async ({
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(650, 130),
+                  shimmer(650, 130)
                 )}`}
               />
             </div>
@@ -297,7 +331,7 @@ const ArticlePage = async ({
                               month: "long",
                               day: "numeric",
                               year: "numeric",
-                            },
+                            }
                           )}
                         </p>
                         <p>{comment.description}</p>

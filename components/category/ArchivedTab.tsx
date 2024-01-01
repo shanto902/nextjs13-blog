@@ -30,7 +30,7 @@ const ArchivedTab = ({
   );
 
   const filterPostsByCategory = (categorySlug: string) => {
-    return archivedPosts.filter((post) => post.category.slug === categorySlug);
+    return archivedPosts.filter((post) => post.category?.slug === categorySlug);
   };
 
   const artsPosts: Post[] = filterPostsByCategory("arts");
@@ -41,7 +41,7 @@ const ArchivedTab = ({
   const projectsPost: Post[] = filterPostsByCategory("projects");
   const studentProjectsPost: Post[] = filterPostsByCategory("student-projects");
   const environmentPlaningPost: Post[] = filterPostsByCategory(
-    "environment-and-planning",
+    "environment-and-planning"
   );
   const heritagePost: Post[] = filterPostsByCategory("heritage");
 

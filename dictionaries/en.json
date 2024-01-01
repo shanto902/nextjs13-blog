@@ -1,4 +1,8 @@
 {
+  "metaData": {
+    "title": "Sthapattya-O-Nirman",
+    "description": ""
+  },
   "navigation": {
     "links": {
       "news": "News",
@@ -8,7 +12,7 @@
       "personality": "Personality",
       "dialogue": "Dialogue",
       "projects": "Projects",
-      "studentProjects":  "Student Projects",
+      "studentProjects": "Student Projects",
       "technology": "Technology",
       "archived": "Archive",
       "environmentPlaning": "Environment & Planing",
@@ -16,7 +20,6 @@
       "editorialBoard": "Editorial Board",
       "bookReview": "Book Review",
       "marketCost": "Market Cost"
-
     }
   },
 
@@ -28,65 +31,65 @@
     "chooseCategory": "Please choose one Category",
     "noPostText": "No archive available select other categories"
   },
-    "mainBody":{
-        "moreCollection": "More Collection",
-        "studentProjects":  "Student Projects",
-        "seeMore": "See More",
-        "costBtn" : "Click to know the Market rate and Construction cost",
-        "bookReview": "Book Review"
-    },
+  "mainBody": {
+    "moreCollection": "More Collection",
+    "studentProjects": "Student Projects",
+    "seeMore": "See More",
+    "costBtn": "Click to know the Market rate and Construction cost",
+    "bookReview": "Book Review"
+  },
 
-    "commentsSection": {
-      "comment": "Comment",
-      "loading": "Loading",
-      "submitButton": "Comment",
-      "title": "Please let us know your opinion",
-      "description": "Write your opinion here",
-      "inputName": "Your Name",
-      "inputEmail": "Your Email",
-      "message": "You made a successful remark. Kindly await permission."
-    },
-    "studentProjects": {
-      "sliderTitle": "'s Architecture Department has selected three outstanding final projects, which are highlighted here.",
-      "topDesc": "The final design project is very important for architecture students in their bachelor course. The last project of this stage of education is usually done alone, so they all want to make it memorable. After completing this semester-long design work and submitting it, the teachers set up a jury board for evaluation. All the teachers and students of the university are present in this jury board. Teachers from other universities and reputed professionals outside the architecture department of the university are invited. It is a great event for architecture students. Students present their projects with lots of drawings, models and even animations. One of the reasons professionals are encouraged to participate in this jury is that the students get a chance to think freely as there is no direct client pressure or any constraints on this project. There is a lot of creativity potential in this free thinking, that is the attraction of all.",
-      "botDesc" : "'Architecture and Construction' has taken the initiative to showcase these painstaking projects to the students, not only to inspire them but also to keep a record of where the thinking of our new generation is heading. We are presenting in this range 3 projects selected from the university's architecture department among the final projects in each session. The project presentation is accompanied by the comments of the jury members. Readers can also comment"
-    },
-    "magazineHome": {
-      "title": "Archive of Sthapattya-O-Nirman ",
-      "published" : "Published Magazine",
-       "website" : "Website"
-    },
+  "commentsSection": {
+    "comment": "Comment",
+    "loading": "Loading",
+    "submitButton": "Comment",
+    "title": "Please let us know your opinion",
+    "description": "Write your opinion here",
+    "inputName": "Your Name",
+    "inputEmail": "Your Email",
+    "message": "You made a successful remark. Kindly await permission."
+  },
+  "studentProjects": {
+    "sliderTitle": "'s Architecture Department has selected three outstanding final projects, which are highlighted here.",
+    "topDesc": "The final design project is very important for architecture students in their bachelor course. The last project of this stage of education is usually done alone, so they all want to make it memorable. After completing this semester-long design work and submitting it, the teachers set up a jury board for evaluation. All the teachers and students of the university are present in this jury board. Teachers from other universities and reputed professionals outside the architecture department of the university are invited. It is a great event for architecture students. Students present their projects with lots of drawings, models and even animations. One of the reasons professionals are encouraged to participate in this jury is that the students get a chance to think freely as there is no direct client pressure or any constraints on this project. There is a lot of creativity potential in this free thinking, that is the attraction of all.",
+    "botDesc": "'Architecture and Construction' has taken the initiative to showcase these painstaking projects to the students, not only to inspire them but also to keep a record of where the thinking of our new generation is heading. We are presenting in this range 3 projects selected from the university's architecture department among the final projects in each session. The project presentation is accompanied by the comments of the jury members. Readers can also comment"
+  },
+  "magazineHome": {
+    "title": "Archive of Sthapattya-O-Nirman ",
+    "published": "Published Magazine",
+    "website": "Website"
+  },
 
-    "magazinePage": {
-      "collectMagazine": "Contact us to collect the archive",
-      "number" : "Number",
-      "inputName": "Your Name",
-      "inputEmail": "Your Email",
-      "submitButton": "Request",
-      "loading": "Loading",
-      "messageText": "Message delivered. We will contact you as soon as possible."
-    },
-    
-    "footer":{
-        "editor": "Editor",
-        "editorName": "Kazi Anisuddin Iqbal",
-        "email" : "Email",
-        "phone" : "Phone",
-        "phoneNo": "+880-1679-090901",
-        "address":"Address:",
-        "addressValue":"Gagan Shirish, 76 & 76/1, Panthapath (3rd Floor),",
-        "addressValue2": "Dhaka-1215",
-        "editorialBoard":"Editorial Board",
-        "administratorPanel": "Administrator Panel",
-        "ratba":"Ar. Raatba Aziz",
-        "nishi": "Ar. Nishi Shaymoon",
-        "faiza": "Ar. Faiza Fairooz"
-    },
+  "magazinePage": {
+    "collectMagazine": "Contact us to collect the archive",
+    "number": "Number",
+    "inputName": "Your Name",
+    "inputEmail": "Your Email",
+    "submitButton": "Request",
+    "loading": "Loading",
+    "messageText": "Message delivered. We will contact you as soon as possible."
+  },
 
-    "editor_board": {
-      "editor": "Editor",
-      "joint_editor": "Joint Editor",
-      "administrator_Panel": "Administration Panel",
-      "action_team": "Team in Action"
-    }
+  "footer": {
+    "editor": "Editor",
+    "editorName": "Kazi Anisuddin Iqbal",
+    "email": "Email",
+    "phone": "Phone",
+    "phoneNo": "+880-1679-090901",
+    "address": "Address:",
+    "addressValue": "Gagan Shirish, 76 & 76/1, Panthapath (3rd Floor),",
+    "addressValue2": "Dhaka-1215",
+    "editorialBoard": "Editorial Board",
+    "administratorPanel": "Administrator Panel",
+    "ratba": "Ar. Raatba Aziz",
+    "nishi": "Ar. Nishi Shaymoon",
+    "faiza": "Ar. Faiza Fairooz"
+  },
+
+  "editor_board": {
+    "editor": "Editor",
+    "joint_editor": "Joint Editor",
+    "administrator_Panel": "Administration Panel",
+    "action_team": "Team in Action"
+  }
 }

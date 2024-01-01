@@ -9,6 +9,9 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import Image from "next/image";
+import { getDictionary } from "@/lib/getDictionary";
+import { title } from "process";
+import siteConfig from "@/config/site";
 
 const banglaFont = localFont({ src: "../../fonts/SolaimanLipi.woff2" });
 
@@ -20,9 +23,48 @@ export const englishFont = Open_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "স্থাপত্য ও নির্মাণ | Sthapattyan O Nirman",
-  description: "",
+// export const metadata: Metadata = {
+//   title: "স্থাপত্য ও নির্মাণ | Sthapattyan O Nirman",
+//   description: "",
+// };
+
+export const generateMetadata = async ({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) => {
+  const dictionary = await getDictionary(lang);
+
+  return {
+    title: {
+      template: `%s | ${dictionary.metaData.title}`,
+      default: dictionary.metaData.title,
+    },
+    description: dictionary.metaData.description,
+    openGraph: {
+      title: dictionary.metaData.title,
+      description: dictionary.metaData.description,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
+      siteName: dictionary.metaData.title,
+      images: [
+        {
+          url: "https://localhost:3000/opengraph-image.png",
+          width: 1200,
+          height: 628,
+        },
+      ],
+      locale: lang,
+      type: "website",
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      languages: {
+        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en`,
+        "bn-BD": `${process.env.NEXT_PUBLIC_SITE_URL}/bn`,
+      },
+    },
+    /* Verification for Google Search Console */
+  };
 };
 
 export default function RootLayout({

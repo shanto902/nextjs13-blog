@@ -80,7 +80,7 @@ const page = async ({
                 };
               }),
             };
-          }
+          },
         );
 
         return localizedUniversity;
@@ -133,7 +133,7 @@ const page = async ({
                   university={university}
                   locale={locale}
                 />
-              ) : null
+              ) : null,
             )}
         </div>
       </PaddingContainer>
