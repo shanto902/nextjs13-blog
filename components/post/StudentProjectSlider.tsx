@@ -14,7 +14,7 @@ const StudentProjectSlider = async ({
 }) => {
   const dictionary = await getDictionary(locale);
   const publishedPosts = studentPosts.filter(
-    (post) => post.status === "published"
+    (post) => post.status === "published",
   );
   return (
     <div className={`${className} flex flex-col gap-5`}>

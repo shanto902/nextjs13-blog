@@ -69,7 +69,7 @@ const CategoryPostList = ({
 
   const renderPagination = () => {
     const pageNumbers = Array.from(Array(totalPages).keys()).map(
-      (page) => page + 1
+      (page) => page + 1,
     );
 
     return (
