@@ -61,7 +61,7 @@ const UniversityList = ({
                   alt={post.title}
                   src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
                   placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(380, 280)
+                    shimmer(380, 280),
                   )}`}
                 ></Image>
                 <h2 className=" font-bold my-2 line-clamp-2">{post.title}</h2>
@@ -86,7 +86,7 @@ const UniversityList = ({
                         month: "long",
                         day: "numeric",
                         year: "numeric",
-                      }
+                      },
                     )}
                   </div>
                 </div>
