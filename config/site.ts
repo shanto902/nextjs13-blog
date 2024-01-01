@@ -15,7 +15,7 @@ export interface SiteConfig {
 
 const siteConfig: SiteConfig = {
   siteName: "Explorer",
-  siteURL: "http://localhost:3000/",
+  siteURL: "https://sthapattya-o-nirman.com/",
   description: "A travel blog to learn next js 13 with typescript",
   currentlyAt: "Bangladesh",
   socialLinks: {
