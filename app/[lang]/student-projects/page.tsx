@@ -80,7 +80,7 @@ const page = async ({
                 };
               }),
             };
-          },
+          }
         );
 
         return localizedUniversity;
@@ -107,15 +107,34 @@ const page = async ({
           </p>
         </div>
         <div className=" mt-10 flex flex-col gap-10">
-          {universities?.map((university: University) =>
-            university?.posts && university?.posts.length > 0 ? (
-              <UniversityList
-                key={university.id}
-                university={university}
-                locale={locale}
-              />
-            ) : null,
-          )}
+          {universities
+            ?.slice() // Create a shallow copy of the array to avoid modifying the original array
+            .sort((a, b) => {
+              const serialA = a.serial_no || 0;
+              const serialB = b.serial_no || 0;
+
+              if (serialA !== 0 && serialB !== 0) {
+                return serialA - serialB;
+              } else if (serialA !== 0) {
+                return -1;
+              } else if (serialB !== 0) {
+                return 1;
+              }
+
+              return (
+                new Date(a.date_created).getTime() -
+                new Date(b.date_created).getTime()
+              );
+            })
+            .map((university: University) =>
+              university?.posts && university?.posts.length > 0 ? (
+                <UniversityList
+                  key={university.id}
+                  university={university}
+                  locale={locale}
+                />
+              ) : null
+            )}
         </div>
       </PaddingContainer>
     </div>
