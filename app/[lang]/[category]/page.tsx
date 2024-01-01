@@ -83,6 +83,7 @@ export const generateMetadata = async ({
     title: ` ${categoryData?.title}`,
     description: categoryData?.description,
     openGraph: {
+      metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
       title: categoryData?.title,
       description: categoryData?.description,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}`,
@@ -119,7 +120,7 @@ export const generateStaticParams = async () => {
     });
 
     const filteredCategories = categories?.data?.filter(
-      (category: Category) => category?.slug !== "student-projects",
+      (category: Category) => category?.slug !== "student-projects"
     );
 
     const params = filteredCategories?.map((category: { slug: string }) => {
@@ -135,7 +136,7 @@ export const generateStaticParams = async () => {
           category: category.slug as string,
           lang: "bn",
         };
-      },
+      }
     );
 
     const allParams = params?.concat(localizedParams ?? []);

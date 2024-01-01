@@ -42,6 +42,7 @@ export const generateMetadata = async ({
     },
     description: dictionary.metaData.description,
     openGraph: {
+      metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
       title: dictionary.metaData.title,
       description: dictionary.metaData.description,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
@@ -63,6 +64,7 @@ export const generateMetadata = async ({
         "bn-BD": `${process.env.NEXT_PUBLIC_SITE_URL}/bn`,
       },
     },
+
     /* Verification for Google Search Console */
   };
 };

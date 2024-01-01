@@ -81,6 +81,7 @@ export const generateMetadata = async ({
   const post = await getPostData(slug, lang);
 
   return {
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
     title: post?.title,
     description: post?.description,
   };
