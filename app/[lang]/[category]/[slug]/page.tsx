@@ -274,7 +274,7 @@ const ArticlePage = async ({
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(650, 130)
+                  shimmer(650, 130),
                 )}`}
               />
             </div>
@@ -331,7 +331,7 @@ const ArticlePage = async ({
                               month: "long",
                               day: "numeric",
                               year: "numeric",
-                            }
+                            },
                           )}
                         </p>
                         <p>{comment.description}</p>

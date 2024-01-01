@@ -41,7 +41,7 @@ const ArchivedTab = ({
   const projectsPost: Post[] = filterPostsByCategory("projects");
   const studentProjectsPost: Post[] = filterPostsByCategory("student-projects");
   const environmentPlaningPost: Post[] = filterPostsByCategory(
-    "environment-and-planning"
+    "environment-and-planning",
   );
   const heritagePost: Post[] = filterPostsByCategory("heritage");
 
