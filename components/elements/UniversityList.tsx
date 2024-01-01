@@ -26,8 +26,27 @@ const UniversityList = ({
           {university.tag_line}
         </h3>
       ) : null}
+
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
         {university.posts
+          .slice() // Create a shallow copy of the array to avoid modifying the original array
+          .sort((a, b) => {
+            const serialA = a.serial_no || 0;
+            const serialB = b.serial_no || 0;
+
+            if (serialA !== 0 && serialB !== 0) {
+              return serialA - serialB;
+            } else if (serialA !== 0) {
+              return -1;
+            } else if (serialB !== 0) {
+              return 1;
+            }
+
+            return (
+              new Date(a.date_created).getTime() -
+              new Date(b.date_created).getTime()
+            );
+          })
           .filter((post) => post.status === "published")
           .map((post: Post) => (
             <div key={post.id} className="">
@@ -42,7 +61,7 @@ const UniversityList = ({
                   alt={post.title}
                   src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
                   placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(380, 280),
+                    shimmer(380, 280)
                   )}`}
                 ></Image>
                 <h2 className=" font-bold my-2 line-clamp-2">{post.title}</h2>
@@ -67,7 +86,7 @@ const UniversityList = ({
                         month: "long",
                         day: "numeric",
                         year: "numeric",
-                      },
+                      }
                     )}
                   </div>
                 </div>
