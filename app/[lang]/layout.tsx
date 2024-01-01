@@ -48,7 +48,7 @@ export const generateMetadata = async ({
       siteName: dictionary.metaData.title,
       images: [
         {
-          url: "https://localhost:3000/opengraph-image.png",
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image.png`,
           width: 1200,
           height: 628,
         },
