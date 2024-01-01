@@ -13,17 +13,20 @@ const StudentProjectSlider = async ({
   studentPosts: Post[];
 }) => {
   const dictionary = await getDictionary(locale);
+  const publishedPosts = studentPosts.filter(
+    (post) => post.status === "published"
+  );
   return (
     <div className={`${className} flex flex-col gap-5`}>
       <h2 className=" text-2xl italic md:text-3xl lg:text-4xl underline  underline-offset-[10px] pb-[5px]  decoration-red-700">
         {dictionary.navigation.links.studentProjects}
       </h2>
       <p>
-        {studentPosts[0]?.university.name}{" "}
+        {publishedPosts[0]?.university.name}{" "}
         {dictionary.studentProjects.sliderTitle}
       </p>
       <div className=" z-[0]">
-        <Slider studentPosts={studentPosts} locale={locale} />
+        <Slider studentPosts={publishedPosts} locale={locale} />
       </div>
     </div>
   );

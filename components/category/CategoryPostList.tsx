@@ -15,30 +15,24 @@ const CategoryPostList = ({
   locale,
 }: CategoryPostListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 8;
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
 
-  const handlePaginationButtonClick = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top
-  };
-
-  const currentPosts = posts.slice(startIndex, endIndex);
-  const publishedPosts = currentPosts
+  const publishedPosts = posts
     .sort((a, b) => {
-      const serialA = a.serial_no ?? 0;
-      const serialB = b.serial_no ?? 0;
+      const serialA = a.serial_no || 0;
+      const serialB = b.serial_no || 0;
 
+      // Compare by serial_no if both have serial_no or if serial_no is not 0
       if (serialA !== 0 && serialB !== 0) {
-        // Both have serial_no, compare by serial_no
         return serialA - serialB;
-      } else if (serialA !== 0) {
-        // Only a has serial_no, a comes first
+      }
+
+      // If only a has serial_no, a comes first
+      if (serialA !== 0) {
         return -1;
-      } else if (serialB !== 0) {
-        // Only b has serial_no, b comes first
+      }
+
+      // If only b has serial_no, b comes first
+      if (serialB !== 0) {
         return 1;
       }
 
@@ -48,6 +42,18 @@ const CategoryPostList = ({
       );
     })
     .filter((post) => post.status === "published");
+  const postsPerPage = 8;
+  const totalPages = Math.ceil(publishedPosts.length / postsPerPage);
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+
+  const handlePaginationButtonClick = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top
+  };
+
+  const currentPosts = publishedPosts.slice(startIndex, endIndex);
+
   const getLocalizedPageNumber = (pageNumber: number, locale: string) => {
     const numbersInEnglish = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const numbersInBengali = ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -88,7 +94,7 @@ const CategoryPostList = ({
   return (
     <div>
       <div className=" grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5">
-        {publishedPosts.map((post, index) => (
+        {currentPosts.map((post, index) => (
           <div
             className={` ${
               (categorySlug === "projects" ||

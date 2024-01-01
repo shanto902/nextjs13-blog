@@ -53,12 +53,12 @@ const page = async ({
     <>
       <PaddingContainer>
         <div className=" @container max-w-3xl mx-auto">
-          <div className=" text-center border border-red-700 rounded-lg px-10 py-5 ">
-            {editorialBoard.write_up}
+          <div className="text-center border border-red-700 rounded-lg px-10 py-5">
+            <EditorBody body={editorialBoard?.write_up} locale={locale} />
           </div>
 
           {/* Editor Section */}
-          <div>
+          {/* <div>
             <h2 className=" text-center font-semibold text-4xl mt-14 mb-10">
               {dictionary?.editor_board.editor}
             </h2>
@@ -83,7 +83,7 @@ const page = async ({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className=" py-10">

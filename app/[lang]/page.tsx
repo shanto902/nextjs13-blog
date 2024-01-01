@@ -80,7 +80,7 @@ const HomePage = async ({
   }
   posts.sort(
     (a, b) =>
-      new Date(a.date_created).getTime() - new Date(b.date_created).getTime(),
+      new Date(a.date_created).getTime() - new Date(b.date_created).getTime()
   );
 
   // FOR GET ALL UNIVERSITY BASED PROJECTS
@@ -93,8 +93,10 @@ const HomePage = async ({
     try {
       const university = await directus.items("university").readByQuery({
         filter: {
-          status: {
-            _eq: "published",
+          post: {
+            status: {
+              _eq: "published",
+            },
           },
         },
         fields: [
@@ -106,6 +108,7 @@ const HomePage = async ({
           "posts.image",
           "posts.cover_photo",
           "posts.slug",
+          "posts.status",
           "posts.translations.*",
           "posts.category.id",
           "posts.category.title",
@@ -141,7 +144,7 @@ const HomePage = async ({
                 };
               }),
             };
-          },
+          }
         );
 
         return localizedUniversity;
@@ -231,7 +234,7 @@ const HomePage = async ({
             : homePage?.cover_photo_english
         }?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
-          shimmer(1980, 760),
+          shimmer(1980, 760)
         )}`}
       />
 
@@ -286,7 +289,7 @@ const HomePage = async ({
                 alt="Advertise Link"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${lastBookReview?.book_cover}?key=optimized`}
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(500, 500),
+                  shimmer(500, 500)
                 )}`}
               />
               <h3 className=" text-center text-xl font-semibold my-4">
