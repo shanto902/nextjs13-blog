@@ -90,9 +90,3 @@
 .react-tabs__tab--selected {
   @apply !bg-red-700 !rounded-none !border-none !text-white hover:!bg-black hover:!text-white active:!bg-red-700;
 }
-
-body {
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
