@@ -93,9 +93,10 @@ export interface jointEditor {
 export interface University {
   universityId: unknown;
   map(
-    arg0: (university: University) => import("react").JSX.Element,
+    arg0: (university: University) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: string;
+  post: Post[];
   name: string;
   status: string;
   posts: Post[];

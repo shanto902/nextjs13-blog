@@ -58,19 +58,19 @@ export default async function og({
             alt={post?.title!!}
           />
           {/* Overlay */}
-          <div tw="absolute flex inset-0 bg-black bg-opacity-50 " />
+          {/* <div tw="absolute flex inset-0 bg-black bg-opacity-50 " /> */}
         </div>
         <div tw="flex flex-col text-neutral-50 ">
           {/* Title */}
-          <div tw="text-[60px]">{post?.title}</div>
+          {/* <div tw="text-[60px]">{post?.title}</div> */}
           {/* Description */}
-          <div tw="text-2xl max-w-4xl">{post?.description}</div>
+          {/* <div tw="text-2xl max-w-4xl">{post?.description}</div> */}
           {/* Tags */}
-          <div tw="flex mt-6 flex-wrap items-center text-3xl text-neutral-200">
+          {/* <div tw="flex mt-6 flex-wrap items-center text-3xl text-neutral-200">
             <div tw={`font-medium`}>{post?.category.title}</div>
             <div tw="w-4 h-4 mx-6 rounded-full bg-neutral-300 " />
             <div>{`${post?.author.first_name} ${post?.author.last_name}`}</div>
-          </div>
+          </div> */}
         </div>
       </div>
     ),
