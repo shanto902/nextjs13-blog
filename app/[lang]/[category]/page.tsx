@@ -120,7 +120,7 @@ export const generateStaticParams = async () => {
     });
 
     const filteredCategories = categories?.data?.filter(
-      (category: Category) => category?.slug !== "student-projects"
+      (category: Category) => category?.slug !== "student-projects",
     );
 
     const params = filteredCategories?.map((category: { slug: string }) => {
@@ -136,7 +136,7 @@ export const generateStaticParams = async () => {
           category: category.slug as string,
           lang: "bn",
         };
-      }
+      },
     );
 
     const allParams = params?.concat(localizedParams ?? []);

@@ -49,7 +49,7 @@ export const generateMetadata = async ({
       siteName: dictionary.metaData.title,
       images: [
         {
-          url: "https://sthapattya-o-nirman.com/_next/image?url=https%3A%2F%2Fsthapattaya-o-nirman.up.railway.app%2Fassets%2F6dc95797-8d13-4e57-bd6c-66d40322a38f%3Fkey%3Doptimized&w=2048&q=75",
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image.jpg`,
           width: 1200,
           height: 628,
         },

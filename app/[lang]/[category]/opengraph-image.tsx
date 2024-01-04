@@ -26,7 +26,7 @@ export default async function og({
           },
         },
 
-        fields: ["*"],
+        fields: ["title"],
       });
 
       return category?.data?.[0];

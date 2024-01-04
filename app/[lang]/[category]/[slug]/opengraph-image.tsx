@@ -33,7 +33,7 @@ export default async function og({
             },
           ],
         },
-        fields: ["*", "author.first_name", "author.last_name"],
+        fields: ["image"],
       });
 
       const postData = post?.data?.[0];
