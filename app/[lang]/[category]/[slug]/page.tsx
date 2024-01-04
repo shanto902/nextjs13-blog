@@ -84,8 +84,24 @@ export const generateMetadata = async ({
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
     title: post?.title,
     description: post?.description,
+    openGraph: {
+      title: post?.title,
+      description: post?.description,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${post?.category?.slug}/${slug}`,
+      siteName: post?.title,
+      locale: lang,
+      type: "website",
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${post?.category?.slug}/${slug}`,
+      languages: {
+        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en/${post?.category?.slug}/${slug}`,
+        "bn-BD": `${process.env.NEXT_PUBLIC_SITE_URL}/bn/${post?.category?.slug}/${slug}`,
+      },
+    },
   };
 };
+
 export const generateStaticParams = async () => {
   try {
     const posts = await directus.items("post").readByQuery({
@@ -135,7 +151,7 @@ const ArticlePage = async ({
   const dictionary = await getDictionary(locale);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "Blog",
     headline: post.title,
     image: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/${post.category.slug}/${postSlug}/opengraph-image.png`,
     author: post.author.first_name + " " + post.author.last_name,
