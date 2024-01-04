@@ -74,6 +74,6 @@ export default async function og({
         </div>
       </div>
     ),
-    size
+    size,
   );
 }
