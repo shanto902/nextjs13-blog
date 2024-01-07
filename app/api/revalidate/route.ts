@@ -8,6 +8,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Not authorised" }, { status: 401 });
   // Revalidate All Posts
   revalidatePath(`/[lang]/[category]/[slug]`);
+  revalidatePath(`/[lang]/student-projects/[slug]`);
   // Revalidate All Categories
   revalidatePath(`/[lang]/[category]`);
   // Revalidate All Languages
