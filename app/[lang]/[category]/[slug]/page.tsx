@@ -1,4 +1,4 @@
-import React, { Suspense, cache } from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostHero from "@/components/post/PostHero";
@@ -12,7 +12,7 @@ import SocialLink from "@/components/elements/SocialLink";
 import { Comments, Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
-const getPostData = cache(async (postSlug: string, locale: string) => {
+const getPostData = async (postSlug: string, locale: string) => {
   try {
     const post = await directus.items("post").readByQuery({
       filter: {
@@ -68,7 +68,7 @@ const getPostData = cache(async (postSlug: string, locale: string) => {
     console.log(error);
     throw new Error("Error fetching post");
   }
-});
+};
 
 export const generateMetadata = async ({
   params: { slug, lang },
@@ -291,7 +291,7 @@ const ArticlePage = async ({
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(650, 130),
+                  shimmer(650, 130)
                 )}`}
               />
             </div>
@@ -348,7 +348,7 @@ const ArticlePage = async ({
                               month: "long",
                               day: "numeric",
                               year: "numeric",
-                            },
+                            }
                           )}
                         </p>
                         <p>{comment.description}</p>
