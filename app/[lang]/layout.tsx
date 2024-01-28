@@ -90,8 +90,9 @@ export default function RootLayout({
           crawlSpeed={200}
           height={3}
           crawl={true}
-          showSpinner={true}
+          showSpinner={false}
           easing="ease"
+          shadow={false}
           speed={200}
         />
         {process.env.NEXT_PUBLIC_NODE_ENV === "test" ? (
