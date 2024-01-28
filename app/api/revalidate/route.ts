@@ -7,11 +7,12 @@ export async function GET(request: NextRequest) {
   if (!token || token !== process.env.ADMIN_TOKEN)
     return NextResponse.json({ error: "Not authorized" }, { status: 401 });
   // Revalidate All Posts
-  revalidatePath(`/[lang]/[category]/[slug]`);
+  revalidatePath(`/[lang]/[category]/[slug]`, "page");
   // Revalidate All Categories
-  revalidatePath(`/[lang]/[category]`);
+  revalidatePath(`/[lang]/[category]`, "page");
   // Revalidate All Languages
-  revalidatePath(`/[lang]`);
+  revalidatePath(`/[lang]`, "page");
+  revalidatePath(`/[lang]`, "layout");
 
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }

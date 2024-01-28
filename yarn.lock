@@ -198,6 +198,11 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-20.5.9.tgz"
   integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
 
+"@types/nprogress@^0.2.1":
+  version "0.2.3"
+  resolved "https://registry.npmjs.org/@types/nprogress/-/nprogress-0.2.3.tgz"
+  integrity sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
@@ -1940,7 +1945,7 @@ negotiator@^0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-next@^14.0.0:
+next@^14.0.0, "next@>= 6.0.0":
   version "14.0.0"
   resolved "https://registry.npmjs.org/next/-/next-14.0.0.tgz"
   integrity sha512-J0jHKBJpB9zd4+c153sair0sz44mbaCHxggs8ryVXSFBuBqJ8XdE9/ozoV85xGh2VnSjahwntBZZgsihL9QznA==
@@ -1962,6 +1967,15 @@ next@^14.0.0:
     "@next/swc-win32-arm64-msvc" "14.0.0"
     "@next/swc-win32-ia32-msvc" "14.0.0"
     "@next/swc-win32-x64-msvc" "14.0.0"
+
+nextjs-toploader@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.npmjs.org/nextjs-toploader/-/nextjs-toploader-1.6.4.tgz"
+  integrity sha512-KYLQ+0MvGdFk9JwOQfRtaYBAsyuX67Ca5QTa51RGNO4gQx64KLSE+ryHjUQ5LcDczHotp0l32GgksQW9vucUkw==
+  dependencies:
+    "@types/nprogress" "^0.2.1"
+    nprogress "^0.2.0"
+    prop-types "^15.8.1"
 
 node-abi@^3.3.0:
   version "3.51.0"
@@ -1989,6 +2003,11 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/nprogress/-/nprogress-0.2.0.tgz"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 object-assign@^4.0.1, object-assign@^4.1.1:
   version "4.1.1"
@@ -2285,7 +2304,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-"react-dom@^16 || ^17 || ^18", "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", react-dom@^18.2.0, react-dom@18.2.0:
+"react-dom@^16 || ^17 || ^18", "react-dom@^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", react-dom@^18.2.0, "react-dom@>= 16.0.0", react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -2330,7 +2349,7 @@ react-tabs@^6.0.2:
     clsx "^2.0.0"
     prop-types "^15.5.0"
 
-"react@^16 || ^17 || ^18", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17 || ^18", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@0.14 || 15 || 16 || 17 || 18", react@18.2.0:
+"react@^16 || ^17 || ^18", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.3.0 || ^17 || ^18", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, "react@>= 16.0.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@0.14 || 15 || 16 || 17 || 18", react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

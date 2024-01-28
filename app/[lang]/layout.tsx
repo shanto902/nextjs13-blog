@@ -12,6 +12,7 @@ import Image from "next/image";
 import { getDictionary } from "@/lib/getDictionary";
 import { title } from "process";
 import siteConfig from "@/config/site";
+import NextTopLoader from "nextjs-toploader";
 
 const banglaFont = localFont({ src: "../../fonts/SolaimanLipi.woff2" });
 
@@ -83,6 +84,16 @@ export default function RootLayout({
       <body
         className={lang === "bn" ? banglaFont.className : englishFont.className}
       >
+        <NextTopLoader
+          color="#b91c1c"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+        />
         {process.env.NEXT_PUBLIC_NODE_ENV === "test" ? (
           <PaddingContainer>
             <div className=" flex h-screen items-center justify-center flex-col gap-10">
@@ -102,6 +113,7 @@ export default function RootLayout({
         ) : (
           <>
             <Navigation locale={lang} />
+
             <Suspense fallback={<Loading />}>
               <div className="pt-5 min-h-calc(100vh-300px)">{children}</div>
             </Suspense>
