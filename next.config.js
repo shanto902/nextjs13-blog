@@ -15,7 +15,7 @@ const nextConfig = {
         protocol: "https",
       },
       {
-        hostname: "admin.sthapattya-o-nirman.com",
+        hostname: "sthapattaya-o-nirman.up.railway.app",
         protocol: "https",
       },
     ],

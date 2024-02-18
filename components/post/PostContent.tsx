@@ -94,12 +94,16 @@ const PostContent = ({
           </div>
         )}
 
-        <div className=" flex flex-col md:flex-row gap-5 ">
+        <div className=" flex flex-col gap-5 ">
           {/* Image  */}
-          {isPagePost && <PostImage post={post} />}
+          {isPagePost && (
+            <div className=" self-center">
+              <PostImage post={post} />
+            </div>
+          )}
 
           {/* Description  */}
-          <div className=" self-center flex-1 ">
+          <div className=" flex-1 ">
             {!isPagePost ? (
               <Link href={`/${locale}/${post.category.slug}/${post.slug}`}>
                 <p
