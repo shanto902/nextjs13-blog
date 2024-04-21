@@ -21,7 +21,7 @@ const BookSlider = ({
   locale: string;
 }) => {
   return (
-    <div className="h-screen ">
+    <div className=" ">
       <Swiper
         pagination={{
           type: "bullets",
@@ -37,10 +37,10 @@ const BookSlider = ({
                 {review.title}
               </h3>
 
-              <div className=" flex flex-col md:flex-row md:gap-10 items-center justify-between gap-5 ">
+     
                 {" "}
                 <Image
-                  className=" aspect-square mx-auto  object-cover object-center flex-1 p-10"
+                  className=" aspect-square mx-auto  object-cover object-center  p-10"
                   width={500}
                   height={500}
                   alt="Advertise Link"
@@ -49,11 +49,11 @@ const BookSlider = ({
                     shimmer(500, 500),
                   )}`}
                 />
-                <div className=" text-center flex-1">
+           
                   <PostBody body={review.review} locale={locale} />
-                </div>
+               
               </div>
-            </div>
+        
           </SwiperSlide>
         ))}
       </Swiper>
