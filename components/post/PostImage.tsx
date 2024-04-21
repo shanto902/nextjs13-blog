@@ -33,7 +33,7 @@ const PostImage = ({ post }: { post: Post }) => {
           onLoad={handleImageLoad}
           height={600}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(800, 600)
+            shimmer(800, 600),
           )}`}
         />
       )}

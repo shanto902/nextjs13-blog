@@ -35,25 +35,19 @@ const BookSlider = ({
             <div className=" px-10 py-10">
               <h3 className="text-center text-2xl font-semibold mb-5">
                 {review.title}
-              </h3>
-
-     
-                {" "}
-                <Image
-                  className=" aspect-square mx-auto  object-cover object-center  p-10"
-                  width={500}
-                  height={500}
-                  alt="Advertise Link"
-                  src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${review.book_cover}?key=optimized`}
-                  placeholder={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(500, 500),
-                  )}`}
-                />
-           
-                  <PostBody body={review.review} locale={locale} />
-               
-              </div>
-        
+              </h3>{" "}
+              <Image
+                className="mx-auto my-5"
+                width={600}
+                height={500}
+                alt="Advertise Link"
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${review.book_cover}?key=optimized`}
+                placeholder={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(500, 500),
+                )}`}
+              />
+              <PostBody body={review.review} locale={locale} />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
