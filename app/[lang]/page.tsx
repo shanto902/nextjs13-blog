@@ -170,13 +170,14 @@ const HomePage = async ({
             _eq: "published",
           },
         },
+        sort: ['sort'] as any,
         fields: ["*", "translations.*"],
       });
 
       if (locale === "en") {
         return banners?.data || [];
       } else {
-        const localizedBanner = banners?.data?.map((banner: Banner) => {
+        const localizedBanner = banners?.data?.map((banner: any) => {
           return {
             ...banner,
             title: banner?.translations[0]?.title,

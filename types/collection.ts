@@ -73,6 +73,7 @@ export interface Author {
 export interface Banner {
   id: string;
   title: string;
+  sort?:number;
   description: string;
   image: string;
   link: string;
