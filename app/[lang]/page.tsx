@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import magazineImage from "@/assets/magpic.png";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";
-import { Banner, Post, Review, University } from "@/types/collection";
+import { Post, Review, University } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 
 const HomePage = async ({
@@ -80,7 +80,7 @@ const HomePage = async ({
   }
   posts.sort(
     (a, b) =>
-      new Date(a.date_created).getTime() - new Date(b.date_created).getTime(),
+      new Date(a.date_created).getTime() - new Date(b.date_created).getTime()
   );
 
   // FOR GET ALL UNIVERSITY BASED PROJECTS
@@ -144,7 +144,7 @@ const HomePage = async ({
                 };
               }),
             };
-          },
+          }
         );
 
         return localizedUniversity;
@@ -170,7 +170,7 @@ const HomePage = async ({
             _eq: "published",
           },
         },
-        sort: ['sort'] as any,
+        sort: ["sort"] as any,
         fields: ["*", "translations.*"],
       });
 
@@ -235,7 +235,7 @@ const HomePage = async ({
             : homePage?.cover_photo_english
         }?key=optimized`}
         placeholder={`data:image/svg+xml;base64,${toBase64(
-          shimmer(1980, 760),
+          shimmer(1980, 760)
         )}`}
       />
 
@@ -279,9 +279,14 @@ const HomePage = async ({
             </div>
           </div>
           <div className="  md:border-l-2 px-5 place-item-end lg:pl-10 flex flex-col justify-between items-stretch h-full ">
-            <h2 className=" text-2xl font-semibold  my-2 text-center">
-              {dictionary?.mainBody?.bookReview}
-            </h2>
+            <div className="space-y-2">
+              <h2 className=" text-2xl font-semibold  text-center border-b-2">
+                {dictionary?.mainBody?.book}
+              </h2>
+              <h3 className=" text-xl font-semibold text-center">
+                {dictionary?.mainBody?.bookReview}
+              </h3>
+            </div>
             <Link href={`/${locale}/book-review`} className=" self-center">
               <Image
                 className=" aspect-square mx-auto  object-cover object-center"
@@ -290,7 +295,7 @@ const HomePage = async ({
                 alt="Advertise Link"
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${lastBookReview?.book_cover}?key=optimized`}
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(500, 500),
+                  shimmer(500, 500)
                 )}`}
               />
               <h3 className=" text-center text-xl font-semibold my-4">

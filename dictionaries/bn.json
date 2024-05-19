@@ -18,7 +18,8 @@
       "environmentPlaning": "পরিবেশ ও পরিকল্পনা",
       "publishedMagazine": "প্রকাশিত ম্যাগাজিন",
       "editorialBoard": "সম্পাদনা পরিষদ",
-      "bookReview": "বই পর্যালোচনা",
+      "bookReview": "বই",
+
       "marketCost": "বাজার দর"
     }
   },
@@ -48,7 +49,8 @@
     "studentProjects": "ছাত্র প্রকল্প",
     "seeMore": "আরও দেখুন",
     "costBtn": "স্থাপত্য ও নির্মাণের বাজারদর ও নির্মাণ খরচ জানতে ক্লিক করুন",
-    "bookReview": "বই সংক্রান্ত আলোচনা"
+    "book": "বই",
+    "bookReview": "পরিচিতি / পর্যালোচনা"
   },
 
   "studentProjects": {

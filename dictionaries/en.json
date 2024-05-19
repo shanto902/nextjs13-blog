@@ -18,7 +18,7 @@
       "environmentPlaning": "Environment & Planing",
       "publishedMagazine": "Published Magazine",
       "editorialBoard": "Editorial Board",
-      "bookReview": "Book Review",
+      "bookReview": "Book",
       "marketCost": "Market Cost"
     }
   },
@@ -36,7 +36,8 @@
     "studentProjects": "Student Projects",
     "seeMore": "See More",
     "costBtn": "Click to know the Market rate and Construction cost",
-    "bookReview": "Book Discussion"
+    "book": "Book",
+    "bookReview": "Discussion / Review"
   },
 
   "commentsSection": {

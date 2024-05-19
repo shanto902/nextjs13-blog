@@ -44,7 +44,6 @@
   "devDependencies": {
     "@types/luxon": "^3.3.2",
     "@types/react-headroom": "^3.2.2",
-    "daisyui": "^3.7.4",
-    "husky": "^8.0.0"
+    "daisyui": "^3.7.4"
   }
 }
