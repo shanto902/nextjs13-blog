@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation/Navigation";
 import "./globals.css";
-import type { Metadata } from "next";
 import logo from "@/assets/logo.svg";
 import localFont from "next/font/local";
 import { Open_Sans } from "next/font/google";
@@ -10,8 +9,6 @@ import Loading from "./loading";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import Image from "next/image";
 import { getDictionary } from "@/lib/getDictionary";
-import { title } from "process";
-import siteConfig from "@/config/site";
 import NextTopLoader from "nextjs-toploader";
 
 const banglaFont = localFont({ src: "../../fonts/SolaimanLipi.woff2" });

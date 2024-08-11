@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import directus from "@/lib/directus";
-import { Post } from "@/types/collection";
+import { Review } from "@/types/collection";
 
 import { ImageResponse } from "next/og";
 import { cache } from "react";
@@ -10,7 +10,7 @@ export const size = {
   width: 1200,
   height: 630,
 };
-export const alt = "Sthapattay O Nirman | Article";
+export const alt = "Sthapattay O Nirman | Book Reviews";
 export const contentType = "image/png";
 
 export default async function og({
@@ -18,14 +18,14 @@ export default async function og({
 }: {
   params: { slug: string; lang: string };
 }) {
-  const getPostData = cache(async (postSlug: string) => {
+  const getBookData = cache(async (reviewSlug: string) => {
     try {
       const post = await directus.items("book_review").readByQuery({
         filter: {
           _and: [
             {
               slug: {
-                _eq: postSlug,
+                _eq: reviewSlug,
               },
               status: {
                 _eq: "published",
@@ -33,19 +33,19 @@ export default async function og({
             },
           ],
         },
-        fields: ["image"],
+        fields: ["title, book_cover"],
       });
 
-      const postData = post?.data?.[0];
+      const bookData = post?.data?.[0];
 
-      return postData;
+      return bookData;
     } catch (error) {
       console.log(error);
-      throw new Error("Error fetching post");
+      throw new Error("Error fetching book");
     }
   });
   // Get Data from CMS
-  const post: Post = await getPostData(slug);
+  const book: Review = await getBookData(slug);
 
   return new ImageResponse(
     (
@@ -54,15 +54,15 @@ export default async function og({
         <div tw="absolute flex inset-0">
           <img
             tw="flex flex-1 object-cover w-full h-full object-center"
-            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}`}
-            alt={post?.title!!}
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${book.book_cover}`}
+            alt={book?.title!!}
           />
           {/* Overlay */}
           {/* <div tw="absolute flex inset-0 bg-black bg-opacity-50 " /> */}
         </div>
         <div tw="flex flex-col text-neutral-50 ">
           {/* Title */}
-          {/* <div tw="text-[60px]">{post?.title}</div> */}
+          {/* <div tw="text-[60px]">{book?.title}</div> */}
           {/* Description */}
           {/* <div tw="text-2xl max-w-4xl">{post?.description}</div> */}
           {/* Tags */}

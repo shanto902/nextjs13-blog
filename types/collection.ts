@@ -73,7 +73,7 @@ export interface Author {
 export interface Banner {
   id: string;
   title: string;
-  sort?:number;
+  sort?: number;
   description: string;
   image: string;
   link: string;
@@ -94,7 +94,7 @@ export interface jointEditor {
 export interface University {
   universityId: unknown;
   map(
-    arg0: (university: University) => import("react").JSX.Element,
+    arg0: (university: University) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: string;
   post: Post[];
@@ -106,13 +106,14 @@ export interface University {
 }
 
 export interface Review {
+  slug: string;
   book_cover: string;
   id?: string;
-  date_created: string;
+  date_created?: string;
   title: string;
   review: string;
   translations: Translations[];
-  sort?: string;
+  sort?: number;
 }
 
 export interface BazaarDor {

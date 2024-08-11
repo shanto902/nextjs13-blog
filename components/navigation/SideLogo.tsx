@@ -107,7 +107,9 @@ const SideLogo = ({
                 href={
                   params.category
                     ? `/${locale}/${params.category}`
-                    : `${pathname}`
+                    : pathname.split("/").length > 3
+                    ? pathname.split("/").slice(0, -1).join("/")
+                    : `/${locale}/book-review`
                 }
               >
                 {(params.category === "heritage" &&
