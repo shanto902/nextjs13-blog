@@ -4,7 +4,7 @@ import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
 import { Review } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon, EyeIcon } from "lucide-react";
 import Image from "next/image";
 
 const getAllReviewSlugs = async () => {
@@ -121,6 +121,61 @@ const page = async ({
   const prevSlug =
     allSlugs[(currentIndex - 1 + allSlugs.length) % allSlugs.length]; // Loop to the last item if it's the first one
 
+  const getBookPageViews = async (review: Review) => {
+    try {
+      const views = await directus.items("bookPageViews").readByQuery({
+        filter: {
+          book_id: review.id,
+        },
+        fields: ["*"],
+      });
+
+      if (views.data && views.data.length > 0) {
+        // If views exist, update the counter by 1
+        const existingView = views.data[0];
+        const updatedCounter = existingView.counter + 1;
+
+        // Update the existing bookPageViews after a delay of 20 seconds
+        setTimeout(async () => {
+          try {
+            await directus.items("bookPageViews").updateOne(existingView.id, {
+              counter: updatedCounter,
+            });
+          } catch (error) {
+            console.error("Error updating bookPageViews counter", error);
+          }
+        }, 30000); // 30 seconds in milliseconds
+
+        return updatedCounter;
+      } else {
+        // If no views were found, create a new bookPageViews
+        const newPageView = {
+          book_id: review.id,
+          counter: 1, // Initialize the counter with 1
+        };
+
+        // Create the new bookPageViews after a delay of 20 seconds
+        setTimeout(async () => {
+          try {
+            await directus.items("bookPageViews").createOne(newPageView);
+          } catch (error) {
+            console.error("Error creating bookPageViews", error);
+          }
+        }, 20000); // 20 seconds in milliseconds
+
+        return 1; // Return 1 as the counter value for the newly created view
+      }
+    } catch (error) {
+      console.error("Error fetching/updating bookPageViews", error);
+      throw new Error("Error fetching/updating bookPageViews");
+    }
+  };
+
+  // Assuming you have the `post` object defined
+
+  const updatedCounter = await getBookPageViews(review);
+
+  const formattedCounter = new Intl.NumberFormat(locale).format(updatedCounter);
   return (
     <PaddingContainer>
       <script
@@ -131,6 +186,9 @@ const page = async ({
         <h3 className="text-center text-2xl font-semibold mb-5">
           {review.title}
         </h3>
+        <div className="flex justify-center items-center gap-2">
+          <EyeIcon /> <span className="text-lg">{formattedCounter}</span>
+        </div>
         <Image
           className="mx-auto my-5"
           width={600}

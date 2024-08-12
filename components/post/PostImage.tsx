@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import ourPhoto from "@/assets/our-photo.jpeg";
+import { useState } from "react";
 import { shimmer, toBase64 } from "@/utils/shimmer";
 import Zoom from "react-medium-image-zoom";
 import Image from "next/image";
@@ -18,6 +17,7 @@ const PostImage = ({ post }: { post: Post }) => {
         <ErrorBoundary>
           <Zoom>
             <Image
+              className="max-h-[70vh] object-cover"
               alt={post.title}
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
               width={800}
@@ -27,13 +27,14 @@ const PostImage = ({ post }: { post: Post }) => {
         </ErrorBoundary>
       ) : (
         <Image
+          className="max-h-[70vh] object-cover"
           alt={post.title}
           src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}?key=optimized`}
           width={800}
           onLoad={handleImageLoad}
           height={600}
           placeholder={`data:image/svg+xml;base64,${toBase64(
-            shimmer(800, 600),
+            shimmer(800, 600)
           )}`}
         />
       )}

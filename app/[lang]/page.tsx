@@ -28,6 +28,7 @@ const HomePage = async ({
             _eq: "published",
           },
         },
+        sort: ["serial_no"] as never,
         fields: [
           "id",
           "title",
@@ -199,6 +200,7 @@ const HomePage = async ({
     try {
       const reviews = await directus.items("book_review").readByQuery({
         fields: ["*", "translations.*"],
+        sort: ["sort"] as never,
       });
 
       if (locale === "en") {
@@ -220,7 +222,8 @@ const HomePage = async ({
     }
   };
 
-  const lastBookReview: Review = (await getAllBookReview()).slice(-1)[0];
+  const bookReview: Review[] = await getAllBookReview();
+  const lastBookReview: Review = bookReview[0];
 
   return (
     <PaddingContainer>
