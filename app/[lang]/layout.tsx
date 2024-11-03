@@ -8,8 +8,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import Image from "next/image";
-import { getDictionary } from "@/lib/getDictionary";
 import NextTopLoader from "nextjs-toploader";
+import { getDictionary } from "@/lib/getDictionary";
 
 const banglaFont = localFont({ src: "../../fonts/SolaimanLipi.woff2" });
 
@@ -40,18 +40,10 @@ export const generateMetadata = async ({
     },
     description: dictionary.metaData.description,
     openGraph: {
-      metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
       title: dictionary.metaData.title,
       description: dictionary.metaData.description,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
       siteName: dictionary.metaData.title,
-      images: [
-        {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image.jpg`,
-          width: 1200,
-          height: 628,
-        },
-      ],
       locale: lang,
       type: "website",
     },

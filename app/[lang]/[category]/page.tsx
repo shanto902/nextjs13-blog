@@ -1,11 +1,9 @@
 import CategoryPostList from "@/components/category/CategoryPostList";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import directus from "@/lib/directus";
-import { getDictionary } from "@/lib/getDictionary";
 import { Category, Post } from "@/types/collection";
 import { notFound } from "next/navigation";
-import { title } from "process";
-import React, { cache } from "react";
+import { cache } from "react";
 
 const getCategoryData = cache(async (categorySlug: string, locale: string) => {
   try {
@@ -72,41 +70,39 @@ const getCategoryData = cache(async (categorySlug: string, locale: string) => {
   }
 });
 
-export const generateMetadata = async ({
-  params: { category, lang },
-}: {
-  params: { category: string; lang: string };
-}) => {
-  const categoryData = await getCategoryData(category, lang);
+// export const generateMetadata = async ({
+//   params: { category, lang },
+// }: {
+//   params: { category: string; lang: string };
+// }) => {
+//   const categoryData = await getCategoryData(category, lang);
 
-  return {
-    title: ` ${categoryData?.title}`,
-    description: categoryData?.description,
-    openGraph: {
-      metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
-      title: categoryData?.title,
-      description: categoryData?.description,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}`,
-      siteName: categoryData?.title,
-      /* images: [
-        {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}/opengraph-image.png`,
-          width: 1200,
-          height: 628,
-        },
-      ], */
-      locale: lang,
-      type: "website",
-    },
-    alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${category}`,
-      languages: {
-        "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en/${category}`,
-        "bn-BD": `${process.env.NEXT_PUBLIC_SITE_URL}/bn/${category}`,
-      },
-    },
-  };
-};
+//   return {
+//     title: ` ${categoryData?.title}`,
+//     description: categoryData?.description,
+//     openGraph: {
+//       title: categoryData?.title,
+//       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}`,
+//       siteName: categoryData?.title,
+//       /* images: [
+//         {
+//           url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${category}/opengraph-image.png`,
+//           width: 1200,
+//           height: 628,
+//         },
+//       ], */
+//       locale: lang,
+//       type: "website",
+//     },
+//     alternates: {
+//       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${category}`,
+//       languages: {
+//         "en-US": `${process.env.NEXT_PUBLIC_SITE_URL}/en/${category}`,
+//         "bn-BD": `${process.env.NEXT_PUBLIC_SITE_URL}/bn/${category}`,
+//       },
+//     },
+//   };
+// };
 
 export const generateStaticParams = async () => {
   try {
@@ -120,7 +116,7 @@ export const generateStaticParams = async () => {
     });
 
     const filteredCategories = categories?.data?.filter(
-      (category: Category) => category?.slug !== "student-projects",
+      (category: Category) => category?.slug !== "student-projects"
     );
 
     const params = filteredCategories?.map((category: { slug: string }) => {
@@ -136,7 +132,7 @@ export const generateStaticParams = async () => {
           category: category.slug as string,
           lang: "bn",
         };
-      },
+      }
     );
 
     const allParams = params?.concat(localizedParams ?? []);

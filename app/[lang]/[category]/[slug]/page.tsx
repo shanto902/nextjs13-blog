@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import PaddingContainer from "@/components/layout/PaddingContainer";
 import PostHero from "@/components/post/PostHero";
@@ -11,6 +11,7 @@ import userImag from "@/assets/userImage.svg";
 import SocialLink from "@/components/elements/SocialLink";
 import { Comments, Post } from "@/types/collection";
 import { shimmer, toBase64 } from "@/utils/shimmer";
+import { Metadata } from "next";
 
 const getPostData = async (postSlug: string, locale: string) => {
   try {
@@ -77,17 +78,19 @@ export const generateMetadata = async ({
     slug: string;
     lang: string;
   };
-}) => {
+}): Promise<Metadata> => {
   const post = await getPostData(slug, lang);
 
   return {
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`),
     title: post?.title,
     description: post?.description,
     openGraph: {
       title: post?.title,
       description: post?.description,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/${post?.category?.slug}/${slug}`,
+
+      images: [{ url: `${process.env.NEXT_PUBLIC_ASSETS_URL}${post.image}` }],
+
       siteName: post?.title,
       locale: lang,
       type: "website",
@@ -291,7 +294,7 @@ const ArticlePage = async ({
                 src={`${process.env.NEXT_PUBLIC_ASSETS_URL}${post.bottom_ad}?key=optimized`}
                 alt="Your Image"
                 placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(650, 130),
+                  shimmer(650, 130)
                 )}`}
               />
             </div>
@@ -348,7 +351,7 @@ const ArticlePage = async ({
                               month: "long",
                               day: "numeric",
                               year: "numeric",
-                            },
+                            }
                           )}
                         </p>
                         <p>{comment.description}</p>
