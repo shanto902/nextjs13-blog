@@ -10,7 +10,7 @@ import PaddingContainer from "@/components/layout/PaddingContainer";
 import Image from "next/image";
 import NextTopLoader from "nextjs-toploader";
 import { getDictionary } from "@/lib/getDictionary";
-
+import { Metadata } from "next";
 const banglaFont = localFont({ src: "../../fonts/SolaimanLipi.woff2" });
 
 // const banglaFont = Baloo_Da_2({
@@ -30,7 +30,7 @@ export const generateMetadata = async ({
   params: { lang },
 }: {
   params: { lang: string };
-}) => {
+}): Promise<Metadata> => {
   const dictionary = await getDictionary(lang);
 
   return {
@@ -39,6 +39,7 @@ export const generateMetadata = async ({
       default: dictionary.metaData.title,
     },
     description: dictionary.metaData.description,
+    metadataBase: new URL("https://sthapattya-o-nirman.com/"),
     openGraph: {
       title: dictionary.metaData.title,
       description: dictionary.metaData.description,
